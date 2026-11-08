@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#141416</color>
+    <string name="app_name">倒数日</string>
+    <string name="widget_description">在桌面查看最近一个事件的剩余天数</string>
+    <string name="widget_empty">还没有事件</string>
+    <string name="widget_name">倒数日</string>
+    <string name="widget_today">就是今天</string>
+    <string name="widget_unit_after">天后</string>
+    <string name="widget_unit_before">天前</string>
+    <style name="Theme.DayCount" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">#F7F7F4</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>

@@ -1,0 +1,183 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.daycount.app"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+9        android:targetSdkVersion="35" />
+10
+11    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+11-->/workspace/daycount/app/src/main/AndroidManifest.xml:4:5-81
+11-->/workspace/daycount/app/src/main/AndroidManifest.xml:4:22-78
+12
+13    <permission
+13-->[androidx.core:core:1.15.0] /root/.gradle/caches/8.11.1/transforms/1a61afd81fb3678f6062741d553ee8dc/transformed/core-1.15.0/AndroidManifest.xml:22:5-24:47
+14        android:name="com.daycount.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+14-->[androidx.core:core:1.15.0] /root/.gradle/caches/8.11.1/transforms/1a61afd81fb3678f6062741d553ee8dc/transformed/core-1.15.0/AndroidManifest.xml:23:9-81
+15        android:protectionLevel="signature" />
+15-->[androidx.core:core:1.15.0] /root/.gradle/caches/8.11.1/transforms/1a61afd81fb3678f6062741d553ee8dc/transformed/core-1.15.0/AndroidManifest.xml:24:9-44
+16
+17    <uses-permission android:name="com.daycount.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+17-->[androidx.core:core:1.15.0] /root/.gradle/caches/8.11.1/transforms/1a61afd81fb3678f6062741d553ee8dc/transformed/core-1.15.0/AndroidManifest.xml:26:5-97
+17-->[androidx.core:core:1.15.0] /root/.gradle/caches/8.11.1/transforms/1a61afd81fb3678f6062741d553ee8dc/transformed/core-1.15.0/AndroidManifest.xml:26:22-94
+18
+19    <application
+19-->/workspace/daycount/app/src/main/AndroidManifest.xml:6:5-46:19
+20        android:allowBackup="true"
+20-->/workspace/daycount/app/src/main/AndroidManifest.xml:7:9-35
+21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+21-->[androidx.core:core:1.15.0] /root/.gradle/caches/8.11.1/transforms/1a61afd81fb3678f6062741d553ee8dc/transformed/core-1.15.0/AndroidManifest.xml:28:18-86
+22        android:debuggable="true"
+23        android:extractNativeLibs="false"
+24        android:icon="@mipmap/ic_launcher"
+24-->/workspace/daycount/app/src/main/AndroidManifest.xml:8:9-43
+25        android:label="@string/app_name"
+25-->/workspace/daycount/app/src/main/AndroidManifest.xml:9:9-41
+26        android:roundIcon="@mipmap/ic_launcher_round"
+26-->/workspace/daycount/app/src/main/AndroidManifest.xml:10:9-54
+27        android:supportsRtl="true"
+27-->/workspace/daycount/app/src/main/AndroidManifest.xml:11:9-35
+28        android:theme="@style/Theme.DayCount" >
+28-->/workspace/daycount/app/src/main/AndroidManifest.xml:12:9-46
+29        <activity
+29-->/workspace/daycount/app/src/main/AndroidManifest.xml:14:9-22:20
+30            android:name="com.daycount.app.MainActivity"
+30-->/workspace/daycount/app/src/main/AndroidManifest.xml:15:13-41
+31            android:exported="true"
+31-->/workspace/daycount/app/src/main/AndroidManifest.xml:16:13-36
+32            android:windowSoftInputMode="adjustResize" >
+32-->/workspace/daycount/app/src/main/AndroidManifest.xml:17:13-55
+33            <intent-filter>
+33-->/workspace/daycount/app/src/main/AndroidManifest.xml:18:13-21:29
+34                <action android:name="android.intent.action.MAIN" />
+34-->/workspace/daycount/app/src/main/AndroidManifest.xml:19:17-69
+34-->/workspace/daycount/app/src/main/AndroidManifest.xml:19:25-66
+35
+36                <category android:name="android.intent.category.LAUNCHER" />
+36-->/workspace/daycount/app/src/main/AndroidManifest.xml:20:17-77
+36-->/workspace/daycount/app/src/main/AndroidManifest.xml:20:27-74
+37            </intent-filter>
+38        </activity>
+39
+40        <receiver
+40-->/workspace/daycount/app/src/main/AndroidManifest.xml:24:9-34:20
+41            android:name="com.daycount.app.widget.CountdownWidgetProvider"
+41-->/workspace/daycount/app/src/main/AndroidManifest.xml:25:13-59
+42            android:exported="true"
+42-->/workspace/daycount/app/src/main/AndroidManifest.xml:26:13-36
+43            android:label="@string/widget_name" >
+43-->/workspace/daycount/app/src/main/AndroidManifest.xml:27:13-48
+44            <intent-filter>
+44-->/workspace/daycount/app/src/main/AndroidManifest.xml:28:13-30:29
+45                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+45-->/workspace/daycount/app/src/main/AndroidManifest.xml:29:17-84
+45-->/workspace/daycount/app/src/main/AndroidManifest.xml:29:25-81
+46            </intent-filter>
+47
+48            <meta-data
+48-->/workspace/daycount/app/src/main/AndroidManifest.xml:31:13-33:55
+49                android:name="android.appwidget.provider"
+49-->/workspace/daycount/app/src/main/AndroidManifest.xml:32:17-58
+50                android:resource="@xml/widget_info" />
+50-->/workspace/daycount/app/src/main/AndroidManifest.xml:33:17-52
+51        </receiver>
+52        <receiver
+52-->/workspace/daycount/app/src/main/AndroidManifest.xml:36:9-45:20
+53            android:name="com.daycount.app.widget.BootReceiver"
+53-->/workspace/daycount/app/src/main/AndroidManifest.xml:37:13-48
+54            android:exported="false" >
+54-->/workspace/daycount/app/src/main/AndroidManifest.xml:38:13-37
+55            <intent-filter>
+55-->/workspace/daycount/app/src/main/AndroidManifest.xml:39:13-44:29
+56                <action android:name="android.intent.action.BOOT_COMPLETED" />
+56-->/workspace/daycount/app/src/main/AndroidManifest.xml:40:17-79
+56-->/workspace/daycount/app/src/main/AndroidManifest.xml:40:25-76
+57                <action android:name="android.intent.action.TIME_SET" />
+57-->/workspace/daycount/app/src/main/AndroidManifest.xml:41:17-73
+57-->/workspace/daycount/app/src/main/AndroidManifest.xml:41:25-70
+58                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+58-->/workspace/daycount/app/src/main/AndroidManifest.xml:42:17-81
+58-->/workspace/daycount/app/src/main/AndroidManifest.xml:42:25-78
+59                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+59-->/workspace/daycount/app/src/main/AndroidManifest.xml:43:17-84
+59-->/workspace/daycount/app/src/main/AndroidManifest.xml:43:25-81
+60            </intent-filter>
+61        </receiver>
+62
+63        <activity
+63-->[androidx.compose.ui:ui-tooling-android:1.7.5] /root/.gradle/caches/8.11.1/transforms/69099e4ecfa520799685fb621689aa6f/transformed/ui-tooling-release/AndroidManifest.xml:23:9-25:39
+64            android:name="androidx.compose.ui.tooling.PreviewActivity"
+64-->[androidx.compose.ui:ui-tooling-android:1.7.5] /root/.gradle/caches/8.11.1/transforms/69099e4ecfa520799685fb621689aa6f/transformed/ui-tooling-release/AndroidManifest.xml:24:13-71
+65            android:exported="true" />
+65-->[androidx.compose.ui:ui-tooling-android:1.7.5] /root/.gradle/caches/8.11.1/transforms/69099e4ecfa520799685fb621689aa6f/transformed/ui-tooling-release/AndroidManifest.xml:25:13-36
+66
+67        <provider
+67-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/8.11.1/transforms/bd6f95dcd6c1f117cf0bf309e8404f93/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+68            android:name="androidx.startup.InitializationProvider"
+68-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/8.11.1/transforms/bd6f95dcd6c1f117cf0bf309e8404f93/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+69            android:authorities="com.daycount.app.androidx-startup"
+69-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/8.11.1/transforms/bd6f95dcd6c1f117cf0bf309e8404f93/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+70            android:exported="false" >
+70-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/8.11.1/transforms/bd6f95dcd6c1f117cf0bf309e8404f93/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+71            <meta-data
+71-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/8.11.1/transforms/bd6f95dcd6c1f117cf0bf309e8404f93/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+72                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+72-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/8.11.1/transforms/bd6f95dcd6c1f117cf0bf309e8404f93/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+73                android:value="androidx.startup" />
+73-->[androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/8.11.1/transforms/bd6f95dcd6c1f117cf0bf309e8404f93/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+74            <meta-data
+74-->[androidx.lifecycle:lifecycle-process:2.8.7] /root/.gradle/caches/8.11.1/transforms/827890458e7205a872658023ca1cc1c7/transformed/lifecycle-process-2.8.7/AndroidManifest.xml:29:13-31:52
+75                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+75-->[androidx.lifecycle:lifecycle-process:2.8.7] /root/.gradle/caches/8.11.1/transforms/827890458e7205a872658023ca1cc1c7/transformed/lifecycle-process-2.8.7/AndroidManifest.xml:30:17-78
+76                android:value="androidx.startup" />
+76-->[androidx.lifecycle:lifecycle-process:2.8.7] /root/.gradle/caches/8.11.1/transforms/827890458e7205a872658023ca1cc1c7/transformed/lifecycle-process-2.8.7/AndroidManifest.xml:31:17-49
+77            <meta-data
+77-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.11.1/transforms/830f0c7dbd62bb48e2c695b73893428f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+78                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+78-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.11.1/transforms/830f0c7dbd62bb48e2c695b73893428f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+79                android:value="androidx.startup" />
+79-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.11.1/transforms/830f0c7dbd62bb48e2c695b73893428f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+80        </provider>
+81
+82        <receiver
+82-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.11.1/transforms/830f0c7dbd62bb48e2c695b73893428f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+83            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+83-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.11.1/transforms/830f0c7dbd62bb48e2c695b73893428f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+84            android:directBootAware="false"
+84-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.11.1/transforms/830f0c7dbd62bb48e2c695b73893428f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+85            android:enabled="true"
+85-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.11.1/transforms/830f0c7dbd62bb48e2c695b73893428f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+86            android:exported="true"
+86-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.11.1/transforms/830f0c7dbd62bb48e2c695b73893428f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+87            android:permission="android.permission.DUMP" >
+87-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.11.1/transforms/830f0c7dbd62bb48e2c695b73893428f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+88            <intent-filter>
+88-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.11.1/transforms/830f0c7dbd62bb48e2c695b73893428f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+89                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+89-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.11.1/transforms/830f0c7dbd62bb48e2c695b73893428f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+89-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.11.1/transforms/830f0c7dbd62bb48e2c695b73893428f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+90            </intent-filter>
+91            <intent-filter>
+91-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.11.1/transforms/830f0c7dbd62bb48e2c695b73893428f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+92                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+92-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.11.1/transforms/830f0c7dbd62bb48e2c695b73893428f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+92-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.11.1/transforms/830f0c7dbd62bb48e2c695b73893428f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+93            </intent-filter>
+94            <intent-filter>
+94-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.11.1/transforms/830f0c7dbd62bb48e2c695b73893428f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+95                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+95-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.11.1/transforms/830f0c7dbd62bb48e2c695b73893428f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+95-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.11.1/transforms/830f0c7dbd62bb48e2c695b73893428f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+96            </intent-filter>
+97            <intent-filter>
+97-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.11.1/transforms/830f0c7dbd62bb48e2c695b73893428f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+98                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+98-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.11.1/transforms/830f0c7dbd62bb48e2c695b73893428f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+98-->[androidx.profileinstaller:profileinstaller:1.3.1] /root/.gradle/caches/8.11.1/transforms/830f0c7dbd62bb48e2c695b73893428f/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+99            </intent-filter>
+100        </receiver>
+101    </application>
+102
+103</manifest>

@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "/root/.gradle/daemon/8.11.1/com.daycount.app-debug-47:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "/root/.gradle/daemon/8.11.1/com.daycount.app-main-49:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.11.1/com.daycount.app-debug-47:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/root/.gradle/daemon/8.11.1/com.daycount.app-main-49:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.daycount.app-debug-47:/layout_widget_countdown.xml.flat",
+        "source": "com.daycount.app-main-49:/layout/widget_countdown.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.11.1/com.daycount.app-debug-47:/drawable_widget_bg.xml.flat",
+        "source": "/root/.gradle/daemon/8.11.1/com.daycount.app-main-49:/drawable/widget_bg.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.11.1/com.daycount.app-debug-47:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/root/.gradle/daemon/8.11.1/com.daycount.app-main-49:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.11.1/com.daycount.app-debug-47:/layout_widget_countdown.xml.flat",
+        "source": "/root/.gradle/daemon/8.11.1/com.daycount.app-main-49:/layout/widget_countdown.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/8.11.1/com.daycount.app-debug-47:/xml_widget_info.xml.flat",
+        "source": "/root/.gradle/daemon/8.11.1/com.daycount.app-main-49:/xml/widget_info.xml"
+    }
+]
