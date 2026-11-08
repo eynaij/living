@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#141416</color>
+    <string name="app_name">干饭助手</string>
+    <string name="channel_description">每天到点提醒你点外卖</string>
+    <string name="channel_name">饭点提醒</string>
+    <style name="Theme.MealPal" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">#F7F7F4</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>

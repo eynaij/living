@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">干饭助手</string>
+    <string name="channel_name">饭点提醒</string>
+    <string name="channel_description">每天到点提醒你点外卖</string>
+</resources>
