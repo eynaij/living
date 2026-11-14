@@ -4,12 +4,24 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
 <meta name="theme-color" content="#0a0f0b" />
+<meta name="description" content="羽姿：用手机摄像头实时识别挥拍动作，给出六维姿势评分与纠正建议，支持高远球、正手挑球、反手挑球。" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="羽姿" />
+<meta name="mobile-web-app-capable" content="yes" />
+<link rel="manifest" href="./manifest.webmanifest" />
+<link rel="icon" type="image/svg+xml" href="./icons/icon.svg" />
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
 <title>羽姿 · 羽毛球姿势矫正</title>
 <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
+
+<div class="update-banner" id="updateBanner" hidden>
+  <span>新版本已就绪</span>
+  <button class="chip-btn accent" id="reloadBtn">刷新</button>
+</div>
+
 <div class="app">
 
   <header class="topbar">
@@ -26,153 +38,267 @@
   </header>
 
   <main>
-    <section class="stage" id="stage">
-      <video id="video" playsinline muted autoplay></video>
-      <canvas id="overlay"></canvas>
+    <!-- ==================== 训练 ==================== -->
+    <section class="screen" id="screenTrain" data-screen="train">
 
-      <div class="stage-hud">
-        <span class="pill" id="phasePill"><i></i>待机</span>
-        <span class="pill ghost" id="bodyPill">未识别到人体</span>
+      <div class="install-banner" id="installBanner" hidden>
+        <span id="installBannerText">安装到主屏幕，训练时全屏显示。</span>
+        <button class="chip-btn accent" id="installBannerBtn">安装</button>
+        <button class="banner-close" id="installBannerClose" aria-label="关闭">×</button>
       </div>
 
-      <div class="stage-empty" id="stageEmpty">
-        <div class="empty-icon">
-          <svg viewBox="0 0 48 48" aria-hidden="true">
-            <rect x="5" y="12" width="26" height="24" rx="6"/>
-            <path d="M31 20l12-6v20l-12-6z"/>
-            <circle cx="18" cy="24" r="4"/>
-          </svg>
-        </div>
-        <h2>开始纠正你的挥拍</h2>
-        <p>手机侧放在身体侧前方 2–3 米</p>
-        <p class="sub">全身入镜 · 持拍手朝向镜头</p>
-        <button class="primary" id="startBtn">开启摄像头</button>
-        <button class="text-btn" id="demoBtn">没有摄像头？查看示例报告</button>
-      </div>
-
-      <div class="stage-loading" id="stageLoading" hidden>
-        <div class="spinner"></div>
-        <p id="loadingText">正在启动摄像头…</p>
-      </div>
-
-      <div class="stage-error" id="stageError" hidden>
-        <h3>无法使用摄像头</h3>
-        <p id="errorText"></p>
-        <button class="primary" id="retryBtn">重试</button>
-      </div>
-
-      <div class="stage-demo" id="stageDemo" hidden>
-        <p>示例报告</p>
-        <span>开启摄像头即可实时识别你的挥拍动作</span>
-        <button class="primary" id="demoStartBtn">开启摄像头</button>
-      </div>
-    </section>
-
-    <div class="stage-tools" id="stageTools" hidden>
-      <div class="tool">
-        <label>持拍手</label>
-        <div class="segmented" data-key="dominant">
-          <button data-value="right" class="active">右手</button>
-          <button data-value="left">左手</button>
+      <div class="stroke-bar">
+        <div class="segmented grow" data-key="stroke" role="tablist" aria-label="球路">
+          <button data-value="clear" class="active" role="tab">高远球</button>
+          <button data-value="lift" role="tab">正手挑球</button>
+          <button data-value="backhandLift" role="tab">反手挑球</button>
         </div>
       </div>
-      <div class="tool">
-        <label>灵敏度</label>
-        <div class="segmented" data-key="sensitivity">
-          <button data-value="low">低</button>
-          <button data-value="mid" class="active">中</button>
-          <button data-value="high">高</button>
+      <p class="stroke-hint" id="strokeHint">架拍 → 转体引拍 → 高点击球 → 顺势随挥</p>
+
+      <section class="stage" id="stage">
+        <video id="video" playsinline muted autoplay></video>
+        <canvas id="overlay"></canvas>
+
+        <div class="stage-hud">
+          <span class="pill" id="phasePill"><i></i>待机</span>
+          <span class="pill ghost" id="bodyPill">未识别到人体</span>
+        </div>
+
+        <div class="stage-empty" id="stageEmpty">
+          <div class="empty-icon">
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+              <rect x="5" y="12" width="26" height="24" rx="6"/>
+              <path d="M31 20l12-6v20l-12-6z"/>
+              <circle cx="18" cy="24" r="4"/>
+            </svg>
+          </div>
+          <h2>开始纠正你的挥拍</h2>
+          <p>手机侧放在身体侧前方 2–3 米</p>
+          <p class="sub">全身入镜 · 持拍手朝向镜头</p>
+          <p class="sub" id="emptyStroke">当前球路：正手高远球</p>
+          <button class="primary" id="startBtn">开启摄像头</button>
+          <button class="text-btn" id="demoBtn">没有摄像头？查看示例报告</button>
+        </div>
+
+        <div class="stage-loading" id="stageLoading" hidden>
+          <div class="spinner"></div>
+          <p id="loadingText">正在启动摄像头…</p>
+        </div>
+
+        <div class="stage-error" id="stageError" hidden>
+          <h3>无法使用摄像头</h3>
+          <p id="errorText"></p>
+          <button class="primary" id="retryBtn">重试</button>
+        </div>
+
+        <div class="stage-demo" id="stageDemo" hidden>
+          <p>示例报告</p>
+          <span>开启摄像头即可实时识别你的挥拍动作</span>
+          <button class="primary" id="demoStartBtn">开启摄像头</button>
+        </div>
+      </section>
+
+      <div class="stage-tools" id="stageTools" hidden>
+        <span class="tool-note">挥拍结束自动出分</span>
+        <div class="tool-actions">
+          <button class="chip-btn" id="switchBtn">切换镜头</button>
+          <button class="chip-btn danger" id="stopBtn">结束训练</button>
         </div>
       </div>
-      <div class="tool-actions">
-        <button class="chip-btn" id="switchBtn">切换镜头</button>
-        <button class="chip-btn danger" id="stopBtn">结束</button>
-      </div>
-    </div>
 
-    <section class="live-strip" id="liveStrip">
-      <div class="live-item">
-        <span class="live-label">肘部角度</span>
-        <strong id="liveElbow">--<small>°</small></strong>
-      </div>
-      <div class="live-item">
-        <span class="live-label">膝盖角度</span>
-        <strong id="liveKnee">--<small>°</small></strong>
-      </div>
-      <div class="live-item">
-        <span class="live-label">拍头高度</span>
-        <strong id="liveHeight">--<small>L</small></strong>
-      </div>
-      <div class="live-item">
-        <span class="live-label">检测状态</span>
-        <strong class="live-state" id="liveState">等待挥拍</strong>
-      </div>
-    </section>
+      <section class="live-strip" id="liveStrip">
+        <div class="live-item">
+          <span class="live-label">肘部角度</span>
+          <strong id="liveElbow">--<small>°</small></strong>
+        </div>
+        <div class="live-item">
+          <span class="live-label">膝盖角度</span>
+          <strong id="liveKnee">--<small>°</small></strong>
+        </div>
+        <div class="live-item">
+          <span class="live-label">拍头高度</span>
+          <strong id="liveHeight">--<small>L</small></strong>
+        </div>
+        <div class="live-item">
+          <span class="live-label">检测状态</span>
+          <strong class="live-state" id="liveState">等待挥拍</strong>
+        </div>
+      </section>
 
-    <section class="card result-card">
-      <div class="card-head">
-        <h2>本次挥拍评分</h2>
-        <span class="badge" id="resultBadge">等待第一次挥拍</span>
-      </div>
+      <section class="card result-card">
+        <div class="card-head">
+          <h2>本次挥拍评分</h2>
+          <span class="badge" id="resultBadge">等待第一次挥拍</span>
+        </div>
 
-      <div class="result-body">
-        <div class="score-ring">
-          <svg viewBox="0 0 120 120">
-            <defs>
-              <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#d8ff4a"/>
-                <stop offset="100%" stop-color="#25e0a5"/>
-              </linearGradient>
-            </defs>
-            <circle class="ring-track" cx="60" cy="60" r="50"/>
-            <circle class="ring-value" id="ringValue" cx="60" cy="60" r="50"/>
-          </svg>
-          <div class="score-center">
-            <span class="score-num" id="scoreNum">--</span>
-            <span class="score-grade" id="scoreGrade">暂无</span>
+        <div class="result-body">
+          <div class="score-ring">
+            <svg viewBox="0 0 120 120">
+              <defs>
+                <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#d8ff4a"/>
+                  <stop offset="100%" stop-color="#25e0a5"/>
+                </linearGradient>
+              </defs>
+              <circle class="ring-track" cx="60" cy="60" r="50"/>
+              <circle class="ring-value" id="ringValue" cx="60" cy="60" r="50"/>
+            </svg>
+            <div class="score-center">
+              <span class="score-num" id="scoreNum">--</span>
+              <span class="score-grade" id="scoreGrade">暂无</span>
+            </div>
+          </div>
+
+          <div class="result-info">
+            <p class="result-title" id="resultTitle">挥拍后自动给出六维分析</p>
+            <ul class="tips" id="tipsList">
+              <li class="tip muted">把手机架好，做一次完整的挥拍。</li>
+            </ul>
           </div>
         </div>
+      </section>
 
-        <div class="result-info">
-          <p class="result-title" id="resultTitle">挥拍后自动给出六维分析</p>
-          <ul class="tips" id="tipsList">
-            <li class="tip muted">把手机架好，做一次完整的正手高远球挥拍。</li>
-          </ul>
+      <section class="card">
+        <div class="card-head">
+          <h2>动作分解</h2>
+          <span class="badge ghost" id="breakdownBadge">最近一次</span>
         </div>
-      </div>
+        <ul class="metrics" id="metricsList">
+          <li class="metric empty">暂未采集到动作数据</li>
+        </ul>
+      </section>
+
+      <section class="card session-card">
+        <div class="card-head">
+          <h2>本次训练</h2>
+          <button class="text-btn small" id="resetBtn">清空</button>
+        </div>
+        <div class="session-stats">
+          <div><strong id="repCount">0</strong><span>挥拍次数</span></div>
+          <div><strong id="repAvg">--</strong><span>平均分</span></div>
+          <div><strong id="repBest">--</strong><span>最高分</span></div>
+        </div>
+        <div class="history" id="historyList">
+          <span class="history-empty">评分会按顺序出现在这里</span>
+        </div>
+      </section>
+
+      <p class="disclaimer">
+        评分基于单目人体关键点估算，用于辅助练习与动作自查，不能替代专业教练指导。如有伤病请遵医嘱。
+      </p>
     </section>
 
-    <section class="card">
-      <div class="card-head">
-        <h2>动作分解</h2>
-        <span class="badge ghost" id="breakdownBadge">最近一次</span>
+    <!-- ==================== 记录 ==================== -->
+    <section class="screen" id="screenRecords" data-screen="records" hidden>
+      <div class="stats-grid">
+        <div class="stat-card"><strong id="recTotal">0</strong><span>总挥拍</span></div>
+        <div class="stat-card"><strong id="recAvg">--</strong><span>平均分</span></div>
+        <div class="stat-card"><strong id="recBest">--</strong><span>最高分</span></div>
+        <div class="stat-card"><strong id="recDays">0</strong><span>训练天数</span></div>
       </div>
-      <ul class="metrics" id="metricsList">
-        <li class="metric empty">暂未采集到动作数据</li>
-      </ul>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>最近 7 天日均分</h2>
+          <span class="badge ghost" id="trendBadge">--</span>
+        </div>
+        <div class="trend" id="trendChart"></div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>训练明细</h2>
+          <button class="text-btn small" id="clearRecordsBtn">清空</button>
+        </div>
+        <div class="day-list" id="recordsList">
+          <span class="history-empty">还没有训练记录，去训练页做第一次挥拍吧。</span>
+        </div>
+      </section>
+
+      <p class="disclaimer">记录只保存在本机浏览器中，清理浏览器数据会一并删除。</p>
     </section>
 
-    <section class="card session-card">
-      <div class="card-head">
-        <h2>训练记录</h2>
-        <button class="text-btn small" id="resetBtn">清空</button>
-      </div>
-      <div class="session-stats">
-        <div><strong id="repCount">0</strong><span>挥拍次数</span></div>
-        <div><strong id="repAvg">--</strong><span>平均分</span></div>
-        <div><strong id="repBest">--</strong><span>最高分</span></div>
-      </div>
-      <div class="history" id="historyList">
-        <span class="history-empty">评分会按顺序出现在这里</span>
-      </div>
-    </section>
+    <!-- ==================== 设置 ==================== -->
+    <section class="screen" id="screenSettings" data-screen="settings" hidden>
+      <section class="card">
+        <div class="card-head"><h2>训练偏好</h2></div>
+        <div class="setting-row">
+          <div class="setting-text">
+            <strong>持拍手</strong>
+            <span>决定骨架高亮与评分使用哪一侧手臂</span>
+          </div>
+          <div class="segmented" data-key="dominant">
+            <button data-value="right" class="active">右手</button>
+            <button data-value="left">左手</button>
+          </div>
+        </div>
+        <div class="setting-row">
+          <div class="setting-text">
+            <strong>挥拍灵敏度</strong>
+            <span>识别不到挥拍时调高</span>
+          </div>
+          <div class="segmented" data-key="sensitivity">
+            <button data-value="low">低</button>
+            <button data-value="mid" class="active">中</button>
+            <button data-value="high">高</button>
+          </div>
+        </div>
+      </section>
 
-    <p class="disclaimer">
-      评分基于单目人体关键点估算，用于辅助练习与动作自查，不能替代专业教练指导。如有伤病请遵医嘱。
-    </p>
+      <section class="card">
+        <div class="card-head"><h2>反馈</h2></div>
+        <div class="setting-row">
+          <div class="setting-text">
+            <strong>语音报分</strong>
+            <span>每次挥拍后播报分数与等级</span>
+          </div>
+          <button class="switch on" id="voiceToggle" role="switch" aria-checked="true" aria-label="语音报分"><span></span></button>
+        </div>
+        <div class="setting-row">
+          <div class="setting-text">
+            <strong>震动反馈</strong>
+            <span>出分时轻微震动（部分浏览器支持）</span>
+          </div>
+          <button class="switch on" id="vibrateToggle" role="switch" aria-checked="true" aria-label="震动反馈"><span></span></button>
+        </div>
+      </section>
+
+      <section class="card install-card" id="installCard">
+        <div class="install-info">
+          <strong id="installTitle">安装到主屏幕</strong>
+          <p id="installDesc">全屏运行、离线可用，像原生 App 一样。</p>
+        </div>
+        <button class="chip-btn accent" id="installBtn">安装</button>
+      </section>
+
+      <section class="card">
+        <div class="card-head"><h2>数据与应用</h2></div>
+        <button class="row-btn" id="guideBtn">重新查看新手引导</button>
+        <button class="row-btn" id="helpRowBtn">使用说明与评分规则</button>
+        <button class="row-btn danger" id="clearAllBtn">清空全部训练记录</button>
+        <p class="about-line">羽姿 v2.0 · 画面与数据仅在本机处理，不上传服务器</p>
+      </section>
+    </section>
   </main>
 </div>
 
+<nav class="tabbar" aria-label="主导航">
+  <button data-tab="train" class="active">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h11a2 2 0 0 1 2 2v8H4z"/><path d="M17 11l4-2.5v7L17 13"/></svg>
+    <span>训练</span>
+  </button>
+  <button data-tab="records">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19V9M12 19V5M19 19v-6"/><path d="M3 21h18"/></svg>
+    <span>记录</span>
+  </button>
+  <button data-tab="settings">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 14.4a1.7 1.7 0 0 0 .34 1.86l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.86-.34 1.7 1.7 0 0 0-1 1.56V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.56 1.7 1.7 0 0 0-1.86.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .34-1.86 1.7 1.7 0 0 0-1.56-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.56-1.1 1.7 1.7 0 0 0-.34-1.86l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.86.34H9a1.7 1.7 0 0 0 1-1.56V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.56 1.7 1.7 0 0 0 1.86-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.86V9a1.7 1.7 0 0 0 1.56 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+    <span>设置</span>
+  </button>
+</nav>
+
+<!-- ==================== 使用说明 ==================== -->
 <div class="modal" id="helpModal" hidden>
   <div class="modal-mask" data-close></div>
   <div class="modal-panel">
@@ -183,21 +309,76 @@
     <div class="modal-body">
       <h3>1. 摆放手机</h3>
       <p>把手机放在<strong>身体侧前方 2–3 米</strong>，镜头与腰同高，让<strong>持拍手一侧</strong>朝向镜头。全身（头到脚）都要入镜。</p>
-      <h3>2. 选择设置</h3>
-      <p>在下方选择持拍手；如果挥拍没有被识别，把灵敏度调高。建议在光线充足、背景干净的地方练习。</p>
+      <h3>2. 选择球路</h3>
+      <p>训练页顶部可切换<strong>高远球 / 正手挑球 / 反手挑球</strong>；持拍手和灵敏度在「设置」里调整。如果挥拍没有被识别，把灵敏度调高。</p>
       <h3>3. 挥拍</h3>
-      <p>做完整的<strong>正手高远球</strong>挥拍：架拍 → 转体引拍 → 高点击球 → 随挥收拍。每次挥拍结束后会自动出分。</p>
+      <p>做一次完整挥拍：准备 → 引拍 → 击球 → 随挥。每次挥拍结束后会自动出分，结果会存入「记录」，可离线查看历史趋势。</p>
       <h3>评分怎么看</h3>
       <ul>
-        <li><strong>引拍屈肘</strong>：架拍时肘部约 70–110°，小臂有后倒。</li>
-        <li><strong>击球点高度</strong>：击球瞬间手腕应明显高于肩线。</li>
-        <li><strong>击球伸展</strong>：击球时手臂接近伸直（≥150°）。</li>
-        <li><strong>随挥幅度</strong>：击球后球拍顺势向下收，不要急停。</li>
-        <li><strong>屈膝蓄力</strong>：准备与引拍时膝盖保持 120–158° 的微屈。</li>
-        <li><strong>躯干前倾</strong>：击球时身体略前倾，避免后仰。</li>
+        <li><strong>高远球</strong>：重点看引拍屈肘、击球点高度、击球伸展、随挥幅度、屈膝蓄力、躯干前倾。</li>
+        <li><strong>正手挑球</strong>：重点看击球点是否在腰膝之间、击球伸展、屈膝蓄力、随挥向上、挥拍速度。</li>
+        <li><strong>反手挑球</strong>：与正手挑球类似，更强调低点击球和向上随挥。</li>
+        <li>每项指标越接近目标区间分数越高，低于 72 分会出现在纠正建议里。</li>
       </ul>
+      <h3>安装到主屏幕</h3>
+      <p><strong>Android / Chrome</strong>：点浏览器菜单里的「安装应用」或「添加到主屏幕」。<strong>iPhone / Safari</strong>：点底部分享按钮，选择「添加到主屏幕」，之后从桌面打开即可全屏使用。</p>
       <h3>隐私</h3>
       <p>所有画面与数据只在你的手机本地处理，不上传服务器，也不录制视频。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 新手引导 ==================== -->
+<div class="modal" id="onboardingModal" hidden>
+  <div class="modal-mask" data-close></div>
+  <div class="modal-panel">
+    <div class="modal-head">
+      <h2>欢迎使用羽姿</h2>
+      <button class="icon-btn" data-close aria-label="关闭">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="onboard-steps">
+        <div class="onboard-step">
+          <span>1</span>
+          <div><strong>摆好手机</strong><p>侧前方 2–3 米，镜头与腰同高，全身入镜，持拍手朝向镜头。</p></div>
+        </div>
+        <div class="onboard-step">
+          <span>2</span>
+          <div><strong>选好球路</strong><p>在「设置」选择持拍手，在训练页顶部选择高远球、正手挑球或反手挑球。</p></div>
+        </div>
+        <div class="onboard-step">
+          <span>3</span>
+          <div><strong>挥拍看分</strong><p>做完一次完整挥拍，自动给出六维评分和纠正建议。</p></div>
+        </div>
+      </div>
+      <p class="onboard-note">画面与评分都在本机完成，不会上传。</p>
+      <div class="modal-actions">
+        <button class="primary" id="onboardStart">开始使用</button>
+        <button class="text-btn" id="onboardDemo">先看示例报告</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 训练总结 ==================== -->
+<div class="modal" id="summaryModal" hidden>
+  <div class="modal-mask" data-close></div>
+  <div class="modal-panel">
+    <div class="modal-head">
+      <h2>本次训练</h2>
+      <button class="icon-btn" data-close aria-label="关闭">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="session-stats big">
+        <div><strong id="sumCount">0</strong><span>挥拍次数</span></div>
+        <div><strong id="sumAvg">--</strong><span>平均分</span></div>
+        <div><strong id="sumBest">--</strong><span>最高分</span></div>
+      </div>
+      <p class="summary-hint" id="summaryHint">本次训练已结束。</p>
+      <div class="modal-actions">
+        <button class="primary" id="sumContinue">继续训练</button>
+        <button class="chip-btn" id="sumRecords">查看记录</button>
+      </div>
     </div>
   </div>
 </div>
