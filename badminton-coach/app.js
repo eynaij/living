@@ -482,10 +482,21 @@ function loadRecords() {
 /* --------------------------- feedback ---------------------------- */
 
 function speakScore(result) {
-  if (!state.voice || !('speechSynthesis' in window)) return;
+  if (!state.voice) return;
+  const text = `第${state.session.length}拍，${result.total}分，${result.grade}`;
+  // APK 原生壳：优先调用系统 TTS
+  if (window.NativeTts && typeof window.NativeTts.speak === 'function') {
+    try {
+      window.NativeTts.speak(text);
+      return;
+    } catch (err) {
+      /* 回退到 Web Speech */
+    }
+  }
+  if (!('speechSynthesis' in window)) return;
   try {
     window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(`第${state.session.length}拍，${result.total}分，${result.grade}`);
+    const u = new SpeechSynthesisUtterance(text);
     u.lang = 'zh-CN';
     u.rate = 1.05;
     u.pitch = 1;
@@ -690,6 +701,12 @@ function isIOS() {
 
 function updateInstallUI() {
   if (!els.installTitle) return;
+  // APK 原生壳已内置资源，不需要安装提示
+  if (location.hostname === 'appassets.androidplatform.net') {
+    els.installCard.hidden = true;
+    els.installBanner.hidden = true;
+    return;
+  }
   if (isStandalone()) {
     els.installTitle.textContent = '已安装到主屏幕';
     els.installDesc.textContent = '当前已经是 App 模式，离线也能使用。';
@@ -743,6 +760,8 @@ async function doInstall() {
 /* --------------------------- service worker ---------------------- */
 
 function registerSW() {
+  // APK 内的资源本身就离线，跳过 Service Worker
+  if (location.hostname === 'appassets.androidplatform.net') return;
   if (!('serviceWorker' in navigator) || !isSecure()) return;
   window.addEventListener('load', () => {
     navigator.serviceWorker
