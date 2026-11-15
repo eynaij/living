@@ -1,0 +1,63 @@
+<view class="page-wrap">
+  <view class="stats-grid">
+    <view class="stat">
+      <view class="stat-value">{{stats.total}}</view>
+      <view class="stat-label">总挥拍</view>
+    </view>
+    <view class="stat">
+      <view class="stat-value">{{stats.avg}}</view>
+      <view class="stat-label">平均分</view>
+    </view>
+    <view class="stat">
+      <view class="stat-value">{{stats.best}}</view>
+      <view class="stat-label">最高分</view>
+    </view>
+    <view class="stat">
+      <view class="stat-value">{{stats.days}}</view>
+      <view class="stat-label">训练天数</view>
+    </view>
+  </view>
+
+  <view class="card block">
+    <view class="section-title">
+      <text>最近 7 天</text>
+      <text class="sub">每日挥拍次数</text>
+    </view>
+    <view class="chart">
+      <view class="chart-col" wx:for="{{bars}}" wx:key="key">
+        <view class="chart-count">{{item.count || ''}}</view>
+        <view class="chart-track">
+          <view
+            class="chart-bar {{item.empty ? 'empty' : ''}}"
+            style="height: {{item.height}}%"
+          ></view>
+        </view>
+        <view class="chart-label">{{item.label}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{!hasData}}" class="empty">
+    <view class="empty-title">还没有训练记录</view>
+    <view class="empty-sub">完成一次挥拍分析后，成绩会自动记录在这里。</view>
+    <button class="btn-primary empty-btn" bindtap="goTrain">去分析第一拍</button>
+  </view>
+
+  <block wx:else>
+    <view class="card block" wx:for="{{groups}}" wx:key="key">
+      <view class="group-head">
+        <text class="group-day">{{item.label}}</text>
+        <text class="group-meta">{{item.count}} 拍 · 均分 {{item.avg}}</text>
+      </view>
+      <view class="record-row" wx:for="{{item.items}}" wx:for-item="rec" wx:key="t">
+        <text class="record-time">{{rec.time}}</text>
+        <text class="record-stroke">{{rec.stroke}}</text>
+        <text class="record-demo" wx:if="{{rec.demo}}">演示</text>
+        <text class="record-score" style="color: {{rec.color}}">{{rec.score}}</text>
+        <text class="record-grade">{{rec.grade}}</text>
+      </view>
+    </view>
+
+    <button class="clear-btn" bindtap="clearAll">清空所有记录</button>
+  </block>
+</view>

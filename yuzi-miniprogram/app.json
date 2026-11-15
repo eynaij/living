@@ -1,0 +1,28 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/records/records",
+    "pages/settings/settings",
+    "pages/result/result"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#0A0F0B",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "羽姿",
+    "backgroundColor": "#070B08",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#7B8A80",
+    "selectedColor": "#D8FF4A",
+    "backgroundColor": "#0D130F",
+    "borderStyle": "black",
+    "list": [
+      { "pagePath": "pages/index/index", "text": "分析" },
+      { "pagePath": "pages/records/records", "text": "记录" },
+      { "pagePath": "pages/settings/settings", "text": "设置" }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

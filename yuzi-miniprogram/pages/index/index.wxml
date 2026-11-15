@@ -1,0 +1,95 @@
+<view class="page-wrap">
+  <view class="hero">
+    <view class="hero-kicker">AI 挥拍分析</view>
+    <view class="hero-title">录一段，看看这一拍</view>
+    <view class="hero-sub">全身入镜 · 5–8 秒 · 一次完整挥拍</view>
+  </view>
+
+  <view class="card block">
+    <view class="section-title">
+      <text>选择球路</text>
+      <text class="sub">{{strokeName}}</text>
+    </view>
+    <view class="stroke-list">
+      <view
+        wx:for="{{strokes}}"
+        wx:key="key"
+        class="stroke-option {{stroke === item.key ? 'active' : ''}}"
+        data-key="{{item.key}}"
+        bindtap="selectStroke"
+      >
+        <view class="stroke-radio"><view class="stroke-dot"></view></view>
+        <view class="stroke-text">
+          <view class="stroke-name">{{item.name}}</view>
+          <view class="stroke-desc">{{item.desc}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="hint">{{hint}}</view>
+  </view>
+
+  <view class="card block">
+    <view class="section-title">
+      <text>录制视频</text>
+      <text class="sub" wx:if="{{duration}}">{{duration}} 秒</text>
+    </view>
+
+    <view wx:if="{{!videoPath}}" class="uploader">
+      <view class="uploader-icon">+</view>
+      <view class="uploader-tip">横屏拍摄，让全身和球拍都在画面里</view>
+      <view class="upload-actions">
+        <button class="btn-ghost" bindtap="shoot">拍摄视频</button>
+        <button class="btn-ghost" bindtap="pick">从相册选择</button>
+      </view>
+    </view>
+
+    <view wx:else>
+      <video
+        class="preview"
+        src="{{videoPath}}"
+        controls
+        show-center-play-btn
+        object-fit="contain"
+      ></video>
+      <view class="upload-actions">
+        <button class="btn-ghost" bindtap="pick">重新选择</button>
+        <button class="btn-ghost" bindtap="clearVideo">移除</button>
+      </view>
+    </view>
+
+    <button
+      class="btn-primary analyze-btn"
+      bindtap="analyze"
+      disabled="{{!videoPath || analyzing}}"
+      loading="{{analyzing}}"
+    >
+      {{analyzing ? progressText : '开始分析'}}
+    </button>
+
+    <view wx:if="{{analyzing}}" class="progress">
+      <view class="progress-bar" style="width: {{progress}}%"></view>
+    </view>
+
+    <view wx:if="{{demoOn}}" class="demo-tip">当前为演示模式，结果是示例数据</view>
+  </view>
+
+  <view class="card block">
+    <view class="section-title">拍摄要求</view>
+    <view class="tip-row"><view class="dot"></view><text>手机横放，距离 3–4 米，全身和球拍都在画面内</text></view>
+    <view class="tip-row"><view class="dot"></view><text>光线均匀，避免逆光和多人同框</text></view>
+    <view class="tip-row"><view class="dot"></view><text>只录一次完整挥拍，5–8 秒最合适</text></view>
+  </view>
+
+  <view class="card block" wx:if="{{recent.length}}">
+    <view class="section-title">
+      <text>最近成绩</text>
+      <text class="sub link" bindtap="goRecords">全部记录 ›</text>
+    </view>
+    <view class="recent-row" wx:for="{{recent}}" wx:key="t">
+      <text class="recent-date">{{item.date}}</text>
+      <text class="recent-stroke">{{item.stroke}}</text>
+      <text class="recent-score" style="color: {{item.color}}">{{item.score}}</text>
+      <text class="recent-grade">{{item.grade}}</text>
+    </view>
+  </view>
+</view>

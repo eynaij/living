@@ -1,0 +1,48 @@
+<view class="page-wrap" wx:if="{{result}}">
+  <view class="card score-card">
+    <view class="score-stroke">{{result.stroke}}</view>
+    <view class="score-main" style="color: {{scoreColor}}">{{result.total}}</view>
+    <view class="score-grade" style="color: {{scoreColor}}">{{result.grade}}</view>
+    <view class="score-note">{{scoreNote}}</view>
+    <view class="demo-tag" wx:if="{{demo}}">演示数据 · 非真实分析</view>
+  </view>
+
+  <view class="card block" wx:if="{{thumbnail && !thumbError}}">
+    <image class="snapshot" src="{{thumbnail}}" mode="widthFix" binderror="onThumbError"></image>
+    <view class="snapshot-cap">击球瞬间 · 骨架识别</view>
+  </view>
+
+  <view class="card block">
+    <view class="section-title">
+      <text>动作拆解</text>
+      <text class="sub">单项满分 100</text>
+    </view>
+    <view class="metric" wx:for="{{metrics}}" wx:key="key">
+      <view class="metric-head">
+        <text class="metric-name">{{item.name}}</text>
+        <text class="metric-value" style="color: {{item.color}}">{{item.display}}</text>
+      </view>
+      <view class="metric-bar">
+        <view class="metric-fill" style="width: {{item.width}}%; background: {{item.color}}"></view>
+      </view>
+      <view class="metric-foot">
+        <text>目标 {{item.target}}</text>
+        <text style="color: {{item.color}}">{{item.scoreText}} 分</text>
+      </view>
+      <view class="metric-note" wx:if="{{item.note}}">{{item.note}}</view>
+    </view>
+  </view>
+
+  <view class="card block" wx:if="{{tips.length}}">
+    <view class="section-title">改进建议</view>
+    <view class="tip" wx:for="{{tips}}" wx:key="text">
+      <view class="tip-icon {{item.good ? 'good' : 'bad'}}">{{item.good ? '✓' : '!'}}</view>
+      <text class="tip-text">{{item.text}}</text>
+    </view>
+  </view>
+
+  <view class="actions">
+    <button class="btn-ghost" bindtap="goRecords">查看记录</button>
+    <button class="btn-primary action-primary" bindtap="again">再测一次</button>
+  </view>
+</view>
