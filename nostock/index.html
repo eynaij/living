@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#0B1220" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="止盈" />
+<link rel="manifest" href="./manifest.webmanifest" />
+<link rel="icon" type="image/svg+xml" href="./icons/icon.svg" />
+<title>止盈 · 不碰股票</title>
+<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- 首页：今日状态 -->
+    <section class="screen" id="screenToday">
+      <header class="hero">
+        <div class="hero-sub">已经连续</div>
+        <div class="hero-streak">
+          <span class="streak-num" id="streakNum">0</span>
+          <span class="streak-unit">天</span>
+        </div>
+        <div class="hero-line" id="heroLine">没有碰股票</div>
+        <div class="hero-meta">
+          <span>历史最长 <b id="longestNum">0</b> 天</span>
+          <span class="dot">·</span>
+          <span>总清醒 <b id="totalDays">0</b> 天</span>
+        </div>
+      </header>
+
+      <div class="card">
+        <button id="checkinBtn" class="checkin-btn">
+          <span class="ci-icon">✓</span>
+          <span class="ci-text">
+            <span class="ci-primary" id="ciPrimary">今天我忍住了</span>
+            <span class="ci-sub" id="ciSub">点一下，记这一天</span>
+          </span>
+        </button>
+      </div>
+
+      <div class="quick-row">
+        <button class="quick" data-jump="trigger">
+          <div class="q-ic">!</div>
+          <div class="q-text">差点动手</div>
+        </button>
+        <button class="quick" data-jump="trade">
+          <div class="q-ic">×</div>
+          <div class="q-text">真的交易了</div>
+        </button>
+        <button class="quick" data-jump="journal">
+          <div class="q-ic">·</div>
+          <div class="q-text">写点什么</div>
+        </button>
+      </div>
+
+      <div class="card small">
+        <div class="weekbar" id="weekbar"></div>
+        <div class="weeklegend">近 7 天清醒记录</div>
+      </div>
+
+      <div class="card" id="quoteCard">
+        <div class="quote-head">
+          <span class="pill blue">每日一句</span>
+          <button class="link-btn" id="quoteRefresh">换一句</button>
+        </div>
+        <div class="quote-body" id="quoteBody">交易的本质是概率，不是预测。</div>
+        <div class="quote-foot" id="quoteFoot">— 本杰明·格雷厄姆</div>
+      </div>
+    </section>
+
+    <!-- 冲动记录 -->
+    <section class="screen" id="screenTriggers" hidden>
+      <header class="pagehead">
+        <h1>差点动手</h1>
+        <p>记录下每一次被诱惑的时刻，看清模式。</p>
+      </header>
+
+      <div class="card">
+        <div class="form-row">
+          <label>当时诱惑金额</label>
+          <div class="input-row">
+            <span class="prefix">≈</span>
+            <input type="number" id="trigAmount" placeholder="1000" />
+            <span class="suffix">元</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label>触发点</label>
+          <div class="chip-group" id="trigReasons">
+            <button class="chip" data-val="红色K线">红色K线</button>
+            <button class="chip" data-val="朋友晒单">朋友晒单</button>
+            <button class="chip" data-val="睡前刷手机">睡前刷手机</button>
+            <button class="chip" data-val="亏损焦虑">亏损焦虑</button>
+            <button class="chip" data-val="无聊">无聊</button>
+            <button class="chip" data-val="其他">其他</button>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label>当时的感受</label>
+          <div class="chip-group" id="trigFeelings">
+            <button class="chip" data-val="上头">上头</button>
+            <button class="chip" data-val="焦虑">焦虑</button>
+            <button class="chip" data-val="不甘">不甘</button>
+            <button class="chip" data-val="无聊">无聊</button>
+            <button class="chip" data-val="兴奋">兴奋</button>
+            <button class="chip" data-val="麻木">麻木</button>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label>备注（可选）</label>
+          <textarea id="trigNote" rows="2" placeholder="那一瞬间在想什么？"></textarea>
+        </div>
+
+        <button class="btn-primary" id="trigSave">记下这次克制</button>
+      </div>
+
+      <div class="card">
+        <div class="section-title">
+          <text>冲动历史</text>
+          <text class="sub" id="trigCount">0 次</text>
+        </div>
+        <div id="trigList" class="list"></div>
+        <div id="trigEmpty" class="empty" hidden>
+          <div class="empty-title">还没有冲动记录</div>
+          <div class="empty-sub">忍了就不用填，填了就再忍一次。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 交易记录 -->
+    <section class="screen" id="screenTrades" hidden>
+      <header class="pagehead">
+        <h1>交易墙</h1>
+        <p>记下每一笔交易，看清账户在流血的速度。</p>
+      </header>
+
+      <div class="card danger-card" id="wallCard">
+        <div class="wall-top">
+          <div class="wall-num" id="wallPnl">¥0</div>
+          <div class="wall-label">累计真实亏损</div>
+        </div>
+        <div class="wall-sub" id="wallSub">—</div>
+      </div>
+
+      <div class="card">
+        <div class="form-row">
+          <label>标的 / 代码</label>
+          <input id="tradeSymbol" placeholder="如 贵州茅台 / 600519" />
+        </div>
+        <div class="form-row two-col">
+          <div class="col">
+            <label>金额</label>
+            <div class="input-row">
+              <span class="prefix">¥</span>
+              <input type="number" id="tradeAmount" placeholder="10000" />
+            </div>
+          </div>
+          <div class="col">
+            <label>盈亏</label>
+            <div class="input-row">
+              <span class="prefix">¥</span>
+              <input type="number" id="tradePnl" placeholder="-500" />
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <label>为什么下单</label>
+          <div class="chip-group" id="tradeReasons">
+            <button class="chip" data-val="抄底">抄底</button>
+            <button class="chip" data-val="追涨">追涨</button>
+            <button class="chip" data-val="补仓摊平">补仓摊平</button>
+            <button class="chip" data-val="止损失败">止损失败</button>
+            <button class="chip" data-val="听消息">听消息</button>
+            <button class="chip" data-val="其他">其他</button>
+          </div>
+        </div>
+        <div class="form-row">
+          <label>事后感觉</label>
+          <div class="chip-group" id="tradeRegret">
+            <button class="chip" data-val="特别后悔">特别后悔</button>
+            <button class="chip" data-val="有点后悔">有点后悔</button>
+            <button class="chip" data-val="还算冷静">还算冷静</button>
+            <button class="chip" data-val="这笔是计划内">计划内</button>
+          </div>
+        </div>
+        <button class="btn-danger" id="tradeSave">我承认，这笔我管不住自己</button>
+      </div>
+
+      <div class="card">
+        <div class="section-title">
+          <text>交易历史</text>
+          <text class="sub" id="tradeCount">0 笔</text>
+        </div>
+        <div id="tradeList" class="list"></div>
+        <div id="tradeEmpty" class="empty" hidden>
+          <div class="empty-title">还没有交易记录</div>
+          <div class="empty-sub">这里空着最好。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 统计与周报 -->
+    <section class="screen" id="screenStats" hidden>
+      <header class="pagehead">
+        <h1>时间说了算</h1>
+        <p>把数据摊开，让自己看清模式。</p>
+      </header>
+
+      <div class="card">
+        <div class="section-title">本月清醒</div>
+        <div class="heatmap" id="heatmap"></div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">连续天数走势</div>
+        <canvas id="streakChart" width="320" height="160" class="chart"></canvas>
+      </div>
+
+      <div class="card">
+        <div class="section-title">
+          <text>冲动频次</text>
+          <text class="sub">近 8 周</text>
+        </div>
+        <canvas id="trigChart" width="320" height="140" class="chart"></canvas>
+      </div>
+
+      <div class="card">
+        <div class="section-title">本周复盘</div>
+        <div id="weekSummary" class="week-summary">正在生成…</div>
+        <textarea id="weekNote" rows="3" placeholder="给自己写点什么…（可选）"></textarea>
+      </div>
+    </section>
+
+    <!-- 设置 -->
+    <section class="screen" id="screenSettings" hidden>
+      <header class="pagehead">
+        <h1>设置</h1>
+        <p>让 App 更懂你，但不打扰。</p>
+      </header>
+
+      <div class="card">
+        <div class="section-title">提醒</div>
+        <div class="setting-row">
+          <div class="setting-text">
+            <div class="setting-name">每日打卡提醒</div>
+            <div class="setting-desc">默认每天 22:00 催一次（仅打开 App 时提示）</div>
+          </div>
+          <switch id="sReminder" checked color="#3B82F6" />
+        </div>
+        <div class="divider"></div>
+        <div class="setting-row">
+          <div class="setting-text">
+            <div class="setting-name">每周一复盘</div>
+            <div class="setting-desc">周一打开 App 时弹出上周报告</div>
+          </div>
+          <switch id="sWeekly" checked color="#3B82F6" />
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">数据</div>
+        <button class="btn-ghost full" id="btnExport">导出 JSON 备份</button>
+        <button class="btn-ghost full" id="btnImport">从 JSON 恢复</button>
+        <input type="file" id="importFile" accept=".json" hidden />
+        <button class="btn-danger full" id="btnReset">清空全部数据</button>
+      </div>
+
+      <div class="card">
+        <div class="about">
+          <div class="about-title">止盈 · 戒除股票交易</div>
+          <div class="about-desc">记录天数、记录冲动、记录亏损。让时间替你战胜贪婪。</div>
+          <div class="about-meta">v1.0.0 · 仅本地存储</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 底部 Tab -->
+    <nav class="tabbar">
+      <button class="tab active" data-tab="Today">
+        <span class="tab-ic">◐</span><span class="tab-t">今日</span>
+      </button>
+      <button class="tab" data-tab="Triggers">
+        <span class="tab-ic">!</span><span class="tab-t">冲动</span>
+      </button>
+      <button class="tab" data-tab="Trades">
+        <span class="tab-ic">×</span><span class="tab-t">交易</span>
+      </button>
+      <button class="tab" data-tab="Stats">
+        <span class="tab-ic">≡</span><span class="tab-t">统计</span>
+      </button>
+      <button class="tab" data-tab="Settings">
+        <span class="tab-ic">⚙</span><span class="tab-t">设置</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Modal：周报 -->
+  <div class="modal" id="weekModal" hidden>
+    <div class="modal-mask"></div>
+    <div class="modal-body">
+      <div class="modal-title">上周复盘</div>
+      <div id="weekModalBody" class="week-report"></div>
+      <button class="btn-primary" id="weekClose">好的</button>
+    </div>
+  </div>
+
+  <!-- Modal：安装提示（仅 PWA） -->
+  <div class="install-banner" id="installBanner" hidden>
+    <div class="ib-left">
+      <div class="ib-title">添加到桌面</div>
+      <div class="ib-sub">这样就能像 App 一样用</div>
+    </div>
+    <button class="ib-btn" id="installNow">安装</button>
+    <button class="ib-close" id="installClose">×</button>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
