@@ -3,12 +3,12 @@
     dir="/workspace/nostock/gradle-app/app"
     name=":app"
     type="APP"
-    maven="jiegu:app:"
-    agpVersion="8.2.2"
+    maven="jiegu:app:unspecified"
+    agpVersion="8.13.0"
     buildFolder="build"
-    bootClassPath="/tmp/android-sdk/platforms/android-34/android.jar:/tmp/android-sdk/build-tools/34.0.0/core-lambda-stubs.jar"
+    bootClassPath="/tmp/android-sdk/platforms/android-36/android.jar:/tmp/android-sdk/build-tools/35.0.0/core-lambda-stubs.jar"
     javaSourceLevel="1.8"
-    compileTarget="android-34">
+    compileTarget="android-36">
   <lintOptions
       abortOnError="true"
       absolutePaths="true"

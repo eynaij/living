@@ -70,7 +70,7 @@ function dayKey(ts = Date.now()) {
   const day = String(d.getDate()).padStart(2, '0');
   return `${d.getFullYear()}-${m}-${day}`;
 }
-function startOfDay(ts) {
+function startOfDay(ts = Date.now()) {
   const d = new Date(ts);
   d.setHours(0, 0, 0, 0);
   return d.getTime();

@@ -672,8 +672,8 @@ library_dependencies {
 library_dependencies {
   library_index: 24
   library_dep_index: 21
-  library_dep_index: 22
   library_dep_index: 23
+  library_dep_index: 22
 }
 library_dependencies {
   library_index: 25
