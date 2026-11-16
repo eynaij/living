@@ -61,6 +61,7 @@ mkdir -p "$BUILD/assets" "$BUILD/res" "$BUILD/classes" "$BUILD/dex" "$BUILD/mani
 cp "$PROJ/index.html" "$BUILD/assets/"
 cp "$PROJ/app.js" "$BUILD/assets/"
 cp "$PROJ/styles.css" "$BUILD/assets/"
+cp "$PROJ/privacy.html" "$BUILD/assets/"
 cp "$PROJ/manifest.webmanifest" "$BUILD/assets/"
 cp "$PROJ/sw.js" "$BUILD/assets/"
 cp -r "$PROJ/icons" "$BUILD/assets/icons"

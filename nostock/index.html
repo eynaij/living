@@ -275,6 +275,9 @@
           <div class="about-title">戒股 · 戒除股票交易</div>
           <div class="about-desc">记录天数、记录冲动、记录亏损。让时间替你战胜贪婪。</div>
           <div class="about-meta">v1.0.0 · 仅本地存储</div>
+          <div class="about-links">
+            <button class="link-btn big" id="privacyOpen">隐私政策 / 免责声明</button>
+          </div>
         </div>
       </div>
     </section>
@@ -306,6 +309,35 @@
       <div class="modal-title">上周复盘</div>
       <div id="weekModalBody" class="week-report"></div>
       <button class="btn-primary" id="weekClose">好的</button>
+    </div>
+  </div>
+
+  <!-- Modal：隐私政策 -->
+  <div class="modal" id="privacyModal" hidden>
+    <div class="modal-mask"></div>
+    <div class="modal-body">
+      <div class="modal-title">隐私政策 · 免责声明</div>
+      <div class="privacy-body">
+        <div class="privacy-warn"><b>免责声明（必读）</b><br />本应用（「戒股」）是一款<b>个人行为记录工具</b>，仅用于帮助用户记录自己戒除股票交易的天数、冲动时刻与交易行为。<br /><br />本应用 <b>不提供任何投资建议</b>，不推荐任何股票、不承诺任何收益，不构成任何投资或医疗行为。股市有风险，入市需谨慎。<br /><br />本应用内容<b>不构成对"炒股成瘾"或任何心理/精神健康问题的诊断、治疗或替代</b>。如你认为自己有相关困扰，请联系专业医生或心理咨询机构。</div>
+
+        <h3>一、收集哪些信息</h3>
+        <p>只收集你主动填入的记录：打卡日期、冲动时刻的触发点与感受、交易的标的金额盈亏、以及提醒设置。</p>
+        <p>所有数据<b>只保存在手机本地</b>，卸载即清除。不收集姓名、手机号、设备 ID、位置、相机、相册、联系人，不发起任何网络请求。</p>
+
+        <h3>二、权限说明</h3>
+        <ul>
+          <li><b>震动</b>：打卡完成时的轻反馈，可随时在系统设置关闭。</li>
+          <li><b>网络</b>：仅 WebView 壳的技术兼容性，当前版本无实际网络请求。</li>
+          <li>不申请相机、麦克风、相册、位置、通讯录、存储读取等。</li>
+        </ul>
+
+        <h3>三、第三方 / 数据导出</h3>
+        <p>不集成任何第三方分析、推送或归因 SDK。你可以在「设置」里导出 JSON 备份或一键清空全部数据。</p>
+
+        <h3>四、完整条款</h3>
+        <p>完整版本以本应用随附的 privacy.html 为准，或访问应用内设置页底部的链接查看。</p>
+      </div>
+      <button class="btn-primary" id="privacyClose">我知道了</button>
     </div>
   </div>
 

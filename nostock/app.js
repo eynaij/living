@@ -10,6 +10,7 @@ const STORE_KEYS = {
   journal: 'ns.journal.v1',
   settings: 'ns.settings.v1',
   installHidden: 'ns.install.hidden.v1',
+  privacySeen: 'ns.privacy.seen.v1',
 };
 
 const DEFAULT_SETTINGS = {
@@ -741,10 +742,26 @@ function wire() {
   // 周报 Modal
   $('weekClose').addEventListener('click', () => $('weekModal').hidden = true);
 
+  // 隐私 Modal
+  $('privacyOpen').addEventListener('click', () => $('privacyModal').hidden = false);
+  $('privacyClose').addEventListener('click', () => {
+    $('privacyModal').hidden = true;
+    localStorage.setItem(STORE_KEYS.privacySeen, '1');
+  });
+
+  // 首次启动强制看隐私
+  maybeShowPrivacy();
+
   // 首次提醒
   maybeShowWeekly();
 
   setupPwa();
+}
+
+function maybeShowPrivacy() {
+  if (!localStorage.getItem(STORE_KEYS.privacySeen)) {
+    setTimeout(() => { $('privacyModal').hidden = false; }, 300);
+  }
 }
 
 function maybeShowWeekly() {
