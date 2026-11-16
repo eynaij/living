@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# 构建止盈 APK（内嵌全部离线资源）
+# 构建戒股 APK（内嵌全部离线资源）
 set -euo pipefail
 
 PROJ="$(cd "$(dirname "$0")/.." && pwd)"
 ANDROID="$PROJ/android"
-APP_NAME="nostock"
+APP_NAME="jiegu"
 PKG="com.nostock"
 VERSION_NAME="1.0.0"
 VERSION_CODE=1
@@ -43,12 +43,13 @@ export PATH="$JAVA_HOME/bin:$PATH"
 echo "javac: $(javac -version)"
 
 # —— 签名密钥 ——
-KS="$ANDROID/nostock-release.keystore"
+KS="$ANDROID/release.keystore"
+KS_ALIAS="release"
 if [ ! -f "$KS" ]; then
-  keytool -genkeypair -v -keystore "$KS" -alias "$APP_NAME" \
+  keytool -genkeypair -v -keystore "$KS" -alias "$KS_ALIAS" \
     -keyalg RSA -keysize 2048 -validity 36500 \
-    -storepass nostock2026 -keypass nostock2026 \
-    -dname "CN=NoStock, O=NoStock, L=BJ, ST=BJ, C=CN" 2>&1 | tail -3
+    -storepass jiegu2026 -keypass jiegu2026 \
+    -dname "CN=戒股, O=戒股, L=BJ, ST=BJ, C=CN" 2>&1 | tail -3
 fi
 
 # —— 构建目录 ——
@@ -107,8 +108,8 @@ $BT/zipalign -f -p 4 "$BUILD/base.apk" "$BUILD/aligned.apk"
 # —— 7) apksigner ——
 echo "== apksigner =="
 $BT/apksigner sign \
-  --ks "$KS" --ks-key-alias "$APP_NAME" \
-  --ks-pass pass:nostock2026 --key-pass pass:nostock2026 \
+  --ks "$KS" --ks-key-alias "$KS_ALIAS" \
+  --ks-pass pass:jiegu2026 --key-pass pass:jiegu2026 \
   --out "$OUT" "$BUILD/aligned.apk"
 
 ls -lh "$OUT"

@@ -1,6 +1,6 @@
 {
-  "name": "止盈 · 不碰股票",
-  "short_name": "止盈",
+  "name": "戒股 · 不碰股票",
+  "short_name": "戒股",
   "description": "戒除股票交易的连续天数、冲动与亏损记录",
   "start_url": "./",
   "scope": "./",
