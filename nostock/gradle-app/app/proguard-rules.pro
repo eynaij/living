@@ -1,0 +1,2 @@
+-keep class com.nostock.** { *; }
+-dontwarn com.nostock.**

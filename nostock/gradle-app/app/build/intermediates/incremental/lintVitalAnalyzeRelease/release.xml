@@ -1,0 +1,32 @@
+<variant
+    name="release"
+    package="com.nostock"
+    minSdkVersion="24"
+    targetSdkVersion="34"
+    shrinking="true"
+    mergedManifest="build/intermediates/merged_manifest/release/AndroidManifest.xml"
+    proguardFiles="build/intermediates/default_proguard_files/global/proguard-android-optimize.txt-8.2.2:proguard-rules.pro"
+    partialResultsDir="build/intermediates/lint_vital_partial_results/release/out"
+    desugaredMethodsFiles="/root/.gradle/caches/transforms-3/05da23bff7b5e4199f76016d1c113a55/transformed/D8BackportedDesugaredMethods.txt">
+  <buildFeatures
+      namespacing="REQUIRED"/>
+  <sourceProviders>
+    <sourceProvider
+        manifests="/workspace/nostock/android/AndroidManifest.xml"
+        javaDirectories="/workspace/nostock/android/java:src/release/java:src/main/java:src/main/kotlin:src/release/kotlin"
+        resDirectories="/workspace/nostock/android/res:src/release/res"
+        assetsDirectories="build/merged-assets:src/release/assets"/>
+  </sourceProviders>
+  <testSourceProviders>
+  </testSourceProviders>
+  <testFixturesSourceProviders>
+  </testFixturesSourceProviders>
+  <artifact
+      classOutputs="build/intermediates/javac/release/classes:build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/release/R.jar"
+      type="MAIN"
+      applicationId="com.nostock"
+      generatedSourceFolders="build/generated/ap_generated_sources/release/out"
+      generatedResourceFolders="build/generated/res/resValues/release"
+      desugaredMethodsFiles="/root/.gradle/caches/transforms-3/05da23bff7b5e4199f76016d1c113a55/transformed/D8BackportedDesugaredMethods.txt">
+  </artifact>
+</variant>
