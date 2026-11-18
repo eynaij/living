@@ -1,0 +1,131 @@
+android.content.res.Resources#getIdentifier present: false
+Web content present: true
+Referenced Strings:
+reason
+unavailable
+com.tencent.mobileqq
+com.ximalaya.ting.android
+Shiji
+com.tencent.weread
+tencent.tmgp
+com.qiyi.video
+其他
+com.xingin.xhs
+text/html
+工具
+com.ss.android.article.video
+text/css
+com.discord
+com.sina.weibo
+阅读资讯
+android.intent.category.HOME
+apps
+.html
+com.facebook.katana
+appassets.androidplatform.net
+com.taobao.idlefish
+package:
+com.hunantv.imgo.activity
+days
+com.jingdong.app.mall
+com.ss.android.ugc.aweme
+浏览器
+com.google.android.apps.youtube.music
+com.tencent.mm
+index.html
+text/javascript
+com.netease.cloudmusic
+chrome
+last
+https://appassets.androidplatform.net/
+.json
+音乐
+com.zhihu.android
+android:get_usage_stats
+android
+com.spotify.music
+购物
+com.taobao.taobao
+游戏
+com.whatsapp
+image/png
+com.ss.android.article.news
+permission
+label
+message
+com.iflytek.reading
+generatedAt
+.css
+com.xunmeng.pinduoduo
+com.tmall.wireless
+.woff2
+appops
+font/woff2
+application/json
+com.twitter.android
+社交
+.png
+com.qidian.QDReader
+com.youku.phone
+com.zhiliaoapp.musically
+com.android.systemui
+org.telegram.messenger
+map
+netease.games
+.svg
+com.tencent.qqmusic
+amap
+com.tencent.qqlive
+com.android.settings
+date
+mail
+firefox
+baidu
+hypergryph
+office
+com.instagram.android
+出行
+视频
+.mjs
+.webmanifest
+ms
+com.duokan.reader
+tv.danmaku.bili
+usagestats
+com.google.android.youtube
+launches
+com.netflix.mediaclient
+note
+game
+error
+pkg
+total
+miHoYo
+browser
+cat
+ok
+com.kugou.android
+OK
+com.amazon.mShop.android.shopping
+android.settings.USAGE_ACCESS_SETTINGS
+android.intent.action.MAIN
+https://appassets.androidplatform.net...
+.js
+@com.shiji:color/icon_bg : reachable=false
+@com.shiji:color/nav_bar : reachable=false
+@com.shiji:color/status_bar : reachable=false
+@com.shiji:mipmap/ic_launcher : reachable=true
+    @com.shiji:color/icon_bg
+    @com.shiji:mipmap/ic_launcher_foreground
+@com.shiji:mipmap/ic_launcher_foreground : reachable=false
+@com.shiji:string/app_name : reachable=true
+@com.shiji:style/AppTheme : reachable=true
+    @com.shiji:color/icon_bg
+    @com.shiji:color/status_bar
+    @com.shiji:color/nav_bar
+
+The root reachable resources are:
+ mipmap:ic_launcher:2130837504
+ string:app_name:2130903040
+ style:AppTheme:2130968576
+Unused resources are: 

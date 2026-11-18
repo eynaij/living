@@ -1,0 +1,7 @@
+com.shiji:string/app_name = 0x7f030000
+com.shiji:color/status_bar = 0x7f010002
+com.shiji:style/AppTheme = 0x7f040000
+com.shiji:mipmap/ic_launcher = 0x7f020000
+com.shiji:color/nav_bar = 0x7f010001
+com.shiji:mipmap/ic_launcher_foreground = 0x7f020001
+com.shiji:color/icon_bg = 0x7f010000

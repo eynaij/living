@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="icon_bg">#0B1220</color>
+    <color name="nav_bar">#070B12</color>
+    <color name="status_bar">#0B1220</color>
+    <string name="app_name">时迹</string>
+    <style name="AppTheme" parent="@android:style/Theme.Material.NoActionBar">
+        <item name="android:statusBarColor">@color/status_bar</item>
+        <item name="android:navigationBarColor">@color/nav_bar</item>
+        <item name="android:windowBackground">@color/icon_bg</item>
+        <item name="android:colorAccent">#3B82F6</item>
+    </style>
+</resources>
