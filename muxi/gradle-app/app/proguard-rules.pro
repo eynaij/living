@@ -1,0 +1,2 @@
+-keep class com.muxi.** { *; }
+-dontwarn com.muxi.**

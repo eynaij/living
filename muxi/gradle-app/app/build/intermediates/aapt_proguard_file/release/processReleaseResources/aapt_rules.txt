@@ -1,0 +1,3 @@
+-keep class com.muxi.BootReceiver { <init>(); }
+-keep class com.muxi.MainActivity { <init>(); }
+-keep class com.muxi.ReminderReceiver { <init>(); }

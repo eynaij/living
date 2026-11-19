@@ -1,0 +1,169 @@
+# compiler: R8
+# compiler_version: 8.13.6
+# min_api: 24
+# common_typos_disable
+# {"id":"com.android.tools.r8.mapping","version":"2.2"}
+# pg_map_id: 0dfa206eaa58a1aeb237b1f943ed40f4e84029ea9c496103e81c3ba9000e919e
+# pg_map_hash: SHA-256 0dfa206eaa58a1aeb237b1f943ed40f4e84029ea9c496103e81c3ba9000e919e
+com.muxi.BootReceiver -> com.muxi.BootReceiver:
+# {"id":"sourceFile","fileName":"BootReceiver.java"}
+    1:4:void <init>():8:8 -> <init>
+    1:5:void onReceive(android.content.Context,android.content.Intent):11:15 -> onReceive
+com.muxi.MainActivity -> com.muxi.MainActivity:
+# {"id":"sourceFile","fileName":"MainActivity.java"}
+    1:4:void <init>():32:32 -> <init>
+    1:5:java.lang.String access$100():32:32 -> access$100
+    1:5:java.util.Set access$200(com.muxi.MainActivity):32:32 -> access$200
+    1:4:void access$300(com.muxi.MainActivity):32:32 -> access$300
+    1:5:org.json.JSONObject access$400(com.muxi.MainActivity):32:32 -> access$400
+    1:4:void access$500(com.muxi.MainActivity):32:32 -> access$500
+    1:7:org.json.JSONObject buildStats():190:190 -> buildStats
+    8:11:org.json.JSONObject buildStats():191:191 -> buildStats
+    12:15:org.json.JSONObject buildStats():192:192 -> buildStats
+    16:19:org.json.JSONObject buildStats():193:193 -> buildStats
+    20:23:org.json.JSONObject buildStats():195:195 -> buildStats
+    24:63:org.json.JSONObject buildStats():196:196 -> buildStats
+    64:73:org.json.JSONObject buildStats():213:213 -> buildStats
+    74:79:org.json.JSONObject buildStats():212:212 -> buildStats
+    80:84:org.json.JSONObject buildStats():211:211 -> buildStats
+    85:91:org.json.JSONObject buildStats():210:210 -> buildStats
+    92:96:org.json.JSONObject buildStats():218:218 -> buildStats
+    97:101:org.json.JSONObject buildStats():219:219 -> buildStats
+    102:106:org.json.JSONObject buildStats():220:220 -> buildStats
+    107:111:org.json.JSONObject buildStats():221:221 -> buildStats
+    112:116:org.json.JSONObject buildStats():222:222 -> buildStats
+    117:121:org.json.JSONObject buildStats():223:223 -> buildStats
+    122:126:org.json.JSONObject buildStats():224:224 -> buildStats
+    127:137:org.json.JSONObject buildStats():225:225 -> buildStats
+    138:149:org.json.JSONObject buildStats():226:226 -> buildStats
+    150:155:org.json.JSONObject buildStats():229:229 -> buildStats
+    1:8:int computeStreak(java.util.Set):250:250 -> computeStreak
+    9:17:int computeStreak(java.util.Set):251:251 -> computeStreak
+    18:21:int computeStreak(java.util.Set):252:252 -> computeStreak
+    22:29:int computeStreak(java.util.Set):256:256 -> computeStreak
+    30:37:int computeStreak(java.util.Set):257:257 -> computeStreak
+    38:40:int computeStreak(java.util.Set):258:258 -> computeStreak
+    41:56:int computeStreak(java.util.Set):260:260 -> computeStreak
+    57:61:int computeStreak(java.util.Set):262:262 -> computeStreak
+    1:6:void createNotificationChannel():270:270 -> createNotificationChannel
+    7:16:void createNotificationChannel():271:271 -> createNotificationChannel
+    17:22:void createNotificationChannel():272:272 -> createNotificationChannel
+    23:26:void createNotificationChannel():273:273 -> createNotificationChannel
+    27:29:void createNotificationChannel():275:275 -> createNotificationChannel
+    30:33:void createNotificationChannel():276:276 -> createNotificationChannel
+    1:7:java.util.Set getCheckedDates():234:234 -> getCheckedDates
+    8:15:java.util.Set getCheckedDates():235:235 -> getCheckedDates
+    16:20:java.util.Set getCheckedDates():236:236 -> getCheckedDates
+    21:29:java.util.Set getCheckedDates():238:238 -> getCheckedDates
+    30:46:java.util.Set getCheckedDates():239:239 -> getCheckedDates
+    1:10:void onBackPressed():351:351 -> onBackPressed
+    11:16:void onBackPressed():352:352 -> onBackPressed
+    17:20:void onBackPressed():355:355 -> onBackPressed
+    1:3:void onCreate(android.os.Bundle):47:49 -> onCreate
+    4:13:void onCreate(android.os.Bundle):51:60 -> onCreate
+    14:14:void onCreate(android.os.Bundle):62:62 -> onCreate
+    15:15:void onCreate(android.os.Bundle):70:70 -> onCreate
+    16:17:void onCreate(android.os.Bundle):72:73 -> onCreate
+    18:18:void onCreate(android.os.Bundle):75:75 -> onCreate
+    1:3:void scheduleReminder(android.content.Context):283:285 -> scheduleReminder
+    4:10:void scheduleReminder(android.content.Context):296:302 -> scheduleReminder
+    11:13:void scheduleReminder(android.content.Context):305:307 -> scheduleReminder
+    14:14:void scheduleReminder(android.content.Context):311:311 -> scheduleReminder
+    15:15:void scheduleReminder(android.content.Context):313:313 -> scheduleReminder
+    16:17:void scheduleReminder(android.content.Context):315:316 -> scheduleReminder
+    18:18:void scheduleReminder(android.content.Context):318:318 -> scheduleReminder
+    19:19:void scheduleReminder(android.content.Context):324:324 -> scheduleReminder
+    20:20:void scheduleReminder():328:328 -> scheduleReminder
+    1:19:java.lang.String todayKey():245:245 -> todayKey
+    1:6:void vibrate():332:332 -> vibrate
+    7:20:void vibrate():333:333 -> vibrate
+    21:26:void vibrate():334:334 -> vibrate
+    27:34:void vibrate():336:336 -> vibrate
+    35:48:void vibrate():338:338 -> vibrate
+    49:58:void vibrate():341:341 -> vibrate
+    59:62:void vibrate():342:342 -> vibrate
+com.muxi.MainActivity$$ExternalSyntheticApiModelOutline0 -> com.muxi.a:
+# {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
+# {"id":"com.android.tools.r8.synthesized"}
+    1:11:android.app.NotificationChannel m():0:0 -> a
+      # {"id":"com.android.tools.r8.synthesized"}
+    1:7:android.app.NotificationChannel m(android.app.NotificationManager):0:0 -> b
+      # {"id":"com.android.tools.r8.synthesized"}
+    1:8:android.os.VibrationEffect m():0:0 -> c
+      # {"id":"com.android.tools.r8.synthesized"}
+    1:6:void m(android.app.Notification$Builder):0:0 -> d
+      # {"id":"com.android.tools.r8.synthesized"}
+    1:6:void m(android.app.NotificationChannel):0:0 -> e
+      # {"id":"com.android.tools.r8.synthesized"}
+    1:4:void m(android.app.NotificationManager,android.app.NotificationChannel):0:0 -> f
+      # {"id":"com.android.tools.r8.synthesized"}
+    1:4:void m(android.os.Vibrator,android.os.VibrationEffect):0:0 -> g
+      # {"id":"com.android.tools.r8.synthesized"}
+com.muxi.MainActivity$$ExternalSyntheticApiModelOutline3 -> com.muxi.b:
+# {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
+# {"id":"com.android.tools.r8.synthesized"}
+    1:5:android.os.Vibrator m(android.os.VibratorManager):0:0 -> a
+      # {"id":"com.android.tools.r8.synthesized"}
+    1:3:android.os.VibratorManager m(java.lang.Object):0:0 -> b
+      # {"id":"com.android.tools.r8.synthesized"}
+    1:5:boolean m(android.app.AlarmManager):0:0 -> c
+      # {"id":"com.android.tools.r8.synthesized"}
+com.muxi.MainActivity$1 -> com.muxi.MainActivity$1:
+# {"id":"sourceFile","fileName":"MainActivity.java"}
+    1:6:void <init>(com.muxi.MainActivity):62:62 -> <init>
+    1:2:boolean shouldOverrideUrlLoading(android.webkit.WebView,android.webkit.WebResourceRequest):0:0 -> shouldOverrideUrlLoading
+com.muxi.MainActivity$Bridge -> com.muxi.MainActivity$Bridge:
+# {"id":"sourceFile","fileName":"MainActivity.java"}
+    1:1:void <init>(com.muxi.MainActivity):80:80 -> <init>
+    2:2:void <init>(com.muxi.MainActivity,com.muxi.MainActivity$1):80:80 -> <init>
+    1:6:boolean canScheduleExactAlarm():172:172 -> canScheduleExactAlarm
+    7:18:boolean canScheduleExactAlarm():173:173 -> canScheduleExactAlarm
+    19:29:boolean canScheduleExactAlarm():174:174 -> canScheduleExactAlarm
+    1:9:java.lang.String checkIn():91:91 -> checkIn
+    10:20:java.lang.String checkIn():92:92 -> checkIn
+    21:28:java.lang.String checkIn():93:93 -> checkIn
+    29:52:java.lang.String checkIn():94:94 -> checkIn
+    53:57:java.lang.String checkIn():95:95 -> checkIn
+    58:68:java.lang.String checkIn():96:96 -> checkIn
+    1:11:java.lang.String getStats():102:102 -> getStats
+    1:9:java.lang.String getWakeTime():108:108 -> getWakeTime
+    10:14:java.lang.String getWakeTime():110:110 -> getWakeTime
+    15:26:java.lang.String getWakeTime():111:111 -> getWakeTime
+    27:37:java.lang.String getWakeTime():112:112 -> getWakeTime
+    38:42:java.lang.String getWakeTime():113:113 -> getWakeTime
+    43:45:java.lang.String getWakeTime():115:115 -> getWakeTime
+    1:7:boolean hasNotificationPermission():134:134 -> hasNotificationPermission
+    8:21:boolean hasNotificationPermission():135:135 -> hasNotificationPermission
+    1:15:boolean isCheckedToday():85:85 -> isCheckedToday
+    1:9:void openAlarmSettings():163:163 -> openAlarmSettings
+    10:12:void openAlarmSettings():164:164 -> openAlarmSettings
+    13:18:void openAlarmSettings():165:165 -> openAlarmSettings
+    1:11:void openNotificationSettings():145:145 -> openNotificationSettings
+    12:22:void openNotificationSettings():146:146 -> openNotificationSettings
+    23:25:void openNotificationSettings():147:147 -> openNotificationSettings
+    26:31:void openNotificationSettings():148:148 -> openNotificationSettings
+    32:38:void openNotificationSettings():151:151 -> openNotificationSettings
+    39:63:void openNotificationSettings():152:152 -> openNotificationSettings
+    64:66:void openNotificationSettings():153:153 -> openNotificationSettings
+    67:72:void openNotificationSettings():154:154 -> openNotificationSettings
+    1:20:void resetAll():182:182 -> resetAll
+    21:26:void resetAll():183:183 -> resetAll
+    1:6:void setWakeTime(int,int):123:128 -> setWakeTime
+com.muxi.R -> com.muxi.R:
+    1:4:void <init>():0:0 -> <init>
+com.muxi.R$color -> com.muxi.R$color:
+    1:4:void <init>():0:0 -> <init>
+com.muxi.R$mipmap -> com.muxi.R$mipmap:
+    1:4:void <init>():0:0 -> <init>
+com.muxi.R$string -> com.muxi.R$string:
+    1:4:void <init>():0:0 -> <init>
+com.muxi.R$style -> com.muxi.R$style:
+    1:4:void <init>():0:0 -> <init>
+com.muxi.ReminderReceiver -> com.muxi.ReminderReceiver:
+# {"id":"sourceFile","fileName":"ReminderReceiver.java"}
+    1:4:void <init>():13:13 -> <init>
+    1:3:void onReceive(android.content.Context,android.content.Intent):20:22 -> onReceive
+    4:12:void onReceive(android.content.Context,android.content.Intent):26:34 -> onReceive
+    13:14:void onReceive(android.content.Context,android.content.Intent):36:37 -> onReceive
+    15:16:void onReceive(android.content.Context,android.content.Intent):40:41 -> onReceive
+    17:17:void onReceive(android.content.Context,android.content.Intent):43:43 -> onReceive

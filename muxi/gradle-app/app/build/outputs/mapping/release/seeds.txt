@@ -1,0 +1,69 @@
+com.muxi.R$style
+com.muxi.MainActivity$1
+com.muxi.BootReceiver
+com.muxi.R$mipmap
+com.muxi.R
+com.muxi.ReminderReceiver
+com.muxi.MainActivity$Bridge
+com.muxi.R$string
+com.muxi.MainActivity
+com.muxi.R$color
+com.muxi.ReminderReceiver: java.lang.String CHANNEL_ID
+com.muxi.MainActivity: java.lang.String CHANNEL_ID
+com.muxi.R$mipmap: int ic_launcher_foreground
+com.muxi.MainActivity$1: com.muxi.MainActivity this$0
+com.muxi.R$style: int AppTheme
+com.muxi.R$color: int colorAccent
+com.muxi.R$color: int colorPrimaryDark
+com.muxi.ReminderReceiver: int NOTIFY_ID
+com.muxi.MainActivity: java.lang.String KEY_MINUTE
+com.muxi.R$string: int app_name
+com.muxi.R$mipmap: int ic_launcher
+com.muxi.MainActivity: int REQUEST_CODE_REMINDER
+com.muxi.MainActivity: java.lang.String KEY_HOUR
+com.muxi.MainActivity: java.lang.String PREFS
+com.muxi.MainActivity: java.lang.String KEY_DATES
+com.muxi.R$color: int colorPrimary
+com.muxi.MainActivity: java.lang.String ACTION_REMINDER
+com.muxi.R$color: int icon_bg
+com.muxi.MainActivity$Bridge: com.muxi.MainActivity this$0
+com.muxi.MainActivity: android.webkit.WebView webView
+com.muxi.R: R()
+com.muxi.MainActivity$Bridge: void setWakeTime(int,int)
+com.muxi.MainActivity$Bridge: void resetAll()
+com.muxi.MainActivity: java.util.Set access$200(com.muxi.MainActivity)
+com.muxi.MainActivity$Bridge: boolean hasNotificationPermission()
+com.muxi.MainActivity: int computeStreak(java.util.Set)
+com.muxi.MainActivity$Bridge: void openAlarmSettings()
+com.muxi.MainActivity: java.lang.String todayKey()
+com.muxi.MainActivity: void vibrate()
+com.muxi.MainActivity$Bridge: java.lang.String checkIn()
+com.muxi.R$color: R$color()
+com.muxi.MainActivity$Bridge: MainActivity$Bridge(com.muxi.MainActivity)
+com.muxi.R$style: R$style()
+com.muxi.BootReceiver: BootReceiver()
+com.muxi.MainActivity$Bridge: void openNotificationSettings()
+com.muxi.MainActivity$Bridge: java.lang.String getStats()
+com.muxi.BootReceiver: void onReceive(android.content.Context,android.content.Intent)
+com.muxi.MainActivity: void access$300(com.muxi.MainActivity)
+com.muxi.MainActivity$Bridge: boolean canScheduleExactAlarm()
+com.muxi.MainActivity$1: boolean shouldOverrideUrlLoading(android.webkit.WebView,android.webkit.WebResourceRequest)
+com.muxi.MainActivity: MainActivity()
+com.muxi.MainActivity: void scheduleReminder(android.content.Context)
+com.muxi.R$mipmap: R$mipmap()
+com.muxi.R$string: R$string()
+com.muxi.ReminderReceiver: ReminderReceiver()
+com.muxi.MainActivity: void access$500(com.muxi.MainActivity)
+com.muxi.ReminderReceiver: void onReceive(android.content.Context,android.content.Intent)
+com.muxi.MainActivity: void onCreate(android.os.Bundle)
+com.muxi.MainActivity: void scheduleReminder()
+com.muxi.MainActivity: org.json.JSONObject access$400(com.muxi.MainActivity)
+com.muxi.MainActivity: java.lang.String access$100()
+com.muxi.MainActivity$Bridge: boolean isCheckedToday()
+com.muxi.MainActivity: org.json.JSONObject buildStats()
+com.muxi.MainActivity$Bridge: java.lang.String getWakeTime()
+com.muxi.MainActivity: java.util.Set getCheckedDates()
+com.muxi.MainActivity$Bridge: MainActivity$Bridge(com.muxi.MainActivity,com.muxi.MainActivity$1)
+com.muxi.MainActivity: void createNotificationChannel()
+com.muxi.MainActivity$1: MainActivity$1(com.muxi.MainActivity)
+com.muxi.MainActivity: void onBackPressed()

@@ -1,0 +1,62 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.muxi.app-mergeReleaseResources-3:/values/values.xml",
+            "map": [
+                {
+                    "source": "/workspace/muxi/android/res/values/strings.xml",
+                    "from": {
+                        "startLines": "1",
+                        "startColumns": "4",
+                        "startOffsets": "16",
+                        "endColumns": "41",
+                        "endOffsets": "53"
+                    },
+                    "to": {
+                        "startLines": "6",
+                        "startColumns": "4",
+                        "startOffsets": "241",
+                        "endColumns": "41",
+                        "endOffsets": "278"
+                    }
+                },
+                {
+                    "source": "/workspace/muxi/android/res/values/styles.xml",
+                    "from": {
+                        "startLines": "1",
+                        "startColumns": "4",
+                        "startOffsets": "16",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "299"
+                    },
+                    "to": {
+                        "startLines": "7",
+                        "startColumns": "4",
+                        "startOffsets": "283",
+                        "endLines": "11",
+                        "endColumns": "12",
+                        "endOffsets": "566"
+                    }
+                },
+                {
+                    "source": "/workspace/muxi/android/res/values/colors.xml",
+                    "from": {
+                        "startLines": "3,1,2,4",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "114,16,63,160",
+                        "endColumns": "45,46,50,41",
+                        "endOffsets": "155,58,109,197"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,101,148,199",
+                        "endColumns": "45,46,50,41",
+                        "endOffsets": "96,143,194,236"
+                    }
+                }
+            ]
+        }
+    ]
+}

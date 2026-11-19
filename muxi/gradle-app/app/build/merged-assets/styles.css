@@ -1,0 +1,64 @@
+/* 早起森林 - 深色森林主题 */
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { margin: 0; padding: 0; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: linear-gradient(180deg,#0f2019 0%,#1a3a2c 60%,#2d5a3d 100%); color: #e8f5e9; min-height: 100vh; overflow-x: hidden; }
+
+#app { max-width: 420px; margin: 0 auto; padding: 18px 16px 40px; display: flex; flex-direction: column; gap: 12px; }
+
+header { display: flex; justify-content: space-between; align-items: center; padding: 4px 0 0; }
+header h1 { font-size: 22px; margin: 0; font-weight: 600; letter-spacing: 1px; }
+#gearBtn { background: rgba(255,255,255,.08); border: none; color: #a5d6a7; font-size: 20px; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; }
+
+#dateBar { text-align: center; font-size: 13px; color: #a5d6a7; opacity: .8; margin-bottom: 8px; }
+#dateBar #weekText { margin-left: 8px; }
+
+/* 树 */
+#treeStage { position: relative; display: flex; flex-direction: column; align-items: center; padding: 10px 0 6px; }
+.tree { position: absolute; top: 0; left: 50%; transform: translateX(-50%) scale(0.85); opacity: 0; transition: opacity 700ms ease, transform 700ms ease; filter: drop-shadow(0 18px 18px rgba(0,0,0,.35)); }
+.tree.active { opacity: 1; transform: translateX(-50%) scale(1); }
+
+#waterDrop { position: absolute; top: 40px; left: 50%; font-size: 40px; transform: translateX(-50%) translateY(-20px); animation: fall 900ms ease forwards; z-index: 10; }
+@keyframes fall { 0% { opacity: 0; transform: translateX(-50%) translateY(-30px) scale(.4); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateX(-50%) translateY(140px) scale(1.2); } }
+
+#treeStageLabel { margin-top: 270px; font-size: 14px; color: #a5d6a7; }
+#progressWrap { width: 70%; height: 6px; background: rgba(255,255,255,.15); border-radius: 4px; overflow: hidden; margin-top: 6px; }
+#progressBar { height: 100%; width: 0%; background: linear-gradient(90deg,#4caf50,#a5d6a7); border-radius: 4px; transition: width 700ms ease; }
+#progressText { margin-top: 6px; font-size: 12px; color: #a5d6a7; opacity: .9; }
+
+/* 打卡按钮 */
+#checkBtn { width: 88%; margin: 14px auto 4px; padding: 18px 0; font-size: 17px; border: none; border-radius: 30px; background: linear-gradient(135deg,#43a047,#66bb6a); color: #fff; font-weight: 600; cursor: pointer; box-shadow: 0 8px 24px rgba(76,175,80,.35); transition: transform 120ms ease, box-shadow 200ms ease; display: block; }
+#checkBtn:active { transform: scale(.97); box-shadow: 0 4px 12px rgba(76,175,80,.25); }
+#checkBtn.done { background: linear-gradient(135deg,#558b2f,#8bc34a); box-shadow: none; }
+#checkedHint { text-align: center; font-size: 13px; color: #a5d6a7; opacity: .85; }
+
+/* 统计 */
+#stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 8px; }
+.stat-card { background: rgba(255,255,255,.08); border-radius: 14px; padding: 14px 8px; text-align: center; backdrop-filter: blur(10px); }
+.stat-card .num { font-size: 26px; font-weight: 700; color: #c8e6c9; font-variant-numeric: tabular-nums; }
+.stat-card .label { font-size: 12px; color: #a5d6a7; margin-top: 2px; opacity: .9; }
+#wakeCard .num { font-size: 22px; color: #ffcc80; }
+
+.hidden { display: none !important; }
+
+/* 弹窗 */
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,.6); display: flex; align-items: center; justify-content: center; z-index: 100; padding: 20px; backdrop-filter: blur(4px); }
+.modal-inner { background: #1a3a2c; border-radius: 20px; padding: 22px; width: 100%; max-width: 360px; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+.modal-inner h3 { margin: 0 0 6px; font-size: 18px; }
+.modal-inner .tip { margin: 0 0 16px; font-size: 12px; color: #a5d6a7; opacity: .8; }
+.row { display: flex; align-items: center; justify-content: space-between; margin: 10px 0; }
+.row label { font-size: 14px; }
+.time-box { display: flex; align-items: center; gap: 4px; }
+.time-box input { width: 56px; padding: 8px 6px; border: none; border-radius: 8px; background: rgba(255,255,255,.12); color: #e8f5e9; font-size: 18px; text-align: center; font-variant-numeric: tabular-nums; }
+.time-box span { color: #a5d6a7; font-size: 18px; }
+
+#permArea { margin-top: 18px; display: flex; flex-direction: column; gap: 8px; }
+.perm-row { display: grid; grid-template-columns: 20px auto auto 1fr; align-items: center; gap: 8px; font-size: 13px; padding: 8px 10px; background: rgba(255,255,255,.06); border-radius: 10px; }
+.perm-row .status { font-size: 11px; padding: 2px 8px; border-radius: 8px; }
+.perm-row .status.on { background: rgba(76,175,80,.25); color: #a5d6a7; }
+.perm-row .status.off { background: rgba(239,83,80,.2); color: #ef9a9a; }
+.mini-btn { justify-self: end; padding: 4px 12px; border-radius: 14px; border: none; background: rgba(76,175,80,.8); color: #fff; font-size: 12px; cursor: pointer; }
+.mini-btn:disabled { opacity: .3; cursor: not-allowed; }
+
+.modal-btns { display: flex; gap: 10px; margin-top: 20px; justify-content: flex-end; }
+.modal-btns button { padding: 10px 22px; border-radius: 22px; border: none; font-size: 14px; cursor: pointer; }
+.modal-btns .primary { background: linear-gradient(135deg,#43a047,#66bb6a); color: #fff; }
+.modal-btns button:not(.primary) { background: rgba(255,255,255,.12); color: #e8f5e9; }
