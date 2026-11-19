@@ -53,9 +53,8 @@ public class MainActivity extends android.app.Activity {
         ws.setDomStorageEnabled(true);
         ws.setDatabaseEnabled(true);
         ws.setAllowFileAccess(true);
-        ws.setAllowFileAccessFromFileURLs(false);
-        ws.setAllowUniversalAccessFromFileURLs(false);
-        ws.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
+        ws.setAllowContentAccess(true);
+        ws.setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
         ws.setCacheMode(WebSettings.LOAD_DEFAULT);
         ws.setUserAgentString(ws.getUserAgentString() + " ZaoLin/1.0");
 
@@ -72,7 +71,7 @@ public class MainActivity extends android.app.Activity {
         createNotificationChannel();
         scheduleReminder();
 
-        webView.loadUrl("https://appassets.androidplatform.net/assets/index.html");
+        webView.loadUrl("file:///android_asset/index.html");
     }
 
     // ------------------------------------------------------------------ Bridge

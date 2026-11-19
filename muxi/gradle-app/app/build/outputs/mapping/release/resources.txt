@@ -2,6 +2,7 @@ android.content.res.Resources#getIdentifier present: false
 Web content present: true
 Referenced Strings:
 每天起床时间前提醒你起床打卡
+file:///android_asset/index.html
 checked_dates
 package:
 ZaoLin
@@ -21,7 +22,6 @@ android.settings.APPLICATION_DETAILS_...
 notification
 vibrator_manager
 android.permission.POST_NOTIFICATIONS
-https://appassets.androidplatform.net...
 streak
 zaolin_reminder
 wake_hour
