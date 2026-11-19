@@ -2,7 +2,6 @@ package com.shiji;
 
 import android.app.Activity;
 import android.app.AppOpsManager;
-import android.app.usage.UsageEvents;
 import android.app.usage.UsageStatsManager;
 import android.content.Context;
 import android.content.Intent;
@@ -48,6 +47,43 @@ public class MainActivity extends Activity {
 
     private static final String HOST = "appassets.androidplatform.net";
     private static final String BASE_URL = "https://" + HOST + "/";
+    private static final Map<String, String> KNOWN_APP_NAMES = new HashMap<>();
+
+    static {
+        KNOWN_APP_NAMES.put("com.tencent.mm", "微信");
+        KNOWN_APP_NAMES.put("com.tencent.mobileqq", "QQ");
+        KNOWN_APP_NAMES.put("com.sina.weibo", "微博");
+        KNOWN_APP_NAMES.put("com.xingin.xhs", "小红书");
+        KNOWN_APP_NAMES.put("com.ss.android.ugc.aweme", "抖音");
+        KNOWN_APP_NAMES.put("com.zhihu.android", "知乎");
+        KNOWN_APP_NAMES.put("com.bytedance.trae.cn", "Trae");
+        KNOWN_APP_NAMES.put("ai.x.grok.bot", "Grok");
+        KNOWN_APP_NAMES.put("cn.ticktick.task", "滴答清单");
+        KNOWN_APP_NAMES.put("com.coloros.note", "便签");
+        KNOWN_APP_NAMES.put("com.heytap.browser", "浏览器");
+        KNOWN_APP_NAMES.put("com.phoenix.read", "阅读");
+        KNOWN_APP_NAMES.put("com.heytap.market", "软件商店");
+        KNOWN_APP_NAMES.put("me.ele", "饿了么");
+        KNOWN_APP_NAMES.put("com.taobao.taobao", "淘宝");
+        KNOWN_APP_NAMES.put("com.jingdong.app.mall", "京东");
+        KNOWN_APP_NAMES.put("com.xunmeng.pinduoduo", "拼多多");
+        KNOWN_APP_NAMES.put("com.tmall.wireless", "天猫");
+        KNOWN_APP_NAMES.put("com.taobao.idlefish", "闲鱼");
+        KNOWN_APP_NAMES.put("tv.danmaku.bili", "哔哩哔哩");
+        KNOWN_APP_NAMES.put("com.tencent.qqlive", "腾讯视频");
+        KNOWN_APP_NAMES.put("com.qiyi.video", "爱奇艺");
+        KNOWN_APP_NAMES.put("com.youku.phone", "优酷");
+        KNOWN_APP_NAMES.put("com.hunantv.imgo.activity", "芒果TV");
+        KNOWN_APP_NAMES.put("com.ss.android.article.video", "西瓜视频");
+        KNOWN_APP_NAMES.put("com.netease.cloudmusic", "网易云音乐");
+        KNOWN_APP_NAMES.put("com.tencent.qqmusic", "QQ音乐");
+        KNOWN_APP_NAMES.put("com.kugou.android", "酷狗音乐");
+        KNOWN_APP_NAMES.put("com.ximalaya.ting.android", "喜马拉雅");
+        KNOWN_APP_NAMES.put("com.tencent.weread", "微信读书");
+        KNOWN_APP_NAMES.put("com.duokan.reader", "多看阅读");
+        KNOWN_APP_NAMES.put("com.ss.android.article.news", "今日头条");
+        KNOWN_APP_NAMES.put("com.qidian.QDReader", "起点读书");
+    }
 
     private WebView webView;
 
@@ -232,9 +268,8 @@ public class MainActivity extends Activity {
         long begin = todayStart - (long) (days - 1) * 86400000L;
         long now = System.currentTimeMillis();
 
-        // 每天每应用的前台毫秒数
+        // 直接使用系统按天聚合的前台时长，避免事件配对在跨天、息屏时产生误差。
         Map<String, long[]> perAppPerDay = new HashMap<>();   // pkg -> long[days]
-        Map<String, int[]> launchesPerDay = new HashMap<>();  // pkg -> int[days]
         Map<String, Long> lastUsed = new HashMap<>();
 
         Set<String> excluded = new HashSet<>();
@@ -243,61 +278,26 @@ public class MainActivity extends Activity {
         excluded.add("com.android.settings");
         for (String home : launcherPackages()) excluded.add(home);
 
-        UsageEvents events = usm.queryEvents(begin, now);
-        if (events != null) {
-            UsageEvents.Event e = new UsageEvents.Event();
-            Map<String, Long> openSince = new HashMap<>();
-            while (events.hasNextEvent()) {
-                events.getNextEvent(e);
-                String pkg = e.getPackageName();
-                if (pkg == null) continue;
-                int type = e.getEventType();
-                long ts = e.getTimeStamp();
+        List<android.app.usage.UsageStats> stats = usm.queryUsageStats(
+                UsageStatsManager.INTERVAL_DAILY, begin, now);
+        if (stats != null) {
+            for (android.app.usage.UsageStats us : stats) {
+                String pkg = us.getPackageName();
+                long t = us.getTotalTimeInForeground();
+                if (pkg == null || t <= 0) continue;
 
-                if (type == UsageEvents.Event.ACTIVITY_RESUMED || type == UsageEvents.Event.MOVE_TO_FOREGROUND) {
-                    openSince.put(pkg, ts);
-                    int idx = dayIndex(ts, begin, days);
-                    if (idx >= 0 && idx < days) {
-                        int[] arr = launchesPerDay.get(pkg);
-                        if (arr == null) { arr = new int[days]; launchesPerDay.put(pkg, arr); }
-                        arr[idx]++;
-                    }
-                } else if (type == UsageEvents.Event.ACTIVITY_PAUSED
-                        || type == UsageEvents.Event.MOVE_TO_BACKGROUND
-                        || type == UsageEvents.Event.SCREEN_NON_INTERACTIVE
-                        || type == UsageEvents.Event.DEVICE_SHUTDOWN) {
-                    if (type == UsageEvents.Event.SCREEN_NON_INTERACTIVE
-                            || type == UsageEvents.Event.DEVICE_SHUTDOWN) {
-                        // 息屏 / 关机：结束所有计时
-                        for (Map.Entry<String, Long> entry : openSince.entrySet()) {
-                            addDuration(perAppPerDay, entry.getKey(), entry.getValue(), ts, begin, days);
-                        }
-                        openSince.clear();
-                    } else {
-                        Long start = openSince.remove(pkg);
-                        if (start != null) addDuration(perAppPerDay, pkg, start, ts, begin, days);
-                    }
+                int idx = dayIndex(us.getFirstTimeStamp(), begin, days);
+                if (idx < 0 || idx >= days) continue;
+                long[] arr = perAppPerDay.get(pkg);
+                if (arr == null) {
+                    arr = new long[days];
+                    perAppPerDay.put(pkg, arr);
                 }
-            }
-            // 仍未结束的会话，记到当前时刻
-            for (Map.Entry<String, Long> entry : openSince.entrySet()) {
-                addDuration(perAppPerDay, entry.getKey(), entry.getValue(), now, begin, days);
-            }
-        }
+                arr[idx] += t;
 
-        // 兜底：queryEvents 可能为空（部分 ROM），用 queryUsageStats 补
-        if (perAppPerDay.isEmpty()) {
-            List<android.app.usage.UsageStats> stats = usm.queryUsageStats(
-                    UsageStatsManager.INTERVAL_DAILY, begin, now);
-            if (stats != null) {
-                for (android.app.usage.UsageStats us : stats) {
-                    long t = us.getTotalTimeInForeground();
-                    if (t <= 0) continue;
-                    long[] arr = perAppPerDay.get(us.getPackageName());
-                    if (arr == null) { arr = new long[days]; perAppPerDay.put(us.getPackageName(), arr); }
-                    arr[days - 1] += t;
-                    lastUsed.put(us.getPackageName(), us.getLastTimeUsed());
-                }
+                long last = us.getLastTimeUsed();
+                Long previous = lastUsed.get(pkg);
+                if (previous == null || last > previous) lastUsed.put(pkg, last);
             }
         }
 
@@ -322,17 +322,11 @@ public class MainActivity extends Activity {
                 try {
                     ai = pm.getApplicationInfo(pkg, 0);
                 } catch (Exception ignore) { }
-                String label = ai != null ? String.valueOf(pm.getApplicationLabel(ai)) : pkg;
-                if (ai != null && (ai.flags & ApplicationInfo.FLAG_SYSTEM) != 0
-                        && label.toLowerCase(Locale.US).contains("android")) {
-                    // 过滤掉明显的系统组件
-                }
                 app.put("pkg", pkg);
-                app.put("label", label);
+                app.put("label", labelOf(pm, pkg, ai));
                 app.put("ms", ms);
                 app.put("cat", categoryOf(pkg, ai));
-                int[] la = launchesPerDay.get(pkg);
-                app.put("launches", la != null ? la[d] : 0);
+                app.put("launches", 0);
                 Long lu = lastUsed.get(pkg);
                 app.put("last", lu != null ? lu : 0L);
                 appsArr.put(app);
@@ -368,15 +362,16 @@ public class MainActivity extends Activity {
         return res;
     }
 
-    private void addDuration(Map<String, long[]> map, String pkg, long start, long end,
-                             long begin, int days) {
-        if (end <= start) return;
-        long dur = Math.min(end - start, 6L * 3600L * 1000L); // 单段封顶 6 小时，防脏数据
-        int idx = dayIndex(start, begin, days);
-        if (idx < 0 || idx >= days) return;
-        long[] arr = map.get(pkg);
-        if (arr == null) { arr = new long[days]; map.put(pkg, arr); }
-        arr[idx] += dur;
+    private String labelOf(PackageManager pm, String pkg, ApplicationInfo ai) {
+        String known = KNOWN_APP_NAMES.get(pkg);
+        if (known != null) return known;
+        if (ai != null) {
+            try {
+                String label = String.valueOf(pm.getApplicationLabel(ai));
+                if (label.length() > 0 && !label.equals(pkg)) return label;
+            } catch (Exception ignore) { }
+        }
+        return pkg;
     }
 
     private int dayIndex(long ts, long begin, int days) {
@@ -413,14 +408,15 @@ public class MainActivity extends Activity {
                 || label.contains("游戏")) return "游戏";
 
         String[] social = {"com.tencent.mm", "com.tencent.mobileqq", "com.sina.weibo",
-                "com.ss.android.ugc.aweme", "com.xingin.xhs", "com.zhihu.android",
-                "org.telegram.messenger", "com.whatsapp", "com.facebook.katana",
-                "com.instagram.android", "com.twitter.android", "com.discord"};
+                "com.xingin.xhs", "com.zhihu.android", "org.telegram.messenger",
+                "com.whatsapp", "com.facebook.katana", "com.instagram.android",
+                "com.twitter.android", "com.discord"};
         for (String s : social) if (p.equals(s)) return "社交";
 
-        String[] video = {"tv.danmaku.bili", "com.tencent.qqlive", "com.qiyi.video",
-                "com.youku.phone", "com.zhiliaoapp.musically", "com.google.android.youtube",
-                "com.netflix.mediaclient", "com.hunantv.imgo.activity", "com.ss.android.article.video"};
+        String[] video = {"com.ss.android.ugc.aweme", "tv.danmaku.bili", "com.tencent.qqlive",
+                "com.qiyi.video", "com.youku.phone", "com.zhiliaoapp.musically",
+                "com.google.android.youtube", "com.netflix.mediaclient",
+                "com.hunantv.imgo.activity", "com.ss.android.article.video"};
         for (String s : video) if (p.equals(s)) return "视频";
 
         String[] music = {"com.netease.cloudmusic", "com.tencent.qqmusic", "com.kugou.android",
@@ -433,10 +429,14 @@ public class MainActivity extends Activity {
         for (String s : shop) if (p.equals(s)) return "购物";
 
         String[] read = {"com.tencent.weread", "com.duokan.reader", "com.ss.android.article.news",
-                "com.iflytek.reading", "com.qidian.QDReader"};
+                "com.iflytek.reading", "com.qidian.QDReader", "com.phoenix.read"};
         for (String s : read) if (p.equals(s)) return "阅读资讯";
 
         if (p.contains("browser") || p.contains("chrome") || p.contains("firefox")) return "浏览器";
+
+        String[] tools = {"com.bytedance.trae.cn", "ai.x.grok.bot", "cn.ticktick.task",
+                "com.coloros.note", "com.heytap.market"};
+        for (String s : tools) if (p.equals(s)) return "工具";
 
         if (Build.VERSION.SDK_INT >= 26 && ai != null) {
             switch (ai.category) {

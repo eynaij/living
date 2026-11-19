@@ -152,7 +152,7 @@
           dim: d.total === 0
         };
       });
-      return { buckets, range: tail };
+      return { buckets, range: [days[days.length - 1]] };
     }
 
     if (state.period === 'week') {
@@ -285,11 +285,13 @@
     const total = list.reduce((s, x) => s + x.ms, 0);
     $('catTotal').textContent = total ? short(total) : '';
 
-    // 超过 6 类时合并尾部
+    // 超过 6 类时合并尾部，且只保留一个“其他”
     if (list.length > 6) {
       const head = list.slice(0, 5);
       const restMs = list.slice(5).reduce((s, x) => s + x.ms, 0);
-      head.push({ name: '其他', ms: restMs });
+      const other = head.find((x) => x.name === '其他');
+      if (other) other.ms += restMs;
+      else head.push({ name: '其他', ms: restMs });
       list = head;
     }
 
