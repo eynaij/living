@@ -2,6 +2,10 @@ android.content.res.Resources#getIdentifier present: false
 Web content present: true
 Referenced Strings:
 每天起床时间前提醒你起床打卡
+stats
+end_hour
+windowText
+end_minute
 file:///android_asset/index.html
 checked_dates
 package:
@@ -13,12 +17,17 @@ checkedToday
 android.intent.action.BOOT_COMPLETED
 android.provider.extra.APP_PACKAGE
 android.settings.APP_NOTIFICATION_SET...
+message
 wake_minute
 android.intent.action.MY_PACKAGE_REPL...
 android.settings.REQUEST_SCHEDULE_EXA...
 treeStage
 android.intent.action.LOCKED_BOOT_COM...
+今天已经打过卡了
+windowOpen
 android.settings.APPLICATION_DETAILS_...
+endHour
+windowStatus
 notification
 vibrator_manager
 android.permission.POST_NOTIFICATIONS
@@ -29,6 +38,8 @@ total
 hour
 today
 alarm
+ok
+endMinute
 minute
 vibrator
 com.muxi.REMINDER

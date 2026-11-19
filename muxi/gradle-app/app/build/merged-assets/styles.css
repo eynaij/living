@@ -28,6 +28,7 @@ header h1 { font-size: 22px; margin: 0; font-weight: 600; letter-spacing: 1px; }
 #checkBtn { width: 88%; margin: 14px auto 4px; padding: 18px 0; font-size: 17px; border: none; border-radius: 30px; background: linear-gradient(135deg,#43a047,#66bb6a); color: #fff; font-weight: 600; cursor: pointer; box-shadow: 0 8px 24px rgba(76,175,80,.35); transition: transform 120ms ease, box-shadow 200ms ease; display: block; }
 #checkBtn:active { transform: scale(.97); box-shadow: 0 4px 12px rgba(76,175,80,.25); }
 #checkBtn.done { background: linear-gradient(135deg,#558b2f,#8bc34a); box-shadow: none; }
+#checkBtn.locked { background: rgba(255,255,255,.14); color: #a5d6a7; box-shadow: none; }
 #checkedHint { text-align: center; font-size: 13px; color: #a5d6a7; opacity: .85; }
 
 /* 统计 */
@@ -35,7 +36,7 @@ header h1 { font-size: 22px; margin: 0; font-weight: 600; letter-spacing: 1px; }
 .stat-card { background: rgba(255,255,255,.08); border-radius: 14px; padding: 14px 8px; text-align: center; backdrop-filter: blur(10px); }
 .stat-card .num { font-size: 26px; font-weight: 700; color: #c8e6c9; font-variant-numeric: tabular-nums; }
 .stat-card .label { font-size: 12px; color: #a5d6a7; margin-top: 2px; opacity: .9; }
-#wakeCard .num { font-size: 22px; color: #ffcc80; }
+#wakeCard .num { font-size: 16px; line-height: 34px; color: #ffcc80; white-space: nowrap; }
 
 .hidden { display: none !important; }
 
@@ -62,3 +63,5 @@ header h1 { font-size: 22px; margin: 0; font-weight: 600; letter-spacing: 1px; }
 .modal-btns button { padding: 10px 22px; border-radius: 22px; border: none; font-size: 14px; cursor: pointer; }
 .modal-btns .primary { background: linear-gradient(135deg,#43a047,#66bb6a); color: #fff; }
 .modal-btns button:not(.primary) { background: rgba(255,255,255,.12); color: #e8f5e9; }
+.form-error { margin: 4px 0 0; color: #ef9a9a; font-size: 12px; text-align: right; }
+.toast { position: fixed; left: 50%; bottom: 42px; transform: translateX(-50%); max-width: 86%; padding: 12px 20px; border-radius: 22px; background: rgba(8,24,17,.94); color: #e8f5e9; font-size: 14px; text-align: center; box-shadow: 0 8px 28px rgba(0,0,0,.4); z-index: 200; }

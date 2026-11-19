@@ -1,12 +1,11 @@
 // 早起森林 - 前端逻辑
 (function () {
   const Bridge = (window.ZaoLin || {
-    // WebView 环境注入这个对象。浏览器调试时走本地模拟。
+    // 浏览器调试时的本地模拟；安卓 WebView 会注入原生对象。
     isCheckedToday: () => false,
-    checkIn: () => '{}',
-    getStats: () => '{}',
-    getWakeTime: () => '{"hour":7,"minute":0}',
-    setWakeTime: () => {},
+    checkIn: () => '{"ok":false,"message":"请在打卡时段内操作","stats":{}}',
+    getStats: () => '{"hour":7,"minute":0,"endHour":8,"endMinute":0,"windowOpen":true,"windowStatus":0}',
+    setWakeTime: () => true,
     hasNotificationPermission: () => true,
     openNotificationSettings: () => {},
     canScheduleExactAlarm: () => true,
@@ -14,25 +13,31 @@
   });
 
   const $ = (sel) => document.querySelector(sel);
-  const trees = [0,1,2,3,4].map((i) => document.getElementById('tree'+i));
-  const treeLabels = ['一颗种子','小嫩芽','一棵幼苗','茁壮小树','参天大树'];
-  const stageNames  = ['种子','发芽','幼苗','小树','大树'];
-  const nextTargets = ['','继续浇水 → 发芽','浇水 → 茁壮成长','浇水 → 长成小树','浇水 → 枝繁叶茂'];
+  const trees = [0, 1, 2, 3, 4].map((i) => document.getElementById('tree' + i));
+  const treeLabels = ['一颗种子', '小嫩芽', '一棵幼苗', '茁壮小树', '参天大树'];
+  const nextTargets = ['', '继续浇水 → 发芽', '浇水 → 茁壮成长', '浇水 → 长成小树', '浇水 → 枝繁叶茂'];
 
   let stats = null;
+  let toastTimer = null;
 
-  // --------- 初始化 ---------
   function init() {
     updateDate();
     refresh();
     bindEvents();
+    setInterval(refresh, 30000);
   }
 
   function updateDate() {
     const now = new Date();
-    const week = ['日','一','二','三','四','五','六'][now.getDay()];
-    $('#dateText').textContent = `${now.getFullYear()} 年 ${now.getMonth()+1} 月 ${now.getDate()} 日`;
+    const week = ['日', '一', '二', '三', '四', '五', '六'][now.getDay()];
+    $('#dateText').textContent = `${now.getFullYear()} 年 ${now.getMonth() + 1} 月 ${now.getDate()} 日`;
     $('#weekText').textContent = `· 星期${week}`;
+  }
+
+  function pad(value) { return String(value).padStart(2, '0'); }
+
+  function windowText() {
+    return stats.windowText || `${pad(stats.hour ?? 7)}:${pad(stats.minute ?? 0)}-${pad(stats.endHour ?? 8)}:${pad(stats.endMinute ?? 0)}`;
   }
 
   function refresh() {
@@ -42,32 +47,37 @@
       stats = {};
     }
 
-    // 树
     const stage = stats.treeStage ?? 0;
     trees.forEach((el, i) => el.classList.toggle('active', i === stage));
     $('#treeStageLabel').textContent = treeLabels[stage] || '';
-
-    // 进度条
-    const progress = stats.progress ?? 0;
-    $('#progressBar').style.width = progress + '%';
+    $('#progressBar').style.width = (stats.progress ?? 0) + '%';
     $('#progressText').textContent = nextTargets[stage] || '🌲 枝繁叶茂！';
 
-    // 打卡按钮
     const checked = !!stats.checkedToday;
+    const windowOpen = stats.windowOpen !== false;
     const btn = $('#checkBtn');
+    const hint = $('#checkedHint');
     btn.classList.toggle('done', checked);
-    btn.textContent = checked ? '✅ 今天已浇水' : '💧 浇水打卡';
-    $('#checkedHint').classList.toggle('hidden', !checked);
+    btn.classList.toggle('locked', !checked && !windowOpen);
 
-    // 统计
+    if (checked) {
+      btn.textContent = '✅ 今天已浇水';
+      hint.textContent = '今天已浇水，明天继续 🌱';
+      hint.classList.remove('hidden');
+    } else if (!windowOpen) {
+      btn.textContent = stats.windowStatus === -1 ? '🕒 未到打卡时间' : '⌛ 今日打卡已结束';
+      hint.textContent = `有效打卡时段 ${windowText()}`;
+      hint.classList.remove('hidden');
+    } else {
+      btn.textContent = '💧 浇水打卡';
+      hint.classList.add('hidden');
+    }
+
     $('#streakNum').textContent = stats.streak ?? 0;
     $('#totalNum').textContent = stats.total ?? 0;
-    const h = String(stats.hour ?? 7).padStart(2,'0');
-    const m = String(stats.minute ?? 0).padStart(2,'0');
-    $('#wakeNum').textContent = `${h}:${m}`;
+    $('#wakeNum').textContent = windowText();
   }
 
-  // --------- 事件绑定 ---------
   function bindEvents() {
     $('#checkBtn').addEventListener('click', onCheckIn);
     $('#gearBtn').addEventListener('click', openModal);
@@ -83,26 +93,56 @@
     });
   }
 
-  function onCheckIn() {
-    if (stats && stats.checkedToday) return;
-    // 水滴动画
+  function showToast(message) {
+    const toast = $('#toast');
+    toast.textContent = message;
+    toast.classList.remove('hidden');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.add('hidden'), 2400);
+  }
+
+  function playWaterAnimation() {
     const drop = $('#waterDrop');
     drop.classList.remove('hidden');
     drop.style.animation = 'none';
-    void drop.offsetWidth; // 重排
+    void drop.offsetWidth;
     drop.style.animation = '';
     setTimeout(() => drop.classList.add('hidden'), 950);
+  }
 
-    const result = Bridge.checkIn();
-    try { stats = JSON.parse(result); } catch (e) {}
+  function onCheckIn() {
+    if (stats?.checkedToday) {
+      showToast('今天已经打过卡了，明天继续');
+      return;
+    }
+    if (stats?.windowOpen === false) {
+      showToast(`请在 ${windowText()} 内打卡`);
+      return;
+    }
+
+    let result;
+    try {
+      result = JSON.parse(Bridge.checkIn());
+    } catch (e) {
+      showToast('打卡失败，请重试');
+      return;
+    }
+    if (result.stats) stats = result.stats;
     refresh();
+    if (!result.ok) {
+      showToast(result.message || `请在 ${windowText()} 内打卡`);
+      return;
+    }
+    playWaterAnimation();
+    showToast(result.message || '打卡成功，小树喝到水啦');
   }
 
   function openModal() {
-    const h = stats?.hour ?? 7;
-    const m = stats?.minute ?? 0;
-    $('#hIn').value = h;
-    $('#mIn').value = m;
+    $('#hIn').value = stats?.hour ?? 7;
+    $('#mIn').value = stats?.minute ?? 0;
+    $('#endHIn').value = stats?.endHour ?? 8;
+    $('#endMIn').value = stats?.endMinute ?? 0;
+    $('#settingsError').classList.add('hidden');
     updatePermStatus();
     $('#modal').classList.remove('hidden');
   }
@@ -125,19 +165,28 @@
   }
 
   function saveSettings() {
-    let h = parseInt($('#hIn').value, 10);
-    let m = parseInt($('#mIn').value, 10);
-    if (isNaN(h) || h < 0 || h > 23) h = 7;
-    if (isNaN(m) || m < 0 || m > 59) m = 0;
-    Bridge.setWakeTime(h, m);
+    const h = Number($('#hIn').value);
+    const m = Number($('#mIn').value);
+    const endH = Number($('#endHIn').value);
+    const endM = Number($('#endMIn').value);
+    const valid = [h, m, endH, endM].every(Number.isInteger)
+      && h >= 0 && h <= 23 && endH >= 0 && endH <= 23
+      && m >= 0 && m <= 59 && endM >= 0 && endM <= 59
+      && endH * 60 + endM > h * 60 + m;
+
+    if (!valid || !Bridge.setWakeTime(h, m, endH, endM)) {
+      $('#settingsError').classList.remove('hidden');
+      return;
+    }
     closeModal();
     refresh();
+    showToast(`打卡时段已设为 ${pad(h)}:${pad(m)}-${pad(endH)}:${pad(endM)}`);
   }
 
-  // 退出页面时尝试恢复 permission 状态（用户可能从设置回来）
   document.addEventListener('visibilitychange', () => {
-    if (!document.hidden && !$('#modal').classList.contains('hidden')) {
-      updatePermStatus();
+    if (!document.hidden) {
+      refresh();
+      if (!$('#modal').classList.contains('hidden')) updatePermStatus();
     }
   });
 

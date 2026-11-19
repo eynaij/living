@@ -95,8 +95,8 @@
       <div class="label">累计天数</div>
     </div>
     <div class="stat-card" id="wakeCard">
-      <div class="num" id="wakeNum">7:00</div>
-      <div class="label">起床时间</div>
+      <div class="num" id="wakeNum">07:00-08:00</div>
+      <div class="label">打卡时段</div>
     </div>
   </div>
 
@@ -106,16 +106,26 @@
 <div id="modal" class="modal hidden">
   <div class="modal-inner">
     <h3>🌅 设置</h3>
-    <p class="tip">起床时间前 10 分钟我会提醒你</p>
+    <p class="tip">只有时间段内打卡有效，开始时间前 10 分钟提醒你</p>
 
     <div class="row">
-      <label>起床时间</label>
+      <label>开始时间</label>
       <div class="time-box">
-        <input type="number" id="hIn" min="0" max="23" value="7">
+        <input type="number" id="hIn" min="0" max="23" value="7" aria-label="开始小时">
         <span>:</span>
-        <input type="number" id="mIn" min="0" max="59" value="0">
+        <input type="number" id="mIn" min="0" max="59" value="0" aria-label="开始分钟">
       </div>
     </div>
+
+    <div class="row">
+      <label>结束时间</label>
+      <div class="time-box">
+        <input type="number" id="endHIn" min="0" max="23" value="8" aria-label="结束小时">
+        <span>:</span>
+        <input type="number" id="endMIn" min="0" max="59" value="0" aria-label="结束分钟">
+      </div>
+    </div>
+    <div id="settingsError" class="form-error hidden">结束时间需晚于开始时间</div>
 
     <div id="permArea">
       <div class="perm-row">
@@ -139,6 +149,7 @@
   </div>
 </div>
 
+<div id="toast" class="toast hidden" role="status"></div>
 <script src="app.js"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
     maven="zaolin:app:unspecified"
     agpVersion="8.13.0"
     buildFolder="build"
-    bootClassPath="/tmp/android-sdk/platforms/android-36/android.jar:/tmp/android-sdk/build-tools/36.0.0/core-lambda-stubs.jar"
+    bootClassPath="/root/android-sdk/platforms/android-36/android.jar:/root/android-sdk/build-tools/36.0.0/core-lambda-stubs.jar"
     javaSourceLevel="1.8"
     compileTarget="android-36">
   <lintOptions

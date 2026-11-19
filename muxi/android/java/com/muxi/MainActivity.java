@@ -35,6 +35,8 @@ public class MainActivity extends android.app.Activity {
     private static final String KEY_DATES = "checked_dates";       // JSON 数组 YYYY-MM-DD
     private static final String KEY_HOUR = "wake_hour";
     private static final String KEY_MINUTE = "wake_minute";
+    private static final String KEY_END_HOUR = "end_hour";
+    private static final String KEY_END_MINUTE = "end_minute";
 
     private static final String CHANNEL_ID = "zaolin_reminder";
     private static final String ACTION_REMINDER = "com.muxi.REMINDER";
@@ -84,24 +86,35 @@ public class MainActivity extends android.app.Activity {
             return getCheckedDates().contains(todayKey());
         }
 
-        /** 打卡浇水。返回更新后的统计 JSON。 */
+        /** 仅在设定的打卡时间段内浇水，原生层再次校验防止绕过页面。 */
         @android.webkit.JavascriptInterface
         public String checkIn() {
-            SharedPreferences sp = getSharedPreferences(PREFS, MODE_PRIVATE);
-            Set<String> set = new HashSet<>(getCheckedDates());
-            boolean added = set.add(todayKey());
-            sp.edit().putString(KEY_DATES, new JSONArray(set).toString()).apply();
-            if (added) vibrate();
-            return buildStats().toString();
+            JSONObject result = new JSONObject();
+            try {
+                if (!isWithinCheckWindow()) {
+                    result.put("ok", false);
+                    result.put("message", "请在 " + checkWindowText() + " 内打卡");
+                } else {
+                    SharedPreferences sp = getSharedPreferences(PREFS, MODE_PRIVATE);
+                    Set<String> set = new HashSet<>(getCheckedDates());
+                    boolean added = set.add(todayKey());
+                    sp.edit().putString(KEY_DATES, new JSONArray(set).toString()).apply();
+                    if (added) vibrate();
+                    result.put("ok", true);
+                    result.put("message", added ? "打卡成功，小树喝到水啦" : "今天已经打过卡了");
+                }
+                result.put("stats", buildStats());
+            } catch (JSONException ignore) { }
+            return result.toString();
         }
 
-        /** 返回当前完整统计：连续天数、总天数、树木阶段、起床时间等。 */
+        /** 返回当前完整统计：连续天数、总天数、树木阶段、打卡时间段等。 */
         @android.webkit.JavascriptInterface
         public String getStats() {
             return buildStats().toString();
         }
 
-        /** 获取当前设定的起床时间 {"hour":7,"minute":0} */
+        /** 获取当前设定的打卡时间段。 */
         @android.webkit.JavascriptInterface
         public String getWakeTime() {
             SharedPreferences sp = getSharedPreferences(PREFS, MODE_PRIVATE);
@@ -109,22 +122,28 @@ public class MainActivity extends android.app.Activity {
                 JSONObject o = new JSONObject();
                 o.put("hour", sp.getInt(KEY_HOUR, 7));
                 o.put("minute", sp.getInt(KEY_MINUTE, 0));
+                o.put("endHour", sp.getInt(KEY_END_HOUR, 8));
+                o.put("endMinute", sp.getInt(KEY_END_MINUTE, 0));
                 return o.toString();
             } catch (JSONException e) {
-                return "{\"hour\":7,\"minute\":0}";
+                return "{\"hour\":7,\"minute\":0,\"endHour\":8,\"endMinute\":0}";
             }
         }
 
-        /** 设置起床时间（24 小时制）。并立即重新调度闹钟。 */
+        /** 设置打卡时间段（24 小时制），结束时间必须晚于开始时间。 */
         @android.webkit.JavascriptInterface
-        public void setWakeTime(int hour, int minute) {
-            if (hour < 0 || hour > 23 || minute < 0 || minute > 59) return;
+        public boolean setWakeTime(int hour, int minute, int endHour, int endMinute) {
+            if (!validTime(hour, minute) || !validTime(endHour, endMinute)) return false;
+            if (endHour * 60 + endMinute <= hour * 60 + minute) return false;
             getSharedPreferences(PREFS, MODE_PRIVATE)
                     .edit()
                     .putInt(KEY_HOUR, hour)
                     .putInt(KEY_MINUTE, minute)
+                    .putInt(KEY_END_HOUR, endHour)
+                    .putInt(KEY_END_MINUTE, endMinute)
                     .apply();
             scheduleReminder();
+            return true;
         }
 
         /** 是否能发通知。Android 13+ 若未授权需要用户手动到设置开启。 */
@@ -223,10 +242,42 @@ public class MainActivity extends android.app.Activity {
             o.put("today", today);
             o.put("hour", sp.getInt(KEY_HOUR, 7));
             o.put("minute", sp.getInt(KEY_MINUTE, 0));
+            o.put("endHour", sp.getInt(KEY_END_HOUR, 8));
+            o.put("endMinute", sp.getInt(KEY_END_MINUTE, 0));
+            o.put("windowOpen", isWithinCheckWindow());
+            o.put("windowStatus", checkWindowStatus());
+            o.put("windowText", checkWindowText());
             return o;
         } catch (JSONException e) {
             return new JSONObject();
         }
+    }
+
+    private static boolean validTime(int hour, int minute) {
+        return hour >= 0 && hour <= 23 && minute >= 0 && minute <= 59;
+    }
+
+    /** -1 未到打卡时间，0 时间段内，1 已过打卡时间。 */
+    private int checkWindowStatus() {
+        SharedPreferences sp = getSharedPreferences(PREFS, MODE_PRIVATE);
+        int start = sp.getInt(KEY_HOUR, 7) * 60 + sp.getInt(KEY_MINUTE, 0);
+        int end = sp.getInt(KEY_END_HOUR, 8) * 60 + sp.getInt(KEY_END_MINUTE, 0);
+        Calendar now = Calendar.getInstance();
+        int current = now.get(Calendar.HOUR_OF_DAY) * 60 + now.get(Calendar.MINUTE);
+        if (current < start) return -1;
+        if (current > end) return 1;
+        return 0;
+    }
+
+    private boolean isWithinCheckWindow() {
+        return checkWindowStatus() == 0;
+    }
+
+    private String checkWindowText() {
+        SharedPreferences sp = getSharedPreferences(PREFS, MODE_PRIVATE);
+        return String.format(Locale.US, "%02d:%02d-%02d:%02d",
+                sp.getInt(KEY_HOUR, 7), sp.getInt(KEY_MINUTE, 0),
+                sp.getInt(KEY_END_HOUR, 8), sp.getInt(KEY_END_MINUTE, 0));
     }
 
     private Set<String> getCheckedDates() {

@@ -3,85 +3,92 @@
 # min_api: 24
 # common_typos_disable
 # {"id":"com.android.tools.r8.mapping","version":"2.2"}
-# pg_map_id: 8b616254683190462fbbd319eb03c5c32d69f98098335bd8904e432509bcb68c
-# pg_map_hash: SHA-256 8b616254683190462fbbd319eb03c5c32d69f98098335bd8904e432509bcb68c
+# pg_map_id: a4dad08e74b5dadbd93826339059f363c07f8484ff28ba322d7480eda0beca0e
+# pg_map_hash: SHA-256 a4dad08e74b5dadbd93826339059f363c07f8484ff28ba322d7480eda0beca0e
 com.muxi.BootReceiver -> com.muxi.BootReceiver:
 # {"id":"sourceFile","fileName":"BootReceiver.java"}
     1:4:void <init>():8:8 -> <init>
-    1:5:void onReceive(android.content.Context,android.content.Intent):11:15 -> onReceive
+    3:9:void onReceive(android.content.Context,android.content.Intent):11:11 -> onReceive
+    10:19:void onReceive(android.content.Context,android.content.Intent):12:12 -> onReceive
+    20:27:void onReceive(android.content.Context,android.content.Intent):13:13 -> onReceive
+    28:35:void onReceive(android.content.Context,android.content.Intent):14:14 -> onReceive
+    36:39:void onReceive(android.content.Context,android.content.Intent):15:15 -> onReceive
 com.muxi.MainActivity -> com.muxi.MainActivity:
 # {"id":"sourceFile","fileName":"MainActivity.java"}
     1:4:void <init>():32:32 -> <init>
     1:5:java.lang.String access$100():32:32 -> access$100
     1:5:java.util.Set access$200(com.muxi.MainActivity):32:32 -> access$200
-    1:4:void access$300(com.muxi.MainActivity):32:32 -> access$300
-    1:5:org.json.JSONObject access$400(com.muxi.MainActivity):32:32 -> access$400
+    1:5:boolean access$300(com.muxi.MainActivity):32:32 -> access$300
+    1:5:java.lang.String access$400(com.muxi.MainActivity):32:32 -> access$400
     1:4:void access$500(com.muxi.MainActivity):32:32 -> access$500
-    1:7:org.json.JSONObject buildStats():189:189 -> buildStats
-    8:11:org.json.JSONObject buildStats():190:190 -> buildStats
-    12:15:org.json.JSONObject buildStats():191:191 -> buildStats
-    16:19:org.json.JSONObject buildStats():192:192 -> buildStats
-    20:23:org.json.JSONObject buildStats():194:194 -> buildStats
-    24:63:org.json.JSONObject buildStats():195:195 -> buildStats
-    64:73:org.json.JSONObject buildStats():212:212 -> buildStats
-    74:79:org.json.JSONObject buildStats():211:211 -> buildStats
-    80:84:org.json.JSONObject buildStats():210:210 -> buildStats
-    85:91:org.json.JSONObject buildStats():209:209 -> buildStats
-    92:96:org.json.JSONObject buildStats():217:217 -> buildStats
-    97:101:org.json.JSONObject buildStats():218:218 -> buildStats
-    102:106:org.json.JSONObject buildStats():219:219 -> buildStats
-    107:111:org.json.JSONObject buildStats():220:220 -> buildStats
-    112:116:org.json.JSONObject buildStats():221:221 -> buildStats
-    117:121:org.json.JSONObject buildStats():222:222 -> buildStats
-    122:126:org.json.JSONObject buildStats():223:223 -> buildStats
-    127:137:org.json.JSONObject buildStats():224:224 -> buildStats
-    138:149:org.json.JSONObject buildStats():225:225 -> buildStats
-    150:155:org.json.JSONObject buildStats():228:228 -> buildStats
-    1:8:int computeStreak(java.util.Set):249:249 -> computeStreak
-    9:17:int computeStreak(java.util.Set):250:250 -> computeStreak
-    18:21:int computeStreak(java.util.Set):251:251 -> computeStreak
-    22:29:int computeStreak(java.util.Set):255:255 -> computeStreak
-    30:37:int computeStreak(java.util.Set):256:256 -> computeStreak
-    38:40:int computeStreak(java.util.Set):257:257 -> computeStreak
-    41:56:int computeStreak(java.util.Set):259:259 -> computeStreak
-    57:61:int computeStreak(java.util.Set):261:261 -> computeStreak
-    1:6:void createNotificationChannel():269:269 -> createNotificationChannel
-    7:16:void createNotificationChannel():270:270 -> createNotificationChannel
-    17:22:void createNotificationChannel():271:271 -> createNotificationChannel
-    23:26:void createNotificationChannel():272:272 -> createNotificationChannel
-    27:29:void createNotificationChannel():274:274 -> createNotificationChannel
-    30:33:void createNotificationChannel():275:275 -> createNotificationChannel
-    1:7:java.util.Set getCheckedDates():233:233 -> getCheckedDates
-    8:15:java.util.Set getCheckedDates():234:234 -> getCheckedDates
-    16:20:java.util.Set getCheckedDates():235:235 -> getCheckedDates
-    21:29:java.util.Set getCheckedDates():237:237 -> getCheckedDates
-    30:46:java.util.Set getCheckedDates():238:238 -> getCheckedDates
-    1:10:void onBackPressed():350:350 -> onBackPressed
-    11:16:void onBackPressed():351:351 -> onBackPressed
-    17:20:void onBackPressed():354:354 -> onBackPressed
-    1:3:void onCreate(android.os.Bundle):47:49 -> onCreate
-    4:12:void onCreate(android.os.Bundle):51:59 -> onCreate
-    13:13:void onCreate(android.os.Bundle):61:61 -> onCreate
-    14:14:void onCreate(android.os.Bundle):69:69 -> onCreate
-    15:16:void onCreate(android.os.Bundle):71:72 -> onCreate
-    17:17:void onCreate(android.os.Bundle):74:74 -> onCreate
-    1:3:void scheduleReminder(android.content.Context):282:284 -> scheduleReminder
-    4:10:void scheduleReminder(android.content.Context):295:301 -> scheduleReminder
-    11:13:void scheduleReminder(android.content.Context):304:306 -> scheduleReminder
-    14:14:void scheduleReminder(android.content.Context):310:310 -> scheduleReminder
-    15:15:void scheduleReminder(android.content.Context):312:312 -> scheduleReminder
-    16:17:void scheduleReminder(android.content.Context):314:315 -> scheduleReminder
-    18:18:void scheduleReminder(android.content.Context):317:317 -> scheduleReminder
-    19:19:void scheduleReminder(android.content.Context):323:323 -> scheduleReminder
-    20:20:void scheduleReminder():327:327 -> scheduleReminder
-    1:19:java.lang.String todayKey():244:244 -> todayKey
-    1:6:void vibrate():331:331 -> vibrate
-    7:20:void vibrate():332:332 -> vibrate
-    21:26:void vibrate():333:333 -> vibrate
-    27:34:void vibrate():335:335 -> vibrate
-    35:48:void vibrate():337:337 -> vibrate
-    49:58:void vibrate():340:340 -> vibrate
-    59:62:void vibrate():341:341 -> vibrate
+    1:5:org.json.JSONObject access$600(com.muxi.MainActivity):32:32 -> access$600
+    1:5:boolean access$700(int,int):32:32 -> access$700
+    1:4:void access$800(com.muxi.MainActivity):32:32 -> access$800
+    1:4:org.json.JSONObject buildStats():208:211 -> buildStats
+    5:6:org.json.JSONObject buildStats():213:214 -> buildStats
+    7:7:org.json.JSONObject buildStats():231:231 -> buildStats
+    8:8:org.json.JSONObject buildStats():230:230 -> buildStats
+    9:9:org.json.JSONObject buildStats():229:229 -> buildStats
+    10:10:org.json.JSONObject buildStats():228:228 -> buildStats
+    11:24:org.json.JSONObject buildStats():236:249 -> buildStats
+    25:25:org.json.JSONObject buildStats():252:252 -> buildStats
+    1:7:int checkWindowStatus():262:262 -> checkWindowStatus
+    8:23:int checkWindowStatus():263:263 -> checkWindowStatus
+    24:40:int checkWindowStatus():264:264 -> checkWindowStatus
+    41:46:int checkWindowStatus():265:265 -> checkWindowStatus
+    47:68:int checkWindowStatus():266:266 -> checkWindowStatus
+    1:7:java.lang.String checkWindowText():277:277 -> checkWindowText
+    8:12:java.lang.String checkWindowText():278:278 -> checkWindowText
+    13:34:java.lang.String checkWindowText():279:279 -> checkWindowText
+    35:56:java.lang.String checkWindowText():280:280 -> checkWindowText
+    57:63:java.lang.String checkWindowText():278:278 -> checkWindowText
+    1:8:int computeStreak(java.util.Set):300:300 -> computeStreak
+    9:17:int computeStreak(java.util.Set):301:301 -> computeStreak
+    18:21:int computeStreak(java.util.Set):302:302 -> computeStreak
+    22:29:int computeStreak(java.util.Set):306:306 -> computeStreak
+    30:37:int computeStreak(java.util.Set):307:307 -> computeStreak
+    38:40:int computeStreak(java.util.Set):308:308 -> computeStreak
+    41:56:int computeStreak(java.util.Set):310:310 -> computeStreak
+    57:61:int computeStreak(java.util.Set):312:312 -> computeStreak
+    1:6:void createNotificationChannel():320:320 -> createNotificationChannel
+    7:16:void createNotificationChannel():321:321 -> createNotificationChannel
+    17:22:void createNotificationChannel():322:322 -> createNotificationChannel
+    23:26:void createNotificationChannel():323:323 -> createNotificationChannel
+    27:29:void createNotificationChannel():325:325 -> createNotificationChannel
+    30:33:void createNotificationChannel():326:326 -> createNotificationChannel
+    1:7:java.util.Set getCheckedDates():284:284 -> getCheckedDates
+    8:15:java.util.Set getCheckedDates():285:285 -> getCheckedDates
+    16:20:java.util.Set getCheckedDates():286:286 -> getCheckedDates
+    21:29:java.util.Set getCheckedDates():288:288 -> getCheckedDates
+    30:46:java.util.Set getCheckedDates():289:289 -> getCheckedDates
+    1:10:boolean isWithinCheckWindow():273:273 -> isWithinCheckWindow
+    1:10:void onBackPressed():401:401 -> onBackPressed
+    11:16:void onBackPressed():402:402 -> onBackPressed
+    17:20:void onBackPressed():405:405 -> onBackPressed
+    1:3:void onCreate(android.os.Bundle):49:51 -> onCreate
+    4:12:void onCreate(android.os.Bundle):53:61 -> onCreate
+    13:13:void onCreate(android.os.Bundle):63:63 -> onCreate
+    14:14:void onCreate(android.os.Bundle):71:71 -> onCreate
+    15:16:void onCreate(android.os.Bundle):73:74 -> onCreate
+    17:17:void onCreate(android.os.Bundle):76:76 -> onCreate
+    1:3:void scheduleReminder(android.content.Context):333:335 -> scheduleReminder
+    4:10:void scheduleReminder(android.content.Context):346:352 -> scheduleReminder
+    11:13:void scheduleReminder(android.content.Context):355:357 -> scheduleReminder
+    14:14:void scheduleReminder(android.content.Context):361:361 -> scheduleReminder
+    15:15:void scheduleReminder(android.content.Context):363:363 -> scheduleReminder
+    16:17:void scheduleReminder(android.content.Context):365:366 -> scheduleReminder
+    18:18:void scheduleReminder(android.content.Context):368:368 -> scheduleReminder
+    19:19:void scheduleReminder(android.content.Context):374:374 -> scheduleReminder
+    20:20:void scheduleReminder():378:378 -> scheduleReminder
+    1:19:java.lang.String todayKey():295:295 -> todayKey
+    1:16:boolean validTime(int,int):0:0 -> validTime
+    1:6:void vibrate():382:382 -> vibrate
+    7:20:void vibrate():383:383 -> vibrate
+    21:26:void vibrate():384:384 -> vibrate
+    27:34:void vibrate():386:386 -> vibrate
+    35:48:void vibrate():388:388 -> vibrate
+    49:58:void vibrate():391:391 -> vibrate
+    59:62:void vibrate():392:392 -> vibrate
 com.muxi.MainActivity$$ExternalSyntheticApiModelOutline0 -> com.muxi.a:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
@@ -110,45 +117,55 @@ com.muxi.MainActivity$$ExternalSyntheticApiModelOutline3 -> com.muxi.b:
       # {"id":"com.android.tools.r8.synthesized"}
 com.muxi.MainActivity$1 -> com.muxi.MainActivity$1:
 # {"id":"sourceFile","fileName":"MainActivity.java"}
-    1:6:void <init>(com.muxi.MainActivity):61:61 -> <init>
+    1:6:void <init>(com.muxi.MainActivity):63:63 -> <init>
     1:2:boolean shouldOverrideUrlLoading(android.webkit.WebView,android.webkit.WebResourceRequest):0:0 -> shouldOverrideUrlLoading
 com.muxi.MainActivity$Bridge -> com.muxi.MainActivity$Bridge:
 # {"id":"sourceFile","fileName":"MainActivity.java"}
-    1:1:void <init>(com.muxi.MainActivity):79:79 -> <init>
-    2:2:void <init>(com.muxi.MainActivity,com.muxi.MainActivity$1):79:79 -> <init>
-    1:6:boolean canScheduleExactAlarm():171:171 -> canScheduleExactAlarm
-    7:18:boolean canScheduleExactAlarm():172:172 -> canScheduleExactAlarm
-    19:29:boolean canScheduleExactAlarm():173:173 -> canScheduleExactAlarm
-    1:9:java.lang.String checkIn():90:90 -> checkIn
-    10:20:java.lang.String checkIn():91:91 -> checkIn
-    21:28:java.lang.String checkIn():92:92 -> checkIn
-    29:52:java.lang.String checkIn():93:93 -> checkIn
-    53:57:java.lang.String checkIn():94:94 -> checkIn
-    58:68:java.lang.String checkIn():95:95 -> checkIn
-    1:11:java.lang.String getStats():101:101 -> getStats
-    1:9:java.lang.String getWakeTime():107:107 -> getWakeTime
-    10:14:java.lang.String getWakeTime():109:109 -> getWakeTime
-    15:26:java.lang.String getWakeTime():110:110 -> getWakeTime
-    27:37:java.lang.String getWakeTime():111:111 -> getWakeTime
-    38:42:java.lang.String getWakeTime():112:112 -> getWakeTime
-    43:45:java.lang.String getWakeTime():114:114 -> getWakeTime
-    1:7:boolean hasNotificationPermission():133:133 -> hasNotificationPermission
-    8:21:boolean hasNotificationPermission():134:134 -> hasNotificationPermission
-    1:15:boolean isCheckedToday():84:84 -> isCheckedToday
-    1:9:void openAlarmSettings():162:162 -> openAlarmSettings
-    10:12:void openAlarmSettings():163:163 -> openAlarmSettings
-    13:18:void openAlarmSettings():164:164 -> openAlarmSettings
-    1:11:void openNotificationSettings():144:144 -> openNotificationSettings
-    12:22:void openNotificationSettings():145:145 -> openNotificationSettings
-    23:25:void openNotificationSettings():146:146 -> openNotificationSettings
-    26:31:void openNotificationSettings():147:147 -> openNotificationSettings
-    32:38:void openNotificationSettings():150:150 -> openNotificationSettings
-    39:63:void openNotificationSettings():151:151 -> openNotificationSettings
-    64:66:void openNotificationSettings():152:152 -> openNotificationSettings
-    67:72:void openNotificationSettings():153:153 -> openNotificationSettings
-    1:20:void resetAll():181:181 -> resetAll
-    21:26:void resetAll():182:182 -> resetAll
-    1:6:void setWakeTime(int,int):122:127 -> setWakeTime
+    1:1:void <init>(com.muxi.MainActivity):81:81 -> <init>
+    2:2:void <init>(com.muxi.MainActivity,com.muxi.MainActivity$1):81:81 -> <init>
+    1:6:boolean canScheduleExactAlarm():190:190 -> canScheduleExactAlarm
+    7:18:boolean canScheduleExactAlarm():191:191 -> canScheduleExactAlarm
+    19:29:boolean canScheduleExactAlarm():192:192 -> canScheduleExactAlarm
+    1:7:java.lang.String checkIn():92:92 -> checkIn
+    8:20:java.lang.String checkIn():94:94 -> checkIn
+    21:23:java.lang.String checkIn():95:95 -> checkIn
+    24:50:java.lang.String checkIn():96:96 -> checkIn
+    51:58:java.lang.String checkIn():98:98 -> checkIn
+    59:69:java.lang.String checkIn():99:99 -> checkIn
+    70:77:java.lang.String checkIn():100:100 -> checkIn
+    78:101:java.lang.String checkIn():101:101 -> checkIn
+    102:107:java.lang.String checkIn():102:102 -> checkIn
+    108:112:java.lang.String checkIn():103:103 -> checkIn
+    113:120:java.lang.String checkIn():104:104 -> checkIn
+    121:131:java.lang.String checkIn():106:106 -> checkIn
+    132:136:java.lang.String checkIn():108:108 -> checkIn
+    1:11:java.lang.String getStats():114:114 -> getStats
+    1:9:java.lang.String getWakeTime():120:120 -> getWakeTime
+    10:14:java.lang.String getWakeTime():122:122 -> getWakeTime
+    15:26:java.lang.String getWakeTime():123:123 -> getWakeTime
+    27:37:java.lang.String getWakeTime():124:124 -> getWakeTime
+    38:50:java.lang.String getWakeTime():125:125 -> getWakeTime
+    51:61:java.lang.String getWakeTime():126:126 -> getWakeTime
+    62:66:java.lang.String getWakeTime():127:127 -> getWakeTime
+    67:69:java.lang.String getWakeTime():129:129 -> getWakeTime
+    1:7:boolean hasNotificationPermission():152:152 -> hasNotificationPermission
+    8:21:boolean hasNotificationPermission():153:153 -> hasNotificationPermission
+    1:15:boolean isCheckedToday():86:86 -> isCheckedToday
+    1:9:void openAlarmSettings():181:181 -> openAlarmSettings
+    10:12:void openAlarmSettings():182:182 -> openAlarmSettings
+    13:18:void openAlarmSettings():183:183 -> openAlarmSettings
+    1:11:void openNotificationSettings():163:163 -> openNotificationSettings
+    12:22:void openNotificationSettings():164:164 -> openNotificationSettings
+    23:25:void openNotificationSettings():165:165 -> openNotificationSettings
+    26:31:void openNotificationSettings():166:166 -> openNotificationSettings
+    32:38:void openNotificationSettings():169:169 -> openNotificationSettings
+    39:63:void openNotificationSettings():170:170 -> openNotificationSettings
+    64:66:void openNotificationSettings():171:171 -> openNotificationSettings
+    67:72:void openNotificationSettings():172:172 -> openNotificationSettings
+    1:20:void resetAll():200:200 -> resetAll
+    21:26:void resetAll():201:201 -> resetAll
+    1:1:boolean setWakeTime(int,int,int,int):136:136 -> setWakeTime
+    2:9:boolean setWakeTime(int,int,int,int):138:145 -> setWakeTime
 com.muxi.R -> com.muxi.R:
     1:4:void <init>():0:0 -> <init>
 com.muxi.R$color -> com.muxi.R$color:
