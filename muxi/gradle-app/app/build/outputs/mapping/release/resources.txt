@@ -9,13 +9,16 @@ windowText
 end_minute
 file:///android_asset/index.html
 HH:mm
+bigTrees
 checked_dates
 package:
 ZaoLin
 progress
 早起提醒
 zaolin_prefs
+daysToFruit
 checkedToday
+curGrowth
 android.intent.action.BOOT_COMPLETED
 android.provider.extra.APP_PACKAGE
 android.settings.APP_NOTIFICATION_SET...
@@ -32,8 +35,10 @@ endHour
 windowStatus
 notification
 vibrator_manager
+last_settle
 android.permission.POST_NOTIFICATIONS
 streak
+withering
 zaolin_reminder
 wake_hour
 total
@@ -45,6 +50,7 @@ endMinute
 minute
 vibrator
 com.muxi.REMINDER
+growth
 @com.muxi:color/colorAccent : reachable=false
 @com.muxi:color/colorPrimary : reachable=false
 @com.muxi:color/colorPrimaryDark : reachable=false

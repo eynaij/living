@@ -38,6 +38,9 @@ public class MainActivity extends android.app.Activity {
     private static final String KEY_MINUTE = "wake_minute";
     private static final String KEY_END_HOUR = "end_hour";
     private static final String KEY_END_MINUTE = "end_minute";
+    private static final String KEY_GROWTH = "growth";           // 成长值：浇水+1，断浇每天-1
+    private static final String KEY_SETTLE = "last_settle";      // 上次成长值结算日 YYYY-MM-DD
+    private static final int DAYS_PER_TREE = 90;                 // 连续 90 成长值结一棵树
 
     private static final String CHANNEL_ID = "zaolin_reminder";
     private static final String ACTION_REMINDER = "com.muxi.REMINDER";
@@ -96,6 +99,7 @@ public class MainActivity extends android.app.Activity {
                     result.put("ok", false);
                     result.put("message", "请在 " + checkWindowText() + " 内打卡");
                 } else {
+                    settleGrowth();
                     SharedPreferences sp = getSharedPreferences(PREFS, MODE_PRIVATE);
                     Set<String> set = new HashSet<>(getCheckedDates());
                     boolean added = set.add(todayKey());
@@ -103,7 +107,11 @@ public class MainActivity extends android.app.Activity {
                     if (added) {
                         JSONObject times = getCheckTimes();
                         times.put(todayKey(), new SimpleDateFormat("HH:mm", Locale.US).format(new Date()));
-                        sp.edit().putString(KEY_TIMES, times.toString()).apply();
+                        sp.edit()
+                                .putString(KEY_TIMES, times.toString())
+                                .putInt(KEY_GROWTH, sp.getInt(KEY_GROWTH, 0) + 1)
+                                .putString(KEY_SETTLE, todayKey())
+                                .apply();
                         vibrate();
                     }
                     result.put("ok", true);
@@ -222,6 +230,7 @@ public class MainActivity extends android.app.Activity {
     // ------------------------------------------------------------------ 统计
 
     private JSONObject buildStats() {
+        settleGrowth();
         SharedPreferences sp = getSharedPreferences(PREFS, MODE_PRIVATE);
         Set<String> dates = getCheckedDates();
         String today = todayKey();
@@ -230,24 +239,27 @@ public class MainActivity extends android.app.Activity {
         int total = dates.size();
         int streak = computeStreak(dates);
 
-        // 树木阶段：0 种子 / 1 发芽(1-6) / 2 幼苗(7-29) / 3 小树(30-99) / 4 大树(100+)
-        int treeStage;
-        if (total == 0) treeStage = 0;
-        else if (total < 7) treeStage = 1;
-        else if (total < 30) treeStage = 2;
-        else if (total < 100) treeStage = 3;
-        else treeStage = 4;
+        // 成长模型：growth 浇水+1/断浇每天-1；每 90 成长值结一棵大树，之后培育新树苗
+        int growth = sp.getInt(KEY_GROWTH, 0);
+        int bigTrees = growth / DAYS_PER_TREE;   // 已结果的大树数
+        int cur = growth % DAYS_PER_TREE;        // 当前培育中树苗的成长值
+        boolean fruitJust = bigTrees > 0 && cur == 0; // 刚好结果，展示大树
 
-        // 当前阶段的进度百分比
-        int progress;
-        switch (treeStage) {
-            case 0: progress = 0; break;
-            case 1: progress = (total * 100) / 7; break;
-            case 2: progress = ((total - 7) * 100) / 23; break;
-            case 3: progress = ((total - 30) * 100) / 70; break;
-            default: progress = Math.min(100, ((total - 100) * 100) / 265); break;
-        }
-        if (progress > 100) progress = 100;
+        // 当前树苗阶段：0 种子 / 1 发芽(1-6) / 2 幼苗(7-29) / 3 小树(30-89) / 4 大树(结果)
+        int treeStage;
+        if (fruitJust) treeStage = 4;
+        else if (cur == 0) treeStage = 0;
+        else if (cur < 7) treeStage = 1;
+        else if (cur < 30) treeStage = 2;
+        else treeStage = 3;
+
+        int progress = fruitJust ? 100 : (cur * 100) / DAYS_PER_TREE;
+
+        // 萎缩中：昨天没打卡（已开始衰减），且今天还没补打卡
+        Calendar y = Calendar.getInstance();
+        y.add(Calendar.DAY_OF_MONTH, -1);
+        boolean checkedYesterday = dates.contains(new SimpleDateFormat("yyyy-MM-dd", Locale.US).format(y.getTime()));
+        boolean withering = growth > 0 && !checkedToday && !checkedYesterday;
 
         try {
             JSONObject o = new JSONObject();
@@ -256,6 +268,11 @@ public class MainActivity extends android.app.Activity {
             o.put("streak", streak);
             o.put("treeStage", treeStage);
             o.put("progress", progress);
+            o.put("growth", growth);
+            o.put("bigTrees", bigTrees);
+            o.put("curGrowth", cur);
+            o.put("daysToFruit", DAYS_PER_TREE - cur);
+            o.put("withering", withering);
             o.put("today", today);
             o.put("hour", sp.getInt(KEY_HOUR, 7));
             o.put("minute", sp.getInt(KEY_MINUTE, 0));
@@ -341,8 +358,42 @@ public class MainActivity extends android.app.Activity {
         return streak;
     }
 
-    // ------------------------------------------------------------------ 通知 & 闹钟
+    /**
+     * 惰性结算成长值：从上次结算日到昨天为止，有打卡 +1，断浇 -1（最低 0）。
+     * 今天不结算——今天还来得及打卡；打卡时单独 +1。老版本首次升级按连续天数迁移。
+     */
+    private void settleGrowth() {
+        SharedPreferences sp = getSharedPreferences(PREFS, MODE_PRIVATE);
+        Set<String> dates = getCheckedDates();
+        SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+        String today = fmt.format(new Date());
+        String settle = sp.getString(KEY_SETTLE, null);
 
+        if (settle == null) {
+            sp.edit()
+                    .putInt(KEY_GROWTH, computeStreak(dates))
+                    .putString(KEY_SETTLE, today)
+                    .apply();
+            return;
+        }
+        if (settle.compareTo(today) >= 0) return;
+
+        int growth = sp.getInt(KEY_GROWTH, 0);
+        try {
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(fmt.parse(settle));
+            while (true) {
+                cal.add(Calendar.DAY_OF_MONTH, 1);
+                String day = fmt.format(cal.getTime());
+                if (day.compareTo(today) >= 0) break; // 只结算到昨天
+                if (dates.contains(day)) growth++;
+                else growth = Math.max(0, growth - 1);
+            }
+        } catch (Exception ignore) { }
+        sp.edit().putInt(KEY_GROWTH, growth).putString(KEY_SETTLE, today).apply();
+    }
+
+    // ------------------------------------------------------------------ 通知 & 闹钟
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= 26) {
             NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);

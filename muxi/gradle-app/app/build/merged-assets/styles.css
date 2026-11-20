@@ -58,6 +58,11 @@ header h1 { font-size: 22px; margin: 0; font-weight: 600; letter-spacing: 1px; }
 #calFooter .dot { width: 8px; height: 8px; border-radius: 50%; background: #66bb6a; }
 #calMonthCount { margin-left: auto; }
 
+/* 森林与萎缩 */
+#witherHint { margin-top: 10px; font-size: 13px; color: #ffcc80; }
+#forest { margin-top: 10px; font-size: 15px; color: #a5d6a7; line-height: 1.7; }
+#treeStage.withering .tree.active { filter: saturate(.35) brightness(.85); }
+
 /* 打卡统计卡片 */
 #statsCard { background: rgba(255,255,255,.08); border-radius: 16px; padding: 16px 14px; margin-top: 16px; }
 #statsCardTitle { font-size: 15px; font-weight: 600; color: #e8f5e9; margin-bottom: 12px; }

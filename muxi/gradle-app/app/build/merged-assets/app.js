@@ -16,7 +16,6 @@
   const $ = (sel) => document.querySelector(sel);
   const trees = [0, 1, 2, 3, 4].map((i) => document.getElementById('tree' + i));
   const treeLabels = ['一颗种子', '小嫩芽', '一棵幼苗', '茁壮小树', '参天大树'];
-  const nextTargets = ['', '继续浇水 → 发芽', '浇水 → 茁壮成长', '浇水 → 长成小树', '浇水 → 枝繁叶茂'];
 
   let stats = null;
   let toastTimer = null;
@@ -55,10 +54,30 @@
     }
 
     const stage = stats.treeStage ?? 0;
+    const bigTrees = stats.bigTrees ?? 0;
     trees.forEach((el, i) => el.classList.toggle('active', i === stage));
-    $('#treeStageLabel').textContent = treeLabels[stage] || '';
+    $('#treeStageLabel').textContent = stage === 4 ? '参天大树 · 已结果 🍎' : (treeLabels[stage] || '');
     $('#progressBar').style.width = (stats.progress ?? 0) + '%';
-    $('#progressText').textContent = nextTargets[stage] || '🌲 枝繁叶茂！';
+
+    let progressText;
+    if ((stats.growth ?? 0) === 0) progressText = '每天浇水让小树长大，断浇会萎缩哦';
+    else if (stage === 4) progressText = `第 ${bigTrees} 棵树已结果 🍎 继续浇水培育新树苗`;
+    else progressText = `再浇 ${stats.daysToFruit ?? 90} 天结果`;
+    $('#progressText').textContent = progressText;
+
+    // 森林：已结果的大树
+    const forest = $('#forest');
+    if (bigTrees > 0) {
+      forest.textContent = `${'🌳'.repeat(Math.min(bigTrees, 10))} 已成大树 ${bigTrees} 棵`;
+      forest.classList.remove('hidden');
+    } else {
+      forest.classList.add('hidden');
+    }
+
+    // 萎缩提醒 + 枯萎视觉
+    const withering = !!stats.withering;
+    $('#witherHint').classList.toggle('hidden', !withering);
+    $('#treeStage').classList.toggle('withering', withering);
 
     const checked = !!stats.checkedToday;
     const windowOpen = stats.windowOpen !== false;
