@@ -86,6 +86,7 @@
 
     loadRecords();
     renderCalendar();
+    renderStats();
   }
 
   function loadRecords() {
@@ -125,6 +126,61 @@
   function shiftMonth(delta) {
     calDate = new Date(calDate.getFullYear(), calDate.getMonth() + delta, 1);
     renderCalendar();
+  }
+
+  function computeStats() {
+    const dates = Object.keys(records).sort();
+    const result = { best: 0, week: 0, total: dates.length, avgTime: '', first: '' };
+    if (!dates.length) return result;
+
+    result.first = dates[0];
+
+    // 最高连续：逐日比较相邻记录
+    let best = 1, run = 1;
+    const dayMs = 86400000;
+    for (let i = 1; i < dates.length; i++) {
+      const prev = new Date(dates[i - 1] + 'T00:00:00');
+      const cur = new Date(dates[i] + 'T00:00:00');
+      if (Math.round((cur - prev) / dayMs) === 1) {
+        run++;
+      } else {
+        run = 1;
+      }
+      if (run > best) best = run;
+    }
+    result.best = best;
+
+    // 本周（周一起）打卡次数
+    const now = new Date();
+    const monday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    monday.setDate(monday.getDate() - ((monday.getDay() + 6) % 7));
+    const weekStart = dayKey(monday);
+    const todayKey = dayKey(now);
+    result.week = dates.filter((d) => d >= weekStart && d <= todayKey).length;
+
+    // 平均打卡时间（仅统计有时间的记录）
+    const minutes = dates
+      .map((d) => records[d])
+      .filter((t) => /^\d{1,2}:\d{2}$/.test(t || ''))
+      .map((t) => {
+        const [h, m] = t.split(':').map(Number);
+        return h * 60 + m;
+      });
+    if (minutes.length) {
+      const avg = Math.round(minutes.reduce((a, b) => a + b, 0) / minutes.length);
+      result.avgTime = `${pad(Math.floor(avg / 60))}:${pad(avg % 60)}`;
+    }
+    return result;
+  }
+
+  function renderStats() {
+    const s = computeStats();
+    $('#statStreak').textContent = stats?.streak ?? 0;
+    $('#statBest').textContent = s.best;
+    $('#statWeek').textContent = s.week;
+    $('#statTotal').textContent = s.total;
+    $('#statAvgTime').textContent = s.avgTime || '--';
+    $('#statFirst').textContent = s.first || '--';
   }
 
   function bindEvents() {
