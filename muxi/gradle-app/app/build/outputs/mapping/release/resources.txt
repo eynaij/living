@@ -4,9 +4,11 @@ Referenced Strings:
 每天起床时间前提醒你起床打卡
 stats
 end_hour
+checked_times
 windowText
 end_minute
 file:///android_asset/index.html
+HH:mm
 checked_dates
 package:
 ZaoLin

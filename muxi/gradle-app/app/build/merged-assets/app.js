@@ -5,6 +5,7 @@
     isCheckedToday: () => false,
     checkIn: () => '{"ok":false,"message":"请在打卡时段内操作","stats":{}}',
     getStats: () => '{"hour":7,"minute":0,"endHour":8,"endMinute":0,"windowOpen":true,"windowStatus":0}',
+    getRecords: () => '{}',
     setWakeTime: () => true,
     hasNotificationPermission: () => true,
     openNotificationSettings: () => {},
@@ -19,8 +20,12 @@
 
   let stats = null;
   let toastTimer = null;
+  let records = {};
+  let calDate = null; // 日历当前显示月份（固定为当月 1 号）
 
   function init() {
+    calDate = new Date();
+    calDate.setDate(1);
     updateDate();
     refresh();
     bindEvents();
@@ -35,6 +40,8 @@
   }
 
   function pad(value) { return String(value).padStart(2, '0'); }
+
+  function dayKey(d) { return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`; }
 
   function windowText() {
     return stats.windowText || `${pad(stats.hour ?? 7)}:${pad(stats.minute ?? 0)}-${pad(stats.endHour ?? 8)}:${pad(stats.endMinute ?? 0)}`;
@@ -76,10 +83,54 @@
     $('#streakNum').textContent = stats.streak ?? 0;
     $('#totalNum').textContent = stats.total ?? 0;
     $('#wakeNum').textContent = windowText();
+
+    loadRecords();
+    renderCalendar();
+  }
+
+  function loadRecords() {
+    try {
+      records = JSON.parse(Bridge.getRecords()) || {};
+    } catch (e) {
+      records = {};
+    }
+  }
+
+  function renderCalendar() {
+    const y = calDate.getFullYear();
+    const m = calDate.getMonth();
+    $('#calTitle').textContent = `${y}年${m + 1}月`;
+
+    const first = (new Date(y, m, 1).getDay() + 6) % 7; // 周一开头的前置空格数
+    const days = new Date(y, m + 1, 0).getDate();
+    const today = stats?.today || dayKey(new Date());
+
+    let html = '';
+    for (let i = 0; i < first; i++) html += '<div class="cal-cell"></div>';
+    let monthCount = 0;
+    for (let d = 1; d <= days; d++) {
+      const key = `${y}-${pad(m + 1)}-${pad(d)}`;
+      const rec = records[key];
+      const checked = rec !== undefined;
+      if (checked) monthCount++;
+      let cls = 'cal-cell';
+      if (checked) cls += ' checked';
+      if (key === today) cls += ' today';
+      html += `<div class="${cls}"><span class="day">${d}</span>${checked && rec ? `<span class="time">${rec}</span>` : ''}</div>`;
+    }
+    $('#calGrid').innerHTML = html;
+    $('#calMonthCount').textContent = `本月 ${monthCount} 天`;
+  }
+
+  function shiftMonth(delta) {
+    calDate = new Date(calDate.getFullYear(), calDate.getMonth() + delta, 1);
+    renderCalendar();
   }
 
   function bindEvents() {
     $('#checkBtn').addEventListener('click', onCheckIn);
+    $('#calPrev').addEventListener('click', () => shiftMonth(-1));
+    $('#calNext').addEventListener('click', () => shiftMonth(1));
     $('#gearBtn').addEventListener('click', openModal);
     $('#saveBtn').addEventListener('click', saveSettings);
     $('#closeBtn').addEventListener('click', closeModal);

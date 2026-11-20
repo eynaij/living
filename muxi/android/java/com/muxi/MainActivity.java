@@ -33,6 +33,7 @@ public class MainActivity extends android.app.Activity {
 
     private static final String PREFS = "zaolin_prefs";
     private static final String KEY_DATES = "checked_dates";       // JSON 数组 YYYY-MM-DD
+    private static final String KEY_TIMES = "checked_times";       // JSON 对象 {YYYY-MM-DD: HH:mm}
     private static final String KEY_HOUR = "wake_hour";
     private static final String KEY_MINUTE = "wake_minute";
     private static final String KEY_END_HOUR = "end_hour";
@@ -99,13 +100,29 @@ public class MainActivity extends android.app.Activity {
                     Set<String> set = new HashSet<>(getCheckedDates());
                     boolean added = set.add(todayKey());
                     sp.edit().putString(KEY_DATES, new JSONArray(set).toString()).apply();
-                    if (added) vibrate();
+                    if (added) {
+                        JSONObject times = getCheckTimes();
+                        times.put(todayKey(), new SimpleDateFormat("HH:mm", Locale.US).format(new Date()));
+                        sp.edit().putString(KEY_TIMES, times.toString()).apply();
+                        vibrate();
+                    }
                     result.put("ok", true);
                     result.put("message", added ? "打卡成功，小树喝到水啦" : "今天已经打过卡了");
                 }
                 result.put("stats", buildStats());
             } catch (JSONException ignore) { }
             return result.toString();
+        }
+
+        /** 返回全部打卡记录 {"2026-11-20":"07:06",...}，旧记录无时间则为空串。 */
+        @android.webkit.JavascriptInterface
+        public String getRecords() {
+            JSONObject out = new JSONObject();
+            JSONObject times = getCheckTimes();
+            try {
+                for (String d : getCheckedDates()) out.put(d, times.optString(d, ""));
+            } catch (JSONException ignore) { }
+            return out.toString();
         }
 
         /** 返回当前完整统计：连续天数、总天数、树木阶段、打卡时间段等。 */
@@ -289,6 +306,16 @@ public class MainActivity extends android.app.Activity {
             for (int i = 0; i < arr.length(); i++) out.add(arr.getString(i));
         } catch (JSONException ignore) { }
         return out;
+    }
+
+    private JSONObject getCheckTimes() {
+        SharedPreferences sp = getSharedPreferences(PREFS, MODE_PRIVATE);
+        String raw = sp.getString(KEY_TIMES, "{}");
+        try {
+            return new JSONObject(raw == null ? "{}" : raw);
+        } catch (JSONException ignore) {
+            return new JSONObject();
+        }
     }
 
     private static String todayKey() {
