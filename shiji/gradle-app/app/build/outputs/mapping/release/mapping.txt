@@ -3,8 +3,8 @@
 # min_api: 24
 # common_typos_disable
 # {"id":"com.android.tools.r8.mapping","version":"2.2"}
-# pg_map_id: 74ea42ebb35bb0ee35edc2eeaeff5aa3e1df28efdf34e8e57521e21f33a6f27a
-# pg_map_hash: SHA-256 74ea42ebb35bb0ee35edc2eeaeff5aa3e1df28efdf34e8e57521e21f33a6f27a
+# pg_map_id: f0711a7b45a377fd394024380bc217939b081e3badc4e05cbb57491f2c2a3a59
+# pg_map_hash: SHA-256 f0711a7b45a377fd394024380bc217939b081e3badc4e05cbb57491f2c2a3a59
 com.shiji.MainActivity -> com.shiji.MainActivity:
 # {"id":"sourceFile","fileName":"MainActivity.java"}
     1:1:void <clinit>():50:50 -> <clinit>
@@ -13,55 +13,83 @@ com.shiji.MainActivity -> com.shiji.MainActivity:
     1:5:android.webkit.WebResourceResponse access$000(com.shiji.MainActivity,java.lang.String):46:46 -> access$000
     1:5:boolean access$200(com.shiji.MainActivity):46:46 -> access$200
     1:5:org.json.JSONObject access$300(com.shiji.MainActivity,int):46:46 -> access$300
-    1:1:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):400:400 -> categoryOf
-    2:2:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):403:403 -> categoryOf
-    3:5:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):406:408 -> categoryOf
-    6:6:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):410:410 -> categoryOf
-    7:7:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):414:414 -> categoryOf
-    8:8:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):416:416 -> categoryOf
-    9:9:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):420:420 -> categoryOf
-    10:10:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):422:422 -> categoryOf
-    11:11:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):425:425 -> categoryOf
-    12:12:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):427:427 -> categoryOf
-    13:13:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):429:429 -> categoryOf
-    14:14:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):431:431 -> categoryOf
-    15:15:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):433:433 -> categoryOf
-    16:16:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):435:435 -> categoryOf
-    17:17:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):437:437 -> categoryOf
-    18:18:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):439:439 -> categoryOf
-    19:20:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):441:442 -> categoryOf
-    21:21:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):433:433 -> categoryOf
-    22:22:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):414:414 -> categoryOf
-    23:23:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):420:420 -> categoryOf
-    24:24:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):425:425 -> categoryOf
-    25:27:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):453:455 -> categoryOf
-    28:28:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):439:439 -> categoryOf
-    29:29:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):448:448 -> categoryOf
-    30:30:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):435:435 -> categoryOf
-    1:1:int dayIndex(long,long,int):380:380 -> dayIndex
+    1:1:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):436:436 -> categoryOf
+    2:2:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):439:439 -> categoryOf
+    3:5:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):442:444 -> categoryOf
+    6:6:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):446:446 -> categoryOf
+    7:7:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):450:450 -> categoryOf
+    8:8:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):452:452 -> categoryOf
+    9:9:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):456:456 -> categoryOf
+    10:10:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):458:458 -> categoryOf
+    11:11:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):461:461 -> categoryOf
+    12:12:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):463:463 -> categoryOf
+    13:13:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):465:465 -> categoryOf
+    14:14:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):467:467 -> categoryOf
+    15:15:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):469:469 -> categoryOf
+    16:16:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):471:471 -> categoryOf
+    17:17:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):473:473 -> categoryOf
+    18:18:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):475:475 -> categoryOf
+    19:20:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):477:478 -> categoryOf
+    21:21:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):469:469 -> categoryOf
+    22:22:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):450:450 -> categoryOf
+    23:23:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):456:456 -> categoryOf
+    24:24:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):461:461 -> categoryOf
+    25:27:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):489:491 -> categoryOf
+    28:28:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):475:475 -> categoryOf
+    29:29:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):484:484 -> categoryOf
+    30:30:java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo):471:471 -> categoryOf
+    1:1:int dayIndex(long,long,int):404:404 -> dayIndex
     2:12:boolean hasUsageAccess():188:188 -> hasUsageAccess
     13:14:boolean hasUsageAccess():190:190 -> hasUsageAccess
     15:22:boolean hasUsageAccess():191:191 -> hasUsageAccess
     23:30:boolean hasUsageAccess():190:190 -> hasUsageAccess
-    1:1:java.lang.String labelOf(android.content.pm.PackageManager,java.lang.String,android.content.pm.ApplicationInfo):366:366 -> labelOf
-    2:3:java.lang.String labelOf(android.content.pm.PackageManager,java.lang.String,android.content.pm.ApplicationInfo):370:371 -> labelOf
-    1:5:java.util.Set launcherPackages():386:386 -> launcherPackages
-    6:12:java.util.Set launcherPackages():388:388 -> launcherPackages
-    13:17:java.util.Set launcherPackages():389:389 -> launcherPackages
-    18:42:java.util.Set launcherPackages():390:390 -> launcherPackages
-    43:51:java.util.Set launcherPackages():391:391 -> launcherPackages
-    1:9:java.lang.String mimeOf(java.lang.String):173:181 -> mimeOf
-    10:10:java.lang.String mimeOf(java.lang.String):177:177 -> mimeOf
-    11:11:java.lang.String mimeOf(java.lang.String):175:175 -> mimeOf
+    1:1:java.lang.String labelOf(android.content.pm.PackageManager,java.lang.String,android.content.pm.ApplicationInfo):390:390 -> labelOf
+    2:3:java.lang.String labelOf(android.content.pm.PackageManager,java.lang.String,android.content.pm.ApplicationInfo):394:395 -> labelOf
+    1:5:java.util.Set launcherPackages():422:422 -> launcherPackages
+    6:12:java.util.Set launcherPackages():424:424 -> launcherPackages
+    13:17:java.util.Set launcherPackages():425:425 -> launcherPackages
+    18:42:java.util.Set launcherPackages():426:426 -> launcherPackages
+    43:51:java.util.Set launcherPackages():427:427 -> launcherPackages
+    1:6:java.lang.String mimeOf(java.lang.String):173:173 -> mimeOf
+    7:17:java.lang.String mimeOf(java.lang.String):174:174 -> mimeOf
+    18:34:java.lang.String mimeOf(java.lang.String):175:175 -> mimeOf
+    35:45:java.lang.String mimeOf(java.lang.String):176:176 -> mimeOf
+    46:62:java.lang.String mimeOf(java.lang.String):177:177 -> mimeOf
+    63:73:java.lang.String mimeOf(java.lang.String):178:178 -> mimeOf
+    74:84:java.lang.String mimeOf(java.lang.String):179:179 -> mimeOf
+    85:95:java.lang.String mimeOf(java.lang.String):180:180 -> mimeOf
+    96:98:java.lang.String mimeOf(java.lang.String):181:181 -> mimeOf
+    99:101:java.lang.String mimeOf(java.lang.String):177:177 -> mimeOf
+    102:104:java.lang.String mimeOf(java.lang.String):175:175 -> mimeOf
+    1:4:long nextMidnightTs(long):411:411 -> nextMidnightTs
+    5:9:long nextMidnightTs(long):412:412 -> nextMidnightTs
+    10:15:long nextMidnightTs(long):413:413 -> nextMidnightTs
+    16:20:long nextMidnightTs(long):414:414 -> nextMidnightTs
+    21:25:long nextMidnightTs(long):415:415 -> nextMidnightTs
+    26:30:long nextMidnightTs(long):416:416 -> nextMidnightTs
+    31:33:long nextMidnightTs(long):417:417 -> nextMidnightTs
+    34:38:long nextMidnightTs(long):418:418 -> nextMidnightTs
     1:10:void onBackPressed():136:136 -> onBackPressed
     11:16:void onBackPressed():137:137 -> onBackPressed
     17:20:void onBackPressed():139:139 -> onBackPressed
-    1:1:void onCreate(android.os.Bundle):92:92 -> onCreate
-    2:4:void onCreate(android.os.Bundle):94:96 -> onCreate
-    5:7:void onCreate(android.os.Bundle):98:100 -> onCreate
-    8:14:void onCreate(android.os.Bundle):102:108 -> onCreate
-    15:16:void onCreate(android.os.Bundle):110:111 -> onCreate
-    17:18:void onCreate(android.os.Bundle):122:123 -> onCreate
+    1:3:void onCreate(android.os.Bundle):92:92 -> onCreate
+    4:10:void onCreate(android.os.Bundle):94:94 -> onCreate
+    11:16:void onCreate(android.os.Bundle):95:95 -> onCreate
+    17:19:void onCreate(android.os.Bundle):96:96 -> onCreate
+    20:26:void onCreate(android.os.Bundle):98:98 -> onCreate
+    27:29:void onCreate(android.os.Bundle):99:99 -> onCreate
+    30:34:void onCreate(android.os.Bundle):100:100 -> onCreate
+    35:41:void onCreate(android.os.Bundle):102:102 -> onCreate
+    42:44:void onCreate(android.os.Bundle):103:103 -> onCreate
+    45:48:void onCreate(android.os.Bundle):104:104 -> onCreate
+    49:51:void onCreate(android.os.Bundle):105:105 -> onCreate
+    52:54:void onCreate(android.os.Bundle):106:106 -> onCreate
+    55:59:void onCreate(android.os.Bundle):107:107 -> onCreate
+    60:62:void onCreate(android.os.Bundle):108:108 -> onCreate
+    63:72:void onCreate(android.os.Bundle):110:110 -> onCreate
+    73:82:void onCreate(android.os.Bundle):111:111 -> onCreate
+    83:95:void onCreate(android.os.Bundle):122:122 -> onCreate
+    96:103:void onCreate(android.os.Bundle):123:123 -> onCreate
     1:4:void onDestroy():145:145 -> onDestroy
     5:9:void onDestroy():146:146 -> onDestroy
     10:14:void onDestroy():147:147 -> onDestroy
@@ -74,29 +102,43 @@ com.shiji.MainActivity -> com.shiji.MainActivity:
     6:7:org.json.JSONObject queryUsageJson(int):257:258 -> queryUsageJson
     8:13:org.json.JSONObject queryUsageJson(int):262:267 -> queryUsageJson
     14:14:org.json.JSONObject queryUsageJson(int):269:269 -> queryUsageJson
-    15:16:org.json.JSONObject queryUsageJson(int):272:273 -> queryUsageJson
-    17:21:org.json.JSONObject queryUsageJson(int):275:279 -> queryUsageJson
-    22:22:org.json.JSONObject queryUsageJson(int):281:281 -> queryUsageJson
-    23:25:org.json.JSONObject queryUsageJson(int):284:286 -> queryUsageJson
-    26:26:org.json.JSONObject queryUsageJson(int):289:289 -> queryUsageJson
-    27:27:org.json.JSONObject queryUsageJson(int):291:291 -> queryUsageJson
-    28:29:org.json.JSONObject queryUsageJson(int):293:294 -> queryUsageJson
-    30:30:org.json.JSONObject queryUsageJson(int):296:296 -> queryUsageJson
-    31:33:org.json.JSONObject queryUsageJson(int):298:300 -> queryUsageJson
-    34:36:org.json.JSONObject queryUsageJson(int):304:306 -> queryUsageJson
-    37:37:org.json.JSONObject queryUsageJson(int):309:309 -> queryUsageJson
-    38:38:org.json.JSONObject queryUsageJson(int):311:311 -> queryUsageJson
-    39:39:org.json.JSONObject queryUsageJson(int):313:313 -> queryUsageJson
-    40:42:org.json.JSONObject queryUsageJson(int):315:317 -> queryUsageJson
-    43:44:org.json.JSONObject queryUsageJson(int):319:320 -> queryUsageJson
-    45:45:org.json.JSONObject queryUsageJson(int):323:323 -> queryUsageJson
-    46:53:org.json.JSONObject queryUsageJson(int):325:332 -> queryUsageJson
-    54:57:org.json.JSONObject queryUsageJson(int):336:339 -> queryUsageJson
-    58:60:org.json.JSONObject queryUsageJson(int):342:344 -> queryUsageJson
-    1:5:android.webkit.WebResourceResponse serveAsset(java.lang.String):156:160 -> serveAsset
-    6:10:android.webkit.WebResourceResponse serveAsset(java.lang.String):162:166 -> serveAsset
-    1:3:org.json.JSONArray sortApps(org.json.JSONArray):349:351 -> sortApps
-    4:5:org.json.JSONArray sortApps(org.json.JSONArray):360:361 -> sortApps
+    15:16:org.json.JSONObject queryUsageJson(int):274:275 -> queryUsageJson
+    17:21:org.json.JSONObject queryUsageJson(int):277:281 -> queryUsageJson
+    22:22:org.json.JSONObject queryUsageJson(int):283:283 -> queryUsageJson
+    23:25:org.json.JSONObject queryUsageJson(int):286:288 -> queryUsageJson
+    26:27:org.json.JSONObject queryUsageJson(int):291:292 -> queryUsageJson
+    28:29:org.json.JSONObject queryUsageJson(int):297:298 -> queryUsageJson
+    30:31:org.json.JSONObject queryUsageJson(int):305:306 -> queryUsageJson
+    32:32:org.json.JSONObject queryUsageJson(int):308:308 -> queryUsageJson
+    33:33:org.json.JSONObject queryUsageJson(int):310:310 -> queryUsageJson
+    34:35:org.json.JSONObject queryUsageJson(int):312:313 -> queryUsageJson
+    36:37:org.json.JSONObject queryUsageJson(int):316:317 -> queryUsageJson
+    38:40:org.json.JSONObject queryUsageJson(int):322:324 -> queryUsageJson
+    41:43:org.json.JSONObject queryUsageJson(int):328:330 -> queryUsageJson
+    44:44:org.json.JSONObject queryUsageJson(int):333:333 -> queryUsageJson
+    45:45:org.json.JSONObject queryUsageJson(int):335:335 -> queryUsageJson
+    46:46:org.json.JSONObject queryUsageJson(int):337:337 -> queryUsageJson
+    47:49:org.json.JSONObject queryUsageJson(int):339:341 -> queryUsageJson
+    50:51:org.json.JSONObject queryUsageJson(int):343:344 -> queryUsageJson
+    52:52:org.json.JSONObject queryUsageJson(int):347:347 -> queryUsageJson
+    53:60:org.json.JSONObject queryUsageJson(int):349:356 -> queryUsageJson
+    61:64:org.json.JSONObject queryUsageJson(int):360:363 -> queryUsageJson
+    65:67:org.json.JSONObject queryUsageJson(int):366:368 -> queryUsageJson
+    1:12:android.webkit.WebResourceResponse serveAsset(java.lang.String):156:156 -> serveAsset
+    13:18:android.webkit.WebResourceResponse serveAsset(java.lang.String):157:157 -> serveAsset
+    19:30:android.webkit.WebResourceResponse serveAsset(java.lang.String):158:158 -> serveAsset
+    31:59:android.webkit.WebResourceResponse serveAsset(java.lang.String):159:159 -> serveAsset
+    60:68:android.webkit.WebResourceResponse serveAsset(java.lang.String):160:160 -> serveAsset
+    69:76:android.webkit.WebResourceResponse serveAsset(java.lang.String):162:162 -> serveAsset
+    77:81:android.webkit.WebResourceResponse serveAsset(java.lang.String):163:163 -> serveAsset
+    82:88:android.webkit.WebResourceResponse serveAsset(java.lang.String):164:164 -> serveAsset
+    89:95:android.webkit.WebResourceResponse serveAsset(java.lang.String):165:165 -> serveAsset
+    96:111:android.webkit.WebResourceResponse serveAsset(java.lang.String):166:166 -> serveAsset
+    1:7:org.json.JSONArray sortApps(org.json.JSONArray):373:373 -> sortApps
+    8:23:org.json.JSONArray sortApps(org.json.JSONArray):374:374 -> sortApps
+    24:31:org.json.JSONArray sortApps(org.json.JSONArray):375:375 -> sortApps
+    32:36:org.json.JSONArray sortApps(org.json.JSONArray):384:384 -> sortApps
+    37:55:org.json.JSONArray sortApps(org.json.JSONArray):385:385 -> sortApps
 com.shiji.MainActivity$$ExternalSyntheticApiModelOutline0 -> com.shiji.a:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
@@ -108,17 +150,21 @@ com.shiji.MainActivity$1 -> com.shiji.MainActivity$1:
     1:3:android.webkit.WebResourceResponse shouldInterceptRequest(android.webkit.WebView,android.webkit.WebResourceRequest):114:116 -> shouldInterceptRequest
 com.shiji.MainActivity$2 -> com.shiji.MainActivity$2:
 # {"id":"sourceFile","fileName":"MainActivity.java"}
-    1:6:void <init>(com.shiji.MainActivity):351:351 -> <init>
-    1:1:int compare(java.lang.Object,java.lang.Object):351:351 -> compare
-    2:2:int compare(org.json.JSONObject,org.json.JSONObject):354:354 -> compare
+    1:6:void <init>(com.shiji.MainActivity):375:375 -> <init>
+    1:1:int compare(java.lang.Object,java.lang.Object):375:375 -> compare
+    2:2:int compare(org.json.JSONObject,org.json.JSONObject):378:378 -> compare
 com.shiji.MainActivity$Bridge -> com.shiji.MainActivity$Bridge:
 # {"id":"sourceFile","fileName":"MainActivity.java"}
     1:1:void <init>(com.shiji.MainActivity):200:200 -> <init>
     2:2:void <init>(com.shiji.MainActivity,com.shiji.MainActivity$1):200:200 -> <init>
     1:7:boolean isGranted():203:203 -> isGranted
-    1:1:java.lang.String loadUsage(int):228:228 -> loadUsage
-    2:6:java.lang.String loadUsage(int):231:235 -> loadUsage
-    7:7:java.lang.String loadUsage(int):237:237 -> loadUsage
+    1:12:java.lang.String loadUsage(int):228:228 -> loadUsage
+    13:17:java.lang.String loadUsage(int):231:231 -> loadUsage
+    18:23:java.lang.String loadUsage(int):232:232 -> loadUsage
+    24:30:java.lang.String loadUsage(int):233:233 -> loadUsage
+    31:43:java.lang.String loadUsage(int):234:234 -> loadUsage
+    44:48:java.lang.String loadUsage(int):235:235 -> loadUsage
+    49:51:java.lang.String loadUsage(int):237:237 -> loadUsage
     1:9:void openSettings():209:209 -> openSettings
     10:34:void openSettings():210:210 -> openSettings
     35:40:void openSettings():211:211 -> openSettings

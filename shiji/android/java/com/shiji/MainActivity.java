@@ -268,7 +268,9 @@ public class MainActivity extends Activity {
         long begin = todayStart - (long) (days - 1) * 86400000L;
         long now = System.currentTimeMillis();
 
-        // 直接使用系统按天聚合的前台时长，避免事件配对在跨天、息屏时产生误差。
+        // 直接使用系统按天聚合的前台时长，但需要处理跨零点的记录：
+        // 每条 UsageStats 可能覆盖多天（如昨晚 23:00 → 今早 01:00），
+        // 按时间比例拆分 totalTimeInForeground 到各天，避免多算或漏算。
         Map<String, long[]> perAppPerDay = new HashMap<>();   // pkg -> long[days]
         Map<String, Long> lastUsed = new HashMap<>();
 
@@ -283,21 +285,43 @@ public class MainActivity extends Activity {
         if (stats != null) {
             for (android.app.usage.UsageStats us : stats) {
                 String pkg = us.getPackageName();
-                long t = us.getTotalTimeInForeground();
-                if (pkg == null || t <= 0) continue;
+                long total = us.getTotalTimeInForeground();
+                if (pkg == null || total <= 0) continue;
 
-                int idx = dayIndex(us.getFirstTimeStamp(), begin, days);
-                if (idx < 0 || idx >= days) continue;
-                long[] arr = perAppPerDay.get(pkg);
-                if (arr == null) {
-                    arr = new long[days];
-                    perAppPerDay.put(pkg, arr);
-                }
-                arr[idx] += t;
-
+                long first = us.getFirstTimeStamp();
                 long last = us.getLastTimeUsed();
+                if (last <= first) last = first + total;
+                if (last < begin || first > now) continue;
+
+                // 把 [first, last] 裁剪到 [begin, now]
+                long segStart = Math.max(first, begin);
+                long segEnd = Math.min(last, now);
+                if (segEnd <= segStart) continue;
+
+                // 按自然日边界拆分
+                // 精确：逐天累加该段在前台占用的时间
+                long cursor = segStart;
+                while (cursor < segEnd) {
+                    long nextMidnight = nextMidnightTs(cursor);
+                    long dayEndTs = Math.min(nextMidnight, segEnd);
+                    long slice = dayEndTs - cursor;
+                    int idx = dayIndex(cursor, begin, days);
+                    if (idx >= 0 && idx < days && slice > 0) {
+                        long[] arr = perAppPerDay.get(pkg);
+                        if (arr == null) {
+                            arr = new long[days];
+                            perAppPerDay.put(pkg, arr);
+                        }
+                        // 按比例分摊 totalTimeInForeground
+                        long share = total * slice / Math.max(1, (last - first));
+                        arr[idx] += share;
+                    }
+                    cursor = dayEndTs;
+                }
+
+                long lu = us.getLastTimeUsed();
                 Long previous = lastUsed.get(pkg);
-                if (previous == null || last > previous) lastUsed.put(pkg, last);
+                if (previous == null || lu > previous) lastUsed.put(pkg, lu);
             }
         }
 
@@ -380,6 +404,18 @@ public class MainActivity extends Activity {
         int idx = (int) (diff / 86400000L);
         if (idx >= days) idx = days - 1;
         return idx;
+    }
+
+    /** 返回 ts 所在自然日的下一个零点时间戳（本地时区）。 */
+    private long nextMidnightTs(long ts) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTimeInMillis(ts);
+        cal.add(Calendar.DAY_OF_MONTH, 1);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        return cal.getTimeInMillis();
     }
 
     private Set<String> launcherPackages() {
