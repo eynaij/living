@@ -47,8 +47,9 @@ com.muxi.REMINDER
 @com.muxi:color/colorPrimary : reachable=false
 @com.muxi:color/colorPrimaryDark : reachable=false
 @com.muxi:color/icon_bg : reachable=false
+@com.muxi:drawable/ic_launcher_background : reachable=false
 @com.muxi:mipmap/ic_launcher : reachable=true
-    @com.muxi:color/icon_bg
+    @com.muxi:drawable/ic_launcher_background
     @com.muxi:mipmap/ic_launcher_foreground
 @com.muxi:mipmap/ic_launcher_foreground : reachable=false
 @com.muxi:string/app_name : reachable=true
@@ -56,9 +57,9 @@ com.muxi.REMINDER
     @com.muxi:color/icon_bg
 
 The root reachable resources are:
- mipmap:ic_launcher:2130837504
- string:app_name:2130903040
- style:AppTheme:2130968576
+ mipmap:ic_launcher:2130903040
+ string:app_name:2130968576
+ style:AppTheme:2131034112
 Unused resources are: 
  color:colorAccent:2130771968
  color:colorPrimary:2130771969

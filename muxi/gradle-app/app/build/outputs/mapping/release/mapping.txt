@@ -3,8 +3,8 @@
 # min_api: 24
 # common_typos_disable
 # {"id":"com.android.tools.r8.mapping","version":"2.2"}
-# pg_map_id: a4dad08e74b5dadbd93826339059f363c07f8484ff28ba322d7480eda0beca0e
-# pg_map_hash: SHA-256 a4dad08e74b5dadbd93826339059f363c07f8484ff28ba322d7480eda0beca0e
+# pg_map_id: d986038d69307a9fc8ff9fc08687e33b071ec487c6be98ac43effc7b596207eb
+# pg_map_hash: SHA-256 d986038d69307a9fc8ff9fc08687e33b071ec487c6be98ac43effc7b596207eb
 com.muxi.BootReceiver -> com.muxi.BootReceiver:
 # {"id":"sourceFile","fileName":"BootReceiver.java"}
     1:4:void <init>():8:8 -> <init>
@@ -24,14 +24,31 @@ com.muxi.MainActivity -> com.muxi.MainActivity:
     1:5:org.json.JSONObject access$600(com.muxi.MainActivity):32:32 -> access$600
     1:5:boolean access$700(int,int):32:32 -> access$700
     1:4:void access$800(com.muxi.MainActivity):32:32 -> access$800
-    1:4:org.json.JSONObject buildStats():208:211 -> buildStats
-    5:6:org.json.JSONObject buildStats():213:214 -> buildStats
-    7:7:org.json.JSONObject buildStats():231:231 -> buildStats
-    8:8:org.json.JSONObject buildStats():230:230 -> buildStats
-    9:9:org.json.JSONObject buildStats():229:229 -> buildStats
-    10:10:org.json.JSONObject buildStats():228:228 -> buildStats
-    11:24:org.json.JSONObject buildStats():236:249 -> buildStats
-    25:25:org.json.JSONObject buildStats():252:252 -> buildStats
+    1:7:org.json.JSONObject buildStats():208:208 -> buildStats
+    8:11:org.json.JSONObject buildStats():209:209 -> buildStats
+    12:15:org.json.JSONObject buildStats():210:210 -> buildStats
+    16:19:org.json.JSONObject buildStats():211:211 -> buildStats
+    20:23:org.json.JSONObject buildStats():213:213 -> buildStats
+    24:63:org.json.JSONObject buildStats():214:214 -> buildStats
+    64:73:org.json.JSONObject buildStats():231:231 -> buildStats
+    74:79:org.json.JSONObject buildStats():230:230 -> buildStats
+    80:84:org.json.JSONObject buildStats():229:229 -> buildStats
+    85:91:org.json.JSONObject buildStats():228:228 -> buildStats
+    92:96:org.json.JSONObject buildStats():236:236 -> buildStats
+    97:101:org.json.JSONObject buildStats():237:237 -> buildStats
+    102:106:org.json.JSONObject buildStats():238:238 -> buildStats
+    107:111:org.json.JSONObject buildStats():239:239 -> buildStats
+    112:116:org.json.JSONObject buildStats():240:240 -> buildStats
+    117:121:org.json.JSONObject buildStats():241:241 -> buildStats
+    122:126:org.json.JSONObject buildStats():242:242 -> buildStats
+    127:137:org.json.JSONObject buildStats():243:243 -> buildStats
+    138:148:org.json.JSONObject buildStats():244:244 -> buildStats
+    149:161:org.json.JSONObject buildStats():245:245 -> buildStats
+    162:172:org.json.JSONObject buildStats():246:246 -> buildStats
+    173:181:org.json.JSONObject buildStats():247:247 -> buildStats
+    182:190:org.json.JSONObject buildStats():248:248 -> buildStats
+    191:200:org.json.JSONObject buildStats():249:249 -> buildStats
+    201:206:org.json.JSONObject buildStats():252:252 -> buildStats
     1:7:int checkWindowStatus():262:262 -> checkWindowStatus
     8:23:int checkWindowStatus():263:263 -> checkWindowStatus
     24:40:int checkWindowStatus():264:264 -> checkWindowStatus
@@ -169,6 +186,8 @@ com.muxi.MainActivity$Bridge -> com.muxi.MainActivity$Bridge:
 com.muxi.R -> com.muxi.R:
     1:4:void <init>():0:0 -> <init>
 com.muxi.R$color -> com.muxi.R$color:
+    1:4:void <init>():0:0 -> <init>
+com.muxi.R$drawable -> com.muxi.R$drawable:
     1:4:void <init>():0:0 -> <init>
 com.muxi.R$mipmap -> com.muxi.R$mipmap:
     1:4:void <init>():0:0 -> <init>
