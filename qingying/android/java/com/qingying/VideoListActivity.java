@@ -2,6 +2,7 @@ package com.qingying;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,10 @@ public class VideoListActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_list);
+        // 浅色主题下导航栏按钮用深色
+        if (Build.VERSION.SDK_INT >= 26) {
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
+        }
 
         bucketId = getIntent().getStringExtra("bucketId");
         String bucketName = getIntent().getStringExtra("bucketName");
@@ -116,7 +121,7 @@ public class VideoListActivity extends Activity {
 
         private void updateStar(TextView star, boolean favorite) {
             star.setText(favorite ? "★" : "☆");
-            star.setTextColor(favorite ? 0xFFFFC94D : 0xFF8C99A9);
+            star.setTextColor(favorite ? 0xFF14B8A6 : 0xFFB9C6CF);
         }
     }
 }

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.ContentUris;
 import android.content.pm.ActivityInfo;
 import android.media.AudioAttributes;
+import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
 import android.media.PlaybackParams;
 import android.net.Uri;
@@ -22,6 +23,7 @@ import android.view.WindowInsets;
 import android.view.WindowInsetsController;
 import android.view.WindowManager;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -47,7 +49,6 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
     private MediaPlayer player;
     private SurfaceView surface;
     private View controls;
-    private View centerControls;
     private View badge;
     private TextView badgeText;
     private TextView titleView;
@@ -56,10 +57,12 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
     private TextView speedView;
     private TextView hint;
     private TextView favBtn;
-    private TextView lockBtn;
+    private ImageView lockBtn;
     private TextView prevBtn;
     private TextView nextBtn;
     private SeekBar seekBar;
+    /** 单帧时长（毫秒），按视频帧率计算，取不到时按 25fps 处理。 */
+    private long frameMs = 40;
 
     private View playlistPanel;
     private TextView playlistTitle;
@@ -90,7 +93,6 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
     private final Runnable hideControls = () -> {
         if (player != null && player.isPlaying() && !boosting && !rewinding) {
             controls.setVisibility(View.GONE);
-            centerControls.setVisibility(View.GONE);
             lockBtn.setVisibility(View.GONE);
         }
     };
@@ -149,7 +151,6 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
 
         surface = findViewById(R.id.surface);
         controls = findViewById(R.id.controls);
-        centerControls = findViewById(R.id.centerControls);
         badge = findViewById(R.id.badge);
         titleView = findViewById(R.id.title);
         timeView = findViewById(R.id.time);
@@ -177,6 +178,8 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
         speedView.setOnClickListener(v -> cycleSpeed());
         findViewById(R.id.back10).setOnClickListener(v -> jumpBy(-10_000));
         findViewById(R.id.forward10).setOnClickListener(v -> jumpBy(10_000));
+        findViewById(R.id.framePrev).setOnClickListener(v -> stepFrame(-1));
+        findViewById(R.id.frameNext).setOnClickListener(v -> stepFrame(1));
         prevBtn.setOnClickListener(v -> playAt(index - 1));
         nextBtn.setOnClickListener(v -> playAt(index + 1));
         favBtn.setOnClickListener(v -> toggleFavorite());
@@ -279,7 +282,6 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
     private void showPlaylist() {
         playlistPanel.setVisibility(View.VISIBLE);
         controls.setVisibility(View.GONE);
-        centerControls.setVisibility(View.GONE);
         lockBtn.setVisibility(View.GONE);
         ui.removeCallbacks(hideControls);
         playlistAdapter.notifyDataSetChanged();
@@ -339,11 +341,11 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
         rotationLocked = !rotationLocked;
         if (rotationLocked) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
-            lockBtn.setText("🔒");
+            lockBtn.setImageResource(R.drawable.ic_lock_closed);
             showBadge("已锁定屏幕方向", 900);
         } else {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR);
-            lockBtn.setText("🔓");
+            lockBtn.setImageResource(R.drawable.ic_lock_open);
             showBadge("已恢复自动旋转", 900);
         }
     }
@@ -383,6 +385,7 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
     }
 
     private void initPlayer(SurfaceHolder holder) {
+        detectFrameRate();
         try {
             player = new MediaPlayer();
             player.setAudioAttributes(new AudioAttributes.Builder()
@@ -510,6 +513,49 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
         seek(target);
         showBadge(deltaMs > 0 ? "+10s" : "−10s", 700);
         setControlsVisible(true);
+    }
+
+    /** 逐帧步进：自动暂停，按帧率前进/后退一帧。 */
+    private void stepFrame(int direction) {
+        if (!prepared || player == null) return;
+        if (player.isPlaying()) {
+            player.pause();
+            updatePlayIcon();
+        }
+        long target = player.getCurrentPosition() + direction * frameMs;
+        target = Math.max(0, Math.min(player.getDuration(), target));
+        try {
+            if (Build.VERSION.SDK_INT >= 26) {
+                player.seekTo((int) target, MediaPlayer.SEEK_CLOSEST);
+            } else {
+                player.seekTo((int) target);
+            }
+        } catch (Exception ignored) {
+        }
+        seekBar.setProgress((int) target);
+        timeView.setText(Fmt.duration((int) target) + " / " + Fmt.duration(player.getDuration()));
+        showBadge("逐帧 · " + Fmt.duration((int) target), 700);
+        setControlsVisible(true);
+    }
+
+    /** 读取视频帧率，计算单帧时长。 */
+    private void detectFrameRate() {
+        frameMs = 40;
+        MediaMetadataRetriever retriever = new MediaMetadataRetriever();
+        try {
+            retriever.setDataSource(this, videoUri);
+            String fps = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_CAPTURE_FRAMERATE);
+            if (fps != null) {
+                float value = Float.parseFloat(fps);
+                if (value > 0) frameMs = Math.max(1, Math.round(1000f / value));
+            }
+        } catch (Exception ignored) {
+        } finally {
+            try {
+                retriever.release();
+            } catch (Exception ignored) {
+            }
+        }
     }
 
     private void seek(int position) {
@@ -645,7 +691,6 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
     private void setControlsVisible(boolean visible) {
         int visibility = visible ? View.VISIBLE : View.GONE;
         controls.setVisibility(visibility);
-        centerControls.setVisibility(visibility);
         lockBtn.setVisibility(visibility);
         ui.removeCallbacks(hideControls);
         if (visible) ui.postDelayed(hideControls, 4000);

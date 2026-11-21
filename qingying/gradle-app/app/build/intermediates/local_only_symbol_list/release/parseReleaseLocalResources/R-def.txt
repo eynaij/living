@@ -6,6 +6,7 @@ color bg
 color card
 color card2
 color icon_bg
+color line
 color nav_bar
 color status_bar
 color sub
@@ -16,11 +17,14 @@ drawable bg_controls
 drawable bg_controls_top
 drawable bg_pill
 drawable bg_thumb
+drawable ic_launcher_bg
+drawable ic_lock_closed
+drawable ic_lock_open
+drawable ic_pin
 drawable ic_video
 id back
 id back10
 id badge
-id centerControls
 id controls
 id count
 id duration
@@ -29,6 +33,8 @@ id emptyText
 id favBtn
 id folderCount
 id forward10
+id frameNext
+id framePrev
 id gesture
 id grantBtn
 id hint

@@ -59,13 +59,13 @@
                 android:textSize="12sp" />
         </LinearLayout>
 
-        <TextView
+        <ImageView
             android:id="@+id/pin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:text="📌"
-            android:textSize="14sp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="8dp"
+            android:contentDescription="已置顶"
+            android:src="@drawable/ic_pin"
             android:visibility="gone" />
 
         <TextView

@@ -4,6 +4,7 @@
 @com.qingying:color/card : reachable=false
 @com.qingying:color/card2 : reachable=false
 @com.qingying:color/icon_bg : reachable=false
+@com.qingying:color/line : reachable=false
 @com.qingying:color/nav_bar : reachable=false
 @com.qingying:color/status_bar : reachable=false
 @com.qingying:color/sub : reachable=false
@@ -11,17 +12,21 @@
 @com.qingying:drawable/bg_badge : reachable=false
 @com.qingying:drawable/bg_card : reachable=false
     @com.qingying:color/card
+    @com.qingying:color/line
 @com.qingying:drawable/bg_controls : reachable=false
 @com.qingying:drawable/bg_controls_top : reachable=false
 @com.qingying:drawable/bg_pill : reachable=false
     @com.qingying:color/accent
 @com.qingying:drawable/bg_thumb : reachable=false
     @com.qingying:color/card2
+@com.qingying:drawable/ic_launcher_bg : reachable=false
+@com.qingying:drawable/ic_lock_closed : reachable=true
+@com.qingying:drawable/ic_lock_open : reachable=true
+@com.qingying:drawable/ic_pin : reachable=false
 @com.qingying:drawable/ic_video : reachable=true
 @com.qingying:id/back : reachable=true
 @com.qingying:id/back10 : reachable=true
 @com.qingying:id/badge : reachable=true
-@com.qingying:id/centerControls : reachable=true
 @com.qingying:id/controls : reachable=true
 @com.qingying:id/count : reachable=true
 @com.qingying:id/duration : reachable=true
@@ -30,6 +35,8 @@
 @com.qingying:id/favBtn : reachable=true
 @com.qingying:id/folderCount : reachable=true
 @com.qingying:id/forward10 : reachable=true
+@com.qingying:id/frameNext : reachable=true
+@com.qingying:id/framePrev : reachable=true
 @com.qingying:id/gesture : reachable=true
 @com.qingying:id/grantBtn : reachable=true
 @com.qingying:id/hint : reachable=true
@@ -67,6 +74,7 @@
     @com.qingying:color/accent2
     @com.qingying:color/accent
     @com.qingying:drawable/bg_badge
+    @com.qingying:drawable/ic_lock_open
 @com.qingying:layout/activity_video_list : reachable=true
     @com.qingying:color/bg
     @com.qingying:color/text
@@ -77,6 +85,7 @@
     @com.qingying:drawable/ic_video
     @com.qingying:color/text
     @com.qingying:color/sub
+    @com.qingying:drawable/ic_pin
 @com.qingying:layout/row_playlist_item : reachable=true
     @com.qingying:color/accent2
 @com.qingying:layout/row_video : reachable=true
@@ -86,7 +95,7 @@
     @com.qingying:color/text
     @com.qingying:color/sub
 @com.qingying:mipmap/ic_launcher : reachable=true
-    @com.qingying:color/icon_bg
+    @com.qingying:drawable/ic_launcher_bg
     @com.qingying:mipmap/ic_launcher_foreground
 @com.qingying:mipmap/ic_launcher_foreground : reachable=false
 @com.qingying:string/app_name : reachable=true
@@ -99,44 +108,47 @@
     @com.qingying:color/accent
 
 The root reachable resources are:
- drawable:ic_video:2130837510
+ drawable:ic_lock_closed:2130837511
+ drawable:ic_lock_open:2130837512
+ drawable:ic_video:2130837514
  id:back:2130903040
  id:back10:2130903041
  id:badge:2130903042
- id:centerControls:2130903043
- id:controls:2130903044
- id:count:2130903045
- id:duration:2130903046
- id:empty:2130903047
- id:emptyText:2130903048
- id:favBtn:2130903049
- id:folderCount:2130903050
- id:forward10:2130903051
- id:gesture:2130903052
- id:grantBtn:2130903053
- id:hint:2130903054
- id:itemMark:2130903055
- id:itemName:2130903056
- id:list:2130903057
- id:lockBtn:2130903058
- id:meta:2130903059
- id:name:2130903060
- id:nextBtn:2130903061
- id:pin:2130903062
- id:playBtn:2130903063
- id:playlist:2130903064
- id:playlistClose:2130903065
- id:playlistPanel:2130903066
- id:playlistTitle:2130903067
- id:prevBtn:2130903068
- id:root:2130903069
- id:seekBar:2130903070
- id:speedBtn:2130903071
- id:star:2130903072
- id:surface:2130903074
- id:thumb:2130903075
- id:time:2130903076
- id:title:2130903077
+ id:controls:2130903043
+ id:count:2130903044
+ id:duration:2130903045
+ id:empty:2130903046
+ id:emptyText:2130903047
+ id:favBtn:2130903048
+ id:folderCount:2130903049
+ id:forward10:2130903050
+ id:frameNext:2130903051
+ id:framePrev:2130903052
+ id:gesture:2130903053
+ id:grantBtn:2130903054
+ id:hint:2130903055
+ id:itemMark:2130903056
+ id:itemName:2130903057
+ id:list:2130903058
+ id:lockBtn:2130903059
+ id:meta:2130903060
+ id:name:2130903061
+ id:nextBtn:2130903062
+ id:pin:2130903063
+ id:playBtn:2130903064
+ id:playlist:2130903065
+ id:playlistClose:2130903066
+ id:playlistPanel:2130903067
+ id:playlistTitle:2130903068
+ id:prevBtn:2130903069
+ id:root:2130903070
+ id:seekBar:2130903071
+ id:speedBtn:2130903072
+ id:star:2130903073
+ id:surface:2130903075
+ id:thumb:2130903076
+ id:time:2130903077
+ id:title:2130903078
  layout:activity_main:2130968576
  layout:activity_player:2130968577
  layout:activity_video_list:2130968578
@@ -148,4 +160,5 @@ The root reachable resources are:
  style:AppTheme:2131165184
  style:PlayerTheme:2131165185
 Unused resources are: 
- id:subTitle:2130903073
+ color:icon_bg:2130771973
+ id:subTitle:2130903074
