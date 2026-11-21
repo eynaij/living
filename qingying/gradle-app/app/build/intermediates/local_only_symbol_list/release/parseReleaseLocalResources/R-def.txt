@@ -45,6 +45,7 @@ id playlistClose
 id playlistPanel
 id playlistTitle
 id prevBtn
+id root
 id seekBar
 id speedBtn
 id star

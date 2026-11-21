@@ -164,6 +164,9 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
         speedView.setText(speedText(speed));
 
         surface.getHolder().addCallback(this);
+        // 屏幕尺寸或方向变化时重新按比例计算画面大小
+        findViewById(R.id.root).addOnLayoutChangeListener(
+                (v, l, t, r, b, ol, ot, orr, ob) -> adjustVideoSize());
         findViewById(R.id.gesture).setOnTouchListener(this::onGesture);
         findViewById(R.id.back).setOnClickListener(v -> finish());
         playView.setOnClickListener(v -> togglePlay());
@@ -382,10 +385,12 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
                     .build());
             player.setDisplay(holder);
             player.setDataSource(this, videoUri);
+            player.setOnVideoSizeChangedListener((p, width, height) -> adjustVideoSize());
             player.setOnPreparedListener(p -> {
                 prepared = true;
                 int duration = Math.max(1, p.getDuration());
                 seekBar.setMax(duration);
+                adjustVideoSize();
                 if (lastPosition > 0) seek(lastPosition);
                 p.start();
                 finished = false;
@@ -414,6 +419,49 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
         } catch (Exception e) {
             Toast.makeText(this, "无法播放该视频", Toast.LENGTH_SHORT).show();
             finish();
+        }
+    }
+
+    /**
+     * 保持视频原始宽高比：按可用空间等比缩放并居中，多余部分留黑边，不拉伸变形。
+     */
+    private void adjustVideoSize() {
+        if (player == null) return;
+        int videoWidth;
+        int videoHeight;
+        try {
+            videoWidth = player.getVideoWidth();
+            videoHeight = player.getVideoHeight();
+        } catch (Exception e) {
+            return;
+        }
+        if (videoWidth <= 0 || videoHeight <= 0) return;
+
+        View parent = (View) surface.getParent();
+        int parentWidth = parent.getWidth();
+        int parentHeight = parent.getHeight();
+        if (parentWidth <= 0 || parentHeight <= 0) return;
+
+        float videoAspect = (float) videoWidth / videoHeight;
+        float parentAspect = (float) parentWidth / parentHeight;
+
+        int width;
+        int height;
+        if (videoAspect > parentAspect) {
+            // 视频更宽：宽度占满，高度按比例（上下留黑边）
+            width = parentWidth;
+            height = Math.round(parentWidth / videoAspect);
+        } else {
+            // 视频更高：高度占满，宽度按比例（左右留黑边）
+            height = parentHeight;
+            width = Math.round(parentHeight * videoAspect);
+        }
+
+        ViewGroup.LayoutParams params = surface.getLayoutParams();
+        if (params.width != width || params.height != height) {
+            params.width = width;
+            params.height = height;
+            surface.setLayoutParams(params);
         }
     }
 

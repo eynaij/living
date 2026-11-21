@@ -12,6 +12,10 @@
         "source": "/root/.gradle/daemon/8.14.6/com.qingying.app-android-0:/mipmap-hdpi/ic_launcher_foreground.png"
     },
     {
+        "merged": "com.qingying.app-release-6:/layout_activity_player.xml.flat",
+        "source": "com.qingying.app-android-0:/layout/activity_player.xml"
+    },
+    {
         "merged": "/root/.gradle/daemon/8.14.6/com.qingying.app-release-6:/mipmap-mdpi_ic_launcher.png.flat",
         "source": "/root/.gradle/daemon/8.14.6/com.qingying.app-android-0:/mipmap-mdpi/ic_launcher.png"
     },
@@ -90,10 +94,6 @@
     {
         "merged": "/root/.gradle/daemon/8.14.6/com.qingying.app-release-6:/mipmap-hdpi_ic_launcher.png.flat",
         "source": "/root/.gradle/daemon/8.14.6/com.qingying.app-android-0:/mipmap-hdpi/ic_launcher.png"
-    },
-    {
-        "merged": "com.qingying.app-release-6:/layout_row_folder.xml.flat",
-        "source": "com.qingying.app-android-0:/layout/row_folder.xml"
     },
     {
         "merged": "/root/.gradle/daemon/8.14.6/com.qingying.app-release-6:/layout_activity_video_list.xml.flat",
