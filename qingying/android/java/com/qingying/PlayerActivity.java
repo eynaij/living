@@ -87,6 +87,10 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
     private long downAt;
     private boolean rightZone;
     private boolean leftZone;
+    /** 双击判定窗口（毫秒）。 */
+    private static final long DOUBLE_TAP_MS = 300;
+    private long lastTapAt;
+    private Runnable pendingTap;
 
     private final Runnable hideBadge = () -> badge.setVisibility(View.GONE);
 
@@ -114,6 +118,7 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
 
     private final Runnable startBoost = () -> {
         if (player == null || !prepared || !player.isPlaying()) return;
+        cancelPendingTap();
         boosting = true;
         applySpeed(BOOST_SPEED);
         showBadge("▶▶ 3x 快进", 0);
@@ -132,6 +137,7 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
 
     private final Runnable startRewind = () -> {
         if (player == null || !prepared) return;
+        cancelPendingTap();
         rewinding = true;
         showBadge("◀◀ 快退中", 0);
         ui.post(rewindStep);
@@ -641,16 +647,39 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
                 if (!acted && SystemClock.uptimeMillis() - downAt < 250) {
                     if (playlistPanel.getVisibility() == View.VISIBLE) {
                         hidePlaylist();
-                    } else if (leftZone) {
-                        showPlaylist();
                     } else {
-                        setControlsVisible(controls.getVisibility() != View.VISIBLE);
+                        handleTap(leftZone);
                     }
                 }
                 return true;
 
             default:
                 return false;
+        }
+    }
+
+    /** 单击延迟判定：300ms 内再来一次点击即为双击，切换播放/暂停。 */
+    private void handleTap(boolean left) {
+        long now = SystemClock.uptimeMillis();
+        if (pendingTap != null && now - lastTapAt < DOUBLE_TAP_MS) {
+            cancelPendingTap();
+            lastTapAt = 0;
+            togglePlay();
+            return;
+        }
+        lastTapAt = now;
+        pendingTap = () -> {
+            pendingTap = null;
+            if (left) showPlaylist();
+            else setControlsVisible(controls.getVisibility() != View.VISIBLE);
+        };
+        ui.postDelayed(pendingTap, DOUBLE_TAP_MS);
+    }
+
+    private void cancelPendingTap() {
+        if (pendingTap != null) {
+            ui.removeCallbacks(pendingTap);
+            pendingTap = null;
         }
     }
 
