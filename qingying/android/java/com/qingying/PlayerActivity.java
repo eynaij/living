@@ -47,6 +47,7 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
     private MediaPlayer player;
     private SurfaceView surface;
     private View controls;
+    private View centerControls;
     private View badge;
     private TextView badgeText;
     private TextView titleView;
@@ -89,6 +90,8 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
     private final Runnable hideControls = () -> {
         if (player != null && player.isPlaying() && !boosting && !rewinding) {
             controls.setVisibility(View.GONE);
+            centerControls.setVisibility(View.GONE);
+            lockBtn.setVisibility(View.GONE);
         }
     };
 
@@ -146,6 +149,7 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
 
         surface = findViewById(R.id.surface);
         controls = findViewById(R.id.controls);
+        centerControls = findViewById(R.id.centerControls);
         badge = findViewById(R.id.badge);
         titleView = findViewById(R.id.title);
         timeView = findViewById(R.id.time);
@@ -275,6 +279,8 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
     private void showPlaylist() {
         playlistPanel.setVisibility(View.VISIBLE);
         controls.setVisibility(View.GONE);
+        centerControls.setVisibility(View.GONE);
+        lockBtn.setVisibility(View.GONE);
         ui.removeCallbacks(hideControls);
         playlistAdapter.notifyDataSetChanged();
     }
@@ -637,7 +643,10 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
     // ------------------------------------------------------------------ 界面
 
     private void setControlsVisible(boolean visible) {
-        controls.setVisibility(visible ? View.VISIBLE : View.GONE);
+        int visibility = visible ? View.VISIBLE : View.GONE;
+        controls.setVisibility(visibility);
+        centerControls.setVisibility(visibility);
+        lockBtn.setVisibility(visibility);
         ui.removeCallbacks(hideControls);
         if (visible) ui.postDelayed(hideControls, 4000);
     }

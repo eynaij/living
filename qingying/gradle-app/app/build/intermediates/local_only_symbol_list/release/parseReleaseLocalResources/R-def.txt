@@ -20,6 +20,7 @@ drawable ic_video
 id back
 id back10
 id badge
+id centerControls
 id controls
 id count
 id duration

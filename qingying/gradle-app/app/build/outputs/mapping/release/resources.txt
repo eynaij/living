@@ -21,6 +21,7 @@
 @com.qingying:id/back : reachable=true
 @com.qingying:id/back10 : reachable=true
 @com.qingying:id/badge : reachable=true
+@com.qingying:id/centerControls : reachable=true
 @com.qingying:id/controls : reachable=true
 @com.qingying:id/count : reachable=true
 @com.qingying:id/duration : reachable=true
@@ -102,39 +103,40 @@ The root reachable resources are:
  id:back:2130903040
  id:back10:2130903041
  id:badge:2130903042
- id:controls:2130903043
- id:count:2130903044
- id:duration:2130903045
- id:empty:2130903046
- id:emptyText:2130903047
- id:favBtn:2130903048
- id:folderCount:2130903049
- id:forward10:2130903050
- id:gesture:2130903051
- id:grantBtn:2130903052
- id:hint:2130903053
- id:itemMark:2130903054
- id:itemName:2130903055
- id:list:2130903056
- id:lockBtn:2130903057
- id:meta:2130903058
- id:name:2130903059
- id:nextBtn:2130903060
- id:pin:2130903061
- id:playBtn:2130903062
- id:playlist:2130903063
- id:playlistClose:2130903064
- id:playlistPanel:2130903065
- id:playlistTitle:2130903066
- id:prevBtn:2130903067
- id:root:2130903068
- id:seekBar:2130903069
- id:speedBtn:2130903070
- id:star:2130903071
- id:surface:2130903073
- id:thumb:2130903074
- id:time:2130903075
- id:title:2130903076
+ id:centerControls:2130903043
+ id:controls:2130903044
+ id:count:2130903045
+ id:duration:2130903046
+ id:empty:2130903047
+ id:emptyText:2130903048
+ id:favBtn:2130903049
+ id:folderCount:2130903050
+ id:forward10:2130903051
+ id:gesture:2130903052
+ id:grantBtn:2130903053
+ id:hint:2130903054
+ id:itemMark:2130903055
+ id:itemName:2130903056
+ id:list:2130903057
+ id:lockBtn:2130903058
+ id:meta:2130903059
+ id:name:2130903060
+ id:nextBtn:2130903061
+ id:pin:2130903062
+ id:playBtn:2130903063
+ id:playlist:2130903064
+ id:playlistClose:2130903065
+ id:playlistPanel:2130903066
+ id:playlistTitle:2130903067
+ id:prevBtn:2130903068
+ id:root:2130903069
+ id:seekBar:2130903070
+ id:speedBtn:2130903071
+ id:star:2130903072
+ id:surface:2130903074
+ id:thumb:2130903075
+ id:time:2130903076
+ id:title:2130903077
  layout:activity_main:2130968576
  layout:activity_player:2130968577
  layout:activity_video_list:2130968578
@@ -146,4 +148,4 @@ The root reachable resources are:
  style:AppTheme:2131165184
  style:PlayerTheme:2131165185
 Unused resources are: 
- id:subTitle:2130903072
+ id:subTitle:2130903073
