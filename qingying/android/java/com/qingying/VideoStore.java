@@ -8,14 +8,17 @@ import android.provider.MediaStore;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
 
 /** 视频查询与按名称排序，列表页和播放页共用。 */
 final class VideoStore {
 
     static final String FAVORITES_BUCKET = "__favorites__";
+    static final String HISTORY_BUCKET = "__history__";
 
     private VideoStore() { }
 
@@ -31,11 +34,22 @@ final class VideoStore {
         String selection;
         String[] args;
 
+        List<String> historyIds = null;
         if (FAVORITES_BUCKET.equals(bucketId)) {
             Set<String> favorites = FavoritesStore.get(context);
             if (favorites.isEmpty()) return result;
             StringBuilder sb = new StringBuilder(MediaStore.Video.Media._ID).append(" IN (");
             args = favorites.toArray(new String[0]);
+            for (int i = 0; i < args.length; i++) {
+                if (i > 0) sb.append(',');
+                sb.append('?');
+            }
+            selection = sb.append(')').toString();
+        } else if (HISTORY_BUCKET.equals(bucketId)) {
+            historyIds = PlayHistoryStore.orderedIds(context);
+            if (historyIds.isEmpty()) return result;
+            StringBuilder sb = new StringBuilder(MediaStore.Video.Media._ID).append(" IN (");
+            args = historyIds.toArray(new String[0]);
             for (int i = 0; i < args.length; i++) {
                 if (i > 0) sb.append(',');
                 sb.append('?');
@@ -68,6 +82,17 @@ final class VideoStore {
         } catch (Exception ignored) {
         }
 
+        if (historyIds != null) {
+            // 播放记录按最近播放时间倒序，不按名称排序
+            Map<Long, Video> byId = new HashMap<>();
+            for (Video v : result) byId.put(v.id, v);
+            List<Video> ordered = new ArrayList<>();
+            for (String id : historyIds) {
+                Video v = byId.get(Long.parseLong(id));
+                if (v != null) ordered.add(v);
+            }
+            return ordered;
+        }
         sortByName(result);
         return result;
     }

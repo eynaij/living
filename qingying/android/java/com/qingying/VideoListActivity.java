@@ -52,6 +52,10 @@ public class VideoListActivity extends Activity {
             intent.putExtra("id", video.id);
             intent.putExtra("name", video.name);
             intent.putExtra("bucketId", bucketId);
+            if (VideoStore.HISTORY_BUCKET.equals(bucketId)) {
+                // 从播放记录进入时，带上次观看位置续播
+                intent.putExtra("startMs", PlayHistoryStore.position(this, video.id));
+            }
             startActivity(intent);
         });
     }
@@ -106,7 +110,18 @@ public class VideoListActivity extends Activity {
             } else {
                 duration.setVisibility(View.GONE);
             }
-            ((TextView) view.findViewById(R.id.meta)).setText(Fmt.size(video.size));
+            if (VideoStore.HISTORY_BUCKET.equals(bucketId)) {
+                long[] info = PlayHistoryStore.info(VideoListActivity.this, video.id);
+                if (info != null) {
+                    int percent = info[1] > 0 ? (int) (info[0] * 100 / info[1]) : 0;
+                    ((TextView) view.findViewById(R.id.meta))
+                            .setText("观看到 " + Fmt.duration(info[0]) + " · 已看 " + percent + "%");
+                } else {
+                    ((TextView) view.findViewById(R.id.meta)).setText(Fmt.size(video.size));
+                }
+            } else {
+                ((TextView) view.findViewById(R.id.meta)).setText(Fmt.size(video.size));
+            }
 
             TextView star = view.findViewById(R.id.star);
             updateStar(star, FavoritesStore.isFavorite(VideoListActivity.this, video.id));

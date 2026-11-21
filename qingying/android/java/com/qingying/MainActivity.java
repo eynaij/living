@@ -67,7 +67,8 @@ public class MainActivity extends Activity {
 
         list.setOnItemLongClickListener((parent, view, position, id) -> {
             Folder folder = folders.get(position);
-            if (VideoStore.FAVORITES_BUCKET.equals(folder.bucketId)) return true;
+            if (VideoStore.FAVORITES_BUCKET.equals(folder.bucketId)
+                    || VideoStore.HISTORY_BUCKET.equals(folder.bucketId)) return true;
             boolean pinned = PinnedFolders.toggle(this, folder.bucketId);
             Toast.makeText(this,
                     pinned ? "已置顶「" + folder.name + "」" : "已取消置顶「" + folder.name + "」",
@@ -160,7 +161,21 @@ public class MainActivity extends Activity {
 
             List<Folder> result = new ArrayList<>();
 
-            // 收藏夹固定在顶部
+            // 最近播放：有记录时固定显示在最顶部
+            List<String> historyIds = PlayHistoryStore.orderedIds(this);
+            if (!historyIds.isEmpty()) {
+                Folder history = new Folder();
+                history.bucketId = VideoStore.HISTORY_BUCKET;
+                history.name = "最近播放";
+                history.count = historyIds.size();
+                try {
+                    history.coverId = Long.parseLong(historyIds.get(0));
+                } catch (NumberFormatException ignored) {
+                }
+                result.add(history);
+            }
+
+            // 收藏夹固定在顶部（最近播放之后）
             Folder favorites = new Folder();
             favorites.bucketId = VideoStore.FAVORITES_BUCKET;
             favorites.name = "我的收藏";
@@ -173,7 +188,7 @@ public class MainActivity extends Activity {
                 } catch (NumberFormatException ignored) {
                 }
             }
-            result.add(0, favorites);
+            result.add(favorites);
 
             // 置顶文件夹排在收藏夹之后，其余保持原顺序
             Set<String> pinned = PinnedFolders.get(this);
@@ -193,7 +208,7 @@ public class MainActivity extends Activity {
                             !hasPermission());
                 } else {
                     empty.setVisibility(View.GONE);
-                    folderCount.setText("共 " + Math.max(0, folders.size() - 1) + " 个文件夹 · 长按可置顶");
+                    folderCount.setText("共 " + map.size() + " 个文件夹 · 长按可置顶");
                 }
             });
         });

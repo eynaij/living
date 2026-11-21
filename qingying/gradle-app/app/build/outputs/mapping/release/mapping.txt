@@ -3,8 +3,8 @@
 # min_api: 24
 # common_typos_disable
 # {"id":"com.android.tools.r8.mapping","version":"2.2"}
-# pg_map_id: e2c06bf814201448a334a893d0ae6f848c543282e421fc3fd93b3f36db6ffebf
-# pg_map_hash: SHA-256 e2c06bf814201448a334a893d0ae6f848c543282e421fc3fd93b3f36db6ffebf
+# pg_map_id: c362521945161110af0ab4d607fe12352fc760b84aa6c300a903a37526f048e6
+# pg_map_hash: SHA-256 c362521945161110af0ab4d607fe12352fc760b84aa6c300a903a37526f048e6
 com.qingying.FavoritesStore -> com.qingying.FavoritesStore:
 # {"id":"sourceFile","fileName":"FavoritesStore.java"}
     1:4:void <init>():15:15 -> <init>
@@ -47,64 +47,72 @@ com.qingying.MainActivity -> com.qingying.MainActivity:
       # {"id":"com.android.tools.r8.synthesized"}
     1:4:void $r8$lambda$cQi93LYyNnjPkos4asHWeBicmm8(com.qingying.MainActivity):0:0 -> c
       # {"id":"com.android.tools.r8.synthesized"}
-    1:4:void $r8$lambda$nFOMELb0xU88YTCN8CvpK1wAqNI(com.qingying.MainActivity,java.util.ArrayList):0:0 -> d
+    1:4:void $r8$lambda$jybPD3h2isF3g4tcFZ3Zwyk0G8E(com.qingying.MainActivity,java.util.ArrayList,java.util.LinkedHashMap):0:0 -> d
       # {"id":"com.android.tools.r8.synthesized"}
     1:4:void $r8$lambda$q06TQZWwbrxSKC5oZRyO7zo3Aoo(com.qingying.MainActivity,android.widget.AdapterView,android.view.View,int,long):0:0 -> e
       # {"id":"com.android.tools.r8.synthesized"}
-    1:8:boolean hasPermission():90:90 -> hasPermission
-    9:21:boolean hasPermission():91:91 -> hasPermission
-    22:23:boolean hasPermission():95:95 -> hasPermission
-    24:31:boolean hasPermission():96:96 -> hasPermission
-    32:41:boolean hasPermission():99:99 -> hasPermission
-    1:5:void lambda$loadFolders$3(java.util.List):188:188 -> lambda$loadFolders$3
-    6:10:void lambda$loadFolders$3(java.util.List):189:189 -> lambda$loadFolders$3
-    11:15:void lambda$loadFolders$3(java.util.List):190:190 -> lambda$loadFolders$3
-    16:23:void lambda$loadFolders$3(java.util.List):191:191 -> lambda$loadFolders$3
-    24:34:void lambda$loadFolders$3(java.util.List):192:192 -> lambda$loadFolders$3
-    35:40:void lambda$loadFolders$3(java.util.List):193:193 -> lambda$loadFolders$3
-    41:44:void lambda$loadFolders$3(java.util.List):192:192 -> lambda$loadFolders$3
-    45:51:void lambda$loadFolders$3(java.util.List):195:195 -> lambda$loadFolders$3
-    52:89:void lambda$loadFolders$3(java.util.List):196:196 -> lambda$loadFolders$3
-    3:7:void lambda$loadFolders$4():121:121 -> lambda$loadFolders$4
-    8:9:void lambda$loadFolders$4():122:122 -> lambda$loadFolders$4
-    10:21:void lambda$loadFolders$4():123:123 -> lambda$loadFolders$4
-    22:23:void lambda$loadFolders$4():129:129 -> lambda$loadFolders$4
-    24:35:void lambda$loadFolders$4():131:131 -> lambda$loadFolders$4
-    36:39:void lambda$loadFolders$4():133:133 -> lambda$loadFolders$4
-    40:43:void lambda$loadFolders$4():134:134 -> lambda$loadFolders$4
-    44:47:void lambda$loadFolders$4():135:135 -> lambda$loadFolders$4
-    48:51:void lambda$loadFolders$4():136:136 -> lambda$loadFolders$4
-    52:57:void lambda$loadFolders$4():138:138 -> lambda$loadFolders$4
-    58:61:void lambda$loadFolders$4():139:139 -> lambda$loadFolders$4
-    62:75:void lambda$loadFolders$4():140:140 -> lambda$loadFolders$4
-    76:91:void lambda$loadFolders$4():141:141 -> lambda$loadFolders$4
-    92:104:void lambda$loadFolders$4():142:142 -> lambda$loadFolders$4
-    105:112:void lambda$loadFolders$4():144:144 -> lambda$loadFolders$4
-    113:117:void lambda$loadFolders$4():146:146 -> lambda$loadFolders$4
-    118:121:void lambda$loadFolders$4():147:147 -> lambda$loadFolders$4
-    122:131:void lambda$loadFolders$4():148:148 -> lambda$loadFolders$4
-    132:135:void lambda$loadFolders$4():149:149 -> lambda$loadFolders$4
-    136:137:void lambda$loadFolders$4():150:150 -> lambda$loadFolders$4
-    138:140:void lambda$loadFolders$4():151:151 -> lambda$loadFolders$4
-    141:146:void lambda$loadFolders$4():153:153 -> lambda$loadFolders$4
-    147:156:void lambda$loadFolders$4():154:154 -> lambda$loadFolders$4
-    157:167:void lambda$loadFolders$4():131:131 -> lambda$loadFolders$4
-    168:170:void lambda$loadFolders$4():157:157 -> lambda$loadFolders$4
-    171:175:void lambda$loadFolders$4():161:161 -> lambda$loadFolders$4
-    176:180:void lambda$loadFolders$4():164:164 -> lambda$loadFolders$4
-    181:184:void lambda$loadFolders$4():165:165 -> lambda$loadFolders$4
-    185:188:void lambda$loadFolders$4():166:166 -> lambda$loadFolders$4
-    189:200:void lambda$loadFolders$4():167:167 -> lambda$loadFolders$4
-    201:202:void lambda$loadFolders$4():168:168 -> lambda$loadFolders$4
-    203:222:void lambda$loadFolders$4():169:169 -> lambda$loadFolders$4
-    223:229:void lambda$loadFolders$4():171:171 -> lambda$loadFolders$4
-    230:232:void lambda$loadFolders$4():176:176 -> lambda$loadFolders$4
-    233:236:void lambda$loadFolders$4():179:179 -> lambda$loadFolders$4
-    237:256:void lambda$loadFolders$4():180:180 -> lambda$loadFolders$4
-    257:268:void lambda$loadFolders$4():181:181 -> lambda$loadFolders$4
-    269:288:void lambda$loadFolders$4():183:183 -> lambda$loadFolders$4
-    289:300:void lambda$loadFolders$4():184:184 -> lambda$loadFolders$4
-    301:310:void lambda$loadFolders$4():187:187 -> lambda$loadFolders$4
+    1:8:boolean hasPermission():91:91 -> hasPermission
+    9:21:boolean hasPermission():92:92 -> hasPermission
+    22:23:boolean hasPermission():96:96 -> hasPermission
+    24:31:boolean hasPermission():97:97 -> hasPermission
+    32:41:boolean hasPermission():100:100 -> hasPermission
+    1:5:void lambda$loadFolders$3(java.util.List,java.util.Map):203:203 -> lambda$loadFolders$3
+    6:10:void lambda$loadFolders$3(java.util.List,java.util.Map):204:204 -> lambda$loadFolders$3
+    11:15:void lambda$loadFolders$3(java.util.List,java.util.Map):205:205 -> lambda$loadFolders$3
+    16:23:void lambda$loadFolders$3(java.util.List,java.util.Map):206:206 -> lambda$loadFolders$3
+    24:34:void lambda$loadFolders$3(java.util.List,java.util.Map):207:207 -> lambda$loadFolders$3
+    35:40:void lambda$loadFolders$3(java.util.List,java.util.Map):208:208 -> lambda$loadFolders$3
+    41:44:void lambda$loadFolders$3(java.util.List,java.util.Map):207:207 -> lambda$loadFolders$3
+    45:51:void lambda$loadFolders$3(java.util.List,java.util.Map):210:210 -> lambda$loadFolders$3
+    52:80:void lambda$loadFolders$3(java.util.List,java.util.Map):211:211 -> lambda$loadFolders$3
+    3:7:void lambda$loadFolders$4():122:122 -> lambda$loadFolders$4
+    8:9:void lambda$loadFolders$4():123:123 -> lambda$loadFolders$4
+    10:21:void lambda$loadFolders$4():124:124 -> lambda$loadFolders$4
+    22:23:void lambda$loadFolders$4():130:130 -> lambda$loadFolders$4
+    24:35:void lambda$loadFolders$4():132:132 -> lambda$loadFolders$4
+    36:39:void lambda$loadFolders$4():134:134 -> lambda$loadFolders$4
+    40:43:void lambda$loadFolders$4():135:135 -> lambda$loadFolders$4
+    44:47:void lambda$loadFolders$4():136:136 -> lambda$loadFolders$4
+    48:51:void lambda$loadFolders$4():137:137 -> lambda$loadFolders$4
+    52:57:void lambda$loadFolders$4():139:139 -> lambda$loadFolders$4
+    58:61:void lambda$loadFolders$4():140:140 -> lambda$loadFolders$4
+    62:75:void lambda$loadFolders$4():141:141 -> lambda$loadFolders$4
+    76:91:void lambda$loadFolders$4():142:142 -> lambda$loadFolders$4
+    92:104:void lambda$loadFolders$4():143:143 -> lambda$loadFolders$4
+    105:112:void lambda$loadFolders$4():145:145 -> lambda$loadFolders$4
+    113:117:void lambda$loadFolders$4():147:147 -> lambda$loadFolders$4
+    118:121:void lambda$loadFolders$4():148:148 -> lambda$loadFolders$4
+    122:131:void lambda$loadFolders$4():149:149 -> lambda$loadFolders$4
+    132:135:void lambda$loadFolders$4():150:150 -> lambda$loadFolders$4
+    136:137:void lambda$loadFolders$4():151:151 -> lambda$loadFolders$4
+    138:140:void lambda$loadFolders$4():152:152 -> lambda$loadFolders$4
+    141:146:void lambda$loadFolders$4():154:154 -> lambda$loadFolders$4
+    147:156:void lambda$loadFolders$4():155:155 -> lambda$loadFolders$4
+    157:167:void lambda$loadFolders$4():132:132 -> lambda$loadFolders$4
+    168:170:void lambda$loadFolders$4():158:158 -> lambda$loadFolders$4
+    171:175:void lambda$loadFolders$4():162:162 -> lambda$loadFolders$4
+    176:179:void lambda$loadFolders$4():165:165 -> lambda$loadFolders$4
+    180:185:void lambda$loadFolders$4():166:166 -> lambda$loadFolders$4
+    186:190:void lambda$loadFolders$4():167:167 -> lambda$loadFolders$4
+    191:194:void lambda$loadFolders$4():168:168 -> lambda$loadFolders$4
+    195:198:void lambda$loadFolders$4():169:169 -> lambda$loadFolders$4
+    199:205:void lambda$loadFolders$4():170:170 -> lambda$loadFolders$4
+    206:217:void lambda$loadFolders$4():172:172 -> lambda$loadFolders$4
+    218:220:void lambda$loadFolders$4():175:175 -> lambda$loadFolders$4
+    221:225:void lambda$loadFolders$4():179:179 -> lambda$loadFolders$4
+    226:229:void lambda$loadFolders$4():180:180 -> lambda$loadFolders$4
+    230:233:void lambda$loadFolders$4():181:181 -> lambda$loadFolders$4
+    234:245:void lambda$loadFolders$4():182:182 -> lambda$loadFolders$4
+    246:247:void lambda$loadFolders$4():183:183 -> lambda$loadFolders$4
+    248:267:void lambda$loadFolders$4():184:184 -> lambda$loadFolders$4
+    268:273:void lambda$loadFolders$4():186:186 -> lambda$loadFolders$4
+    274:276:void lambda$loadFolders$4():191:191 -> lambda$loadFolders$4
+    277:280:void lambda$loadFolders$4():194:194 -> lambda$loadFolders$4
+    281:300:void lambda$loadFolders$4():195:195 -> lambda$loadFolders$4
+    301:312:void lambda$loadFolders$4():196:196 -> lambda$loadFolders$4
+    313:332:void lambda$loadFolders$4():198:198 -> lambda$loadFolders$4
+    333:344:void lambda$loadFolders$4():199:199 -> lambda$loadFolders$4
+    345:354:void lambda$loadFolders$4():202:202 -> lambda$loadFolders$4
     1:8:void lambda$onCreate$0(android.widget.AdapterView,android.view.View,int,long):59:59 -> lambda$onCreate$0
     9:15:void lambda$onCreate$0(android.widget.AdapterView,android.view.View,int,long):60:60 -> lambda$onCreate$0
     16:22:void lambda$onCreate$0(android.widget.AdapterView,android.view.View,int,long):61:61 -> lambda$onCreate$0
@@ -112,13 +120,14 @@ com.qingying.MainActivity -> com.qingying.MainActivity:
     30:33:void lambda$onCreate$0(android.widget.AdapterView,android.view.View,int,long):63:63 -> lambda$onCreate$0
     1:4:void lambda$onCreate$1(android.view.View):66:66 -> lambda$onCreate$1
     1:8:boolean lambda$onCreate$2(android.widget.AdapterView,android.view.View,int,long):69:69 -> lambda$onCreate$2
-    9:20:boolean lambda$onCreate$2(android.widget.AdapterView,android.view.View,int,long):70:70 -> lambda$onCreate$2
-    21:26:boolean lambda$onCreate$2(android.widget.AdapterView,android.view.View,int,long):71:71 -> lambda$onCreate$2
-    27:59:boolean lambda$onCreate$2(android.widget.AdapterView,android.view.View,int,long):73:73 -> lambda$onCreate$2
-    60:63:boolean lambda$onCreate$2(android.widget.AdapterView,android.view.View,int,long):72:72 -> lambda$onCreate$2
-    64:66:boolean lambda$onCreate$2(android.widget.AdapterView,android.view.View,int,long):74:74 -> lambda$onCreate$2
-    67:70:boolean lambda$onCreate$2(android.widget.AdapterView,android.view.View,int,long):75:75 -> lambda$onCreate$2
-    1:12:void loadFolders():120:120 -> loadFolders
+    9:23:boolean lambda$onCreate$2(android.widget.AdapterView,android.view.View,int,long):70:70 -> lambda$onCreate$2
+    24:30:boolean lambda$onCreate$2(android.widget.AdapterView,android.view.View,int,long):71:71 -> lambda$onCreate$2
+    31:36:boolean lambda$onCreate$2(android.widget.AdapterView,android.view.View,int,long):72:72 -> lambda$onCreate$2
+    37:69:boolean lambda$onCreate$2(android.widget.AdapterView,android.view.View,int,long):74:74 -> lambda$onCreate$2
+    70:73:boolean lambda$onCreate$2(android.widget.AdapterView,android.view.View,int,long):73:73 -> lambda$onCreate$2
+    74:76:boolean lambda$onCreate$2(android.widget.AdapterView,android.view.View,int,long):75:75 -> lambda$onCreate$2
+    77:80:boolean lambda$onCreate$2(android.widget.AdapterView,android.view.View,int,long):76:76 -> lambda$onCreate$2
+    1:12:void loadFolders():121:121 -> loadFolders
     1:3:void onCreate(android.os.Bundle):43:43 -> onCreate
     4:8:void onCreate(android.os.Bundle):44:44 -> onCreate
     9:14:void onCreate(android.os.Bundle):46:46 -> onCreate
@@ -133,21 +142,21 @@ com.qingying.MainActivity -> com.qingying.MainActivity:
     87:95:void onCreate(android.os.Bundle):58:58 -> onCreate
     96:106:void onCreate(android.os.Bundle):66:66 -> onCreate
     107:114:void onCreate(android.os.Bundle):68:68 -> onCreate
-    115:124:void onCreate(android.os.Bundle):79:79 -> onCreate
-    125:128:void onCreate(android.os.Bundle):80:80 -> onCreate
-    1:7:void onRequestPermissionsResult(int,java.lang.String[],int[]):112:112 -> onRequestPermissionsResult
-    8:17:void onRequestPermissionsResult(int,java.lang.String[],int[]):114:114 -> onRequestPermissionsResult
-    18:24:void onRequestPermissionsResult(int,java.lang.String[],int[]):115:115 -> onRequestPermissionsResult
-    1:3:void onResume():85:85 -> onResume
-    4:13:void onResume():86:86 -> onResume
-    1:6:void requestPermission():104:104 -> requestPermission
-    7:9:void requestPermission():105:105 -> requestPermission
-    10:11:void requestPermission():106:106 -> requestPermission
-    12:21:void requestPermission():107:107 -> requestPermission
-    1:6:void showEmpty(java.lang.String,boolean):203:203 -> showEmpty
-    7:11:void showEmpty(java.lang.String,boolean):204:204 -> showEmpty
-    12:21:void showEmpty(java.lang.String,boolean):205:205 -> showEmpty
-    22:29:void showEmpty(java.lang.String,boolean):206:206 -> showEmpty
+    115:124:void onCreate(android.os.Bundle):80:80 -> onCreate
+    125:128:void onCreate(android.os.Bundle):81:81 -> onCreate
+    1:7:void onRequestPermissionsResult(int,java.lang.String[],int[]):113:113 -> onRequestPermissionsResult
+    8:17:void onRequestPermissionsResult(int,java.lang.String[],int[]):115:115 -> onRequestPermissionsResult
+    18:24:void onRequestPermissionsResult(int,java.lang.String[],int[]):116:116 -> onRequestPermissionsResult
+    1:3:void onResume():86:86 -> onResume
+    4:13:void onResume():87:87 -> onResume
+    1:6:void requestPermission():105:105 -> requestPermission
+    7:9:void requestPermission():106:106 -> requestPermission
+    10:11:void requestPermission():107:107 -> requestPermission
+    12:21:void requestPermission():108:108 -> requestPermission
+    1:6:void showEmpty(java.lang.String,boolean):218:218 -> showEmpty
+    7:11:void showEmpty(java.lang.String,boolean):219:219 -> showEmpty
+    12:21:void showEmpty(java.lang.String,boolean):220:220 -> showEmpty
+    22:29:void showEmpty(java.lang.String,boolean):221:221 -> showEmpty
 com.qingying.MainActivity$$ExternalSyntheticLambda0 -> com.qingying.a:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
@@ -193,46 +202,31 @@ com.qingying.MainActivity$$ExternalSyntheticLambda3 -> com.qingying.d:
       # {"id":"com.android.tools.r8.synthesized"}
     1:11:boolean onItemLongClick(android.widget.AdapterView,android.view.View,int,long):0:0 -> onItemLongClick
       # {"id":"com.android.tools.r8.synthesized"}
-com.qingying.MainActivity$$ExternalSyntheticLambda4 -> com.qingying.e:
-# {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
-# {"id":"com.android.tools.r8.synthesized"}
-    int $r8$classId -> a
-      # {"id":"com.android.tools.r8.synthesized"}
-    com.qingying.MainActivity com.qingying.MainActivity$$InternalSyntheticLambda$1$960c9be3c7d6b67b223afad85baf0753848ea8a6de0970f6b442ee83ca02c489$0.f$0 -> b
-      # {"id":"com.android.tools.r8.residualsignature","signature":"Landroid/app/Activity;"}
-      # {"id":"com.android.tools.r8.synthesized"}
-    java.util.List com.qingying.MainActivity$$InternalSyntheticLambda$1$960c9be3c7d6b67b223afad85baf0753848ea8a6de0970f6b442ee83ca02c489$0.f$1 -> c
-      # {"id":"com.android.tools.r8.residualsignature","signature":"Ljava/lang/Object;"}
-      # {"id":"com.android.tools.r8.synthesized"}
-    1:10:void <init>(android.app.Activity,java.lang.Object,int):0:0 -> <init>
-      # {"id":"com.android.tools.r8.synthesized"}
-    1:42:void run():0:0 -> run
-      # {"id":"com.android.tools.r8.synthesized"}
 com.qingying.MainActivity$1 -> com.qingying.MainActivity$1:
 # {"id":"sourceFile","fileName":"MainActivity.java"}
 com.qingying.MainActivity$FolderAdapter -> com.qingying.MainActivity$FolderAdapter:
 # {"id":"sourceFile","fileName":"MainActivity.java"}
-    1:1:void <init>(com.qingying.MainActivity):209:209 -> <init>
-    2:2:void <init>(com.qingying.MainActivity,com.qingying.MainActivity$1):209:209 -> <init>
-    1:11:int getCount():212:212 -> getCount
-    1:11:java.lang.Object getItem(int):217:217 -> getItem
+    1:1:void <init>(com.qingying.MainActivity):224:224 -> <init>
+    2:2:void <init>(com.qingying.MainActivity,com.qingying.MainActivity$1):224:224 -> <init>
+    1:11:int getCount():227:227 -> getCount
+    1:11:java.lang.Object getItem(int):232:232 -> getItem
     1:2:long getItemId(int):0:0 -> getItemId
-    5:16:android.view.View getView(int,android.view.View,android.view.ViewGroup):229:229 -> getView
-    17:28:android.view.View getView(int,android.view.View,android.view.ViewGroup):230:230 -> getView
-    29:41:android.view.View getView(int,android.view.View,android.view.ViewGroup):232:232 -> getView
-    42:60:android.view.View getView(int,android.view.View,android.view.ViewGroup):233:233 -> getView
-    61:94:android.view.View getView(int,android.view.View,android.view.ViewGroup):234:234 -> getView
-    95:105:android.view.View getView(int,android.view.View,android.view.ViewGroup):235:235 -> getView
-    106:111:android.view.View getView(int,android.view.View,android.view.ViewGroup):236:236 -> getView
-    112:115:android.view.View getView(int,android.view.View,android.view.ViewGroup):238:238 -> getView
-    116:125:android.view.View getView(int,android.view.View,android.view.ViewGroup):237:237 -> getView
-    126:134:android.view.View getView(int,android.view.View,android.view.ViewGroup):238:238 -> getView
-    135:137:android.view.View getView(int,android.view.View,android.view.ViewGroup):236:236 -> getView
-    138:143:android.view.View getView(int,android.view.View,android.view.ViewGroup):240:240 -> getView
-    144:159:android.view.View getView(int,android.view.View,android.view.ViewGroup):241:241 -> getView
-    160:169:android.view.View getView(int,android.view.View,android.view.ViewGroup):243:243 -> getView
-    170:179:android.view.View getView(int,android.view.View,android.view.ViewGroup):244:244 -> getView
-    180:183:android.view.View getView(int,android.view.View,android.view.ViewGroup):245:245 -> getView
+    5:16:android.view.View getView(int,android.view.View,android.view.ViewGroup):244:244 -> getView
+    17:28:android.view.View getView(int,android.view.View,android.view.ViewGroup):245:245 -> getView
+    29:41:android.view.View getView(int,android.view.View,android.view.ViewGroup):247:247 -> getView
+    42:60:android.view.View getView(int,android.view.View,android.view.ViewGroup):248:248 -> getView
+    61:94:android.view.View getView(int,android.view.View,android.view.ViewGroup):249:249 -> getView
+    95:105:android.view.View getView(int,android.view.View,android.view.ViewGroup):250:250 -> getView
+    106:111:android.view.View getView(int,android.view.View,android.view.ViewGroup):251:251 -> getView
+    112:115:android.view.View getView(int,android.view.View,android.view.ViewGroup):253:253 -> getView
+    116:125:android.view.View getView(int,android.view.View,android.view.ViewGroup):252:252 -> getView
+    126:134:android.view.View getView(int,android.view.View,android.view.ViewGroup):253:253 -> getView
+    135:137:android.view.View getView(int,android.view.View,android.view.ViewGroup):251:251 -> getView
+    138:143:android.view.View getView(int,android.view.View,android.view.ViewGroup):255:255 -> getView
+    144:159:android.view.View getView(int,android.view.View,android.view.ViewGroup):256:256 -> getView
+    160:169:android.view.View getView(int,android.view.View,android.view.ViewGroup):258:258 -> getView
+    170:179:android.view.View getView(int,android.view.View,android.view.ViewGroup):259:259 -> getView
+    180:183:android.view.View getView(int,android.view.View,android.view.ViewGroup):260:260 -> getView
 com.qingying.PinnedFolders -> com.qingying.PinnedFolders:
 # {"id":"sourceFile","fileName":"PinnedFolders.java"}
     1:4:void <init>():15:15 -> <init>
@@ -245,6 +239,52 @@ com.qingying.PinnedFolders -> com.qingying.PinnedFolders:
     17:20:boolean toggle(android.content.Context,java.lang.String):34:34 -> toggle
     21:26:boolean toggle(android.content.Context,java.lang.String):37:37 -> toggle
     27:40:boolean toggle(android.content.Context,java.lang.String):38:38 -> toggle
+com.qingying.PlayHistoryStore -> com.qingying.PlayHistoryStore:
+# {"id":"sourceFile","fileName":"PlayHistoryStore.java"}
+    1:4:void <init>():19:19 -> <init>
+    1:5:int $r8$lambda$4wr7VxnKe8yBD7qLBiRRSY0UHJk(org.json.JSONObject,java.lang.String,java.lang.String):0:0 -> a
+      # {"id":"com.android.tools.r8.synthesized"}
+    1:9:long at(org.json.JSONObject,java.lang.String):65:65 -> at
+    10:16:long at(org.json.JSONObject,java.lang.String):66:66 -> at
+    1:9:int count(android.content.Context):49:49 -> count
+    1:16:long[] info(android.content.Context,long):43:43 -> info
+    17:47:long[] info(android.content.Context,long):45:45 -> info
+    1:13:int lambda$ordered$0(org.json.JSONObject,java.lang.String,java.lang.String):60:60 -> lambda$ordered$0
+    1:5:java.util.List ordered(org.json.JSONObject):58:58 -> ordered
+    6:25:java.util.List ordered(org.json.JSONObject):59:59 -> ordered
+    26:35:java.util.List ordered(org.json.JSONObject):60:60 -> ordered
+    1:9:java.util.List orderedIds(android.content.Context):54:54 -> orderedIds
+    1:10:long position(android.content.Context,long):37:37 -> position
+    11:13:long position(android.content.Context,long):38:38 -> position
+    1:11:org.json.JSONObject read(android.content.Context):71:71 -> read
+    12:15:org.json.JSONObject read(android.content.Context):72:72 -> read
+    16:21:org.json.JSONObject read(android.content.Context):73:73 -> read
+    22:27:org.json.JSONObject read(android.content.Context):75:75 -> read
+    4:7:void record(android.content.Context,long,long,long):23:23 -> record
+    8:12:void record(android.content.Context,long,long,long):24:24 -> record
+    13:17:void record(android.content.Context,long,long,long):25:25 -> record
+    18:22:void record(android.content.Context,long,long,long):26:26 -> record
+    23:31:void record(android.content.Context,long,long,long):27:27 -> record
+    32:38:void record(android.content.Context,long,long,long):28:28 -> record
+    39:41:void record(android.content.Context,long,long,long):29:29 -> record
+    42:48:void record(android.content.Context,long,long,long):30:30 -> record
+    49:67:void record(android.content.Context,long,long,long):31:31 -> record
+    68:69:void record(android.content.Context,long,long,long):32:32 -> record
+    70:71:void record(android.content.Context,long,long,long):34:34 -> record
+    1:6:void trim(org.json.JSONObject):81:81 -> trim
+    7:25:void trim(org.json.JSONObject):82:82 -> trim
+com.qingying.PlayHistoryStore$$ExternalSyntheticLambda0 -> com.qingying.e:
+# {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
+# {"id":"com.android.tools.r8.synthesized"}
+    int $r8$classId -> a
+      # {"id":"com.android.tools.r8.synthesized"}
+    org.json.JSONObject com.qingying.PlayHistoryStore$$InternalSyntheticLambda$1$d88fea86ca5e128a9a2b063835e59a55604319ed0031a4b011d145788e3bf70b$0.f$0 -> b
+      # {"id":"com.android.tools.r8.residualsignature","signature":"Ljava/lang/Object;"}
+      # {"id":"com.android.tools.r8.synthesized"}
+    1:8:void <init>(java.lang.Object,int):0:0 -> <init>
+      # {"id":"com.android.tools.r8.synthesized"}
+    1:32:int compare(java.lang.Object,java.lang.Object):0:0 -> compare
+      # {"id":"com.android.tools.r8.synthesized"}
 com.qingying.PlayerActivity -> com.qingying.PlayerActivity:
 # {"id":"sourceFile","fileName":"PlayerActivity.java"}
     2:10:void <clinit>():50:50 -> <clinit>
@@ -284,61 +324,61 @@ com.qingying.PlayerActivity -> com.qingying.PlayerActivity:
     1:3:boolean access$600(com.qingying.PlayerActivity):45:45 -> access$600
     1:4:void access$700(com.qingying.PlayerActivity,int):45:45 -> access$700
     1:3:java.lang.Runnable access$900(com.qingying.PlayerActivity):45:45 -> access$900
-    1:5:void adjustVideoSize():518:518 -> adjustVideoSize
-    6:9:void adjustVideoSize():522:522 -> adjustVideoSize
-    10:20:void adjustVideoSize():523:523 -> adjustVideoSize
-    21:28:void adjustVideoSize():529:529 -> adjustVideoSize
-    29:32:void adjustVideoSize():530:530 -> adjustVideoSize
-    33:53:void adjustVideoSize():531:531 -> adjustVideoSize
-    54:59:void adjustVideoSize():542:542 -> adjustVideoSize
-    60:63:void adjustVideoSize():546:546 -> adjustVideoSize
-    64:69:void adjustVideoSize():549:549 -> adjustVideoSize
-    70:77:void adjustVideoSize():550:550 -> adjustVideoSize
-    78:79:void adjustVideoSize():551:551 -> adjustVideoSize
-    80:81:void adjustVideoSize():552:552 -> adjustVideoSize
-    82:87:void adjustVideoSize():553:553 -> adjustVideoSize
-    1:9:void applySpeed(float):654:654 -> applySpeed
-    10:15:void applySpeed(float):656:656 -> applySpeed
-    16:21:void applySpeed(float):657:657 -> applySpeed
-    22:24:void applySpeed(float):658:658 -> applySpeed
-    25:30:void applySpeed(float):659:659 -> applySpeed
+    1:5:void adjustVideoSize():522:522 -> adjustVideoSize
+    6:9:void adjustVideoSize():526:526 -> adjustVideoSize
+    10:20:void adjustVideoSize():527:527 -> adjustVideoSize
+    21:28:void adjustVideoSize():533:533 -> adjustVideoSize
+    29:32:void adjustVideoSize():534:534 -> adjustVideoSize
+    33:53:void adjustVideoSize():535:535 -> adjustVideoSize
+    54:59:void adjustVideoSize():546:546 -> adjustVideoSize
+    60:63:void adjustVideoSize():550:550 -> adjustVideoSize
+    64:69:void adjustVideoSize():553:553 -> adjustVideoSize
+    70:77:void adjustVideoSize():554:554 -> adjustVideoSize
+    78:79:void adjustVideoSize():555:555 -> adjustVideoSize
+    80:81:void adjustVideoSize():556:556 -> adjustVideoSize
+    82:87:void adjustVideoSize():557:557 -> adjustVideoSize
+    1:9:void applySpeed(float):658:658 -> applySpeed
+    10:15:void applySpeed(float):660:660 -> applySpeed
+    16:21:void applySpeed(float):661:661 -> applySpeed
+    22:24:void applySpeed(float):662:662 -> applySpeed
+    25:30:void applySpeed(float):663:663 -> applySpeed
     1:4:void $r8$lambda$0zMRjM1ElBpa8PUPAn0XD0Q1TQ8(com.qingying.PlayerActivity,android.view.View):0:0 -> b
       # {"id":"com.android.tools.r8.synthesized"}
     1:4:void $r8$lambda$1aoBozv7Uhu4j4RLx6RKZn5nsJs(com.qingying.PlayerActivity,android.view.View):0:0 -> c
       # {"id":"com.android.tools.r8.synthesized"}
-    1:7:void cancelLongPress():772:772 -> cancelLongPress
-    8:15:void cancelLongPress():773:773 -> cancelLongPress
-    1:4:void cancelPendingTap():754:754 -> cancelPendingTap
-    5:10:void cancelPendingTap():755:755 -> cancelPendingTap
-    11:13:void cancelPendingTap():756:756 -> cancelPendingTap
-    1:10:void captureFrame():372:372 -> captureFrame
-    11:16:void captureFrame():376:376 -> captureFrame
-    17:24:void captureFrame():377:377 -> captureFrame
-    25:33:void captureFrame():379:379 -> captureFrame
-    34:44:void captureFrame():380:380 -> captureFrame
-    45:47:void captureFrame():383:383 -> captureFrame
-    48:57:void captureFrame():384:384 -> captureFrame
-    58:68:void captureFrame():385:385 -> captureFrame
-    69:78:void captureFrame():373:373 -> captureFrame
-    7:11:void cycleSpeed():669:669 -> cycleSpeed
-    12:31:void cycleSpeed():670:670 -> cycleSpeed
-    32:37:void cycleSpeed():676:676 -> cycleSpeed
-    38:46:void cycleSpeed():677:677 -> cycleSpeed
-    47:61:void cycleSpeed():678:678 -> cycleSpeed
-    62:86:void cycleSpeed():679:679 -> cycleSpeed
-    87:90:void cycleSpeed():680:680 -> cycleSpeed
+    1:7:void cancelLongPress():776:776 -> cancelLongPress
+    8:15:void cancelLongPress():777:777 -> cancelLongPress
+    1:4:void cancelPendingTap():758:758 -> cancelPendingTap
+    5:10:void cancelPendingTap():759:759 -> cancelPendingTap
+    11:13:void cancelPendingTap():760:760 -> cancelPendingTap
+    1:10:void captureFrame():375:375 -> captureFrame
+    11:16:void captureFrame():379:379 -> captureFrame
+    17:24:void captureFrame():380:380 -> captureFrame
+    25:33:void captureFrame():382:382 -> captureFrame
+    34:44:void captureFrame():383:383 -> captureFrame
+    45:47:void captureFrame():386:386 -> captureFrame
+    48:57:void captureFrame():387:387 -> captureFrame
+    58:68:void captureFrame():388:388 -> captureFrame
+    69:78:void captureFrame():376:376 -> captureFrame
+    7:11:void cycleSpeed():673:673 -> cycleSpeed
+    12:31:void cycleSpeed():674:674 -> cycleSpeed
+    32:37:void cycleSpeed():680:680 -> cycleSpeed
+    38:46:void cycleSpeed():681:681 -> cycleSpeed
+    47:61:void cycleSpeed():682:682 -> cycleSpeed
+    62:86:void cycleSpeed():683:683 -> cycleSpeed
+    87:90:void cycleSpeed():684:684 -> cycleSpeed
     1:4:void $r8$lambda$9yCSKvLYZfP0dHOs5EvtXky1ia4(com.qingying.PlayerActivity,android.view.View):0:0 -> d
       # {"id":"com.android.tools.r8.synthesized"}
-    3:4:void detectFrameRate():623:623 -> detectFrameRate
-    5:9:void detectFrameRate():624:624 -> detectFrameRate
-    10:16:void detectFrameRate():626:626 -> detectFrameRate
-    17:22:void detectFrameRate():627:627 -> detectFrameRate
-    23:34:void detectFrameRate():629:629 -> detectFrameRate
-    35:49:void detectFrameRate():630:630 -> detectFrameRate
-    50:56:void detectFrameRate():635:635 -> detectFrameRate
-    57:57:void detectFrameRate():638:638 -> detectFrameRate
-    58:61:void detectFrameRate():635:635 -> detectFrameRate
-    1:17:int dp(int):811:811 -> dp
+    3:4:void detectFrameRate():627:627 -> detectFrameRate
+    5:9:void detectFrameRate():628:628 -> detectFrameRate
+    10:16:void detectFrameRate():630:630 -> detectFrameRate
+    17:22:void detectFrameRate():631:631 -> detectFrameRate
+    23:34:void detectFrameRate():633:633 -> detectFrameRate
+    35:49:void detectFrameRate():634:634 -> detectFrameRate
+    50:56:void detectFrameRate():639:639 -> detectFrameRate
+    57:57:void detectFrameRate():642:642 -> detectFrameRate
+    58:61:void detectFrameRate():639:639 -> detectFrameRate
+    1:17:int dp(int):815:815 -> dp
     1:4:void $r8$lambda$AlLjDhC1Xw8rbm96eGS8Cbah7zM(com.qingying.PlayerActivity,android.view.View):0:0 -> e
       # {"id":"com.android.tools.r8.synthesized"}
     1:4:void $r8$lambda$DHjscP9wJL_Pg0-6YJU_enFlscw(com.qingying.PlayerActivity,java.lang.String):0:0 -> f
@@ -347,108 +387,109 @@ com.qingying.PlayerActivity -> com.qingying.PlayerActivity:
       # {"id":"com.android.tools.r8.synthesized"}
     1:4:void $r8$lambda$JpeI2UROVIfJ9uiDid47L9c4Y4E(com.qingying.PlayerActivity,boolean):0:0 -> h
       # {"id":"com.android.tools.r8.synthesized"}
-    1:4:void handleTap(boolean):737:737 -> handleTap
-    5:18:void handleTap(boolean):738:738 -> handleTap
-    19:23:void handleTap(boolean):739:739 -> handleTap
-    24:25:void handleTap(boolean):740:740 -> handleTap
-    26:29:void handleTap(boolean):741:741 -> handleTap
-    30:31:void handleTap(boolean):744:744 -> handleTap
-    32:39:void handleTap(boolean):745:745 -> handleTap
-    40:45:void handleTap(boolean):750:750 -> handleTap
-    1:8:void hidePlaylist():306:306 -> hidePlaylist
-    9:12:void hidePlaylist():307:307 -> hidePlaylist
-    1:6:void hideSystemBars():815:815 -> hideSystemBars
-    7:13:void hideSystemBars():816:816 -> hideSystemBars
-    14:23:void hideSystemBars():817:817 -> hideSystemBars
-    24:35:void hideSystemBars():819:819 -> hideSystemBars
-    36:39:void hideSystemBars():820:820 -> hideSystemBars
-    40:53:void hideSystemBars():824:824 -> hideSystemBars
+    1:4:void handleTap(boolean):741:741 -> handleTap
+    5:18:void handleTap(boolean):742:742 -> handleTap
+    19:23:void handleTap(boolean):743:743 -> handleTap
+    24:25:void handleTap(boolean):744:744 -> handleTap
+    26:29:void handleTap(boolean):745:745 -> handleTap
+    30:31:void handleTap(boolean):748:748 -> handleTap
+    32:39:void handleTap(boolean):749:749 -> handleTap
+    40:45:void handleTap(boolean):754:754 -> handleTap
+    1:8:void hidePlaylist():309:309 -> hidePlaylist
+    9:12:void hidePlaylist():310:310 -> hidePlaylist
+    1:6:void hideSystemBars():819:819 -> hideSystemBars
+    7:13:void hideSystemBars():820:820 -> hideSystemBars
+    14:23:void hideSystemBars():821:821 -> hideSystemBars
+    24:35:void hideSystemBars():823:823 -> hideSystemBars
+    36:39:void hideSystemBars():824:824 -> hideSystemBars
+    40:53:void hideSystemBars():828:828 -> hideSystemBars
     1:4:void $r8$lambda$LFbqd1-0SNtZOOdwb7Hs0bUYY_g(com.qingying.PlayerActivity,android.view.View):0:0 -> i
       # {"id":"com.android.tools.r8.synthesized"}
-    1:5:boolean inZone(android.view.View,android.view.MotionEvent,boolean):762:762 -> inZone
-    6:21:boolean inZone(android.view.View,android.view.MotionEvent,boolean):763:763 -> inZone
-    22:25:boolean inZone(android.view.View,android.view.MotionEvent,boolean):765:765 -> inZone
-    26:69:boolean inZone(android.view.View,android.view.MotionEvent,boolean):766:766 -> inZone
-    1:3:void initPlayer(android.view.SurfaceHolder):468:468 -> initPlayer
-    4:10:void initPlayer(android.view.SurfaceHolder):470:470 -> initPlayer
-    11:16:void initPlayer(android.view.SurfaceHolder):471:471 -> initPlayer
-    17:21:void initPlayer(android.view.SurfaceHolder):472:472 -> initPlayer
-    22:25:void initPlayer(android.view.SurfaceHolder):473:473 -> initPlayer
-    26:29:void initPlayer(android.view.SurfaceHolder):474:474 -> initPlayer
-    30:32:void initPlayer(android.view.SurfaceHolder):471:471 -> initPlayer
-    33:37:void initPlayer(android.view.SurfaceHolder):475:475 -> initPlayer
-    38:44:void initPlayer(android.view.SurfaceHolder):476:476 -> initPlayer
-    45:54:void initPlayer(android.view.SurfaceHolder):477:477 -> initPlayer
-    55:64:void initPlayer(android.view.SurfaceHolder):478:478 -> initPlayer
-    65:74:void initPlayer(android.view.SurfaceHolder):491:491 -> initPlayer
-    75:84:void initPlayer(android.view.SurfaceHolder):502:502 -> initPlayer
-    85:90:void initPlayer(android.view.SurfaceHolder):507:507 -> initPlayer
-    91:100:void initPlayer(android.view.SurfaceHolder):509:509 -> initPlayer
-    101:104:void initPlayer(android.view.SurfaceHolder):510:510 -> initPlayer
+    1:5:boolean inZone(android.view.View,android.view.MotionEvent,boolean):766:766 -> inZone
+    6:21:boolean inZone(android.view.View,android.view.MotionEvent,boolean):767:767 -> inZone
+    22:25:boolean inZone(android.view.View,android.view.MotionEvent,boolean):769:769 -> inZone
+    26:69:boolean inZone(android.view.View,android.view.MotionEvent,boolean):770:770 -> inZone
+    1:3:void initPlayer(android.view.SurfaceHolder):471:471 -> initPlayer
+    4:10:void initPlayer(android.view.SurfaceHolder):473:473 -> initPlayer
+    11:16:void initPlayer(android.view.SurfaceHolder):474:474 -> initPlayer
+    17:21:void initPlayer(android.view.SurfaceHolder):475:475 -> initPlayer
+    22:25:void initPlayer(android.view.SurfaceHolder):476:476 -> initPlayer
+    26:29:void initPlayer(android.view.SurfaceHolder):477:477 -> initPlayer
+    30:32:void initPlayer(android.view.SurfaceHolder):474:474 -> initPlayer
+    33:37:void initPlayer(android.view.SurfaceHolder):478:478 -> initPlayer
+    38:44:void initPlayer(android.view.SurfaceHolder):479:479 -> initPlayer
+    45:54:void initPlayer(android.view.SurfaceHolder):480:480 -> initPlayer
+    55:64:void initPlayer(android.view.SurfaceHolder):481:481 -> initPlayer
+    65:74:void initPlayer(android.view.SurfaceHolder):494:494 -> initPlayer
+    75:84:void initPlayer(android.view.SurfaceHolder):506:506 -> initPlayer
+    85:90:void initPlayer(android.view.SurfaceHolder):511:511 -> initPlayer
+    91:100:void initPlayer(android.view.SurfaceHolder):513:513 -> initPlayer
+    101:104:void initPlayer(android.view.SurfaceHolder):514:514 -> initPlayer
     1:4:void $r8$lambda$NL22YvQiUqwHaVdBWNDqmLUeRQI(com.qingying.PlayerActivity,android.view.View,int,int,int,int,int,int,int,int):0:0 -> j
       # {"id":"com.android.tools.r8.synthesized"}
-    1:9:void jumpBy(int):590:590 -> jumpBy
-    10:14:void jumpBy(int):591:591 -> jumpBy
-    15:29:void jumpBy(int):592:592 -> jumpBy
-    30:34:void jumpBy(int):593:593 -> jumpBy
-    35:45:void jumpBy(int):594:594 -> jumpBy
-    46:49:void jumpBy(int):595:595 -> jumpBy
+    1:9:void jumpBy(int):594:594 -> jumpBy
+    10:14:void jumpBy(int):595:595 -> jumpBy
+    15:29:void jumpBy(int):596:596 -> jumpBy
+    30:34:void jumpBy(int):597:597 -> jumpBy
+    35:45:void jumpBy(int):598:598 -> jumpBy
+    46:49:void jumpBy(int):599:599 -> jumpBy
     1:4:void $r8$lambda$OirYsv9xNVk8N1xEZkxcwQpA8ec(com.qingying.PlayerActivity):0:0 -> k
       # {"id":"com.android.tools.r8.synthesized"}
     1:5:boolean $r8$lambda$UDyTBrpr14yhJ1PAV8ZzJht-2qg(com.qingying.PlayerActivity,android.view.View,android.view.MotionEvent):0:0 -> l
       # {"id":"com.android.tools.r8.synthesized"}
-    3:8:void lambda$captureFrame$22(boolean):400:400 -> lambda$captureFrame$22
-    9:12:void lambda$captureFrame$22(boolean):399:399 -> lambda$captureFrame$22
-    13:16:void lambda$captureFrame$22(boolean):400:400 -> lambda$captureFrame$22
-    1:5:void lambda$captureFrame$23(long):387:387 -> lambda$captureFrame$23
-    6:11:void lambda$captureFrame$23(long):389:389 -> lambda$captureFrame$23
-    12:15:void lambda$captureFrame$23(long):390:390 -> lambda$captureFrame$23
-    16:23:void lambda$captureFrame$23(long):394:394 -> lambda$captureFrame$23
-    24:24:void lambda$captureFrame$23(long):397:397 -> lambda$captureFrame$23
-    25:30:void lambda$captureFrame$23(long):394:394 -> lambda$captureFrame$23
-    31:39:void lambda$captureFrame$23(long):398:398 -> lambda$captureFrame$23
-    40:49:void lambda$captureFrame$23(long):399:399 -> lambda$captureFrame$23
-    2:5:void lambda$handleTap$29(boolean):746:746 -> lambda$handleTap$29
-    6:9:void lambda$handleTap$29(boolean):747:747 -> lambda$handleTap$29
-    10:24:void lambda$handleTap$29(boolean):748:748 -> lambda$handleTap$29
-    1:4:void lambda$initPlayer$24(android.media.MediaPlayer,int,int):477:477 -> lambda$initPlayer$24
-    2:3:void lambda$initPlayer$25(android.media.MediaPlayer):479:479 -> lambda$initPlayer$25
-    4:11:void lambda$initPlayer$25(android.media.MediaPlayer):480:480 -> lambda$initPlayer$25
-    12:16:void lambda$initPlayer$25(android.media.MediaPlayer):481:481 -> lambda$initPlayer$25
-    17:19:void lambda$initPlayer$25(android.media.MediaPlayer):482:482 -> lambda$initPlayer$25
-    20:26:void lambda$initPlayer$25(android.media.MediaPlayer):483:483 -> lambda$initPlayer$25
-    27:30:void lambda$initPlayer$25(android.media.MediaPlayer):484:484 -> lambda$initPlayer$25
-    31:32:void lambda$initPlayer$25(android.media.MediaPlayer):485:485 -> lambda$initPlayer$25
-    33:37:void lambda$initPlayer$25(android.media.MediaPlayer):486:486 -> lambda$initPlayer$25
-    38:40:void lambda$initPlayer$25(android.media.MediaPlayer):487:487 -> lambda$initPlayer$25
-    41:47:void lambda$initPlayer$25(android.media.MediaPlayer):488:488 -> lambda$initPlayer$25
-    48:51:void lambda$initPlayer$25(android.media.MediaPlayer):489:489 -> lambda$initPlayer$25
-    1:8:void lambda$initPlayer$26():496:496 -> lambda$initPlayer$26
-    2:3:void lambda$initPlayer$27(android.media.MediaPlayer):492:492 -> lambda$initPlayer$27
-    4:6:void lambda$initPlayer$27(android.media.MediaPlayer):493:493 -> lambda$initPlayer$27
-    7:19:void lambda$initPlayer$27(android.media.MediaPlayer):494:494 -> lambda$initPlayer$27
-    20:24:void lambda$initPlayer$27(android.media.MediaPlayer):495:495 -> lambda$initPlayer$27
-    25:38:void lambda$initPlayer$27(android.media.MediaPlayer):496:496 -> lambda$initPlayer$27
-    39:43:void lambda$initPlayer$27(android.media.MediaPlayer):498:498 -> lambda$initPlayer$27
-    44:47:void lambda$initPlayer$27(android.media.MediaPlayer):500:500 -> lambda$initPlayer$27
-    1:10:boolean lambda$initPlayer$28(android.media.MediaPlayer,int,int):503:503 -> lambda$initPlayer$28
-    11:15:boolean lambda$initPlayer$28(android.media.MediaPlayer,int,int):504:504 -> lambda$initPlayer$28
-    1:5:void lambda$loadPlaylist$20(java.util.List,java.lang.String):245:245 -> lambda$loadPlaylist$20
-    6:11:void lambda$loadPlaylist$20(java.util.List,java.lang.String):246:246 -> lambda$loadPlaylist$20
-    12:15:void lambda$loadPlaylist$20(java.util.List,java.lang.String):247:247 -> lambda$loadPlaylist$20
-    16:23:void lambda$loadPlaylist$20(java.util.List,java.lang.String):248:248 -> lambda$loadPlaylist$20
-    24:39:void lambda$loadPlaylist$20(java.util.List,java.lang.String):249:249 -> lambda$loadPlaylist$20
-    40:45:void lambda$loadPlaylist$20(java.util.List,java.lang.String):250:250 -> lambda$loadPlaylist$20
-    46:49:void lambda$loadPlaylist$20(java.util.List,java.lang.String):254:254 -> lambda$loadPlaylist$20
-    50:54:void lambda$loadPlaylist$20(java.util.List,java.lang.String):256:256 -> lambda$loadPlaylist$20
-    55:61:void lambda$loadPlaylist$20(java.util.List,java.lang.String):257:257 -> lambda$loadPlaylist$20
-    62:65:void lambda$loadPlaylist$20(java.util.List,java.lang.String):258:258 -> lambda$loadPlaylist$20
-    66:70:void lambda$loadPlaylist$20(java.util.List,java.lang.String):259:259 -> lambda$loadPlaylist$20
-    71:72:void lambda$loadPlaylist$20(java.util.List,java.lang.String):260:260 -> lambda$loadPlaylist$20
-    73:77:void lambda$loadPlaylist$20(java.util.List,java.lang.String):262:262 -> lambda$loadPlaylist$20
-    78:81:void lambda$loadPlaylist$20(java.util.List,java.lang.String):263:263 -> lambda$loadPlaylist$20
-    1:6:void lambda$loadPlaylist$21(java.lang.String):243:243 -> lambda$loadPlaylist$21
-    7:15:void lambda$loadPlaylist$21(java.lang.String):244:244 -> lambda$loadPlaylist$21
+    3:8:void lambda$captureFrame$22(boolean):403:403 -> lambda$captureFrame$22
+    9:12:void lambda$captureFrame$22(boolean):402:402 -> lambda$captureFrame$22
+    13:16:void lambda$captureFrame$22(boolean):403:403 -> lambda$captureFrame$22
+    1:5:void lambda$captureFrame$23(long):390:390 -> lambda$captureFrame$23
+    6:11:void lambda$captureFrame$23(long):392:392 -> lambda$captureFrame$23
+    12:15:void lambda$captureFrame$23(long):393:393 -> lambda$captureFrame$23
+    16:23:void lambda$captureFrame$23(long):397:397 -> lambda$captureFrame$23
+    24:24:void lambda$captureFrame$23(long):400:400 -> lambda$captureFrame$23
+    25:30:void lambda$captureFrame$23(long):397:397 -> lambda$captureFrame$23
+    31:39:void lambda$captureFrame$23(long):401:401 -> lambda$captureFrame$23
+    40:49:void lambda$captureFrame$23(long):402:402 -> lambda$captureFrame$23
+    2:5:void lambda$handleTap$29(boolean):750:750 -> lambda$handleTap$29
+    6:9:void lambda$handleTap$29(boolean):751:751 -> lambda$handleTap$29
+    10:24:void lambda$handleTap$29(boolean):752:752 -> lambda$handleTap$29
+    1:4:void lambda$initPlayer$24(android.media.MediaPlayer,int,int):480:480 -> lambda$initPlayer$24
+    2:3:void lambda$initPlayer$25(android.media.MediaPlayer):482:482 -> lambda$initPlayer$25
+    4:11:void lambda$initPlayer$25(android.media.MediaPlayer):483:483 -> lambda$initPlayer$25
+    12:16:void lambda$initPlayer$25(android.media.MediaPlayer):484:484 -> lambda$initPlayer$25
+    17:19:void lambda$initPlayer$25(android.media.MediaPlayer):485:485 -> lambda$initPlayer$25
+    20:30:void lambda$initPlayer$25(android.media.MediaPlayer):486:486 -> lambda$initPlayer$25
+    31:34:void lambda$initPlayer$25(android.media.MediaPlayer):487:487 -> lambda$initPlayer$25
+    35:36:void lambda$initPlayer$25(android.media.MediaPlayer):488:488 -> lambda$initPlayer$25
+    37:41:void lambda$initPlayer$25(android.media.MediaPlayer):489:489 -> lambda$initPlayer$25
+    42:44:void lambda$initPlayer$25(android.media.MediaPlayer):490:490 -> lambda$initPlayer$25
+    45:51:void lambda$initPlayer$25(android.media.MediaPlayer):491:491 -> lambda$initPlayer$25
+    52:55:void lambda$initPlayer$25(android.media.MediaPlayer):492:492 -> lambda$initPlayer$25
+    1:8:void lambda$initPlayer$26():500:500 -> lambda$initPlayer$26
+    2:3:void lambda$initPlayer$27(android.media.MediaPlayer):495:495 -> lambda$initPlayer$27
+    4:6:void lambda$initPlayer$27(android.media.MediaPlayer):496:496 -> lambda$initPlayer$27
+    7:9:void lambda$initPlayer$27(android.media.MediaPlayer):497:497 -> lambda$initPlayer$27
+    10:22:void lambda$initPlayer$27(android.media.MediaPlayer):498:498 -> lambda$initPlayer$27
+    23:27:void lambda$initPlayer$27(android.media.MediaPlayer):499:499 -> lambda$initPlayer$27
+    28:41:void lambda$initPlayer$27(android.media.MediaPlayer):500:500 -> lambda$initPlayer$27
+    42:46:void lambda$initPlayer$27(android.media.MediaPlayer):502:502 -> lambda$initPlayer$27
+    47:50:void lambda$initPlayer$27(android.media.MediaPlayer):504:504 -> lambda$initPlayer$27
+    1:10:boolean lambda$initPlayer$28(android.media.MediaPlayer,int,int):507:507 -> lambda$initPlayer$28
+    11:15:boolean lambda$initPlayer$28(android.media.MediaPlayer,int,int):508:508 -> lambda$initPlayer$28
+    1:5:void lambda$loadPlaylist$20(java.util.List,java.lang.String):247:247 -> lambda$loadPlaylist$20
+    6:11:void lambda$loadPlaylist$20(java.util.List,java.lang.String):248:248 -> lambda$loadPlaylist$20
+    12:15:void lambda$loadPlaylist$20(java.util.List,java.lang.String):249:249 -> lambda$loadPlaylist$20
+    16:23:void lambda$loadPlaylist$20(java.util.List,java.lang.String):250:250 -> lambda$loadPlaylist$20
+    24:39:void lambda$loadPlaylist$20(java.util.List,java.lang.String):251:251 -> lambda$loadPlaylist$20
+    40:45:void lambda$loadPlaylist$20(java.util.List,java.lang.String):252:252 -> lambda$loadPlaylist$20
+    46:49:void lambda$loadPlaylist$20(java.util.List,java.lang.String):256:256 -> lambda$loadPlaylist$20
+    50:54:void lambda$loadPlaylist$20(java.util.List,java.lang.String):258:258 -> lambda$loadPlaylist$20
+    55:61:void lambda$loadPlaylist$20(java.util.List,java.lang.String):259:259 -> lambda$loadPlaylist$20
+    62:65:void lambda$loadPlaylist$20(java.util.List,java.lang.String):260:260 -> lambda$loadPlaylist$20
+    66:70:void lambda$loadPlaylist$20(java.util.List,java.lang.String):261:261 -> lambda$loadPlaylist$20
+    71:72:void lambda$loadPlaylist$20(java.util.List,java.lang.String):262:262 -> lambda$loadPlaylist$20
+    73:77:void lambda$loadPlaylist$20(java.util.List,java.lang.String):264:264 -> lambda$loadPlaylist$20
+    78:81:void lambda$loadPlaylist$20(java.util.List,java.lang.String):265:265 -> lambda$loadPlaylist$20
+    1:6:void lambda$loadPlaylist$21(java.lang.String):245:245 -> lambda$loadPlaylist$21
+    7:15:void lambda$loadPlaylist$21(java.lang.String):246:246 -> lambda$loadPlaylist$21
     1:8:void lambda$new$0():103:103 -> lambda$new$0
     1:18:void lambda$new$1():106:106 -> lambda$new$1
     19:25:void lambda$new$1():107:107 -> lambda$new$1
@@ -464,24 +505,24 @@ com.qingying.PlayerActivity -> com.qingying.PlayerActivity:
     14:15:void lambda$new$3():149:149 -> lambda$new$3
     16:22:void lambda$new$3():150:150 -> lambda$new$3
     23:30:void lambda$new$3():151:151 -> lambda$new$3
-    2:5:void lambda$onCreate$10(android.view.View):195:195 -> lambda$onCreate$10
-    2:5:void lambda$onCreate$11(android.view.View):196:196 -> lambda$onCreate$11
-    1:8:void lambda$onCreate$12(android.view.View):197:197 -> lambda$onCreate$12
-    1:8:void lambda$onCreate$13(android.view.View):198:198 -> lambda$onCreate$13
-    1:4:void lambda$onCreate$14(android.view.View):199:199 -> lambda$onCreate$14
-    1:4:void lambda$onCreate$15(android.view.View):200:200 -> lambda$onCreate$15
-    1:4:void lambda$onCreate$16(android.view.View):201:201 -> lambda$onCreate$16
-    1:4:void lambda$onCreate$17(android.view.View):202:202 -> lambda$onCreate$17
-    1:3:void lambda$onCreate$18(android.widget.AdapterView,android.view.View,int,long):208:208 -> lambda$onCreate$18
-    4:7:void lambda$onCreate$18(android.widget.AdapterView,android.view.View,int,long):209:209 -> lambda$onCreate$18
-    1:8:void lambda$onCreate$19():235:235 -> lambda$onCreate$19
-    1:4:void lambda$onCreate$4(android.view.View,int,int,int,int,int,int,int,int):188:188 -> lambda$onCreate$4
-    1:4:void lambda$onCreate$5(android.view.View):190:190 -> lambda$onCreate$5
-    1:4:void lambda$onCreate$6(android.view.View):191:191 -> lambda$onCreate$6
-    1:4:void lambda$onCreate$7(android.view.View):192:192 -> lambda$onCreate$7
-    3:6:void lambda$onCreate$8(android.view.View):193:193 -> lambda$onCreate$8
-    3:6:void lambda$onCreate$9(android.view.View):194:194 -> lambda$onCreate$9
-    1:12:void loadPlaylist(java.lang.String):242:242 -> loadPlaylist
+    2:5:void lambda$onCreate$10(android.view.View):197:197 -> lambda$onCreate$10
+    2:5:void lambda$onCreate$11(android.view.View):198:198 -> lambda$onCreate$11
+    1:8:void lambda$onCreate$12(android.view.View):199:199 -> lambda$onCreate$12
+    1:8:void lambda$onCreate$13(android.view.View):200:200 -> lambda$onCreate$13
+    1:4:void lambda$onCreate$14(android.view.View):201:201 -> lambda$onCreate$14
+    1:4:void lambda$onCreate$15(android.view.View):202:202 -> lambda$onCreate$15
+    1:4:void lambda$onCreate$16(android.view.View):203:203 -> lambda$onCreate$16
+    1:4:void lambda$onCreate$17(android.view.View):204:204 -> lambda$onCreate$17
+    1:3:void lambda$onCreate$18(android.widget.AdapterView,android.view.View,int,long):210:210 -> lambda$onCreate$18
+    4:7:void lambda$onCreate$18(android.widget.AdapterView,android.view.View,int,long):211:211 -> lambda$onCreate$18
+    1:8:void lambda$onCreate$19():237:237 -> lambda$onCreate$19
+    1:4:void lambda$onCreate$4(android.view.View,int,int,int,int,int,int,int,int):190:190 -> lambda$onCreate$4
+    1:4:void lambda$onCreate$5(android.view.View):192:192 -> lambda$onCreate$5
+    1:4:void lambda$onCreate$6(android.view.View):193:193 -> lambda$onCreate$6
+    1:4:void lambda$onCreate$7(android.view.View):194:194 -> lambda$onCreate$7
+    3:6:void lambda$onCreate$8(android.view.View):195:195 -> lambda$onCreate$8
+    3:6:void lambda$onCreate$9(android.view.View):196:196 -> lambda$onCreate$9
+    1:12:void loadPlaylist(java.lang.String):244:244 -> loadPlaylist
     1:4:void $r8$lambda$UGrkKwO4wSj64uKvqQ7xd37lBNc(com.qingying.PlayerActivity):0:0 -> m
       # {"id":"com.android.tools.r8.synthesized"}
     1:4:void $r8$lambda$UK33suZ3wUflImzEwyW34IoVaYA(com.qingying.PlayerActivity,android.view.View):0:0 -> n
@@ -495,219 +536,225 @@ com.qingying.PlayerActivity -> com.qingying.PlayerActivity:
     21:34:void onCreate(android.os.Bundle):161:161 -> onCreate
     35:46:void onCreate(android.os.Bundle):162:162 -> onCreate
     47:56:void onCreate(android.os.Bundle):163:163 -> onCreate
-    57:66:void onCreate(android.os.Bundle):164:164 -> onCreate
-    67:76:void onCreate(android.os.Bundle):166:166 -> onCreate
-    77:84:void onCreate(android.os.Bundle):167:167 -> onCreate
-    85:92:void onCreate(android.os.Bundle):168:168 -> onCreate
-    93:102:void onCreate(android.os.Bundle):169:169 -> onCreate
-    103:112:void onCreate(android.os.Bundle):170:170 -> onCreate
-    113:122:void onCreate(android.os.Bundle):171:171 -> onCreate
-    123:132:void onCreate(android.os.Bundle):172:172 -> onCreate
-    133:142:void onCreate(android.os.Bundle):173:173 -> onCreate
-    143:152:void onCreate(android.os.Bundle):174:174 -> onCreate
-    153:162:void onCreate(android.os.Bundle):175:175 -> onCreate
-    163:172:void onCreate(android.os.Bundle):176:176 -> onCreate
-    173:182:void onCreate(android.os.Bundle):177:177 -> onCreate
-    183:192:void onCreate(android.os.Bundle):178:178 -> onCreate
-    193:200:void onCreate(android.os.Bundle):179:179 -> onCreate
-    201:210:void onCreate(android.os.Bundle):180:180 -> onCreate
-    211:221:void onCreate(android.os.Bundle):182:182 -> onCreate
-    222:232:void onCreate(android.os.Bundle):183:183 -> onCreate
-    233:241:void onCreate(android.os.Bundle):185:185 -> onCreate
-    242:255:void onCreate(android.os.Bundle):187:187 -> onCreate
-    256:269:void onCreate(android.os.Bundle):189:189 -> onCreate
-    270:284:void onCreate(android.os.Bundle):190:190 -> onCreate
-    285:295:void onCreate(android.os.Bundle):191:191 -> onCreate
-    296:306:void onCreate(android.os.Bundle):192:192 -> onCreate
-    307:322:void onCreate(android.os.Bundle):193:193 -> onCreate
-    323:338:void onCreate(android.os.Bundle):194:194 -> onCreate
-    339:354:void onCreate(android.os.Bundle):195:195 -> onCreate
-    355:370:void onCreate(android.os.Bundle):196:196 -> onCreate
-    371:382:void onCreate(android.os.Bundle):197:197 -> onCreate
-    383:393:void onCreate(android.os.Bundle):198:198 -> onCreate
-    394:404:void onCreate(android.os.Bundle):199:199 -> onCreate
-    405:419:void onCreate(android.os.Bundle):200:200 -> onCreate
-    420:430:void onCreate(android.os.Bundle):201:201 -> onCreate
-    431:445:void onCreate(android.os.Bundle):202:202 -> onCreate
-    446:453:void onCreate(android.os.Bundle):204:204 -> onCreate
-    454:461:void onCreate(android.os.Bundle):205:205 -> onCreate
-    462:464:void onCreate(android.os.Bundle):206:206 -> onCreate
-    465:473:void onCreate(android.os.Bundle):207:207 -> onCreate
-    474:483:void onCreate(android.os.Bundle):212:212 -> onCreate
-    484:486:void onCreate(android.os.Bundle):232:232 -> onCreate
-    487:489:void onCreate(android.os.Bundle):233:233 -> onCreate
-    490:502:void onCreate(android.os.Bundle):235:235 -> onCreate
-    503:512:void onCreate(android.os.Bundle):236:236 -> onCreate
-    1:3:void onDestroy():858:858 -> onDestroy
-    4:9:void onDestroy():859:859 -> onDestroy
-    10:12:void onDestroy():860:860 -> onDestroy
-    13:18:void onDestroy():861:861 -> onDestroy
-    1:17:boolean onGesture(android.view.View,android.view.MotionEvent):697:697 -> onGesture
-    18:39:boolean onGesture(android.view.View,android.view.MotionEvent):709:709 -> onGesture
-    40:59:boolean onGesture(android.view.View,android.view.MotionEvent):710:710 -> onGesture
-    60:63:boolean onGesture(android.view.View,android.view.MotionEvent):711:711 -> onGesture
-    64:72:boolean onGesture(android.view.View,android.view.MotionEvent):717:717 -> onGesture
-    73:75:boolean onGesture(android.view.View,android.view.MotionEvent):718:718 -> onGesture
-    76:78:boolean onGesture(android.view.View,android.view.MotionEvent):719:719 -> onGesture
-    79:83:boolean onGesture(android.view.View,android.view.MotionEvent):720:720 -> onGesture
-    84:96:boolean onGesture(android.view.View,android.view.MotionEvent):721:721 -> onGesture
-    97:104:boolean onGesture(android.view.View,android.view.MotionEvent):722:722 -> onGesture
-    105:108:boolean onGesture(android.view.View,android.view.MotionEvent):723:723 -> onGesture
-    109:114:boolean onGesture(android.view.View,android.view.MotionEvent):725:725 -> onGesture
-    115:120:boolean onGesture(android.view.View,android.view.MotionEvent):699:699 -> onGesture
-    121:126:boolean onGesture(android.view.View,android.view.MotionEvent):700:700 -> onGesture
-    127:132:boolean onGesture(android.view.View,android.view.MotionEvent):701:701 -> onGesture
-    133:138:boolean onGesture(android.view.View,android.view.MotionEvent):702:702 -> onGesture
-    139:144:boolean onGesture(android.view.View,android.view.MotionEvent):703:703 -> onGesture
-    145:160:boolean onGesture(android.view.View,android.view.MotionEvent):704:704 -> onGesture
-    161:168:boolean onGesture(android.view.View,android.view.MotionEvent):705:705 -> onGesture
-    1:3:void onPause():847:847 -> onPause
-    4:11:void onPause():848:848 -> onPause
-    12:17:void onPause():849:849 -> onPause
-    18:30:void onPause():850:850 -> onPause
-    31:38:void onPause():852:852 -> onPause
-    39:42:void onPause():853:853 -> onPause
-    1:3:void onResume():838:838 -> onResume
-    4:25:void onResume():840:840 -> onResume
-    26:35:void onResume():841:841 -> onResume
+    57:71:void onCreate(android.os.Bundle):165:165 -> onCreate
+    72:81:void onCreate(android.os.Bundle):166:166 -> onCreate
+    82:91:void onCreate(android.os.Bundle):168:168 -> onCreate
+    92:99:void onCreate(android.os.Bundle):169:169 -> onCreate
+    100:107:void onCreate(android.os.Bundle):170:170 -> onCreate
+    108:117:void onCreate(android.os.Bundle):171:171 -> onCreate
+    118:127:void onCreate(android.os.Bundle):172:172 -> onCreate
+    128:137:void onCreate(android.os.Bundle):173:173 -> onCreate
+    138:147:void onCreate(android.os.Bundle):174:174 -> onCreate
+    148:157:void onCreate(android.os.Bundle):175:175 -> onCreate
+    158:167:void onCreate(android.os.Bundle):176:176 -> onCreate
+    168:177:void onCreate(android.os.Bundle):177:177 -> onCreate
+    178:187:void onCreate(android.os.Bundle):178:178 -> onCreate
+    188:197:void onCreate(android.os.Bundle):179:179 -> onCreate
+    198:207:void onCreate(android.os.Bundle):180:180 -> onCreate
+    208:215:void onCreate(android.os.Bundle):181:181 -> onCreate
+    216:225:void onCreate(android.os.Bundle):182:182 -> onCreate
+    226:236:void onCreate(android.os.Bundle):184:184 -> onCreate
+    237:247:void onCreate(android.os.Bundle):185:185 -> onCreate
+    248:256:void onCreate(android.os.Bundle):187:187 -> onCreate
+    257:270:void onCreate(android.os.Bundle):189:189 -> onCreate
+    271:284:void onCreate(android.os.Bundle):191:191 -> onCreate
+    285:299:void onCreate(android.os.Bundle):192:192 -> onCreate
+    300:310:void onCreate(android.os.Bundle):193:193 -> onCreate
+    311:321:void onCreate(android.os.Bundle):194:194 -> onCreate
+    322:337:void onCreate(android.os.Bundle):195:195 -> onCreate
+    338:353:void onCreate(android.os.Bundle):196:196 -> onCreate
+    354:369:void onCreate(android.os.Bundle):197:197 -> onCreate
+    370:385:void onCreate(android.os.Bundle):198:198 -> onCreate
+    386:397:void onCreate(android.os.Bundle):199:199 -> onCreate
+    398:408:void onCreate(android.os.Bundle):200:200 -> onCreate
+    409:419:void onCreate(android.os.Bundle):201:201 -> onCreate
+    420:434:void onCreate(android.os.Bundle):202:202 -> onCreate
+    435:445:void onCreate(android.os.Bundle):203:203 -> onCreate
+    446:460:void onCreate(android.os.Bundle):204:204 -> onCreate
+    461:468:void onCreate(android.os.Bundle):206:206 -> onCreate
+    469:476:void onCreate(android.os.Bundle):207:207 -> onCreate
+    477:479:void onCreate(android.os.Bundle):208:208 -> onCreate
+    480:488:void onCreate(android.os.Bundle):209:209 -> onCreate
+    489:498:void onCreate(android.os.Bundle):214:214 -> onCreate
+    499:501:void onCreate(android.os.Bundle):234:234 -> onCreate
+    502:504:void onCreate(android.os.Bundle):235:235 -> onCreate
+    505:517:void onCreate(android.os.Bundle):237:237 -> onCreate
+    518:527:void onCreate(android.os.Bundle):238:238 -> onCreate
+    1:3:void onDestroy():872:872 -> onDestroy
+    4:6:void onDestroy():873:873 -> onDestroy
+    7:12:void onDestroy():874:874 -> onDestroy
+    13:15:void onDestroy():875:875 -> onDestroy
+    16:21:void onDestroy():876:876 -> onDestroy
+    1:17:boolean onGesture(android.view.View,android.view.MotionEvent):701:701 -> onGesture
+    18:39:boolean onGesture(android.view.View,android.view.MotionEvent):713:713 -> onGesture
+    40:59:boolean onGesture(android.view.View,android.view.MotionEvent):714:714 -> onGesture
+    60:63:boolean onGesture(android.view.View,android.view.MotionEvent):715:715 -> onGesture
+    64:72:boolean onGesture(android.view.View,android.view.MotionEvent):721:721 -> onGesture
+    73:75:boolean onGesture(android.view.View,android.view.MotionEvent):722:722 -> onGesture
+    76:78:boolean onGesture(android.view.View,android.view.MotionEvent):723:723 -> onGesture
+    79:83:boolean onGesture(android.view.View,android.view.MotionEvent):724:724 -> onGesture
+    84:96:boolean onGesture(android.view.View,android.view.MotionEvent):725:725 -> onGesture
+    97:104:boolean onGesture(android.view.View,android.view.MotionEvent):726:726 -> onGesture
+    105:108:boolean onGesture(android.view.View,android.view.MotionEvent):727:727 -> onGesture
+    109:114:boolean onGesture(android.view.View,android.view.MotionEvent):729:729 -> onGesture
+    115:120:boolean onGesture(android.view.View,android.view.MotionEvent):703:703 -> onGesture
+    121:126:boolean onGesture(android.view.View,android.view.MotionEvent):704:704 -> onGesture
+    127:132:boolean onGesture(android.view.View,android.view.MotionEvent):705:705 -> onGesture
+    133:138:boolean onGesture(android.view.View,android.view.MotionEvent):706:706 -> onGesture
+    139:144:boolean onGesture(android.view.View,android.view.MotionEvent):707:707 -> onGesture
+    145:160:boolean onGesture(android.view.View,android.view.MotionEvent):708:708 -> onGesture
+    161:168:boolean onGesture(android.view.View,android.view.MotionEvent):709:709 -> onGesture
+    1:3:void onPause():860:860 -> onPause
+    4:11:void onPause():861:861 -> onPause
+    12:17:void onPause():862:862 -> onPause
+    18:20:void onPause():863:863 -> onPause
+    21:33:void onPause():864:864 -> onPause
+    34:41:void onPause():866:866 -> onPause
+    42:45:void onPause():867:867 -> onPause
+    1:3:void onResume():842:842 -> onResume
+    4:25:void onResume():844:844 -> onResume
+    26:35:void onResume():845:845 -> onResume
     1:4:void $r8$lambda$UhaGcktE-HSMerqNbTeHIpGdB0Q(com.qingying.PlayerActivity,android.view.View):0:0 -> p
       # {"id":"com.android.tools.r8.synthesized"}
-    3:15:void playAt(int):269:269 -> playAt
-    16:17:void playAt(int):270:270 -> playAt
-    18:25:void playAt(int):271:271 -> playAt
-    26:29:void playAt(int):272:272 -> playAt
-    30:37:void playAt(int):273:273 -> playAt
-    38:44:void playAt(int):275:275 -> playAt
-    45:48:void playAt(int):276:276 -> playAt
-    49:50:void playAt(int):277:277 -> playAt
-    51:52:void playAt(int):278:278 -> playAt
-    53:54:void playAt(int):279:279 -> playAt
-    55:57:void playAt(int):280:280 -> playAt
-    58:62:void playAt(int):281:281 -> playAt
-    63:69:void playAt(int):282:282 -> playAt
-    70:74:void playAt(int):283:283 -> playAt
-    75:77:void playAt(int):284:284 -> playAt
-    78:93:void playAt(int):285:285 -> playAt
-    94:103:void playAt(int):286:286 -> playAt
-    104:107:void playAt(int):288:288 -> playAt
+    3:15:void playAt(int):271:271 -> playAt
+    16:18:void playAt(int):272:272 -> playAt
+    19:20:void playAt(int):273:273 -> playAt
+    21:28:void playAt(int):274:274 -> playAt
+    29:32:void playAt(int):275:275 -> playAt
+    33:40:void playAt(int):276:276 -> playAt
+    41:47:void playAt(int):278:278 -> playAt
+    48:51:void playAt(int):279:279 -> playAt
+    52:53:void playAt(int):280:280 -> playAt
+    54:55:void playAt(int):281:281 -> playAt
+    56:57:void playAt(int):282:282 -> playAt
+    58:60:void playAt(int):283:283 -> playAt
+    61:65:void playAt(int):284:284 -> playAt
+    66:72:void playAt(int):285:285 -> playAt
+    73:77:void playAt(int):286:286 -> playAt
+    78:80:void playAt(int):287:287 -> playAt
+    81:96:void playAt(int):288:288 -> playAt
+    97:106:void playAt(int):289:289 -> playAt
+    107:110:void playAt(int):291:291 -> playAt
     1:4:void $r8$lambda$YQfnW4SJfJtrCdkAvMbJvRJDexo(com.qingying.PlayerActivity,long):0:0 -> q
       # {"id":"com.android.tools.r8.synthesized"}
     1:4:void $r8$lambda$Zs-bUy7nj__oXncaQLIBLdnLYpk(com.qingying.PlayerActivity):0:0 -> r
       # {"id":"com.android.tools.r8.synthesized"}
-    1:7:void releasePlayer():558:558 -> releasePlayer
-    8:10:void releasePlayer():559:559 -> releasePlayer
-    11:13:void releasePlayer():560:560 -> releasePlayer
-    14:16:void releasePlayer():561:561 -> releasePlayer
-    17:20:void releasePlayer():562:562 -> releasePlayer
-    21:24:void releasePlayer():564:564 -> releasePlayer
-    25:27:void releasePlayer():567:567 -> releasePlayer
+    1:17:void recordHistory():851:851 -> recordHistory
+    18:34:void recordHistory():853:853 -> recordHistory
+    1:7:void releasePlayer():562:562 -> releasePlayer
+    8:10:void releasePlayer():563:563 -> releasePlayer
+    11:13:void releasePlayer():564:564 -> releasePlayer
+    14:16:void releasePlayer():565:565 -> releasePlayer
+    17:20:void releasePlayer():566:566 -> releasePlayer
+    21:24:void releasePlayer():568:568 -> releasePlayer
+    25:27:void releasePlayer():571:571 -> releasePlayer
     1:4:void $r8$lambda$cG-7oxzDyxWZDGOlYObrSfkYUfY(com.qingying.PlayerActivity,android.view.View):0:0 -> s
       # {"id":"com.android.tools.r8.synthesized"}
-    1:24:boolean saveFrame(android.graphics.Bitmap):405:405 -> saveFrame
-    25:33:boolean saveFrame(android.graphics.Bitmap):407:407 -> saveFrame
-    34:38:boolean saveFrame(android.graphics.Bitmap):408:408 -> saveFrame
-    39:43:boolean saveFrame(android.graphics.Bitmap):409:409 -> saveFrame
-    44:50:boolean saveFrame(android.graphics.Bitmap):410:410 -> saveFrame
-    51:57:boolean saveFrame(android.graphics.Bitmap):411:411 -> saveFrame
-    58:70:boolean saveFrame(android.graphics.Bitmap):412:412 -> saveFrame
-    71:80:boolean saveFrame(android.graphics.Bitmap):414:414 -> saveFrame
-    81:90:boolean saveFrame(android.graphics.Bitmap):415:415 -> saveFrame
-    91:102:boolean saveFrame(android.graphics.Bitmap):414:414 -> saveFrame
-    103:106:boolean saveFrame(android.graphics.Bitmap):416:416 -> saveFrame
-    107:119:boolean saveFrame(android.graphics.Bitmap):418:418 -> saveFrame
-    120:132:boolean saveFrame(android.graphics.Bitmap):420:420 -> saveFrame
-    133:137:boolean saveFrame(android.graphics.Bitmap):421:421 -> saveFrame
-    138:142:boolean saveFrame(android.graphics.Bitmap):422:422 -> saveFrame
-    143:150:boolean saveFrame(android.graphics.Bitmap):423:423 -> saveFrame
-    151:157:boolean saveFrame(android.graphics.Bitmap):424:424 -> saveFrame
-    158:171:boolean saveFrame(android.graphics.Bitmap):425:425 -> saveFrame
-    172:181:boolean saveFrame(android.graphics.Bitmap):422:422 -> saveFrame
-    1:5:void seek(int):642:642 -> seek
-    6:12:void seek(int):644:644 -> seek
-    13:16:void seek(int):645:645 -> seek
-    17:20:void seek(int):647:647 -> seek
-    7:11:void setControlsVisible(boolean):796:796 -> setControlsVisible
-    12:16:void setControlsVisible(boolean):797:797 -> setControlsVisible
-    17:25:void setControlsVisible(boolean):798:798 -> setControlsVisible
-    26:35:void setControlsVisible(boolean):799:799 -> setControlsVisible
-    1:6:void showBadge(java.lang.String,long):803:803 -> showBadge
-    7:9:void showBadge(java.lang.String,long):804:804 -> showBadge
-    10:15:void showBadge(java.lang.String,long):805:805 -> showBadge
-    16:28:void showBadge(java.lang.String,long):806:806 -> showBadge
-    29:36:void showBadge(java.lang.String,long):807:807 -> showBadge
-    1:6:void showPlaylist():298:298 -> showPlaylist
-    7:13:void showPlaylist():299:299 -> showPlaylist
-    14:18:void showPlaylist():300:300 -> showPlaylist
-    19:25:void showPlaylist():301:301 -> showPlaylist
-    26:31:void showPlaylist():302:302 -> showPlaylist
-    1:4:java.lang.String speedText(float):684:684 -> speedText
-    5:23:java.lang.String speedText(float):685:685 -> speedText
-    24:41:java.lang.String speedText(float):686:686 -> speedText
-    1:10:void stepFrame(int):600:600 -> stepFrame
-    11:16:void stepFrame(int):601:601 -> stepFrame
-    17:21:void stepFrame(int):602:602 -> stepFrame
-    22:24:void stepFrame(int):603:603 -> stepFrame
-    25:36:void stepFrame(int):605:605 -> stepFrame
-    37:53:void stepFrame(int):606:606 -> stepFrame
-    54:59:void stepFrame(int):608:608 -> stepFrame
-    60:67:void stepFrame(int):609:609 -> stepFrame
-    68:73:void stepFrame(int):611:611 -> stepFrame
-    74:79:void stepFrame(int):615:615 -> stepFrame
-    80:120:void stepFrame(int):616:616 -> stepFrame
-    121:144:void stepFrame(int):617:617 -> stepFrame
-    145:148:void stepFrame(int):618:618 -> stepFrame
-    1:6:void stopBoost():777:777 -> stopBoost
-    7:8:void stopBoost():778:778 -> stopBoost
-    9:15:void stopBoost():779:779 -> stopBoost
-    16:22:void stopBoost():780:780 -> stopBoost
-    23:28:void stopBoost():781:781 -> stopBoost
-    1:6:void stopRewind():785:785 -> stopRewind
-    7:8:void stopRewind():786:786 -> stopRewind
-    9:15:void stopRewind():787:787 -> stopRewind
-    16:22:void stopRewind():788:788 -> stopRewind
-    23:30:void stopRewind():789:789 -> stopRewind
-    1:8:void surfaceChanged(android.view.SurfaceHolder,int,int,int):449:449 -> surfaceChanged
-    9:12:void surfaceChanged(android.view.SurfaceHolder,int,int,int):451:451 -> surfaceChanged
-    1:4:void surfaceCreated(android.view.SurfaceHolder):437:437 -> surfaceCreated
-    5:8:void surfaceCreated(android.view.SurfaceHolder):438:438 -> surfaceCreated
-    9:12:void surfaceCreated(android.view.SurfaceHolder):439:439 -> surfaceCreated
-    13:16:void surfaceCreated(android.view.SurfaceHolder):441:441 -> surfaceCreated
-    1:5:void surfaceDestroyed(android.view.SurfaceHolder):459:459 -> surfaceDestroyed
-    6:9:void surfaceDestroyed(android.view.SurfaceHolder):461:461 -> surfaceDestroyed
+    1:24:boolean saveFrame(android.graphics.Bitmap):408:408 -> saveFrame
+    25:33:boolean saveFrame(android.graphics.Bitmap):410:410 -> saveFrame
+    34:38:boolean saveFrame(android.graphics.Bitmap):411:411 -> saveFrame
+    39:43:boolean saveFrame(android.graphics.Bitmap):412:412 -> saveFrame
+    44:50:boolean saveFrame(android.graphics.Bitmap):413:413 -> saveFrame
+    51:57:boolean saveFrame(android.graphics.Bitmap):414:414 -> saveFrame
+    58:70:boolean saveFrame(android.graphics.Bitmap):415:415 -> saveFrame
+    71:80:boolean saveFrame(android.graphics.Bitmap):417:417 -> saveFrame
+    81:90:boolean saveFrame(android.graphics.Bitmap):418:418 -> saveFrame
+    91:102:boolean saveFrame(android.graphics.Bitmap):417:417 -> saveFrame
+    103:106:boolean saveFrame(android.graphics.Bitmap):419:419 -> saveFrame
+    107:119:boolean saveFrame(android.graphics.Bitmap):421:421 -> saveFrame
+    120:132:boolean saveFrame(android.graphics.Bitmap):423:423 -> saveFrame
+    133:137:boolean saveFrame(android.graphics.Bitmap):424:424 -> saveFrame
+    138:142:boolean saveFrame(android.graphics.Bitmap):425:425 -> saveFrame
+    143:150:boolean saveFrame(android.graphics.Bitmap):426:426 -> saveFrame
+    151:157:boolean saveFrame(android.graphics.Bitmap):427:427 -> saveFrame
+    158:171:boolean saveFrame(android.graphics.Bitmap):428:428 -> saveFrame
+    172:181:boolean saveFrame(android.graphics.Bitmap):425:425 -> saveFrame
+    1:5:void seek(int):646:646 -> seek
+    6:12:void seek(int):648:648 -> seek
+    13:16:void seek(int):649:649 -> seek
+    17:20:void seek(int):651:651 -> seek
+    7:11:void setControlsVisible(boolean):800:800 -> setControlsVisible
+    12:16:void setControlsVisible(boolean):801:801 -> setControlsVisible
+    17:25:void setControlsVisible(boolean):802:802 -> setControlsVisible
+    26:35:void setControlsVisible(boolean):803:803 -> setControlsVisible
+    1:6:void showBadge(java.lang.String,long):807:807 -> showBadge
+    7:9:void showBadge(java.lang.String,long):808:808 -> showBadge
+    10:15:void showBadge(java.lang.String,long):809:809 -> showBadge
+    16:28:void showBadge(java.lang.String,long):810:810 -> showBadge
+    29:36:void showBadge(java.lang.String,long):811:811 -> showBadge
+    1:6:void showPlaylist():301:301 -> showPlaylist
+    7:13:void showPlaylist():302:302 -> showPlaylist
+    14:18:void showPlaylist():303:303 -> showPlaylist
+    19:25:void showPlaylist():304:304 -> showPlaylist
+    26:31:void showPlaylist():305:305 -> showPlaylist
+    1:4:java.lang.String speedText(float):688:688 -> speedText
+    5:23:java.lang.String speedText(float):689:689 -> speedText
+    24:41:java.lang.String speedText(float):690:690 -> speedText
+    1:10:void stepFrame(int):604:604 -> stepFrame
+    11:16:void stepFrame(int):605:605 -> stepFrame
+    17:21:void stepFrame(int):606:606 -> stepFrame
+    22:24:void stepFrame(int):607:607 -> stepFrame
+    25:36:void stepFrame(int):609:609 -> stepFrame
+    37:53:void stepFrame(int):610:610 -> stepFrame
+    54:59:void stepFrame(int):612:612 -> stepFrame
+    60:67:void stepFrame(int):613:613 -> stepFrame
+    68:73:void stepFrame(int):615:615 -> stepFrame
+    74:79:void stepFrame(int):619:619 -> stepFrame
+    80:120:void stepFrame(int):620:620 -> stepFrame
+    121:144:void stepFrame(int):621:621 -> stepFrame
+    145:148:void stepFrame(int):622:622 -> stepFrame
+    1:6:void stopBoost():781:781 -> stopBoost
+    7:8:void stopBoost():782:782 -> stopBoost
+    9:15:void stopBoost():783:783 -> stopBoost
+    16:22:void stopBoost():784:784 -> stopBoost
+    23:28:void stopBoost():785:785 -> stopBoost
+    1:6:void stopRewind():789:789 -> stopRewind
+    7:8:void stopRewind():790:790 -> stopRewind
+    9:15:void stopRewind():791:791 -> stopRewind
+    16:22:void stopRewind():792:792 -> stopRewind
+    23:30:void stopRewind():793:793 -> stopRewind
+    1:8:void surfaceChanged(android.view.SurfaceHolder,int,int,int):452:452 -> surfaceChanged
+    9:12:void surfaceChanged(android.view.SurfaceHolder,int,int,int):454:454 -> surfaceChanged
+    1:4:void surfaceCreated(android.view.SurfaceHolder):440:440 -> surfaceCreated
+    5:8:void surfaceCreated(android.view.SurfaceHolder):441:441 -> surfaceCreated
+    9:12:void surfaceCreated(android.view.SurfaceHolder):442:442 -> surfaceCreated
+    13:16:void surfaceCreated(android.view.SurfaceHolder):444:444 -> surfaceCreated
+    1:5:void surfaceDestroyed(android.view.SurfaceHolder):462:462 -> surfaceDestroyed
+    6:9:void surfaceDestroyed(android.view.SurfaceHolder):464:464 -> surfaceDestroyed
     1:4:void $r8$lambda$e9Q1EOjDV_-I_mLOZ4MVe21INUs(com.qingying.PlayerActivity):0:0 -> t
       # {"id":"com.android.tools.r8.synthesized"}
-    1:6:void toggleFavorite():344:344 -> toggleFavorite
-    7:11:void toggleFavorite():345:345 -> toggleFavorite
-    12:22:void toggleFavorite():346:346 -> toggleFavorite
-    1:9:void togglePlay():572:572 -> togglePlay
-    10:16:void togglePlay():573:573 -> togglePlay
-    17:21:void togglePlay():574:574 -> togglePlay
-    22:25:void togglePlay():575:575 -> togglePlay
-    26:30:void togglePlay():577:577 -> togglePlay
-    31:33:void togglePlay():578:578 -> togglePlay
-    34:35:void togglePlay():579:579 -> togglePlay
-    36:40:void togglePlay():581:581 -> togglePlay
-    41:45:void togglePlay():582:582 -> togglePlay
-    46:48:void togglePlay():583:583 -> togglePlay
-    49:57:void togglePlay():584:584 -> togglePlay
-    58:61:void togglePlay():586:586 -> togglePlay
-    1:12:void toggleRotationLock():356:356 -> toggleRotationLock
-    13:15:void toggleRotationLock():358:358 -> toggleRotationLock
-    16:22:void toggleRotationLock():359:359 -> toggleRotationLock
-    23:30:void toggleRotationLock():360:360 -> toggleRotationLock
-    31:33:void toggleRotationLock():362:362 -> toggleRotationLock
-    34:40:void toggleRotationLock():363:363 -> toggleRotationLock
-    41:46:void toggleRotationLock():364:364 -> toggleRotationLock
+    1:6:void toggleFavorite():347:347 -> toggleFavorite
+    7:11:void toggleFavorite():348:348 -> toggleFavorite
+    12:22:void toggleFavorite():349:349 -> toggleFavorite
+    1:9:void togglePlay():576:576 -> togglePlay
+    10:16:void togglePlay():577:577 -> togglePlay
+    17:21:void togglePlay():578:578 -> togglePlay
+    22:25:void togglePlay():579:579 -> togglePlay
+    26:30:void togglePlay():581:581 -> togglePlay
+    31:33:void togglePlay():582:582 -> togglePlay
+    34:35:void togglePlay():583:583 -> togglePlay
+    36:40:void togglePlay():585:585 -> togglePlay
+    41:45:void togglePlay():586:586 -> togglePlay
+    46:48:void togglePlay():587:587 -> togglePlay
+    49:57:void togglePlay():588:588 -> togglePlay
+    58:61:void togglePlay():590:590 -> togglePlay
+    1:12:void toggleRotationLock():359:359 -> toggleRotationLock
+    13:15:void toggleRotationLock():361:361 -> toggleRotationLock
+    16:22:void toggleRotationLock():362:362 -> toggleRotationLock
+    23:30:void toggleRotationLock():363:363 -> toggleRotationLock
+    31:33:void toggleRotationLock():365:365 -> toggleRotationLock
+    34:40:void toggleRotationLock():366:366 -> toggleRotationLock
+    41:46:void toggleRotationLock():367:367 -> toggleRotationLock
     1:4:void $r8$lambda$eHJsp3IrW_f_reFvKlbIC1uCFhs(com.qingying.PlayerActivity,android.media.MediaPlayer):0:0 -> u
       # {"id":"com.android.tools.r8.synthesized"}
-    1:6:void updateFavoriteIcon():350:350 -> updateFavoriteIcon
-    7:18:void updateFavoriteIcon():351:351 -> updateFavoriteIcon
-    19:30:void updateFavoriteIcon():352:352 -> updateFavoriteIcon
-    1:17:void updateNavButtons():292:292 -> updateNavButtons
-    18:35:void updateNavButtons():293:293 -> updateNavButtons
-    36:76:void updateNavButtons():294:294 -> updateNavButtons
-    1:13:void updatePlayIcon():690:690 -> updatePlayIcon
-    14:26:void updatePlayIcon():691:691 -> updatePlayIcon
+    1:6:void updateFavoriteIcon():353:353 -> updateFavoriteIcon
+    7:18:void updateFavoriteIcon():354:354 -> updateFavoriteIcon
+    19:30:void updateFavoriteIcon():355:355 -> updateFavoriteIcon
+    1:17:void updateNavButtons():295:295 -> updateNavButtons
+    18:35:void updateNavButtons():296:296 -> updateNavButtons
+    36:76:void updateNavButtons():297:297 -> updateNavButtons
+    1:13:void updatePlayIcon():694:694 -> updatePlayIcon
+    14:26:void updatePlayIcon():695:695 -> updatePlayIcon
     1:5:boolean $r8$lambda$il8EYqh2EBxeZNRBybQRvqoc2pw(com.qingying.PlayerActivity,android.media.MediaPlayer,int,int):0:0 -> v
       # {"id":"com.android.tools.r8.synthesized"}
     1:4:void $r8$lambda$lX9jDR69wCc5W1xkThTLL_pGNwI(com.qingying.PlayerActivity,android.view.View):0:0 -> w
@@ -840,6 +887,21 @@ com.qingying.PlayerActivity$$ExternalSyntheticLambda8 -> com.qingying.q:
       # {"id":"com.android.tools.r8.synthesized"}
     1:8:void run():0:0 -> run
       # {"id":"com.android.tools.r8.synthesized"}
+com.qingying.PlayerActivity$$ExternalSyntheticLambda9 -> com.qingying.s:
+# {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
+# {"id":"com.android.tools.r8.synthesized"}
+    int $r8$classId -> a
+      # {"id":"com.android.tools.r8.synthesized"}
+    com.qingying.PlayerActivity com.qingying.PlayerActivity$$InternalSyntheticLambda$1$29f957fa8d63826e618039157533638045447efdd5f767fe7368310bb7622823$0.f$0 -> b
+      # {"id":"com.android.tools.r8.residualsignature","signature":"Landroid/app/Activity;"}
+      # {"id":"com.android.tools.r8.synthesized"}
+    java.lang.String com.qingying.PlayerActivity$$InternalSyntheticLambda$1$29f957fa8d63826e618039157533638045447efdd5f767fe7368310bb7622823$0.f$1 -> c
+      # {"id":"com.android.tools.r8.residualsignature","signature":"Ljava/lang/Object;"}
+      # {"id":"com.android.tools.r8.synthesized"}
+    1:10:void <init>(android.app.Activity,java.lang.Object,int):0:0 -> <init>
+      # {"id":"com.android.tools.r8.synthesized"}
+    1:30:void run():0:0 -> run
+      # {"id":"com.android.tools.r8.synthesized"}
 com.qingying.PlayerActivity$1 -> com.qingying.PlayerActivity$1:
 # {"id":"sourceFile","fileName":"PlayerActivity.java"}
     1:6:void <init>(com.qingying.PlayerActivity):112:112 -> <init>
@@ -860,25 +922,25 @@ com.qingying.PlayerActivity$2 -> com.qingying.PlayerActivity$2:
     48:59:void run():142:142 -> run
 com.qingying.PlayerActivity$3 -> com.qingying.PlayerActivity$3:
 # {"id":"sourceFile","fileName":"PlayerActivity.java"}
-    1:6:void <init>(com.qingying.PlayerActivity):212:212 -> <init>
-    3:46:void onProgressChanged(android.widget.SeekBar,int,boolean):216:216 -> onProgressChanged
-    1:16:void onStartTrackingTouch(android.widget.SeekBar):222:222 -> onStartTrackingTouch
-    1:9:void onStopTrackingTouch(android.widget.SeekBar):227:227 -> onStopTrackingTouch
-    10:16:void onStopTrackingTouch(android.widget.SeekBar):228:228 -> onStopTrackingTouch
+    1:6:void <init>(com.qingying.PlayerActivity):214:214 -> <init>
+    3:46:void onProgressChanged(android.widget.SeekBar,int,boolean):218:218 -> onProgressChanged
+    1:16:void onStartTrackingTouch(android.widget.SeekBar):224:224 -> onStartTrackingTouch
+    1:9:void onStopTrackingTouch(android.widget.SeekBar):229:229 -> onStopTrackingTouch
+    10:16:void onStopTrackingTouch(android.widget.SeekBar):230:230 -> onStopTrackingTouch
 com.qingying.PlayerActivity$PlaylistAdapter -> com.qingying.PlayerActivity$PlaylistAdapter:
 # {"id":"sourceFile","fileName":"PlayerActivity.java"}
-    1:1:void <init>(com.qingying.PlayerActivity):310:310 -> <init>
-    2:2:void <init>(com.qingying.PlayerActivity,com.qingying.PlayerActivity$1):310:310 -> <init>
-    1:11:int getCount():313:313 -> getCount
-    1:11:java.lang.Object getItem(int):318:318 -> getItem
+    1:1:void <init>(com.qingying.PlayerActivity):313:313 -> <init>
+    2:2:void <init>(com.qingying.PlayerActivity,com.qingying.PlayerActivity$1):313:313 -> <init>
+    1:11:int getCount():316:316 -> getCount
+    1:11:java.lang.Object getItem(int):321:321 -> getItem
     1:2:long getItemId(int):0:0 -> getItemId
-    5:16:android.view.View getView(int,android.view.View,android.view.ViewGroup):330:330 -> getView
-    17:28:android.view.View getView(int,android.view.View,android.view.ViewGroup):331:331 -> getView
-    29:36:android.view.View getView(int,android.view.View,android.view.ViewGroup):332:332 -> getView
-    37:41:android.view.View getView(int,android.view.View,android.view.ViewGroup):333:333 -> getView
-    42:61:android.view.View getView(int,android.view.View,android.view.ViewGroup):334:334 -> getView
-    62:64:android.view.View getView(int,android.view.View,android.view.ViewGroup):335:335 -> getView
-    65:79:android.view.View getView(int,android.view.View,android.view.ViewGroup):336:336 -> getView
+    5:16:android.view.View getView(int,android.view.View,android.view.ViewGroup):333:333 -> getView
+    17:28:android.view.View getView(int,android.view.View,android.view.ViewGroup):334:334 -> getView
+    29:36:android.view.View getView(int,android.view.View,android.view.ViewGroup):335:335 -> getView
+    37:41:android.view.View getView(int,android.view.View,android.view.ViewGroup):336:336 -> getView
+    42:61:android.view.View getView(int,android.view.View,android.view.ViewGroup):337:337 -> getView
+    62:64:android.view.View getView(int,android.view.View,android.view.ViewGroup):338:338 -> getView
+    65:79:android.view.View getView(int,android.view.View,android.view.ViewGroup):339:339 -> getView
 com.qingying.R -> com.qingying.R:
     1:4:void <init>():0:0 -> <init>
 com.qingying.R$color -> com.qingying.R$color:
@@ -913,7 +975,7 @@ com.qingying.ThumbLoader -> com.qingying.ThumbLoader:
     31:35:void lambda$load$1(long,android.content.Context,java.lang.String,android.widget.ImageView):54:54 -> lambda$load$1
     36:42:void lambda$load$1(long,android.content.Context,java.lang.String,android.widget.ImageView):53:53 -> lambda$load$1
     43:47:void lambda$load$1(long,android.content.Context,java.lang.String,android.widget.ImageView):61:61 -> lambda$load$1
-    48:58:void lambda$load$1(long,android.content.Context,java.lang.String,android.widget.ImageView):62:62 -> lambda$load$1
+    48:59:void lambda$load$1(long,android.content.Context,java.lang.String,android.widget.ImageView):62:62 -> lambda$load$1
     1:4:void load(android.content.Context,android.widget.ImageView,long):35:35 -> load
     5:7:void load(android.content.Context,android.widget.ImageView,long):36:36 -> load
     8:17:void load(android.content.Context,android.widget.ImageView,long):38:38 -> load
@@ -921,12 +983,12 @@ com.qingying.ThumbLoader -> com.qingying.ThumbLoader:
     22:26:void load(android.content.Context,android.widget.ImageView,long):43:43 -> load
     27:30:void load(android.content.Context,android.widget.ImageView,long):45:45 -> load
     31:43:void load(android.content.Context,android.widget.ImageView,long):46:46 -> load
-com.qingying.ThumbLoader$$ExternalSyntheticApiModelOutline0 -> com.qingying.s:
+com.qingying.ThumbLoader$$ExternalSyntheticApiModelOutline0 -> com.qingying.t:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
     1:6:android.graphics.Bitmap m(android.content.ContentResolver,android.net.Uri,android.util.Size):0:0 -> a
       # {"id":"com.android.tools.r8.synthesized"}
-com.qingying.ThumbLoader$$ExternalSyntheticLambda1 -> com.qingying.t:
+com.qingying.ThumbLoader$$ExternalSyntheticLambda1 -> com.qingying.u:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
     long com.qingying.ThumbLoader$$InternalSyntheticLambda$1$08be8bbb28fd49bd573a251d3cc7777af1c643aad4d39f32ccc8f9681275e7ab$0.f$0 -> a
@@ -941,24 +1003,25 @@ com.qingying.ThumbLoader$$ExternalSyntheticLambda1 -> com.qingying.t:
       # {"id":"com.android.tools.r8.synthesized"}
     1:12:void run():0:0 -> run
       # {"id":"com.android.tools.r8.synthesized"}
-com.qingying.ThumbLoader$$ExternalSyntheticLambda2 -> com.qingying.u:
+com.qingying.ThumbLoader$$ExternalSyntheticLambda2 -> com.qingying.v:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
     int $r8$classId -> a
       # {"id":"com.android.tools.r8.synthesized"}
     java.lang.String com.qingying.ThumbLoader$$InternalSyntheticLambda$1$f77eb4eb86b79949aa206642689eff02965b78d3e6bf4e1d07ddb3d03356f16b$1.f$0 -> b
+      # {"id":"com.android.tools.r8.residualsignature","signature":"Ljava/lang/Object;"}
       # {"id":"com.android.tools.r8.synthesized"}
     android.widget.ImageView com.qingying.ThumbLoader$$InternalSyntheticLambda$1$f77eb4eb86b79949aa206642689eff02965b78d3e6bf4e1d07ddb3d03356f16b$1.f$1 -> c
-      # {"id":"com.android.tools.r8.residualsignature","signature":"Landroid/view/KeyEvent$Callback;"}
+      # {"id":"com.android.tools.r8.residualsignature","signature":"Ljava/lang/Object;"}
       # {"id":"com.android.tools.r8.synthesized"}
     android.graphics.Bitmap com.qingying.ThumbLoader$$InternalSyntheticLambda$1$f77eb4eb86b79949aa206642689eff02965b78d3e6bf4e1d07ddb3d03356f16b$1.f$2 -> d
       # {"id":"com.android.tools.r8.residualsignature","signature":"Ljava/lang/Object;"}
       # {"id":"com.android.tools.r8.synthesized"}
     1:1:void <init>(com.qingying.PlayerActivity,java.util.List,java.lang.String):0:0 -> <init>
       # {"id":"com.android.tools.r8.synthesized"}
-    2:2:void <init>(java.lang.String,android.widget.ImageView,android.graphics.Bitmap):0:0 -> <init>
+    2:2:void <init>(java.lang.Object,java.lang.Object,java.lang.Object,int):0:0 -> <init>
       # {"id":"com.android.tools.r8.synthesized"}
-    1:34:void run():0:0 -> run
+    1:54:void run():0:0 -> run
       # {"id":"com.android.tools.r8.synthesized"}
 com.qingying.ThumbLoader$1 -> com.qingying.ThumbLoader$1:
 # {"id":"sourceFile","fileName":"ThumbLoader.java"}
@@ -976,27 +1039,30 @@ com.qingying.VideoListActivity -> com.qingying.VideoListActivity:
     1:4:void $r8$lambda$-DHrWyN6Iv2Lx0FRbmLzxAYub5c(com.qingying.VideoListActivity,android.widget.AdapterView,android.view.View,int,long):0:0 -> a
       # {"id":"com.android.tools.r8.synthesized"}
     1:3:java.util.List access$100(com.qingying.VideoListActivity):18:18 -> access$100
+    1:3:java.lang.String access$200(com.qingying.VideoListActivity):18:18 -> access$200
     1:4:void $r8$lambda$8pw55pXnTYaTAZ0JAB1Vn8BG5Ew(com.qingying.VideoListActivity,java.util.List):0:0 -> b
       # {"id":"com.android.tools.r8.synthesized"}
     1:4:void $r8$lambda$e6lJn_6e33tARQ8ZTdzflqRsu9k(com.qingying.VideoListActivity,android.view.View):0:0 -> c
       # {"id":"com.android.tools.r8.synthesized"}
     1:4:void $r8$lambda$qMFvfkETjAK_af3fnYmBA0Qhmrc(com.qingying.VideoListActivity):0:0 -> d
       # {"id":"com.android.tools.r8.synthesized"}
-    1:5:void lambda$loadVideos$2(java.util.List):69:69 -> lambda$loadVideos$2
-    6:10:void lambda$loadVideos$2(java.util.List):70:70 -> lambda$loadVideos$2
-    11:15:void lambda$loadVideos$2(java.util.List):71:71 -> lambda$loadVideos$2
-    16:43:void lambda$loadVideos$2(java.util.List):72:72 -> lambda$loadVideos$2
-    44:61:void lambda$loadVideos$2(java.util.List):73:73 -> lambda$loadVideos$2
-    1:6:void lambda$loadVideos$3():67:67 -> lambda$loadVideos$3
-    7:16:void lambda$loadVideos$3():68:68 -> lambda$loadVideos$3
+    1:5:void lambda$loadVideos$2(java.util.List):73:73 -> lambda$loadVideos$2
+    6:10:void lambda$loadVideos$2(java.util.List):74:74 -> lambda$loadVideos$2
+    11:15:void lambda$loadVideos$2(java.util.List):75:75 -> lambda$loadVideos$2
+    16:43:void lambda$loadVideos$2(java.util.List):76:76 -> lambda$loadVideos$2
+    44:61:void lambda$loadVideos$2(java.util.List):77:77 -> lambda$loadVideos$2
+    1:6:void lambda$loadVideos$3():71:71 -> lambda$loadVideos$3
+    7:16:void lambda$loadVideos$3():72:72 -> lambda$loadVideos$3
     1:4:void lambda$onCreate$0(android.view.View):44:44 -> lambda$onCreate$0
     1:8:void lambda$onCreate$1(android.widget.AdapterView,android.view.View,int,long):50:50 -> lambda$onCreate$1
     9:15:void lambda$onCreate$1(android.widget.AdapterView,android.view.View,int,long):51:51 -> lambda$onCreate$1
     16:22:void lambda$onCreate$1(android.widget.AdapterView,android.view.View,int,long):52:52 -> lambda$onCreate$1
     23:29:void lambda$onCreate$1(android.widget.AdapterView,android.view.View,int,long):53:53 -> lambda$onCreate$1
     30:36:void lambda$onCreate$1(android.widget.AdapterView,android.view.View,int,long):54:54 -> lambda$onCreate$1
-    37:40:void lambda$onCreate$1(android.widget.AdapterView,android.view.View,int,long):55:55 -> lambda$onCreate$1
-    1:12:void loadVideos():66:66 -> loadVideos
+    37:46:void lambda$onCreate$1(android.widget.AdapterView,android.view.View,int,long):55:55 -> lambda$onCreate$1
+    47:57:void lambda$onCreate$1(android.widget.AdapterView,android.view.View,int,long):57:57 -> lambda$onCreate$1
+    58:61:void lambda$onCreate$1(android.widget.AdapterView,android.view.View,int,long):59:59 -> lambda$onCreate$1
+    1:12:void loadVideos():70:70 -> loadVideos
     1:3:void onCreate(android.os.Bundle):30:30 -> onCreate
     4:8:void onCreate(android.os.Bundle):31:31 -> onCreate
     9:14:void onCreate(android.os.Bundle):33:33 -> onCreate
@@ -1012,37 +1078,43 @@ com.qingying.VideoListActivity -> com.qingying.VideoListActivity:
     108:115:void onCreate(android.os.Bundle):47:47 -> onCreate
     116:118:void onCreate(android.os.Bundle):48:48 -> onCreate
     119:128:void onCreate(android.os.Bundle):49:49 -> onCreate
-    1:3:void onResume():61:61 -> onResume
-    4:7:void onResume():62:62 -> onResume
+    1:3:void onResume():65:65 -> onResume
+    4:7:void onResume():66:66 -> onResume
 com.qingying.VideoListActivity$1 -> com.qingying.VideoListActivity$1:
 # {"id":"sourceFile","fileName":"VideoListActivity.java"}
 com.qingying.VideoListActivity$VideoAdapter -> com.qingying.VideoListActivity$VideoAdapter:
 # {"id":"sourceFile","fileName":"VideoListActivity.java"}
-    1:1:void <init>(com.qingying.VideoListActivity):78:78 -> <init>
-    2:2:void <init>(com.qingying.VideoListActivity,com.qingying.VideoListActivity$1):78:78 -> <init>
+    1:1:void <init>(com.qingying.VideoListActivity):82:82 -> <init>
+    2:2:void <init>(com.qingying.VideoListActivity,com.qingying.VideoListActivity$1):82:82 -> <init>
     1:4:void $r8$lambda$m0Pzuk5ytX48B_Jjfir1frfRx-Q(com.qingying.VideoListActivity$VideoAdapter,com.qingying.Video,android.widget.TextView,android.view.View):0:0 -> a
       # {"id":"com.android.tools.r8.synthesized"}
-    1:11:int getCount():81:81 -> getCount
-    1:11:java.lang.Object getItem(int):86:86 -> getItem
+    1:11:int getCount():85:85 -> getCount
+    1:11:java.lang.Object getItem(int):90:90 -> getItem
     1:2:long getItemId(int):0:0 -> getItemId
-    5:16:android.view.View getView(int,android.view.View,android.view.ViewGroup):98:98 -> getView
-    17:28:android.view.View getView(int,android.view.View,android.view.ViewGroup):99:99 -> getView
-    29:41:android.view.View getView(int,android.view.View,android.view.ViewGroup):101:101 -> getView
-    42:49:android.view.View getView(int,android.view.View,android.view.ViewGroup):102:102 -> getView
-    50:57:android.view.View getView(int,android.view.View,android.view.ViewGroup):103:103 -> getView
-    58:60:android.view.View getView(int,android.view.View,android.view.ViewGroup):104:104 -> getView
-    61:72:android.view.View getView(int,android.view.View,android.view.ViewGroup):105:105 -> getView
-    73:75:android.view.View getView(int,android.view.View,android.view.ViewGroup):107:107 -> getView
-    76:92:android.view.View getView(int,android.view.View,android.view.ViewGroup):109:109 -> getView
-    93:100:android.view.View getView(int,android.view.View,android.view.ViewGroup):111:111 -> getView
-    101:111:android.view.View getView(int,android.view.View,android.view.ViewGroup):112:112 -> getView
-    112:119:android.view.View getView(int,android.view.View,android.view.ViewGroup):113:113 -> getView
-    120:135:android.view.View getView(int,android.view.View,android.view.ViewGroup):118:118 -> getView
-    1:8:void lambda$getView$0(com.qingying.Video,android.widget.TextView,android.view.View):114:114 -> lambda$getView$0
-    9:12:void lambda$getView$0(com.qingying.Video,android.widget.TextView,android.view.View):115:115 -> lambda$getView$0
-    3:19:void updateStar(android.widget.TextView,boolean):123:123 -> updateStar
-    20:23:void updateStar(android.widget.TextView,boolean):124:124 -> updateStar
-com.qingying.VideoListActivity$VideoAdapter$$ExternalSyntheticLambda0 -> com.qingying.v:
+    5:16:android.view.View getView(int,android.view.View,android.view.ViewGroup):102:102 -> getView
+    17:28:android.view.View getView(int,android.view.View,android.view.ViewGroup):103:103 -> getView
+    29:41:android.view.View getView(int,android.view.View,android.view.ViewGroup):105:105 -> getView
+    42:49:android.view.View getView(int,android.view.View,android.view.ViewGroup):106:106 -> getView
+    50:57:android.view.View getView(int,android.view.View,android.view.ViewGroup):107:107 -> getView
+    58:60:android.view.View getView(int,android.view.View,android.view.ViewGroup):108:108 -> getView
+    61:72:android.view.View getView(int,android.view.View,android.view.ViewGroup):109:109 -> getView
+    73:75:android.view.View getView(int,android.view.View,android.view.ViewGroup):111:111 -> getView
+    76:89:android.view.View getView(int,android.view.View,android.view.ViewGroup):113:113 -> getView
+    90:100:android.view.View getView(int,android.view.View,android.view.ViewGroup):114:114 -> getView
+    101:115:android.view.View getView(int,android.view.View,android.view.ViewGroup):116:116 -> getView
+    116:132:android.view.View getView(int,android.view.View,android.view.ViewGroup):117:117 -> getView
+    133:160:android.view.View getView(int,android.view.View,android.view.ViewGroup):118:118 -> getView
+    161:178:android.view.View getView(int,android.view.View,android.view.ViewGroup):120:120 -> getView
+    179:195:android.view.View getView(int,android.view.View,android.view.ViewGroup):123:123 -> getView
+    196:203:android.view.View getView(int,android.view.View,android.view.ViewGroup):126:126 -> getView
+    204:214:android.view.View getView(int,android.view.View,android.view.ViewGroup):127:127 -> getView
+    215:222:android.view.View getView(int,android.view.View,android.view.ViewGroup):128:128 -> getView
+    223:238:android.view.View getView(int,android.view.View,android.view.ViewGroup):133:133 -> getView
+    1:8:void lambda$getView$0(com.qingying.Video,android.widget.TextView,android.view.View):129:129 -> lambda$getView$0
+    9:12:void lambda$getView$0(com.qingying.Video,android.widget.TextView,android.view.View):130:130 -> lambda$getView$0
+    3:19:void updateStar(android.widget.TextView,boolean):138:138 -> updateStar
+    20:23:void updateStar(android.widget.TextView,boolean):139:139 -> updateStar
+com.qingying.VideoListActivity$VideoAdapter$$ExternalSyntheticLambda0 -> com.qingying.w:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
     com.qingying.VideoListActivity$VideoAdapter com.qingying.VideoListActivity$VideoAdapter$$InternalSyntheticLambda$1$46d497986e8bd8ded75db39e6ce86b1f0f8732c0234ee59d8849befc1b5ad38f$0.f$0 -> a
@@ -1057,63 +1129,69 @@ com.qingying.VideoListActivity$VideoAdapter$$ExternalSyntheticLambda0 -> com.qin
       # {"id":"com.android.tools.r8.synthesized"}
 com.qingying.VideoStore -> com.qingying.VideoStore:
 # {"id":"sourceFile","fileName":"VideoStore.java"}
-    1:4:void <init>():20:20 -> <init>
+    1:4:void <init>():23:23 -> <init>
     1:5:int $r8$lambda$6l1suNddtGQv7AkHQRg3w440gMc(java.text.Collator,com.qingying.Video,com.qingying.Video):0:0 -> a
       # {"id":"com.android.tools.r8.synthesized"}
-    3:14:int compareNatural(java.lang.String,java.lang.String,java.text.Collator):84:84 -> compareNatural
-    15:18:int compareNatural(java.lang.String,java.lang.String,java.text.Collator):85:85 -> compareNatural
-    19:22:int compareNatural(java.lang.String,java.lang.String,java.text.Collator):86:86 -> compareNatural
-    23:35:int compareNatural(java.lang.String,java.lang.String,java.text.Collator):87:87 -> compareNatural
-    36:55:int compareNatural(java.lang.String,java.lang.String,java.text.Collator):90:90 -> compareNatural
-    56:74:int compareNatural(java.lang.String,java.lang.String,java.text.Collator):91:91 -> compareNatural
-    75:82:int compareNatural(java.lang.String,java.lang.String,java.text.Collator):92:92 -> compareNatural
-    83:90:int compareNatural(java.lang.String,java.lang.String,java.text.Collator):93:93 -> compareNatural
-    91:110:int compareNatural(java.lang.String,java.lang.String,java.text.Collator):94:94 -> compareNatural
-    111:120:int compareNatural(java.lang.String,java.lang.String,java.text.Collator):95:95 -> compareNatural
-    121:141:int compareNatural(java.lang.String,java.lang.String,java.text.Collator):98:98 -> compareNatural
-    142:152:int compareNatural(java.lang.String,java.lang.String,java.text.Collator):104:104 -> compareNatural
-    1:9:int lambda$sortByName$0(java.text.Collator,com.qingying.Video,com.qingying.Video):78:78 -> lambda$sortByName$0
-    1:5:java.util.List queryVideos(android.content.Context,java.lang.String):23:23 -> queryVideos
-    6:7:java.util.List queryVideos(android.content.Context,java.lang.String):24:24 -> queryVideos
-    8:19:java.util.List queryVideos(android.content.Context,java.lang.String):25:25 -> queryVideos
-    20:28:java.util.List queryVideos(android.content.Context,java.lang.String):34:34 -> queryVideos
-    29:32:java.util.List queryVideos(android.content.Context,java.lang.String):35:35 -> queryVideos
-    33:39:java.util.List queryVideos(android.content.Context,java.lang.String):36:36 -> queryVideos
-    40:46:java.util.List queryVideos(android.content.Context,java.lang.String):37:37 -> queryVideos
-    47:54:java.util.List queryVideos(android.content.Context,java.lang.String):38:38 -> queryVideos
-    55:61:java.util.List queryVideos(android.content.Context,java.lang.String):39:39 -> queryVideos
-    62:66:java.util.List queryVideos(android.content.Context,java.lang.String):40:40 -> queryVideos
-    67:74:java.util.List queryVideos(android.content.Context,java.lang.String):41:41 -> queryVideos
-    75:86:java.util.List queryVideos(android.content.Context,java.lang.String):43:43 -> queryVideos
-    87:96:java.util.List queryVideos(android.content.Context,java.lang.String):44:44 -> queryVideos
-    97:105:java.util.List queryVideos(android.content.Context,java.lang.String):49:49 -> queryVideos
-    106:109:java.util.List queryVideos(android.content.Context,java.lang.String):46:46 -> queryVideos
-    110:111:java.util.List queryVideos(android.content.Context,java.lang.String):52:52 -> queryVideos
-    112:121:java.util.List queryVideos(android.content.Context,java.lang.String):53:53 -> queryVideos
-    122:125:java.util.List queryVideos(android.content.Context,java.lang.String):55:55 -> queryVideos
-    126:129:java.util.List queryVideos(android.content.Context,java.lang.String):56:56 -> queryVideos
-    130:133:java.util.List queryVideos(android.content.Context,java.lang.String):57:57 -> queryVideos
-    134:137:java.util.List queryVideos(android.content.Context,java.lang.String):58:58 -> queryVideos
-    138:143:java.util.List queryVideos(android.content.Context,java.lang.String):59:59 -> queryVideos
-    144:148:java.util.List queryVideos(android.content.Context,java.lang.String):60:60 -> queryVideos
-    149:154:java.util.List queryVideos(android.content.Context,java.lang.String):61:61 -> queryVideos
-    155:172:java.util.List queryVideos(android.content.Context,java.lang.String):62:62 -> queryVideos
-    173:188:java.util.List queryVideos(android.content.Context,java.lang.String):63:63 -> queryVideos
-    189:201:java.util.List queryVideos(android.content.Context,java.lang.String):64:64 -> queryVideos
-    202:205:java.util.List queryVideos(android.content.Context,java.lang.String):65:65 -> queryVideos
-    206:217:java.util.List queryVideos(android.content.Context,java.lang.String):53:53 -> queryVideos
-    218:220:java.util.List queryVideos(android.content.Context,java.lang.String):68:68 -> queryVideos
-    221:224:java.util.List queryVideos(android.content.Context,java.lang.String):71:71 -> queryVideos
-    1:6:void sortByName(java.util.List):77:77 -> sortByName
-    7:15:void sortByName(java.util.List):78:78 -> sortByName
-    2:20:java.lang.String stripZeros(java.lang.String):109:109 -> stripZeros
-    21:25:java.lang.String stripZeros(java.lang.String):110:110 -> stripZeros
-com.qingying.VideoStore$$ExternalSyntheticLambda0 -> com.qingying.w:
-# {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
-# {"id":"com.android.tools.r8.synthesized"}
-    java.text.Collator com.qingying.VideoStore$$InternalSyntheticLambda$1$f86d6465785d2451de4780d2daa39fe3a270b63f4796bc7b568abeb1f54084fe$0.f$0 -> a
-      # {"id":"com.android.tools.r8.synthesized"}
-    1:6:void <init>(java.text.Collator):0:0 -> <init>
-      # {"id":"com.android.tools.r8.synthesized"}
-    1:11:int compare(java.lang.Object,java.lang.Object):0:0 -> compare
-      # {"id":"com.android.tools.r8.synthesized"}
+    3:14:int compareNatural(java.lang.String,java.lang.String,java.text.Collator):109:109 -> compareNatural
+    15:18:int compareNatural(java.lang.String,java.lang.String,java.text.Collator):110:110 -> compareNatural
+    19:22:int compareNatural(java.lang.String,java.lang.String,java.text.Collator):111:111 -> compareNatural
+    23:35:int compareNatural(java.lang.String,java.lang.String,java.text.Collator):112:112 -> compareNatural
+    36:55:int compareNatural(java.lang.String,java.lang.String,java.text.Collator):115:115 -> compareNatural
+    56:74:int compareNatural(java.lang.String,java.lang.String,java.text.Collator):116:116 -> compareNatural
+    75:82:int compareNatural(java.lang.String,java.lang.String,java.text.Collator):117:117 -> compareNatural
+    83:90:int compareNatural(java.lang.String,java.lang.String,java.text.Collator):118:118 -> compareNatural
+    91:110:int compareNatural(java.lang.String,java.lang.String,java.text.Collator):119:119 -> compareNatural
+    111:120:int compareNatural(java.lang.String,java.lang.String,java.text.Collator):120:120 -> compareNatural
+    121:141:int compareNatural(java.lang.String,java.lang.String,java.text.Collator):123:123 -> compareNatural
+    142:152:int compareNatural(java.lang.String,java.lang.String,java.text.Collator):129:129 -> compareNatural
+    1:9:int lambda$sortByName$0(java.text.Collator,com.qingying.Video,com.qingying.Video):103:103 -> lambda$sortByName$0
+    3:7:java.util.List queryVideos(android.content.Context,java.lang.String):26:26 -> queryVideos
+    8:9:java.util.List queryVideos(android.content.Context,java.lang.String):27:27 -> queryVideos
+    10:21:java.util.List queryVideos(android.content.Context,java.lang.String):28:28 -> queryVideos
+    22:39:java.util.List queryVideos(android.content.Context,java.lang.String):38:38 -> queryVideos
+    40:43:java.util.List queryVideos(android.content.Context,java.lang.String):39:39 -> queryVideos
+    44:50:java.util.List queryVideos(android.content.Context,java.lang.String):40:40 -> queryVideos
+    51:55:java.util.List queryVideos(android.content.Context,java.lang.String):41:41 -> queryVideos
+    56:64:java.util.List queryVideos(android.content.Context,java.lang.String):42:42 -> queryVideos
+    65:69:java.util.List queryVideos(android.content.Context,java.lang.String):43:43 -> queryVideos
+    70:72:java.util.List queryVideos(android.content.Context,java.lang.String):44:44 -> queryVideos
+    73:78:java.util.List queryVideos(android.content.Context,java.lang.String):45:45 -> queryVideos
+    79:88:java.util.List queryVideos(android.content.Context,java.lang.String):47:47 -> queryVideos
+    89:96:java.util.List queryVideos(android.content.Context,java.lang.String):48:48 -> queryVideos
+    97:100:java.util.List queryVideos(android.content.Context,java.lang.String):49:49 -> queryVideos
+    101:107:java.util.List queryVideos(android.content.Context,java.lang.String):50:50 -> queryVideos
+    108:112:java.util.List queryVideos(android.content.Context,java.lang.String):51:51 -> queryVideos
+    113:121:java.util.List queryVideos(android.content.Context,java.lang.String):52:52 -> queryVideos
+    122:126:java.util.List queryVideos(android.content.Context,java.lang.String):53:53 -> queryVideos
+    127:129:java.util.List queryVideos(android.content.Context,java.lang.String):54:54 -> queryVideos
+    130:135:java.util.List queryVideos(android.content.Context,java.lang.String):55:55 -> queryVideos
+    136:147:java.util.List queryVideos(android.content.Context,java.lang.String):57:57 -> queryVideos
+    148:157:java.util.List queryVideos(android.content.Context,java.lang.String):58:58 -> queryVideos
+    158:164:java.util.List queryVideos(android.content.Context,java.lang.String):63:63 -> queryVideos
+    165:168:java.util.List queryVideos(android.content.Context,java.lang.String):60:60 -> queryVideos
+    169:170:java.util.List queryVideos(android.content.Context,java.lang.String):66:66 -> queryVideos
+    171:180:java.util.List queryVideos(android.content.Context,java.lang.String):67:67 -> queryVideos
+    181:184:java.util.List queryVideos(android.content.Context,java.lang.String):69:69 -> queryVideos
+    185:188:java.util.List queryVideos(android.content.Context,java.lang.String):70:70 -> queryVideos
+    189:192:java.util.List queryVideos(android.content.Context,java.lang.String):71:71 -> queryVideos
+    193:196:java.util.List queryVideos(android.content.Context,java.lang.String):72:72 -> queryVideos
+    197:202:java.util.List queryVideos(android.content.Context,java.lang.String):73:73 -> queryVideos
+    203:207:java.util.List queryVideos(android.content.Context,java.lang.String):74:74 -> queryVideos
+    208:213:java.util.List queryVideos(android.content.Context,java.lang.String):75:75 -> queryVideos
+    214:231:java.util.List queryVideos(android.content.Context,java.lang.String):76:76 -> queryVideos
+    232:247:java.util.List queryVideos(android.content.Context,java.lang.String):77:77 -> queryVideos
+    248:260:java.util.List queryVideos(android.content.Context,java.lang.String):78:78 -> queryVideos
+    261:264:java.util.List queryVideos(android.content.Context,java.lang.String):79:79 -> queryVideos
+    265:275:java.util.List queryVideos(android.content.Context,java.lang.String):67:67 -> queryVideos
+    276:280:java.util.List queryVideos(android.content.Context,java.lang.String):82:82 -> queryVideos
+    281:285:java.util.List queryVideos(android.content.Context,java.lang.String):87:87 -> queryVideos
+    286:309:java.util.List queryVideos(android.content.Context,java.lang.String):88:88 -> queryVideos
+    310:314:java.util.List queryVideos(android.content.Context,java.lang.String):89:89 -> queryVideos
+    315:330:java.util.List queryVideos(android.content.Context,java.lang.String):90:90 -> queryVideos
+    331:346:java.util.List queryVideos(android.content.Context,java.lang.String):91:91 -> queryVideos
+    347:351:java.util.List queryVideos(android.content.Context,java.lang.String):92:92 -> queryVideos
+    352:355:java.util.List queryVideos(android.content.Context,java.lang.String):96:96 -> queryVideos
+    1:6:void sortByName(java.util.List):102:102 -> sortByName
+    7:16:void sortByName(java.util.List):103:103 -> sortByName
+    2:20:java.lang.String stripZeros(java.lang.String):134:134 -> stripZeros
+    21:25:java.lang.String stripZeros(java.lang.String):135:135 -> stripZeros

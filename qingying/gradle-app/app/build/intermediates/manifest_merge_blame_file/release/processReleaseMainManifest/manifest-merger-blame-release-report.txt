@@ -1,8 +1,8 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.qingying"
-4    android:versionCode="10"
-5    android:versionName="1.6.0" >
+4    android:versionCode="11"
+5    android:versionName="1.7.0" >
 6
 7    <uses-sdk
 7-->/workspace/qingying/android/AndroidManifest.xml:7:5-74

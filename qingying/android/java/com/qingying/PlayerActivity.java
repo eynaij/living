@@ -161,6 +161,8 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
         currentId = getIntent().getLongExtra("id", -1);
         bucketId = getIntent().getStringExtra("bucketId");
         String name = getIntent().getStringExtra("name");
+        // 从“最近播放”进入时，恢复到上次观看位置
+        lastPosition = (int) getIntent().getLongExtra("startMs", 0);
         videoUri = ContentUris.withAppendedId(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, currentId);
 
         surface = findViewById(R.id.surface);
@@ -267,6 +269,7 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
 
     private void playAt(int newIndex) {
         if (newIndex < 0 || newIndex >= playlist.size() || newIndex == index) return;
+        recordHistory();
         index = newIndex;
         Video video = playlist.get(index);
         currentId = video.id;
@@ -480,7 +483,7 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
                 int duration = Math.max(1, p.getDuration());
                 seekBar.setMax(duration);
                 adjustVideoSize();
-                if (lastPosition > 0) seek(lastPosition);
+                if (lastPosition > 0 && lastPosition < duration - 2000) seek(lastPosition);
                 p.start();
                 finished = false;
                 applySpeed(speed);
@@ -490,6 +493,7 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
             });
             player.setOnCompletionListener(p -> {
                 finished = true;
+                recordHistory();
                 updatePlayIcon();
                 if (index < playlist.size() - 1) {
                     showBadge("播放结束，即将播放下一个", 1200);
@@ -842,11 +846,21 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
         }
     }
 
+    /** 记录当前观看位置，供“最近播放”列表和续播使用。 */
+    private void recordHistory() {
+        if (player == null || !prepared || currentId < 0) return;
+        try {
+            PlayHistoryStore.record(this, currentId, player.getCurrentPosition(), player.getDuration());
+        } catch (Exception ignored) {
+        }
+    }
+
     @Override
     protected void onPause() {
         super.onPause();
         if (player != null && prepared) {
             lastPosition = player.getCurrentPosition();
+            recordHistory();
             if (player.isPlaying()) player.pause();
         }
         ui.removeCallbacks(hideControls);
@@ -856,6 +870,7 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        recordHistory();
         ui.removeCallbacksAndMessages(null);
         releasePlayer();
         executor.shutdownNow();
