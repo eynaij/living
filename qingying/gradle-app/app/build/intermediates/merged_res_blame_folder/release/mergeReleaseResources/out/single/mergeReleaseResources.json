@@ -36,6 +36,10 @@
         "source": "/root/.gradle/daemon/8.14.6/com.qingying.app-android-0:/drawable/bg_badge.xml"
     },
     {
+        "merged": "com.qingying.app-release-6:/drawable_ic_camera.xml.flat",
+        "source": "com.qingying.app-android-0:/drawable/ic_camera.xml"
+    },
+    {
         "merged": "/root/.gradle/daemon/8.14.6/com.qingying.app-release-6:/drawable_ic_pin.xml.flat",
         "source": "/root/.gradle/daemon/8.14.6/com.qingying.app-android-0:/drawable/ic_pin.xml"
     },

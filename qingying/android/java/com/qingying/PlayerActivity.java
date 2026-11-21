@@ -2,14 +2,19 @@ package com.qingying;
 
 import android.app.Activity;
 import android.content.ContentUris;
+import android.content.ContentValues;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.media.AudioAttributes;
 import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
+import android.media.MediaScannerConnection;
 import android.media.PlaybackParams;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemClock;
@@ -33,6 +38,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 
 public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
 
@@ -189,6 +197,7 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
         prevBtn.setOnClickListener(v -> playAt(index - 1));
         nextBtn.setOnClickListener(v -> playAt(index + 1));
         favBtn.setOnClickListener(v -> toggleFavorite());
+        findViewById(R.id.captureBtn).setOnClickListener(v -> captureFrame());
         lockBtn.setOnClickListener(v -> toggleRotationLock());
         findViewById(R.id.playlistClose).setOnClickListener(v -> hidePlaylist());
 
@@ -353,6 +362,71 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR);
             lockBtn.setImageResource(R.drawable.ic_lock_open);
             showBadge("已恢复自动旋转", 900);
+        }
+    }
+
+    // ------------------------------------------------------------------ 截图
+
+    /** 截取当前帧并保存到系统相册（Pictures/轻影）。 */
+    private void captureFrame() {
+        if (!prepared || player == null) {
+            Toast.makeText(this, "视频还未就绪", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (Build.VERSION.SDK_INT <= 28
+                && checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 200);
+            Toast.makeText(this, "请允许存储权限后再截图", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        setControlsVisible(true);
+        final long positionUs = player.getCurrentPosition() * 1000L;
+        executor.execute(() -> {
+            Bitmap bitmap = null;
+            MediaMetadataRetriever retriever = new MediaMetadataRetriever();
+            try {
+                retriever.setDataSource(this, videoUri);
+                bitmap = retriever.getFrameAtTime(positionUs, MediaMetadataRetriever.OPTION_CLOSEST);
+            } catch (Exception ignored) {
+            } finally {
+                try {
+                    retriever.release();
+                } catch (Exception ignored) {
+                }
+            }
+            boolean saved = bitmap != null && saveFrame(bitmap);
+            runOnUiThread(() -> Toast.makeText(this,
+                    saved ? "截图已保存到相册" : "截图失败，请重试", Toast.LENGTH_SHORT).show());
+        });
+    }
+
+    private boolean saveFrame(Bitmap bitmap) {
+        String name = "QY_" + System.currentTimeMillis() + ".jpg";
+        try {
+            if (Build.VERSION.SDK_INT >= 29) {
+                ContentValues values = new ContentValues();
+                values.put(MediaStore.Images.Media.DISPLAY_NAME, name);
+                values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg");
+                values.put(MediaStore.Images.Media.RELATIVE_PATH, "Pictures/轻影");
+                Uri uri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+                if (uri == null) return false;
+                try (OutputStream out = getContentResolver().openOutputStream(uri)) {
+                    return out != null && bitmap.compress(Bitmap.CompressFormat.JPEG, 95, out);
+                }
+            } else {
+                File dir = new File(Environment.getExternalStoragePublicDirectory(
+                        Environment.DIRECTORY_PICTURES), "轻影");
+                if (!dir.exists() && !dir.mkdirs()) return false;
+                File file = new File(dir, name);
+                try (OutputStream out = new FileOutputStream(file)) {
+                    if (!bitmap.compress(Bitmap.CompressFormat.JPEG, 95, out)) return false;
+                }
+                MediaScannerConnection.scanFile(this, new String[]{file.getAbsolutePath()}, null, null);
+                return true;
+            }
+        } catch (Exception e) {
+            return false;
         }
     }
 

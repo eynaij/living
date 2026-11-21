@@ -1,8 +1,8 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.qingying"
-4    android:versionCode="9"
-5    android:versionName="1.5.0" >
+4    android:versionCode="10"
+5    android:versionName="1.6.0" >
 6
 7    <uses-sdk
 7-->/workspace/qingying/android/AndroidManifest.xml:7:5-74
@@ -15,70 +15,77 @@
 12    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
 12-->/workspace/qingying/android/AndroidManifest.xml:10:5-75
 12-->/workspace/qingying/android/AndroidManifest.xml:10:22-72
-13    <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" />
-13-->/workspace/qingying/android/AndroidManifest.xml:11:5-90
-13-->/workspace/qingying/android/AndroidManifest.xml:11:22-87
+13    <!-- Android 9 及以下保存截图需要写存储权限 -->
 14    <uses-permission
 14-->/workspace/qingying/android/AndroidManifest.xml:12:5-14:38
-15        android:name="android.permission.READ_EXTERNAL_STORAGE"
-15-->/workspace/qingying/android/AndroidManifest.xml:13:9-64
-16        android:maxSdkVersion="32" />
+15        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+15-->/workspace/qingying/android/AndroidManifest.xml:13:9-65
+16        android:maxSdkVersion="28" />
 16-->/workspace/qingying/android/AndroidManifest.xml:14:9-35
-17
-18    <application
-18-->/workspace/qingying/android/AndroidManifest.xml:16:5-45:19
-19        android:allowBackup="true"
-19-->/workspace/qingying/android/AndroidManifest.xml:17:9-35
-20        android:extractNativeLibs="false"
-21        android:hardwareAccelerated="true"
-21-->/workspace/qingying/android/AndroidManifest.xml:18:9-43
-22        android:icon="@mipmap/ic_launcher"
-22-->/workspace/qingying/android/AndroidManifest.xml:19:9-43
-23        android:label="@string/app_name"
-23-->/workspace/qingying/android/AndroidManifest.xml:21:9-41
-24        android:roundIcon="@mipmap/ic_launcher"
-24-->/workspace/qingying/android/AndroidManifest.xml:20:9-48
-25        android:theme="@style/AppTheme" >
-25-->/workspace/qingying/android/AndroidManifest.xml:22:9-40
-26        <activity
-26-->/workspace/qingying/android/AndroidManifest.xml:24:9-32:20
-27            android:name="com.qingying.MainActivity"
-27-->/workspace/qingying/android/AndroidManifest.xml:25:13-41
-28            android:configChanges="orientation|screenSize|keyboardHidden|uiMode"
-28-->/workspace/qingying/android/AndroidManifest.xml:27:13-81
-29            android:exported="true" >
-29-->/workspace/qingying/android/AndroidManifest.xml:26:13-36
-30            <intent-filter>
-30-->/workspace/qingying/android/AndroidManifest.xml:28:13-31:29
-31                <action android:name="android.intent.action.MAIN" />
-31-->/workspace/qingying/android/AndroidManifest.xml:29:17-69
-31-->/workspace/qingying/android/AndroidManifest.xml:29:25-66
-32
-33                <category android:name="android.intent.category.LAUNCHER" />
-33-->/workspace/qingying/android/AndroidManifest.xml:30:17-77
-33-->/workspace/qingying/android/AndroidManifest.xml:30:27-74
-34            </intent-filter>
-35        </activity>
-36        <activity
-36-->/workspace/qingying/android/AndroidManifest.xml:34:9-37:84
-37            android:name="com.qingying.VideoListActivity"
-37-->/workspace/qingying/android/AndroidManifest.xml:35:13-46
-38            android:configChanges="orientation|screenSize|keyboardHidden|uiMode"
-38-->/workspace/qingying/android/AndroidManifest.xml:37:13-81
-39            android:exported="false" />
-39-->/workspace/qingying/android/AndroidManifest.xml:36:13-37
+17    <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" />
+17-->/workspace/qingying/android/AndroidManifest.xml:15:5-90
+17-->/workspace/qingying/android/AndroidManifest.xml:15:22-87
+18    <uses-permission
+18-->/workspace/qingying/android/AndroidManifest.xml:16:5-18:38
+19        android:name="android.permission.READ_EXTERNAL_STORAGE"
+19-->/workspace/qingying/android/AndroidManifest.xml:17:9-64
+20        android:maxSdkVersion="32" />
+20-->/workspace/qingying/android/AndroidManifest.xml:18:9-35
+21
+22    <application
+22-->/workspace/qingying/android/AndroidManifest.xml:20:5-49:19
+23        android:allowBackup="true"
+23-->/workspace/qingying/android/AndroidManifest.xml:21:9-35
+24        android:extractNativeLibs="false"
+25        android:hardwareAccelerated="true"
+25-->/workspace/qingying/android/AndroidManifest.xml:22:9-43
+26        android:icon="@mipmap/ic_launcher"
+26-->/workspace/qingying/android/AndroidManifest.xml:23:9-43
+27        android:label="@string/app_name"
+27-->/workspace/qingying/android/AndroidManifest.xml:25:9-41
+28        android:roundIcon="@mipmap/ic_launcher"
+28-->/workspace/qingying/android/AndroidManifest.xml:24:9-48
+29        android:theme="@style/AppTheme" >
+29-->/workspace/qingying/android/AndroidManifest.xml:26:9-40
+30        <activity
+30-->/workspace/qingying/android/AndroidManifest.xml:28:9-36:20
+31            android:name="com.qingying.MainActivity"
+31-->/workspace/qingying/android/AndroidManifest.xml:29:13-41
+32            android:configChanges="orientation|screenSize|keyboardHidden|uiMode"
+32-->/workspace/qingying/android/AndroidManifest.xml:31:13-81
+33            android:exported="true" >
+33-->/workspace/qingying/android/AndroidManifest.xml:30:13-36
+34            <intent-filter>
+34-->/workspace/qingying/android/AndroidManifest.xml:32:13-35:29
+35                <action android:name="android.intent.action.MAIN" />
+35-->/workspace/qingying/android/AndroidManifest.xml:33:17-69
+35-->/workspace/qingying/android/AndroidManifest.xml:33:25-66
+36
+37                <category android:name="android.intent.category.LAUNCHER" />
+37-->/workspace/qingying/android/AndroidManifest.xml:34:17-77
+37-->/workspace/qingying/android/AndroidManifest.xml:34:27-74
+38            </intent-filter>
+39        </activity>
 40        <activity
-40-->/workspace/qingying/android/AndroidManifest.xml:39:9-44:84
-41            android:name="com.qingying.PlayerActivity"
-41-->/workspace/qingying/android/AndroidManifest.xml:40:13-43
+40-->/workspace/qingying/android/AndroidManifest.xml:38:9-41:84
+41            android:name="com.qingying.VideoListActivity"
+41-->/workspace/qingying/android/AndroidManifest.xml:39:13-46
 42            android:configChanges="orientation|screenSize|keyboardHidden|uiMode"
-42-->/workspace/qingying/android/AndroidManifest.xml:44:13-81
-43            android:exported="false"
-43-->/workspace/qingying/android/AndroidManifest.xml:41:13-37
-44            android:screenOrientation="fullSensor"
-44-->/workspace/qingying/android/AndroidManifest.xml:42:13-51
-45            android:theme="@style/PlayerTheme" />
-45-->/workspace/qingying/android/AndroidManifest.xml:43:13-47
-46    </application>
-47
-48</manifest>
+42-->/workspace/qingying/android/AndroidManifest.xml:41:13-81
+43            android:exported="false" />
+43-->/workspace/qingying/android/AndroidManifest.xml:40:13-37
+44        <activity
+44-->/workspace/qingying/android/AndroidManifest.xml:43:9-48:84
+45            android:name="com.qingying.PlayerActivity"
+45-->/workspace/qingying/android/AndroidManifest.xml:44:13-43
+46            android:configChanges="orientation|screenSize|keyboardHidden|uiMode"
+46-->/workspace/qingying/android/AndroidManifest.xml:48:13-81
+47            android:exported="false"
+47-->/workspace/qingying/android/AndroidManifest.xml:45:13-37
+48            android:screenOrientation="fullSensor"
+48-->/workspace/qingying/android/AndroidManifest.xml:46:13-51
+49            android:theme="@style/PlayerTheme" />
+49-->/workspace/qingying/android/AndroidManifest.xml:47:13-47
+50    </application>
+51
+52</manifest>

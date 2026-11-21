@@ -17,6 +17,7 @@ drawable bg_controls
 drawable bg_controls_top
 drawable bg_pill
 drawable bg_thumb
+drawable ic_camera
 drawable ic_launcher_bg
 drawable ic_lock_closed
 drawable ic_lock_open
@@ -25,6 +26,7 @@ drawable ic_video
 id back
 id back10
 id badge
+id captureBtn
 id controls
 id count
 id duration

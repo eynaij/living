@@ -52,6 +52,14 @@
                 android:textColor="#FFFFFF"
                 android:textSize="14sp" />
 
+            <ImageView
+                android:id="@+id/captureBtn"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="截图"
+                android:padding="12dp"
+                android:src="@drawable/ic_camera" />
+
             <TextView
                 android:id="@+id/favBtn"
                 android:layout_width="48dp"
