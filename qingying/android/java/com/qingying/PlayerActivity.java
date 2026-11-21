@@ -485,6 +485,8 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
                 adjustVideoSize();
                 if (lastPosition > 0 && lastPosition < duration - 2000) seek(lastPosition);
                 p.start();
+                // 开始播放就写入记录，即使马上退出也能在最近播放里看到
+                recordHistory();
                 finished = false;
                 applySpeed(speed);
                 updatePlayIcon();

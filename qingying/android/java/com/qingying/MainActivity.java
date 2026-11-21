@@ -161,19 +161,19 @@ public class MainActivity extends Activity {
 
             List<Folder> result = new ArrayList<>();
 
-            // 最近播放：有记录时固定显示在最顶部
+            // 最近播放：固定显示在最顶部，没有记录时显示空态提示
             List<String> historyIds = PlayHistoryStore.orderedIds(this);
+            Folder history = new Folder();
+            history.bucketId = VideoStore.HISTORY_BUCKET;
+            history.name = "最近播放";
+            history.count = historyIds.size();
             if (!historyIds.isEmpty()) {
-                Folder history = new Folder();
-                history.bucketId = VideoStore.HISTORY_BUCKET;
-                history.name = "最近播放";
-                history.count = historyIds.size();
                 try {
                     history.coverId = Long.parseLong(historyIds.get(0));
                 } catch (NumberFormatException ignored) {
                 }
-                result.add(history);
             }
+            result.add(history);
 
             // 收藏夹固定在顶部（最近播放之后）
             Folder favorites = new Folder();
@@ -246,6 +246,9 @@ public class MainActivity extends Activity {
 
             ((TextView) view.findViewById(R.id.name)).setText(folder.name);
             String meta = folder.count + " 个视频";
+            if (VideoStore.HISTORY_BUCKET.equals(folder.bucketId) && folder.count == 0) {
+                meta = "暂无记录，播放视频后自动保存";
+            }
             if (folder.totalMs > 0) meta += " · " + Fmt.duration(folder.totalMs);
             ((TextView) view.findViewById(R.id.meta)).setText(meta);
             view.findViewById(R.id.pin).setVisibility(
