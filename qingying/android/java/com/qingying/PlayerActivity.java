@@ -100,6 +100,11 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
     private long lastTapAt;
     private Runnable pendingTap;
 
+    /** 横滑拖动进度：是否正在拖动、拖动起点位置、目标位置（毫秒）。 */
+    private boolean scrubbing;
+    private int scrubStartMs;
+    private int scrubTargetMs;
+
     private final Runnable hideBadge = () -> badge.setVisibility(View.GONE);
 
     private final Runnable hideControls = () -> {
@@ -116,8 +121,10 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
                 int position = player.getCurrentPosition();
                 int duration = Math.max(1, player.getDuration());
                 seekBar.setMax(duration);
-                seekBar.setProgress(position);
-                timeView.setText(Fmt.duration(position) + " / " + Fmt.duration(duration));
+                if (!scrubbing) {
+                    seekBar.setProgress(position);
+                    timeView.setText(Fmt.duration(position) + " / " + Fmt.duration(duration));
+                }
                 updatePlayIcon();
                 ui.postDelayed(this, 400);
             }
@@ -712,18 +719,32 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
                 return true;
 
             case MotionEvent.ACTION_MOVE:
-                if (Math.abs(event.getX() - downX) > dp(36)
-                        || Math.abs(event.getY() - downY) > dp(36)) {
+                float dx = event.getX() - downX;
+                float dy = event.getY() - downY;
+                if (!scrubbing && prepared && player != null
+                        && Math.abs(dx) > dp(24) && Math.abs(dx) > Math.abs(dy)) {
+                    // 横向滑动优先：进入拖动进度模式，取消长按和点击判定
+                    scrubbing = true;
+                    scrubStartMs = player.getCurrentPosition();
+                    scrubTargetMs = scrubStartMs;
+                    cancelLongPress();
+                    cancelPendingTap();
+                    setControlsVisible(true);
+                }
+                if (scrubbing) {
+                    updateScrub(view, dx);
+                } else if (Math.abs(dx) > dp(36) || Math.abs(dy) > dp(36)) {
                     cancelLongPress();
                 }
                 return true;
 
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
-                boolean acted = boosting || rewinding;
+                boolean acted = boosting || rewinding || scrubbing;
                 cancelLongPress();
                 stopBoost();
                 stopRewind();
+                if (scrubbing) finishScrub();
                 if (!acted && SystemClock.uptimeMillis() - downAt < 250) {
                     if (playlistPanel.getVisibility() == View.VISIBLE) {
                         hidePlaylist();
@@ -735,6 +756,33 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
 
             default:
                 return false;
+        }
+    }
+
+    /** 横滑过程中根据位移计算目标位置并实时预览。 */
+    private void updateScrub(View view, float dx) {
+        if (player == null) return;
+        int duration = Math.max(1, player.getDuration());
+        int width = Math.max(1, view.getWidth());
+        // 滑满整屏对应时长的 1/5，最长 120 秒，长短视频都能比较精细地拖动
+        long fullWidthMs = Math.max(1000L, Math.min(duration / 5L, 120_000L));
+        long delta = (long) (dx / width * fullWidthMs);
+        scrubTargetMs = (int) Math.max(0, Math.min(duration, scrubStartMs + delta));
+        seekBar.setProgress(scrubTargetMs);
+        String arrow = delta >= 0 ? "▶ +" : "◀ −";
+        showBadge(arrow + Fmt.duration(Math.abs((int) delta)) + "\n"
+                + Fmt.duration(scrubTargetMs) + " / " + Fmt.duration(duration), 0);
+    }
+
+    /** 松手后正式跳转到目标位置。 */
+    private void finishScrub() {
+        scrubbing = false;
+        seek(scrubTargetMs);
+        showBadge("已定位 " + Fmt.duration(scrubTargetMs), 700);
+        if (finished && player != null && scrubTargetMs < player.getDuration() - 500) {
+            finished = false;
+            player.start();
+            updatePlayIcon();
         }
     }
 
