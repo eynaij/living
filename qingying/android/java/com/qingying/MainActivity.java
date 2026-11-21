@@ -15,11 +15,13 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -58,6 +60,17 @@ public class MainActivity extends Activity {
         });
 
         grantBtn.setOnClickListener(v -> requestPermission());
+
+        list.setOnItemLongClickListener((parent, view, position, id) -> {
+            Folder folder = folders.get(position);
+            if (VideoStore.FAVORITES_BUCKET.equals(folder.bucketId)) return true;
+            boolean pinned = PinnedFolders.toggle(this, folder.bucketId);
+            Toast.makeText(this,
+                    pinned ? "已置顶「" + folder.name + "」" : "已取消置顶「" + folder.name + "」",
+                    Toast.LENGTH_SHORT).show();
+            loadFolders();
+            return true;
+        });
 
         if (hasPermission()) loadFolders();
         else requestPermission();
@@ -141,7 +154,7 @@ public class MainActivity extends Activity {
                 // 查询失败时展示空状态
             }
 
-            List<Folder> result = new ArrayList<>(map.values());
+            List<Folder> result = new ArrayList<>();
 
             // 收藏夹固定在顶部
             Folder favorites = new Folder();
@@ -158,6 +171,15 @@ public class MainActivity extends Activity {
             }
             result.add(0, favorites);
 
+            // 置顶文件夹排在收藏夹之后，其余保持原顺序
+            Set<String> pinned = PinnedFolders.get(this);
+            for (Folder folder : map.values()) {
+                if (pinned.contains(folder.bucketId)) result.add(folder);
+            }
+            for (Folder folder : map.values()) {
+                if (!pinned.contains(folder.bucketId)) result.add(folder);
+            }
+
             runOnUiThread(() -> {
                 folders.clear();
                 folders.addAll(result);
@@ -167,7 +189,7 @@ public class MainActivity extends Activity {
                             !hasPermission());
                 } else {
                     empty.setVisibility(View.GONE);
-                    folderCount.setText("共 " + Math.max(0, folders.size() - 1) + " 个文件夹");
+                    folderCount.setText("共 " + Math.max(0, folders.size() - 1) + " 个文件夹 · 长按可置顶");
                 }
             });
         });
@@ -207,6 +229,10 @@ public class MainActivity extends Activity {
             String meta = folder.count + " 个视频";
             if (folder.totalMs > 0) meta += " · " + Fmt.duration(folder.totalMs);
             ((TextView) view.findViewById(R.id.meta)).setText(meta);
+            view.findViewById(R.id.pin).setVisibility(
+                    !VideoStore.FAVORITES_BUCKET.equals(folder.bucketId)
+                            && PinnedFolders.isPinned(MainActivity.this, folder.bucketId)
+                            ? View.VISIBLE : View.GONE);
             if (folder.coverId > 0) {
                 ThumbLoader.load(MainActivity.this, view.findViewById(R.id.thumb), folder.coverId);
             } else {

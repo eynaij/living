@@ -3,8 +3,8 @@
 # min_api: 24
 # common_typos_disable
 # {"id":"com.android.tools.r8.mapping","version":"2.2"}
-# pg_map_id: c7489e864746d0c373e80e733ba45440356ed4c95d13ad89947c92d47860b97a
-# pg_map_hash: SHA-256 c7489e864746d0c373e80e733ba45440356ed4c95d13ad89947c92d47860b97a
+# pg_map_id: 074ea2c27c44e3e7393f3f70527b59213b6b09c1a29b4d46da2b7d729bed4934
+# pg_map_hash: SHA-256 074ea2c27c44e3e7393f3f70527b59213b6b09c1a29b4d46da2b7d729bed4934
 com.qingying.FavoritesStore -> com.qingying.FavoritesStore:
 # {"id":"sourceFile","fileName":"FavoritesStore.java"}
     1:4:void <init>():15:15 -> <init>
@@ -37,100 +37,115 @@ com.qingying.Folder -> com.qingying.Folder:
     1:4:void <init>():3:3 -> <init>
 com.qingying.MainActivity -> com.qingying.MainActivity:
 # {"id":"sourceFile","fileName":"MainActivity.java"}
-    1:3:void <init>():26:26 -> <init>
-    4:10:void <init>():30:30 -> <init>
-    11:17:void <init>():31:31 -> <init>
-    1:4:void $r8$lambda$-C1ZmOKMIhQfcbMqKrwLdFRsV_0(com.qingying.MainActivity,java.util.ArrayList):0:0 -> a
+    1:3:void <init>():28:28 -> <init>
+    4:10:void <init>():32:32 -> <init>
+    11:17:void <init>():33:33 -> <init>
+    1:5:boolean $r8$lambda$1dWY1Sxsq2QXIBCiYYaSVUclaGc(com.qingying.MainActivity,android.widget.AdapterView,android.view.View,int,long):0:0 -> a
       # {"id":"com.android.tools.r8.synthesized"}
-    1:3:java.util.List access$100(com.qingying.MainActivity):26:26 -> access$100
-    1:4:void $r8$lambda$T3YpAN7KoIIUj_xkqaCeCCG-GVw(com.qingying.MainActivity):0:0 -> b
+    1:3:java.util.List access$100(com.qingying.MainActivity):28:28 -> access$100
+    1:4:void $r8$lambda$_ZSB16uSQJCkjGe4mULmMGml9Wo(com.qingying.MainActivity,android.view.View):0:0 -> b
       # {"id":"com.android.tools.r8.synthesized"}
-    1:4:void $r8$lambda$_ZSB16uSQJCkjGe4mULmMGml9Wo(com.qingying.MainActivity,android.view.View):0:0 -> c
+    1:4:void $r8$lambda$cQi93LYyNnjPkos4asHWeBicmm8(com.qingying.MainActivity):0:0 -> c
       # {"id":"com.android.tools.r8.synthesized"}
-    1:4:void $r8$lambda$q06TQZWwbrxSKC5oZRyO7zo3Aoo(com.qingying.MainActivity,android.widget.AdapterView,android.view.View,int,long):0:0 -> d
+    1:4:void $r8$lambda$nFOMELb0xU88YTCN8CvpK1wAqNI(com.qingying.MainActivity,java.util.ArrayList):0:0 -> d
       # {"id":"com.android.tools.r8.synthesized"}
-    1:8:boolean hasPermission():73:73 -> hasPermission
-    9:21:boolean hasPermission():74:74 -> hasPermission
-    22:23:boolean hasPermission():78:78 -> hasPermission
-    24:31:boolean hasPermission():79:79 -> hasPermission
-    32:41:boolean hasPermission():82:82 -> hasPermission
-    1:5:void lambda$loadFolders$2(java.util.List):162:162 -> lambda$loadFolders$2
-    6:10:void lambda$loadFolders$2(java.util.List):163:163 -> lambda$loadFolders$2
-    11:15:void lambda$loadFolders$2(java.util.List):164:164 -> lambda$loadFolders$2
-    16:23:void lambda$loadFolders$2(java.util.List):165:165 -> lambda$loadFolders$2
-    24:34:void lambda$loadFolders$2(java.util.List):166:166 -> lambda$loadFolders$2
-    35:40:void lambda$loadFolders$2(java.util.List):167:167 -> lambda$loadFolders$2
-    41:44:void lambda$loadFolders$2(java.util.List):166:166 -> lambda$loadFolders$2
-    45:51:void lambda$loadFolders$2(java.util.List):169:169 -> lambda$loadFolders$2
-    52:89:void lambda$loadFolders$2(java.util.List):170:170 -> lambda$loadFolders$2
-    3:7:void lambda$loadFolders$3():104:104 -> lambda$loadFolders$3
-    8:9:void lambda$loadFolders$3():105:105 -> lambda$loadFolders$3
-    10:21:void lambda$loadFolders$3():106:106 -> lambda$loadFolders$3
-    22:23:void lambda$loadFolders$3():112:112 -> lambda$loadFolders$3
-    24:35:void lambda$loadFolders$3():114:114 -> lambda$loadFolders$3
-    36:39:void lambda$loadFolders$3():116:116 -> lambda$loadFolders$3
-    40:43:void lambda$loadFolders$3():117:117 -> lambda$loadFolders$3
-    44:47:void lambda$loadFolders$3():118:118 -> lambda$loadFolders$3
-    48:51:void lambda$loadFolders$3():119:119 -> lambda$loadFolders$3
-    52:57:void lambda$loadFolders$3():121:121 -> lambda$loadFolders$3
-    58:61:void lambda$loadFolders$3():122:122 -> lambda$loadFolders$3
-    62:75:void lambda$loadFolders$3():123:123 -> lambda$loadFolders$3
-    76:91:void lambda$loadFolders$3():124:124 -> lambda$loadFolders$3
-    92:104:void lambda$loadFolders$3():125:125 -> lambda$loadFolders$3
-    105:112:void lambda$loadFolders$3():127:127 -> lambda$loadFolders$3
-    113:117:void lambda$loadFolders$3():129:129 -> lambda$loadFolders$3
-    118:121:void lambda$loadFolders$3():130:130 -> lambda$loadFolders$3
-    122:131:void lambda$loadFolders$3():131:131 -> lambda$loadFolders$3
-    132:135:void lambda$loadFolders$3():132:132 -> lambda$loadFolders$3
-    136:137:void lambda$loadFolders$3():133:133 -> lambda$loadFolders$3
-    138:140:void lambda$loadFolders$3():134:134 -> lambda$loadFolders$3
-    141:146:void lambda$loadFolders$3():136:136 -> lambda$loadFolders$3
-    147:156:void lambda$loadFolders$3():137:137 -> lambda$loadFolders$3
-    157:167:void lambda$loadFolders$3():114:114 -> lambda$loadFolders$3
-    168:170:void lambda$loadFolders$3():140:140 -> lambda$loadFolders$3
-    171:179:void lambda$loadFolders$3():144:144 -> lambda$loadFolders$3
-    180:184:void lambda$loadFolders$3():147:147 -> lambda$loadFolders$3
-    185:188:void lambda$loadFolders$3():148:148 -> lambda$loadFolders$3
-    189:192:void lambda$loadFolders$3():149:149 -> lambda$loadFolders$3
-    193:204:void lambda$loadFolders$3():150:150 -> lambda$loadFolders$3
-    205:206:void lambda$loadFolders$3():151:151 -> lambda$loadFolders$3
-    207:226:void lambda$loadFolders$3():152:152 -> lambda$loadFolders$3
-    227:233:void lambda$loadFolders$3():154:154 -> lambda$loadFolders$3
-    234:236:void lambda$loadFolders$3():159:159 -> lambda$loadFolders$3
-    237:245:void lambda$loadFolders$3():161:161 -> lambda$loadFolders$3
-    1:8:void lambda$onCreate$0(android.widget.AdapterView,android.view.View,int,long):53:53 -> lambda$onCreate$0
-    9:15:void lambda$onCreate$0(android.widget.AdapterView,android.view.View,int,long):54:54 -> lambda$onCreate$0
-    16:22:void lambda$onCreate$0(android.widget.AdapterView,android.view.View,int,long):55:55 -> lambda$onCreate$0
-    23:29:void lambda$onCreate$0(android.widget.AdapterView,android.view.View,int,long):56:56 -> lambda$onCreate$0
-    30:33:void lambda$onCreate$0(android.widget.AdapterView,android.view.View,int,long):57:57 -> lambda$onCreate$0
-    1:4:void lambda$onCreate$1(android.view.View):60:60 -> lambda$onCreate$1
-    1:12:void loadFolders():103:103 -> loadFolders
-    1:3:void onCreate(android.os.Bundle):41:41 -> onCreate
-    4:8:void onCreate(android.os.Bundle):42:42 -> onCreate
-    9:16:void onCreate(android.os.Bundle):44:44 -> onCreate
-    17:26:void onCreate(android.os.Bundle):45:45 -> onCreate
-    27:36:void onCreate(android.os.Bundle):46:46 -> onCreate
-    37:46:void onCreate(android.os.Bundle):47:47 -> onCreate
-    47:56:void onCreate(android.os.Bundle):48:48 -> onCreate
-    57:64:void onCreate(android.os.Bundle):50:50 -> onCreate
-    65:67:void onCreate(android.os.Bundle):51:51 -> onCreate
-    68:76:void onCreate(android.os.Bundle):52:52 -> onCreate
-    77:86:void onCreate(android.os.Bundle):60:60 -> onCreate
-    87:96:void onCreate(android.os.Bundle):62:62 -> onCreate
-    97:100:void onCreate(android.os.Bundle):63:63 -> onCreate
-    1:7:void onRequestPermissionsResult(int,java.lang.String[],int[]):95:95 -> onRequestPermissionsResult
-    8:17:void onRequestPermissionsResult(int,java.lang.String[],int[]):97:97 -> onRequestPermissionsResult
-    18:24:void onRequestPermissionsResult(int,java.lang.String[],int[]):98:98 -> onRequestPermissionsResult
-    1:3:void onResume():68:68 -> onResume
-    4:13:void onResume():69:69 -> onResume
-    1:6:void requestPermission():87:87 -> requestPermission
-    7:9:void requestPermission():88:88 -> requestPermission
-    10:11:void requestPermission():89:89 -> requestPermission
-    12:21:void requestPermission():90:90 -> requestPermission
-    1:6:void showEmpty(java.lang.String,boolean):177:177 -> showEmpty
-    7:11:void showEmpty(java.lang.String,boolean):178:178 -> showEmpty
-    12:21:void showEmpty(java.lang.String,boolean):179:179 -> showEmpty
-    22:29:void showEmpty(java.lang.String,boolean):180:180 -> showEmpty
+    1:4:void $r8$lambda$q06TQZWwbrxSKC5oZRyO7zo3Aoo(com.qingying.MainActivity,android.widget.AdapterView,android.view.View,int,long):0:0 -> e
+      # {"id":"com.android.tools.r8.synthesized"}
+    1:8:boolean hasPermission():86:86 -> hasPermission
+    9:21:boolean hasPermission():87:87 -> hasPermission
+    22:23:boolean hasPermission():91:91 -> hasPermission
+    24:31:boolean hasPermission():92:92 -> hasPermission
+    32:41:boolean hasPermission():95:95 -> hasPermission
+    1:5:void lambda$loadFolders$3(java.util.List):184:184 -> lambda$loadFolders$3
+    6:10:void lambda$loadFolders$3(java.util.List):185:185 -> lambda$loadFolders$3
+    11:15:void lambda$loadFolders$3(java.util.List):186:186 -> lambda$loadFolders$3
+    16:23:void lambda$loadFolders$3(java.util.List):187:187 -> lambda$loadFolders$3
+    24:34:void lambda$loadFolders$3(java.util.List):188:188 -> lambda$loadFolders$3
+    35:40:void lambda$loadFolders$3(java.util.List):189:189 -> lambda$loadFolders$3
+    41:44:void lambda$loadFolders$3(java.util.List):188:188 -> lambda$loadFolders$3
+    45:51:void lambda$loadFolders$3(java.util.List):191:191 -> lambda$loadFolders$3
+    52:89:void lambda$loadFolders$3(java.util.List):192:192 -> lambda$loadFolders$3
+    3:7:void lambda$loadFolders$4():117:117 -> lambda$loadFolders$4
+    8:9:void lambda$loadFolders$4():118:118 -> lambda$loadFolders$4
+    10:21:void lambda$loadFolders$4():119:119 -> lambda$loadFolders$4
+    22:23:void lambda$loadFolders$4():125:125 -> lambda$loadFolders$4
+    24:35:void lambda$loadFolders$4():127:127 -> lambda$loadFolders$4
+    36:39:void lambda$loadFolders$4():129:129 -> lambda$loadFolders$4
+    40:43:void lambda$loadFolders$4():130:130 -> lambda$loadFolders$4
+    44:47:void lambda$loadFolders$4():131:131 -> lambda$loadFolders$4
+    48:51:void lambda$loadFolders$4():132:132 -> lambda$loadFolders$4
+    52:57:void lambda$loadFolders$4():134:134 -> lambda$loadFolders$4
+    58:61:void lambda$loadFolders$4():135:135 -> lambda$loadFolders$4
+    62:75:void lambda$loadFolders$4():136:136 -> lambda$loadFolders$4
+    76:91:void lambda$loadFolders$4():137:137 -> lambda$loadFolders$4
+    92:104:void lambda$loadFolders$4():138:138 -> lambda$loadFolders$4
+    105:112:void lambda$loadFolders$4():140:140 -> lambda$loadFolders$4
+    113:117:void lambda$loadFolders$4():142:142 -> lambda$loadFolders$4
+    118:121:void lambda$loadFolders$4():143:143 -> lambda$loadFolders$4
+    122:131:void lambda$loadFolders$4():144:144 -> lambda$loadFolders$4
+    132:135:void lambda$loadFolders$4():145:145 -> lambda$loadFolders$4
+    136:137:void lambda$loadFolders$4():146:146 -> lambda$loadFolders$4
+    138:140:void lambda$loadFolders$4():147:147 -> lambda$loadFolders$4
+    141:146:void lambda$loadFolders$4():149:149 -> lambda$loadFolders$4
+    147:156:void lambda$loadFolders$4():150:150 -> lambda$loadFolders$4
+    157:167:void lambda$loadFolders$4():127:127 -> lambda$loadFolders$4
+    168:170:void lambda$loadFolders$4():153:153 -> lambda$loadFolders$4
+    171:175:void lambda$loadFolders$4():157:157 -> lambda$loadFolders$4
+    176:180:void lambda$loadFolders$4():160:160 -> lambda$loadFolders$4
+    181:184:void lambda$loadFolders$4():161:161 -> lambda$loadFolders$4
+    185:188:void lambda$loadFolders$4():162:162 -> lambda$loadFolders$4
+    189:200:void lambda$loadFolders$4():163:163 -> lambda$loadFolders$4
+    201:202:void lambda$loadFolders$4():164:164 -> lambda$loadFolders$4
+    203:222:void lambda$loadFolders$4():165:165 -> lambda$loadFolders$4
+    223:229:void lambda$loadFolders$4():167:167 -> lambda$loadFolders$4
+    230:232:void lambda$loadFolders$4():172:172 -> lambda$loadFolders$4
+    233:236:void lambda$loadFolders$4():175:175 -> lambda$loadFolders$4
+    237:256:void lambda$loadFolders$4():176:176 -> lambda$loadFolders$4
+    257:268:void lambda$loadFolders$4():177:177 -> lambda$loadFolders$4
+    269:288:void lambda$loadFolders$4():179:179 -> lambda$loadFolders$4
+    289:300:void lambda$loadFolders$4():180:180 -> lambda$loadFolders$4
+    301:310:void lambda$loadFolders$4():183:183 -> lambda$loadFolders$4
+    1:8:void lambda$onCreate$0(android.widget.AdapterView,android.view.View,int,long):55:55 -> lambda$onCreate$0
+    9:15:void lambda$onCreate$0(android.widget.AdapterView,android.view.View,int,long):56:56 -> lambda$onCreate$0
+    16:22:void lambda$onCreate$0(android.widget.AdapterView,android.view.View,int,long):57:57 -> lambda$onCreate$0
+    23:29:void lambda$onCreate$0(android.widget.AdapterView,android.view.View,int,long):58:58 -> lambda$onCreate$0
+    30:33:void lambda$onCreate$0(android.widget.AdapterView,android.view.View,int,long):59:59 -> lambda$onCreate$0
+    1:4:void lambda$onCreate$1(android.view.View):62:62 -> lambda$onCreate$1
+    1:8:boolean lambda$onCreate$2(android.widget.AdapterView,android.view.View,int,long):65:65 -> lambda$onCreate$2
+    9:20:boolean lambda$onCreate$2(android.widget.AdapterView,android.view.View,int,long):66:66 -> lambda$onCreate$2
+    21:26:boolean lambda$onCreate$2(android.widget.AdapterView,android.view.View,int,long):67:67 -> lambda$onCreate$2
+    27:59:boolean lambda$onCreate$2(android.widget.AdapterView,android.view.View,int,long):69:69 -> lambda$onCreate$2
+    60:63:boolean lambda$onCreate$2(android.widget.AdapterView,android.view.View,int,long):68:68 -> lambda$onCreate$2
+    64:66:boolean lambda$onCreate$2(android.widget.AdapterView,android.view.View,int,long):70:70 -> lambda$onCreate$2
+    67:70:boolean lambda$onCreate$2(android.widget.AdapterView,android.view.View,int,long):71:71 -> lambda$onCreate$2
+    1:12:void loadFolders():116:116 -> loadFolders
+    1:3:void onCreate(android.os.Bundle):43:43 -> onCreate
+    4:8:void onCreate(android.os.Bundle):44:44 -> onCreate
+    9:16:void onCreate(android.os.Bundle):46:46 -> onCreate
+    17:26:void onCreate(android.os.Bundle):47:47 -> onCreate
+    27:36:void onCreate(android.os.Bundle):48:48 -> onCreate
+    37:46:void onCreate(android.os.Bundle):49:49 -> onCreate
+    47:56:void onCreate(android.os.Bundle):50:50 -> onCreate
+    57:64:void onCreate(android.os.Bundle):52:52 -> onCreate
+    65:67:void onCreate(android.os.Bundle):53:53 -> onCreate
+    68:76:void onCreate(android.os.Bundle):54:54 -> onCreate
+    77:87:void onCreate(android.os.Bundle):62:62 -> onCreate
+    88:95:void onCreate(android.os.Bundle):64:64 -> onCreate
+    96:105:void onCreate(android.os.Bundle):75:75 -> onCreate
+    106:109:void onCreate(android.os.Bundle):76:76 -> onCreate
+    1:7:void onRequestPermissionsResult(int,java.lang.String[],int[]):108:108 -> onRequestPermissionsResult
+    8:17:void onRequestPermissionsResult(int,java.lang.String[],int[]):110:110 -> onRequestPermissionsResult
+    18:24:void onRequestPermissionsResult(int,java.lang.String[],int[]):111:111 -> onRequestPermissionsResult
+    1:3:void onResume():81:81 -> onResume
+    4:13:void onResume():82:82 -> onResume
+    1:6:void requestPermission():100:100 -> requestPermission
+    7:9:void requestPermission():101:101 -> requestPermission
+    10:11:void requestPermission():102:102 -> requestPermission
+    12:21:void requestPermission():103:103 -> requestPermission
+    1:6:void showEmpty(java.lang.String,boolean):199:199 -> showEmpty
+    7:11:void showEmpty(java.lang.String,boolean):200:200 -> showEmpty
+    12:21:void showEmpty(java.lang.String,boolean):201:201 -> showEmpty
+    22:29:void showEmpty(java.lang.String,boolean):202:202 -> showEmpty
 com.qingying.MainActivity$$ExternalSyntheticLambda0 -> com.qingying.a:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
@@ -170,12 +185,21 @@ com.qingying.MainActivity$$ExternalSyntheticLambda2 -> com.qingying.c:
 com.qingying.MainActivity$$ExternalSyntheticLambda3 -> com.qingying.d:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
+    com.qingying.MainActivity com.qingying.MainActivity$$InternalSyntheticLambda$1$342d7269156b41ff86eedfeb93913b075810aee495ac598d8613073c24f5272c$2.f$0 -> a
+      # {"id":"com.android.tools.r8.synthesized"}
+    1:6:void <init>(com.qingying.MainActivity):0:0 -> <init>
+      # {"id":"com.android.tools.r8.synthesized"}
+    1:11:boolean onItemLongClick(android.widget.AdapterView,android.view.View,int,long):0:0 -> onItemLongClick
+      # {"id":"com.android.tools.r8.synthesized"}
+com.qingying.MainActivity$$ExternalSyntheticLambda4 -> com.qingying.e:
+# {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
+# {"id":"com.android.tools.r8.synthesized"}
     int $r8$classId -> a
       # {"id":"com.android.tools.r8.synthesized"}
-    com.qingying.MainActivity com.qingying.MainActivity$$InternalSyntheticLambda$1$51405a175d22561a775833fbf98e74cd478dc4998cebe21106733486d134ee5e$0.f$0 -> b
+    com.qingying.MainActivity com.qingying.MainActivity$$InternalSyntheticLambda$1$960c9be3c7d6b67b223afad85baf0753848ea8a6de0970f6b442ee83ca02c489$0.f$0 -> b
       # {"id":"com.android.tools.r8.residualsignature","signature":"Landroid/app/Activity;"}
       # {"id":"com.android.tools.r8.synthesized"}
-    java.util.List com.qingying.MainActivity$$InternalSyntheticLambda$1$51405a175d22561a775833fbf98e74cd478dc4998cebe21106733486d134ee5e$0.f$1 -> c
+    java.util.List com.qingying.MainActivity$$InternalSyntheticLambda$1$960c9be3c7d6b67b223afad85baf0753848ea8a6de0970f6b442ee83ca02c489$0.f$1 -> c
       # {"id":"com.android.tools.r8.residualsignature","signature":"Ljava/lang/Object;"}
       # {"id":"com.android.tools.r8.synthesized"}
     1:10:void <init>(android.app.Activity,java.lang.Object,int):0:0 -> <init>
@@ -186,22 +210,39 @@ com.qingying.MainActivity$1 -> com.qingying.MainActivity$1:
 # {"id":"sourceFile","fileName":"MainActivity.java"}
 com.qingying.MainActivity$FolderAdapter -> com.qingying.MainActivity$FolderAdapter:
 # {"id":"sourceFile","fileName":"MainActivity.java"}
-    1:1:void <init>(com.qingying.MainActivity):183:183 -> <init>
-    2:2:void <init>(com.qingying.MainActivity,com.qingying.MainActivity$1):183:183 -> <init>
-    1:11:int getCount():186:186 -> getCount
-    1:11:java.lang.Object getItem(int):191:191 -> getItem
+    1:1:void <init>(com.qingying.MainActivity):205:205 -> <init>
+    2:2:void <init>(com.qingying.MainActivity,com.qingying.MainActivity$1):205:205 -> <init>
+    1:11:int getCount():208:208 -> getCount
+    1:11:java.lang.Object getItem(int):213:213 -> getItem
     1:2:long getItemId(int):0:0 -> getItemId
-    4:16:android.view.View getView(int,android.view.View,android.view.ViewGroup):203:203 -> getView
-    17:28:android.view.View getView(int,android.view.View,android.view.ViewGroup):204:204 -> getView
-    29:41:android.view.View getView(int,android.view.View,android.view.ViewGroup):206:206 -> getView
-    42:60:android.view.View getView(int,android.view.View,android.view.ViewGroup):207:207 -> getView
-    61:94:android.view.View getView(int,android.view.View,android.view.ViewGroup):208:208 -> getView
-    95:105:android.view.View getView(int,android.view.View,android.view.ViewGroup):209:209 -> getView
-    106:111:android.view.View getView(int,android.view.View,android.view.ViewGroup):210:210 -> getView
-    112:127:android.view.View getView(int,android.view.View,android.view.ViewGroup):211:211 -> getView
-    128:137:android.view.View getView(int,android.view.View,android.view.ViewGroup):213:213 -> getView
-    138:147:android.view.View getView(int,android.view.View,android.view.ViewGroup):214:214 -> getView
-    148:151:android.view.View getView(int,android.view.View,android.view.ViewGroup):215:215 -> getView
+    5:16:android.view.View getView(int,android.view.View,android.view.ViewGroup):225:225 -> getView
+    17:28:android.view.View getView(int,android.view.View,android.view.ViewGroup):226:226 -> getView
+    29:41:android.view.View getView(int,android.view.View,android.view.ViewGroup):228:228 -> getView
+    42:60:android.view.View getView(int,android.view.View,android.view.ViewGroup):229:229 -> getView
+    61:94:android.view.View getView(int,android.view.View,android.view.ViewGroup):230:230 -> getView
+    95:105:android.view.View getView(int,android.view.View,android.view.ViewGroup):231:231 -> getView
+    106:111:android.view.View getView(int,android.view.View,android.view.ViewGroup):232:232 -> getView
+    112:115:android.view.View getView(int,android.view.View,android.view.ViewGroup):234:234 -> getView
+    116:125:android.view.View getView(int,android.view.View,android.view.ViewGroup):233:233 -> getView
+    126:134:android.view.View getView(int,android.view.View,android.view.ViewGroup):234:234 -> getView
+    135:137:android.view.View getView(int,android.view.View,android.view.ViewGroup):232:232 -> getView
+    138:143:android.view.View getView(int,android.view.View,android.view.ViewGroup):236:236 -> getView
+    144:159:android.view.View getView(int,android.view.View,android.view.ViewGroup):237:237 -> getView
+    160:169:android.view.View getView(int,android.view.View,android.view.ViewGroup):239:239 -> getView
+    170:179:android.view.View getView(int,android.view.View,android.view.ViewGroup):240:240 -> getView
+    180:183:android.view.View getView(int,android.view.View,android.view.ViewGroup):241:241 -> getView
+com.qingying.PinnedFolders -> com.qingying.PinnedFolders:
+# {"id":"sourceFile","fileName":"PinnedFolders.java"}
+    1:4:void <init>():15:15 -> <init>
+    1:11:java.util.Set get(android.content.Context):18:18 -> get
+    12:21:java.util.Set get(android.content.Context):19:19 -> get
+    1:9:boolean isPinned(android.content.Context,java.lang.String):23:23 -> isPinned
+    1:4:boolean toggle(android.content.Context,java.lang.String):28:28 -> toggle
+    5:11:boolean toggle(android.content.Context,java.lang.String):30:30 -> toggle
+    12:16:boolean toggle(android.content.Context,java.lang.String):31:31 -> toggle
+    17:20:boolean toggle(android.content.Context,java.lang.String):34:34 -> toggle
+    21:26:boolean toggle(android.content.Context,java.lang.String):37:37 -> toggle
+    27:40:boolean toggle(android.content.Context,java.lang.String):38:38 -> toggle
 com.qingying.PlayerActivity -> com.qingying.PlayerActivity:
 # {"id":"sourceFile","fileName":"PlayerActivity.java"}
     2:10:void <clinit>():40:40 -> <clinit>
@@ -555,12 +596,12 @@ com.qingying.PlayerActivity -> com.qingying.PlayerActivity:
       # {"id":"com.android.tools.r8.synthesized"}
     1:4:void $r8$lambda$wseJtMyuMSQP0DpbXDAoe7n-C6k(com.qingying.PlayerActivity,java.lang.String):0:0 -> w
       # {"id":"com.android.tools.r8.synthesized"}
-com.qingying.PlayerActivity$$ExternalSyntheticApiModelOutline0 -> com.qingying.e:
+com.qingying.PlayerActivity$$ExternalSyntheticApiModelOutline0 -> com.qingying.f:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
     1:5:void m(android.media.MediaPlayer,long):0:0 -> a
       # {"id":"com.android.tools.r8.synthesized"}
-com.qingying.PlayerActivity$$ExternalSyntheticApiModelOutline1 -> com.qingying.f:
+com.qingying.PlayerActivity$$ExternalSyntheticApiModelOutline1 -> com.qingying.g:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
     1:5:int m():0:0 -> a
@@ -575,7 +616,7 @@ com.qingying.PlayerActivity$$ExternalSyntheticApiModelOutline1 -> com.qingying.f
       # {"id":"com.android.tools.r8.synthesized"}
     1:5:int m$1():0:0 -> f
       # {"id":"com.android.tools.r8.synthesized"}
-com.qingying.PlayerActivity$$ExternalSyntheticLambda10 -> com.qingying.g:
+com.qingying.PlayerActivity$$ExternalSyntheticLambda10 -> com.qingying.h:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
     int $r8$classId -> a
@@ -586,7 +627,7 @@ com.qingying.PlayerActivity$$ExternalSyntheticLambda10 -> com.qingying.g:
       # {"id":"com.android.tools.r8.synthesized"}
     1:42:void run():0:0 -> run
       # {"id":"com.android.tools.r8.synthesized"}
-com.qingying.PlayerActivity$$ExternalSyntheticLambda14 -> com.qingying.h:
+com.qingying.PlayerActivity$$ExternalSyntheticLambda14 -> com.qingying.i:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
     com.qingying.PlayerActivity com.qingying.PlayerActivity$$InternalSyntheticLambda$1$c5ad71ff54e89652675379b8ef59d16a300fa9147ccb9b545b56305f79aaba0b$0.f$0 -> a
@@ -595,7 +636,7 @@ com.qingying.PlayerActivity$$ExternalSyntheticLambda14 -> com.qingying.h:
       # {"id":"com.android.tools.r8.synthesized"}
     1:6:void onPrepared(android.media.MediaPlayer):0:0 -> onPrepared
       # {"id":"com.android.tools.r8.synthesized"}
-com.qingying.PlayerActivity$$ExternalSyntheticLambda15 -> com.qingying.i:
+com.qingying.PlayerActivity$$ExternalSyntheticLambda15 -> com.qingying.j:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
     com.qingying.PlayerActivity com.qingying.PlayerActivity$$InternalSyntheticLambda$1$c5ad71ff54e89652675379b8ef59d16a300fa9147ccb9b545b56305f79aaba0b$1.f$0 -> a
@@ -604,7 +645,7 @@ com.qingying.PlayerActivity$$ExternalSyntheticLambda15 -> com.qingying.i:
       # {"id":"com.android.tools.r8.synthesized"}
     1:6:void onCompletion(android.media.MediaPlayer):0:0 -> onCompletion
       # {"id":"com.android.tools.r8.synthesized"}
-com.qingying.PlayerActivity$$ExternalSyntheticLambda16 -> com.qingying.j:
+com.qingying.PlayerActivity$$ExternalSyntheticLambda16 -> com.qingying.k:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
     com.qingying.PlayerActivity com.qingying.PlayerActivity$$InternalSyntheticLambda$1$c5ad71ff54e89652675379b8ef59d16a300fa9147ccb9b545b56305f79aaba0b$2.f$0 -> a
@@ -613,7 +654,7 @@ com.qingying.PlayerActivity$$ExternalSyntheticLambda16 -> com.qingying.j:
       # {"id":"com.android.tools.r8.synthesized"}
     1:7:boolean onError(android.media.MediaPlayer,int,int):0:0 -> onError
       # {"id":"com.android.tools.r8.synthesized"}
-com.qingying.PlayerActivity$$ExternalSyntheticLambda17 -> com.qingying.k:
+com.qingying.PlayerActivity$$ExternalSyntheticLambda17 -> com.qingying.l:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
     com.qingying.PlayerActivity com.qingying.PlayerActivity$$InternalSyntheticLambda$1$fd2cb9a5aa19d8ef0c6c6d8cb39f201f0f5a232cf80566de9a2d5dadfe79b572$0.f$0 -> a
@@ -622,7 +663,7 @@ com.qingying.PlayerActivity$$ExternalSyntheticLambda17 -> com.qingying.k:
       # {"id":"com.android.tools.r8.synthesized"}
     1:7:boolean onTouch(android.view.View,android.view.MotionEvent):0:0 -> onTouch
       # {"id":"com.android.tools.r8.synthesized"}
-com.qingying.PlayerActivity$$ExternalSyntheticLambda18 -> com.qingying.l:
+com.qingying.PlayerActivity$$ExternalSyntheticLambda18 -> com.qingying.m:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
     int $r8$classId -> a
@@ -714,12 +755,12 @@ com.qingying.ThumbLoader -> com.qingying.ThumbLoader:
     22:26:void load(android.content.Context,android.widget.ImageView,long):43:43 -> load
     27:30:void load(android.content.Context,android.widget.ImageView,long):45:45 -> load
     31:43:void load(android.content.Context,android.widget.ImageView,long):46:46 -> load
-com.qingying.ThumbLoader$$ExternalSyntheticApiModelOutline0 -> com.qingying.m:
+com.qingying.ThumbLoader$$ExternalSyntheticApiModelOutline0 -> com.qingying.n:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
     1:6:android.graphics.Bitmap m(android.content.ContentResolver,android.net.Uri,android.util.Size):0:0 -> a
       # {"id":"com.android.tools.r8.synthesized"}
-com.qingying.ThumbLoader$$ExternalSyntheticLambda1 -> com.qingying.n:
+com.qingying.ThumbLoader$$ExternalSyntheticLambda1 -> com.qingying.o:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
     long com.qingying.ThumbLoader$$InternalSyntheticLambda$1$08be8bbb28fd49bd573a251d3cc7777af1c643aad4d39f32ccc8f9681275e7ab$0.f$0 -> a
@@ -734,7 +775,7 @@ com.qingying.ThumbLoader$$ExternalSyntheticLambda1 -> com.qingying.n:
       # {"id":"com.android.tools.r8.synthesized"}
     1:12:void run():0:0 -> run
       # {"id":"com.android.tools.r8.synthesized"}
-com.qingying.ThumbLoader$$ExternalSyntheticLambda2 -> com.qingying.o:
+com.qingying.ThumbLoader$$ExternalSyntheticLambda2 -> com.qingying.p:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
     int $r8$classId -> a
@@ -833,7 +874,7 @@ com.qingying.VideoListActivity$VideoAdapter -> com.qingying.VideoListActivity$Vi
     9:12:void lambda$getView$0(com.qingying.Video,android.widget.TextView,android.view.View):110:110 -> lambda$getView$0
     3:18:void updateStar(android.widget.TextView,boolean):118:118 -> updateStar
     19:22:void updateStar(android.widget.TextView,boolean):119:119 -> updateStar
-com.qingying.VideoListActivity$VideoAdapter$$ExternalSyntheticLambda0 -> com.qingying.p:
+com.qingying.VideoListActivity$VideoAdapter$$ExternalSyntheticLambda0 -> com.qingying.q:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
     com.qingying.VideoListActivity$VideoAdapter com.qingying.VideoListActivity$VideoAdapter$$InternalSyntheticLambda$1$46d497986e8bd8ded75db39e6ce86b1f0f8732c0234ee59d8849befc1b5ad38f$0.f$0 -> a
@@ -899,7 +940,7 @@ com.qingying.VideoStore -> com.qingying.VideoStore:
     7:15:void sortByName(java.util.List):78:78 -> sortByName
     2:20:java.lang.String stripZeros(java.lang.String):109:109 -> stripZeros
     21:25:java.lang.String stripZeros(java.lang.String):110:110 -> stripZeros
-com.qingying.VideoStore$$ExternalSyntheticLambda0 -> com.qingying.q:
+com.qingying.VideoStore$$ExternalSyntheticLambda0 -> com.qingying.s:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
     java.text.Collator com.qingying.VideoStore$$InternalSyntheticLambda$1$f86d6465785d2451de4780d2daa39fe3a270b63f4796bc7b568abeb1f54084fe$0.f$0 -> a

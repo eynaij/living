@@ -38,6 +38,7 @@ id lockBtn
 id meta
 id name
 id nextBtn
+id pin
 id playBtn
 id playlist
 id playlistClose

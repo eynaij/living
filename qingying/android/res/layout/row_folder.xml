@@ -60,6 +60,15 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/pin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="📌"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"

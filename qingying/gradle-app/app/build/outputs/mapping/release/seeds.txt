@@ -1,318 +1,327 @@
-com.qingying.PlayerActivity$PlaylistAdapter
-com.qingying.R
-com.qingying.PlayerActivity$2
-com.qingying.ThumbLoader
-com.qingying.R$mipmap
-com.qingying.ThumbLoader$1
-com.qingying.MainActivity$FolderAdapter
-com.qingying.PlayerActivity$3
-com.qingying.Folder
-com.qingying.R$drawable
-com.qingying.R$id
-com.qingying.FavoritesStore
-com.qingying.Fmt
-com.qingying.R$string
-com.qingying.R$style
-com.qingying.Video
-com.qingying.VideoStore
-com.qingying.VideoListActivity$1
-com.qingying.MainActivity$1
 com.qingying.VideoListActivity
-com.qingying.PlayerActivity
+com.qingying.ThumbLoader$1
 com.qingying.MainActivity
+com.qingying.R$id
+com.qingying.R$string
+com.qingying.PinnedFolders
+com.qingying.Video
+com.qingying.PlayerActivity
+com.qingying.R
+com.qingying.Fmt
+com.qingying.PlayerActivity$2
+com.qingying.PlayerActivity$3
+com.qingying.R$style
+com.qingying.R$mipmap
 com.qingying.VideoListActivity$VideoAdapter
-com.qingying.R$layout
 com.qingying.R$color
+com.qingying.R$drawable
+com.qingying.R$layout
+com.qingying.ThumbLoader
+com.qingying.Folder
+com.qingying.VideoListActivity$1
+com.qingying.VideoStore
+com.qingying.FavoritesStore
+com.qingying.MainActivity$FolderAdapter
+com.qingying.PlayerActivity$PlaylistAdapter
 com.qingying.PlayerActivity$1
-com.qingying.R$id: int itemName
+com.qingying.MainActivity$1
+com.qingying.R$color: int status_bar
+com.qingying.R$color: int sub
+com.qingying.R$color: int icon_bg
+com.qingying.Folder: int count
+com.qingying.FavoritesStore: java.lang.String PREFS
+com.qingying.PlayerActivity: boolean prepared
+com.qingying.MainActivity$FolderAdapter: com.qingying.MainActivity this$0
+com.qingying.R$color: int text
+com.qingying.MainActivity: android.widget.TextView grantBtn
+com.qingying.R$id: int empty
+com.qingying.PlayerActivity: boolean boosting
+com.qingying.PlayerActivity: android.view.View playlistPanel
+com.qingying.R$id: int playlistTitle
+com.qingying.R$id: int forward10
+com.qingying.VideoListActivity: android.widget.TextView countView
+com.qingying.PlayerActivity: boolean finished
+com.qingying.R$id: int name
+com.qingying.Folder: long coverId
+com.qingying.PlayerActivity$1: com.qingying.PlayerActivity this$0
+com.qingying.PlayerActivity: android.view.SurfaceView surface
 com.qingying.R$id: int back
-com.qingying.MainActivity: java.util.List folders
-com.qingying.PlayerActivity: android.widget.TextView timeView
-com.qingying.PlayerActivity: java.lang.Runnable rewindStep
-com.qingying.VideoListActivity: java.util.concurrent.ExecutorService executor
+com.qingying.R$drawable: int bg_card
+com.qingying.R$layout: int activity_main
+com.qingying.R$style: int PlayerTheme
+com.qingying.R$color: int card
+com.qingying.R$id: int itemName
+com.qingying.R$id: int pin
+com.qingying.PlayerActivity: float downX
+com.qingying.R$id: int duration
+com.qingying.PlayerActivity: long LONG_PRESS_MS
 com.qingying.PlayerActivity: android.view.View controls
-com.qingying.PlayerActivity: android.widget.TextView speedView
+com.qingying.PlayerActivity: android.widget.TextView timeView
+com.qingying.R$color: int accent
+com.qingying.PlayerActivity: android.view.View badge
+com.qingying.R$id: int lockBtn
+com.qingying.MainActivity: int REQ_PERM
+com.qingying.R$id: int playlistClose
+com.qingying.MainActivity: android.widget.TextView emptyText
+com.qingying.PlayerActivity: boolean rightZone
+com.qingying.R$id: int playBtn
+com.qingying.PlayerActivity$2: com.qingying.PlayerActivity this$0
+com.qingying.R$id: int count
+com.qingying.PlayerActivity: float BOOST_SPEED
+com.qingying.R$drawable: int bg_thumb
+com.qingying.PlayerActivity$PlaylistAdapter: com.qingying.PlayerActivity this$0
+com.qingying.PlayerActivity: int index
+com.qingying.PlayerActivity: java.lang.Runnable rewindStep
+com.qingying.VideoListActivity$VideoAdapter: com.qingying.VideoListActivity this$0
+com.qingying.R$id: int time
+com.qingying.R$id: int badge
+com.qingying.R$id: int speedBtn
+com.qingying.R$drawable: int bg_controls
+com.qingying.ThumbLoader: android.util.LruCache CACHE
+com.qingying.PlayerActivity: java.util.List playlist
+com.qingying.PlayerActivity: float downY
+com.qingying.PlayerActivity: android.widget.TextView badgeText
+com.qingying.R$layout: int row_video
+com.qingying.R$color: int accent2
+com.qingying.PlayerActivity: java.lang.Runnable tick
+com.qingying.R$id: int folderCount
+com.qingying.R$drawable: int bg_controls_top
+com.qingying.VideoStore: java.lang.String FAVORITES_BUCKET
+com.qingying.R$id: int nextBtn
+com.qingying.ThumbLoader: android.os.Handler MAIN
+com.qingying.Video: long id
+com.qingying.PlayerActivity: android.media.MediaPlayer player
 com.qingying.R$mipmap: int ic_launcher_foreground
 com.qingying.MainActivity: com.qingying.MainActivity$FolderAdapter adapter
-com.qingying.R$layout: int row_video
-com.qingying.PlayerActivity: android.widget.TextView titleView
-com.qingying.R$color: int card
-com.qingying.R$drawable: int bg_controls_top
-com.qingying.R$id: int time
-com.qingying.MainActivity: android.widget.LinearLayout empty
-com.qingying.PlayerActivity: android.net.Uri videoUri
-com.qingying.ThumbLoader: android.util.LruCache CACHE
-com.qingying.PlayerActivity: boolean leftZone
-com.qingying.Video: long id
-com.qingying.PlayerActivity: boolean finished
-com.qingying.PlayerActivity: float BOOST_SPEED
-com.qingying.VideoListActivity: android.widget.TextView emptyText
-com.qingying.PlayerActivity: android.widget.TextView hint
-com.qingying.R$layout: int row_folder
-com.qingying.R$mipmap: int ic_launcher
+com.qingying.R$id: int favBtn
+com.qingying.PlayerActivity: float speed
+com.qingying.VideoListActivity: java.util.List videos
+com.qingying.PlayerActivity: boolean rewinding
 com.qingying.PlayerActivity: java.lang.Runnable hideBadge
-com.qingying.PlayerActivity: java.lang.Runnable hideControls
-com.qingying.FavoritesStore: java.lang.String KEY_IDS
-com.qingying.PlayerActivity: android.media.MediaPlayer player
-com.qingying.ThumbLoader: java.util.concurrent.ExecutorService POOL
-com.qingying.R$color: int accent2
-com.qingying.R$style: int AppTheme
-com.qingying.PlayerActivity$1: com.qingying.PlayerActivity this$0
-com.qingying.R$drawable: int bg_badge
-com.qingying.PlayerActivity: long LONG_PRESS_MS
-com.qingying.R$id: int subTitle
-com.qingying.PlayerActivity: long downAt
+com.qingying.PlayerActivity: android.widget.TextView lockBtn
+com.qingying.PinnedFolders: java.lang.String KEY_IDS
+com.qingying.R$layout: int activity_player
+com.qingying.R$layout: int row_folder
+com.qingying.MainActivity: java.util.concurrent.ExecutorService executor
+com.qingying.PlayerActivity: android.widget.TextView hint
+com.qingying.R$id: int hint
+com.qingying.R$id: int controls
+com.qingying.Video: long durationMs
 com.qingying.R$color: int bg
-com.qingying.R$id: int grantBtn
+com.qingying.PlayerActivity: java.lang.Runnable startRewind
+com.qingying.PlayerActivity: boolean rotationLocked
+com.qingying.PlayerActivity$3: com.qingying.PlayerActivity this$0
+com.qingying.R$id: int playlistPanel
+com.qingying.R$layout: int row_playlist_item
+com.qingying.PlayerActivity: java.lang.Runnable startBoost
+com.qingying.PlayerActivity: android.widget.TextView speedView
+com.qingying.PlayerActivity: long currentId
+com.qingying.PlayerActivity: java.util.concurrent.ExecutorService executor
+com.qingying.R$id: int list
+com.qingying.R$id: int meta
+com.qingying.PinnedFolders: java.lang.String PREFS
+com.qingying.Video: java.lang.String name
+com.qingying.R$color: int card2
+com.qingying.R$layout: int activity_video_list
+com.qingying.PlayerActivity: android.widget.TextView favBtn
+com.qingying.R$id: int gesture
+com.qingying.Folder: java.lang.String bucketId
+com.qingying.VideoListActivity: com.qingying.VideoListActivity$VideoAdapter adapter
+com.qingying.R$mipmap: int ic_launcher
+com.qingying.PlayerActivity: float[] SPEEDS
+com.qingying.R$id: int emptyText
+com.qingying.ThumbLoader: java.util.concurrent.ExecutorService POOL
+com.qingying.R$id: int star
+com.qingying.R$id: int seekBar
+com.qingying.Folder: long totalMs
+com.qingying.PlayerActivity: com.qingying.PlayerActivity$PlaylistAdapter playlistAdapter
+com.qingying.R$id: int subTitle
+com.qingying.R$style: int AppTheme
+com.qingying.MainActivity: android.widget.TextView folderCount
+com.qingying.R$drawable: int bg_badge
+com.qingying.R$drawable: int bg_pill
+com.qingying.R$id: int itemMark
+com.qingying.Folder: java.lang.String name
 com.qingying.PlayerActivity: android.widget.TextView prevBtn
 com.qingying.VideoListActivity: java.lang.String bucketId
-com.qingying.Video: long durationMs
-com.qingying.R$color: int nav_bar
-com.qingying.R$id: int seekBar
-com.qingying.R$id: int surface
-com.qingying.PlayerActivity: android.view.View playlistPanel
-com.qingying.VideoListActivity$VideoAdapter: com.qingying.VideoListActivity this$0
-com.qingying.PlayerActivity: android.widget.TextView badgeText
-com.qingying.R$color: int icon_bg
-com.qingying.PlayerActivity: float downX
-com.qingying.MainActivity$FolderAdapter: com.qingying.MainActivity this$0
-com.qingying.PlayerActivity: boolean prepared
-com.qingying.R$id: int playlistClose
-com.qingying.PlayerActivity: boolean boosting
-com.qingying.R$id: int favBtn
-com.qingying.VideoListActivity: java.util.List videos
-com.qingying.PlayerActivity$PlaylistAdapter: com.qingying.PlayerActivity this$0
-com.qingying.Folder: java.lang.String bucketId
-com.qingying.R$id: int lockBtn
-com.qingying.R$id: int speedBtn
-com.qingying.PlayerActivity: float[] SPEEDS
-com.qingying.R$layout: int row_playlist_item
-com.qingying.Folder: long totalMs
-com.qingying.R$color: int accent
-com.qingying.R$id: int back10
-com.qingying.MainActivity: android.widget.TextView emptyText
-com.qingying.R$id: int playlistPanel
-com.qingying.R$id: int emptyText
-com.qingying.R$id: int itemMark
-com.qingying.R$id: int badge
-com.qingying.FavoritesStore: java.lang.String PREFS
-com.qingying.R$id: int name
-com.qingying.R$layout: int activity_video_list
-com.qingying.PlayerActivity: android.widget.TextView playView
-com.qingying.R$layout: int activity_main
-com.qingying.R$drawable: int bg_controls
-com.qingying.PlayerActivity: int lastPosition
-com.qingying.MainActivity: android.widget.TextView grantBtn
-com.qingying.R$drawable: int bg_card
-com.qingying.PlayerActivity: float speed
-com.qingying.R$drawable: int ic_video
-com.qingying.R$id: int controls
-com.qingying.R$color: int text
-com.qingying.MainActivity: int REQ_PERM
-com.qingying.Video: long size
-com.qingying.VideoStore: java.lang.String FAVORITES_BUCKET
-com.qingying.R$id: int playlistTitle
-com.qingying.PlayerActivity: java.lang.Runnable tick
-com.qingying.R$id: int thumb
-com.qingying.Folder: int count
-com.qingying.PlayerActivity: com.qingying.PlayerActivity$PlaylistAdapter playlistAdapter
-com.qingying.PlayerActivity: java.util.List playlist
-com.qingying.PlayerActivity: java.lang.Runnable startBoost
-com.qingying.R$id: int forward10
-com.qingying.R$color: int card2
-com.qingying.PlayerActivity: int index
-com.qingying.PlayerActivity: java.lang.Runnable startRewind
-com.qingying.R$id: int hint
-com.qingying.PlayerActivity: android.widget.TextView lockBtn
-com.qingying.R$id: int prevBtn
-com.qingying.PlayerActivity$3: com.qingying.PlayerActivity this$0
-com.qingying.PlayerActivity: android.widget.TextView nextBtn
-com.qingying.PlayerActivity: boolean rotationLocked
-com.qingying.R$id: int nextBtn
-com.qingying.R$drawable: int bg_thumb
-com.qingying.VideoListActivity: android.widget.TextView countView
-com.qingying.MainActivity: java.util.concurrent.ExecutorService executor
-com.qingying.PlayerActivity: java.lang.String bucketId
-com.qingying.R$id: int duration
-com.qingying.PlayerActivity: android.widget.SeekBar seekBar
-com.qingying.R$id: int star
-com.qingying.R$drawable: int bg_pill
-com.qingying.R$id: int title
-com.qingying.PlayerActivity: android.widget.TextView playlistTitle
-com.qingying.VideoListActivity: com.qingying.VideoListActivity$VideoAdapter adapter
-com.qingying.PlayerActivity: float downY
-com.qingying.R$id: int playBtn
-com.qingying.R$id: int meta
-com.qingying.R$id: int folderCount
-com.qingying.PlayerActivity: android.os.Handler ui
 com.qingying.R$id: int playlist
-com.qingying.R$id: int list
-com.qingying.PlayerActivity: boolean rightZone
-com.qingying.Video: java.lang.String name
+com.qingying.PlayerActivity: android.widget.TextView nextBtn
+com.qingying.PlayerActivity: boolean leftZone
+com.qingying.PlayerActivity: android.widget.TextView playView
+com.qingying.PlayerActivity: java.lang.String bucketId
+com.qingying.R$id: int thumb
+com.qingying.MainActivity: java.util.List folders
+com.qingying.MainActivity: android.widget.LinearLayout empty
+com.qingying.VideoListActivity: java.util.concurrent.ExecutorService executor
+com.qingying.PlayerActivity: android.net.Uri videoUri
+com.qingying.VideoListActivity: android.widget.TextView emptyText
+com.qingying.R$id: int title
+com.qingying.R$id: int prevBtn
+com.qingying.PlayerActivity: int lastPosition
+com.qingying.R$color: int nav_bar
+com.qingying.PlayerActivity: android.widget.TextView titleView
+com.qingying.PlayerActivity: java.lang.Runnable hideControls
+com.qingying.Video: long size
 com.qingying.R$string: int app_name
-com.qingying.ThumbLoader: android.os.Handler MAIN
-com.qingying.PlayerActivity: android.view.SurfaceView surface
-com.qingying.R$color: int status_bar
-com.qingying.PlayerActivity: android.widget.TextView favBtn
-com.qingying.PlayerActivity: android.view.View badge
-com.qingying.R$id: int empty
-com.qingying.Folder: long coverId
-com.qingying.PlayerActivity: java.util.concurrent.ExecutorService executor
-com.qingying.PlayerActivity: long currentId
-com.qingying.R$id: int gesture
-com.qingying.R$color: int sub
-com.qingying.PlayerActivity$2: com.qingying.PlayerActivity this$0
-com.qingying.Folder: java.lang.String name
-com.qingying.R$style: int PlayerTheme
-com.qingying.R$id: int count
-com.qingying.PlayerActivity: boolean rewinding
-com.qingying.R$layout: int activity_player
-com.qingying.MainActivity: android.widget.TextView folderCount
-com.qingying.MainActivity$FolderAdapter: java.lang.Object getItem(int)
-com.qingying.R$style: R$style()
-com.qingying.FavoritesStore: boolean isFavorite(android.content.Context,long)
-com.qingying.PlayerActivity: void onPause()
-com.qingying.PlayerActivity$PlaylistAdapter: long getItemId(int)
-com.qingying.PlayerActivity: void lambda$onCreate$9(android.view.View)
-com.qingying.VideoListActivity: void onResume()
-com.qingying.PlayerActivity$2: void run()
-com.qingying.ThumbLoader: void lambda$load$1(long,android.content.Context,java.lang.String,android.widget.ImageView)
-com.qingying.PlayerActivity$2: PlayerActivity$2(com.qingying.PlayerActivity)
-com.qingying.PlayerActivity: void access$1000(com.qingying.PlayerActivity,boolean)
-com.qingying.PlayerActivity$3: void onStartTrackingTouch(android.widget.SeekBar)
-com.qingying.MainActivity: java.util.List access$100(com.qingying.MainActivity)
-com.qingying.VideoListActivity$VideoAdapter: void updateStar(android.widget.TextView,boolean)
-com.qingying.MainActivity: void onRequestPermissionsResult(int,java.lang.String[],int[])
-com.qingying.PlayerActivity: void onResume()
-com.qingying.Folder: Folder()
-com.qingying.PlayerActivity$PlaylistAdapter: PlayerActivity$PlaylistAdapter(com.qingying.PlayerActivity,com.qingying.PlayerActivity$1)
-com.qingying.PlayerActivity: boolean access$000(com.qingying.PlayerActivity)
-com.qingying.VideoListActivity: VideoListActivity()
-com.qingying.VideoListActivity: void lambda$loadVideos$3()
-com.qingying.VideoStore: void sortByName(java.util.List)
-com.qingying.PlayerActivity: void lambda$onCreate$5(android.view.View)
-com.qingying.PlayerActivity: java.lang.String speedText(float)
-com.qingying.PlayerActivity: void releasePlayer()
-com.qingying.PlayerActivity: void lambda$new$3()
-com.qingying.PlayerActivity: void jumpBy(int)
-com.qingying.PlayerActivity$PlaylistAdapter: android.view.View getView(int,android.view.View,android.view.ViewGroup)
-com.qingying.PlayerActivity: void applySpeed(float)
-com.qingying.PlayerActivity: void loadPlaylist(java.lang.String)
-com.qingying.VideoListActivity$VideoAdapter: int getCount()
-com.qingying.MainActivity$FolderAdapter: MainActivity$FolderAdapter(com.qingying.MainActivity,com.qingying.MainActivity$1)
-com.qingying.PlayerActivity: void playAt(int)
-com.qingying.PlayerActivity$PlaylistAdapter: PlayerActivity$PlaylistAdapter(com.qingying.PlayerActivity)
-com.qingying.R$layout: R$layout()
-com.qingying.Video: Video()
-com.qingying.PlayerActivity: void lambda$initPlayer$19()
-com.qingying.VideoStore: VideoStore()
-com.qingying.ThumbLoader: ThumbLoader()
-com.qingying.FavoritesStore: boolean toggle(android.content.Context,long)
-com.qingying.VideoListActivity: void lambda$onCreate$0(android.view.View)
-com.qingying.PlayerActivity: java.util.List access$1100(com.qingying.PlayerActivity)
-com.qingying.PlayerActivity: void lambda$loadPlaylist$17(java.lang.String)
-com.qingying.Fmt: java.lang.String duration(long)
-com.qingying.PlayerActivity: void toggleRotationLock()
-com.qingying.VideoListActivity: java.util.List access$100(com.qingying.VideoListActivity)
-com.qingying.PlayerActivity: void surfaceDestroyed(android.view.SurfaceHolder)
-com.qingying.PlayerActivity: void lambda$onCreate$14(android.widget.AdapterView,android.view.View,int,long)
-com.qingying.FavoritesStore: java.util.Set get(android.content.Context)
-com.qingying.MainActivity: void lambda$onCreate$0(android.widget.AdapterView,android.view.View,int,long)
-com.qingying.PlayerActivity: void updateNavButtons()
-com.qingying.PlayerActivity: android.media.MediaPlayer access$100(com.qingying.PlayerActivity)
-com.qingying.PlayerActivity: void stopRewind()
-com.qingying.ThumbLoader: void load(android.content.Context,android.widget.ImageView,long)
-com.qingying.PlayerActivity: void updateFavoriteIcon()
-com.qingying.PlayerActivity: boolean inZone(android.view.View,android.view.MotionEvent,boolean)
-com.qingying.MainActivity$FolderAdapter: int getCount()
-com.qingying.MainActivity: MainActivity()
-com.qingying.PlayerActivity: android.os.Handler access$500(com.qingying.PlayerActivity)
-com.qingying.MainActivity$FolderAdapter: MainActivity$FolderAdapter(com.qingying.MainActivity)
-com.qingying.PlayerActivity: void updatePlayIcon()
-com.qingying.ThumbLoader$1: int sizeOf(java.lang.Object,java.lang.Object)
-com.qingying.VideoListActivity$VideoAdapter: VideoListActivity$VideoAdapter(com.qingying.VideoListActivity)
-com.qingying.PlayerActivity: void showPlaylist()
-com.qingying.PlayerActivity: void onDestroy()
-com.qingying.PlayerActivity$PlaylistAdapter: java.lang.Object getItem(int)
-com.qingying.PlayerActivity: void cycleSpeed()
-com.qingying.PlayerActivity: PlayerActivity()
-com.qingying.PlayerActivity: void lambda$onCreate$7(android.view.View)
-com.qingying.MainActivity$FolderAdapter: long getItemId(int)
+com.qingying.R$id: int grantBtn
+com.qingying.R$drawable: int ic_video
+com.qingying.R$id: int back10
+com.qingying.PlayerActivity: long downAt
+com.qingying.PlayerActivity: android.widget.SeekBar seekBar
+com.qingying.PlayerActivity: android.os.Handler ui
+com.qingying.R$id: int surface
+com.qingying.PlayerActivity: android.widget.TextView playlistTitle
+com.qingying.FavoritesStore: java.lang.String KEY_IDS
+com.qingying.PlayerActivity: void lambda$onCreate$11(android.view.View)
+com.qingying.PinnedFolders: PinnedFolders()
 com.qingying.R$string: R$string()
-com.qingying.R$drawable: R$drawable()
-com.qingying.VideoListActivity: void onCreate(android.os.Bundle)
-com.qingying.PlayerActivity: void cancelLongPress()
-com.qingying.MainActivity: void onCreate(android.os.Bundle)
-com.qingying.MainActivity: void loadFolders()
-com.qingying.PlayerActivity$3: void onProgressChanged(android.widget.SeekBar,int,boolean)
-com.qingying.PlayerActivity: void lambda$onCreate$6(android.view.View)
-com.qingying.ThumbLoader$1: int sizeOf(java.lang.String,android.graphics.Bitmap)
-com.qingying.Fmt: java.lang.String size(long)
-com.qingying.PlayerActivity: void access$700(com.qingying.PlayerActivity,int)
-com.qingying.VideoStore: java.util.List queryVideos(android.content.Context,java.lang.String)
-com.qingying.PlayerActivity: boolean lambda$initPlayer$21(android.media.MediaPlayer,int,int)
-com.qingying.PlayerActivity: android.widget.SeekBar access$200(com.qingying.PlayerActivity)
+com.qingying.MainActivity$FolderAdapter: MainActivity$FolderAdapter(com.qingying.MainActivity)
+com.qingying.PlayerActivity: void showPlaylist()
+com.qingying.PlayerActivity: void lambda$onCreate$7(android.view.View)
 com.qingying.PlayerActivity: void lambda$new$1()
-com.qingying.PlayerActivity: void lambda$onCreate$10(android.view.View)
-com.qingying.R$color: R$color()
-com.qingying.PlayerActivity: void lambda$onCreate$8(android.view.View)
-com.qingying.MainActivity: void showEmpty(java.lang.String,boolean)
-com.qingying.R$mipmap: R$mipmap()
-com.qingying.VideoListActivity$VideoAdapter: VideoListActivity$VideoAdapter(com.qingying.VideoListActivity,com.qingying.VideoListActivity$1)
-com.qingying.PlayerActivity: void lambda$loadPlaylist$16(java.util.List,java.lang.String)
-com.qingying.PlayerActivity: void showBadge(java.lang.String,long)
-com.qingying.PlayerActivity: void lambda$initPlayer$20(android.media.MediaPlayer)
-com.qingying.PlayerActivity: void surfaceCreated(android.view.SurfaceHolder)
+com.qingying.ThumbLoader: void lambda$load$0(java.lang.String,android.widget.ImageView,android.graphics.Bitmap)
 com.qingying.ThumbLoader$1: ThumbLoader$1(int)
+com.qingying.PlayerActivity: void hidePlaylist()
+com.qingying.VideoStore: int lambda$sortByName$0(java.text.Collator,com.qingying.Video,com.qingying.Video)
+com.qingying.PlayerActivity$PlaylistAdapter: int getCount()
+com.qingying.PlayerActivity: void playAt(int)
+com.qingying.PlayerActivity: void access$400(com.qingying.PlayerActivity)
+com.qingying.PlayerActivity: void lambda$onCreate$13(android.view.View)
+com.qingying.MainActivity: void loadFolders()
 com.qingying.R: R()
-com.qingying.PlayerActivity: void toggleFavorite()
+com.qingying.PlayerActivity: java.lang.Runnable access$900(com.qingying.PlayerActivity)
 com.qingying.PlayerActivity: void lambda$new$0()
-com.qingying.R$id: R$id()
+com.qingying.MainActivity$FolderAdapter: int getCount()
+com.qingying.ThumbLoader: void lambda$load$1(long,android.content.Context,java.lang.String,android.widget.ImageView)
+com.qingying.FavoritesStore: FavoritesStore()
+com.qingying.MainActivity: java.util.List access$100(com.qingying.MainActivity)
+com.qingying.MainActivity: void showEmpty(java.lang.String,boolean)
+com.qingying.PlayerActivity: boolean access$600(com.qingying.PlayerActivity)
+com.qingying.VideoStore: java.util.List queryVideos(android.content.Context,java.lang.String)
+com.qingying.PlayerActivity: void updatePlayIcon()
+com.qingying.VideoListActivity$VideoAdapter: int getCount()
+com.qingying.VideoListActivity: void lambda$onCreate$1(android.widget.AdapterView,android.view.View,int,long)
+com.qingying.MainActivity$FolderAdapter: java.lang.Object getItem(int)
+com.qingying.MainActivity: void lambda$loadFolders$4()
+com.qingying.PlayerActivity: void jumpBy(int)
+com.qingying.PlayerActivity: void seek(int)
+com.qingying.PlayerActivity: void toggleFavorite()
+com.qingying.PlayerActivity: int dp(int)
+com.qingying.VideoStore: void sortByName(java.util.List)
+com.qingying.VideoListActivity: void loadVideos()
+com.qingying.VideoListActivity: void lambda$loadVideos$2(java.util.List)
+com.qingying.PlayerActivity: void stopRewind()
 com.qingying.MainActivity: void requestPermission()
-com.qingying.MainActivity: void lambda$loadFolders$2(java.util.List)
+com.qingying.PlayerActivity: void hideSystemBars()
+com.qingying.PlayerActivity: void lambda$onCreate$9(android.view.View)
+com.qingying.VideoListActivity: void onCreate(android.os.Bundle)
+com.qingying.MainActivity: void onResume()
+com.qingying.PlayerActivity: java.util.List access$1100(com.qingying.PlayerActivity)
+com.qingying.PlayerActivity: void lambda$onCreate$14(android.widget.AdapterView,android.view.View,int,long)
+com.qingying.PlayerActivity: void lambda$initPlayer$18(android.media.MediaPlayer)
+com.qingying.PlayerActivity: void lambda$initPlayer$19()
+com.qingying.PlayerActivity: void lambda$onCreate$5(android.view.View)
+com.qingying.MainActivity: void onRequestPermissionsResult(int,java.lang.String[],int[])
+com.qingying.PlayerActivity: void cycleSpeed()
+com.qingying.VideoListActivity$VideoAdapter: long getItemId(int)
+com.qingying.PlayerActivity: void lambda$loadPlaylist$17(java.lang.String)
+com.qingying.VideoListActivity$VideoAdapter: android.view.View getView(int,android.view.View,android.view.ViewGroup)
+com.qingying.FavoritesStore: boolean toggle(android.content.Context,long)
+com.qingying.MainActivity: void lambda$loadFolders$3(java.util.List)
+com.qingying.VideoListActivity: void onResume()
+com.qingying.Fmt: java.lang.String size(long)
+com.qingying.MainActivity$FolderAdapter: long getItemId(int)
+com.qingying.PlayerActivity: void onDestroy()
+com.qingying.PlayerActivity: void onPause()
+com.qingying.PlayerActivity: void togglePlay()
+com.qingying.PlayerActivity$PlaylistAdapter: android.view.View getView(int,android.view.View,android.view.ViewGroup)
+com.qingying.PlayerActivity: void toggleRotationLock()
+com.qingying.PlayerActivity: boolean onGesture(android.view.View,android.view.MotionEvent)
+com.qingying.VideoListActivity: java.util.List access$100(com.qingying.VideoListActivity)
+com.qingying.PlayerActivity: void lambda$initPlayer$20(android.media.MediaPlayer)
+com.qingying.PlayerActivity$3: void onStopTrackingTouch(android.widget.SeekBar)
+com.qingying.FavoritesStore: java.util.Set get(android.content.Context)
+com.qingying.PlayerActivity$2: PlayerActivity$2(com.qingying.PlayerActivity)
+com.qingying.VideoListActivity: void lambda$onCreate$0(android.view.View)
+com.qingying.PlayerActivity$PlaylistAdapter: long getItemId(int)
+com.qingying.VideoListActivity$VideoAdapter: VideoListActivity$VideoAdapter(com.qingying.VideoListActivity)
+com.qingying.PlayerActivity: void access$1000(com.qingying.PlayerActivity,boolean)
+com.qingying.PlayerActivity: void onResume()
+com.qingying.MainActivity: void lambda$onCreate$1(android.view.View)
+com.qingying.PlayerActivity: void lambda$onCreate$4(android.view.View)
+com.qingying.VideoListActivity: void lambda$loadVideos$3()
+com.qingying.PlayerActivity$PlaylistAdapter: PlayerActivity$PlaylistAdapter(com.qingying.PlayerActivity,com.qingying.PlayerActivity$1)
+com.qingying.PlayerActivity: void initPlayer(android.view.SurfaceHolder)
+com.qingying.FavoritesStore: boolean isFavorite(android.content.Context,long)
+com.qingying.PlayerActivity$3: void onProgressChanged(android.widget.SeekBar,int,boolean)
+com.qingying.PlayerActivity: void cancelLongPress()
+com.qingying.PlayerActivity: android.widget.TextView access$300(com.qingying.PlayerActivity)
+com.qingying.VideoListActivity$VideoAdapter: java.lang.Object getItem(int)
+com.qingying.PlayerActivity: void surfaceChanged(android.view.SurfaceHolder,int,int,int)
+com.qingying.PlayerActivity: android.media.MediaPlayer access$100(com.qingying.PlayerActivity)
+com.qingying.MainActivity$FolderAdapter: android.view.View getView(int,android.view.View,android.view.ViewGroup)
+com.qingying.PlayerActivity$PlaylistAdapter: PlayerActivity$PlaylistAdapter(com.qingying.PlayerActivity)
+com.qingying.R$color: R$color()
+com.qingying.PlayerActivity$2: void run()
+com.qingying.PinnedFolders: java.util.Set get(android.content.Context)
+com.qingying.PinnedFolders: boolean isPinned(android.content.Context,java.lang.String)
+com.qingying.PlayerActivity: void surfaceCreated(android.view.SurfaceHolder)
+com.qingying.PlayerActivity: void applySpeed(float)
+com.qingying.PinnedFolders: boolean toggle(android.content.Context,java.lang.String)
+com.qingying.PlayerActivity: void updateNavButtons()
+com.qingying.PlayerActivity: void releasePlayer()
+com.qingying.Video: Video()
+com.qingying.PlayerActivity$1: PlayerActivity$1(com.qingying.PlayerActivity)
+com.qingying.PlayerActivity: void lambda$new$3()
+com.qingying.PlayerActivity: boolean inZone(android.view.View,android.view.MotionEvent,boolean)
+com.qingying.VideoListActivity$VideoAdapter: VideoListActivity$VideoAdapter(com.qingying.VideoListActivity,com.qingying.VideoListActivity$1)
+com.qingying.PlayerActivity$1: void run()
+com.qingying.PlayerActivity: PlayerActivity()
+com.qingying.PlayerActivity: void stopBoost()
+com.qingying.PlayerActivity: boolean access$000(com.qingying.PlayerActivity)
+com.qingying.ThumbLoader$1: int sizeOf(java.lang.Object,java.lang.Object)
+com.qingying.VideoListActivity$VideoAdapter: void lambda$getView$0(com.qingying.Video,android.widget.TextView,android.view.View)
+com.qingying.PlayerActivity$3: PlayerActivity$3(com.qingying.PlayerActivity)
+com.qingying.MainActivity: void onCreate(android.os.Bundle)
+com.qingying.PlayerActivity: void loadPlaylist(java.lang.String)
+com.qingying.PlayerActivity: void lambda$onCreate$8(android.view.View)
+com.qingying.R$style: R$style()
+com.qingying.Fmt: java.lang.String duration(long)
+com.qingying.MainActivity$FolderAdapter: MainActivity$FolderAdapter(com.qingying.MainActivity,com.qingying.MainActivity$1)
+com.qingying.ThumbLoader: void load(android.content.Context,android.widget.ImageView,long)
+com.qingying.PlayerActivity: void lambda$new$2()
+com.qingying.PlayerActivity: android.widget.SeekBar access$200(com.qingying.PlayerActivity)
+com.qingying.VideoStore: java.lang.String stripZeros(java.lang.String)
+com.qingying.PlayerActivity: void access$700(com.qingying.PlayerActivity,int)
+com.qingying.ThumbLoader$1: int sizeOf(java.lang.String,android.graphics.Bitmap)
+com.qingying.PlayerActivity$3: void onStartTrackingTouch(android.widget.SeekBar)
+com.qingying.Folder: Folder()
+com.qingying.PlayerActivity: void lambda$onCreate$6(android.view.View)
+com.qingying.R$id: R$id()
+com.qingying.PlayerActivity: boolean lambda$initPlayer$21(android.media.MediaPlayer,int,int)
+com.qingying.PlayerActivity: void onCreate(android.os.Bundle)
+com.qingying.MainActivity: boolean lambda$onCreate$2(android.widget.AdapterView,android.view.View,int,long)
+com.qingying.R$layout: R$layout()
+com.qingying.PlayerActivity: void lambda$loadPlaylist$16(java.util.List,java.lang.String)
+com.qingying.R$drawable: R$drawable()
+com.qingying.PlayerActivity: void showBadge(java.lang.String,long)
+com.qingying.MainActivity: MainActivity()
+com.qingying.ThumbLoader: ThumbLoader()
+com.qingying.VideoListActivity$VideoAdapter: void updateStar(android.widget.TextView,boolean)
+com.qingying.PlayerActivity: java.lang.String speedText(float)
+com.qingying.R$mipmap: R$mipmap()
+com.qingying.PlayerActivity: void lambda$onCreate$12(android.view.View)
+com.qingying.PlayerActivity: void setControlsVisible(boolean)
+com.qingying.PlayerActivity: android.os.Handler access$500(com.qingying.PlayerActivity)
+com.qingying.PlayerActivity: int access$1200(com.qingying.PlayerActivity)
+com.qingying.VideoListActivity: VideoListActivity()
+com.qingying.PlayerActivity: void updateFavoriteIcon()
+com.qingying.VideoStore: VideoStore()
+com.qingying.VideoStore: int compareNatural(java.lang.String,java.lang.String,java.text.Collator)
+com.qingying.PlayerActivity: void lambda$onCreate$10(android.view.View)
 com.qingying.PlayerActivity: void lambda$onCreate$15()
 com.qingying.Fmt: Fmt()
-com.qingying.PlayerActivity: int access$1200(com.qingying.PlayerActivity)
-com.qingying.VideoStore: int compareNatural(java.lang.String,java.lang.String,java.text.Collator)
-com.qingying.VideoStore: int lambda$sortByName$0(java.text.Collator,com.qingying.Video,com.qingying.Video)
-com.qingying.PlayerActivity: void lambda$new$2()
-com.qingying.ThumbLoader: void lambda$load$0(java.lang.String,android.widget.ImageView,android.graphics.Bitmap)
-com.qingying.MainActivity: void lambda$onCreate$1(android.view.View)
-com.qingying.VideoListActivity: void lambda$onCreate$1(android.widget.AdapterView,android.view.View,int,long)
-com.qingying.VideoListActivity$VideoAdapter: long getItemId(int)
-com.qingying.MainActivity: void lambda$loadFolders$3()
-com.qingying.PlayerActivity: void surfaceChanged(android.view.SurfaceHolder,int,int,int)
-com.qingying.VideoListActivity$VideoAdapter: void lambda$getView$0(com.qingying.Video,android.widget.TextView,android.view.View)
-com.qingying.PlayerActivity: void hidePlaylist()
-com.qingying.PlayerActivity: void stopBoost()
-com.qingying.PlayerActivity: android.widget.TextView access$300(com.qingying.PlayerActivity)
-com.qingying.PlayerActivity$1: void run()
+com.qingying.MainActivity: void lambda$onCreate$0(android.widget.AdapterView,android.view.View,int,long)
 com.qingying.MainActivity: boolean hasPermission()
-com.qingying.VideoStore: java.lang.String stripZeros(java.lang.String)
-com.qingying.PlayerActivity: void lambda$onCreate$11(android.view.View)
-com.qingying.VideoListActivity: void lambda$loadVideos$2(java.util.List)
-com.qingying.PlayerActivity$1: PlayerActivity$1(com.qingying.PlayerActivity)
-com.qingying.PlayerActivity: void onCreate(android.os.Bundle)
-com.qingying.PlayerActivity: void initPlayer(android.view.SurfaceHolder)
-com.qingying.PlayerActivity: void seek(int)
-com.qingying.PlayerActivity: void hideSystemBars()
-com.qingying.VideoListActivity: void loadVideos()
-com.qingying.PlayerActivity: void togglePlay()
-com.qingying.PlayerActivity: int dp(int)
-com.qingying.PlayerActivity: boolean onGesture(android.view.View,android.view.MotionEvent)
-com.qingying.MainActivity$FolderAdapter: android.view.View getView(int,android.view.View,android.view.ViewGroup)
-com.qingying.PlayerActivity: void access$400(com.qingying.PlayerActivity)
-com.qingying.PlayerActivity$PlaylistAdapter: int getCount()
-com.qingying.PlayerActivity: void lambda$initPlayer$18(android.media.MediaPlayer)
-com.qingying.PlayerActivity: void lambda$onCreate$13(android.view.View)
-com.qingying.PlayerActivity$3: PlayerActivity$3(com.qingying.PlayerActivity)
-com.qingying.FavoritesStore: FavoritesStore()
-com.qingying.VideoListActivity$VideoAdapter: java.lang.Object getItem(int)
-com.qingying.PlayerActivity: void setControlsVisible(boolean)
-com.qingying.PlayerActivity$3: void onStopTrackingTouch(android.widget.SeekBar)
-com.qingying.PlayerActivity: void lambda$onCreate$12(android.view.View)
-com.qingying.PlayerActivity: void lambda$onCreate$4(android.view.View)
-com.qingying.PlayerActivity: java.lang.Runnable access$900(com.qingying.PlayerActivity)
-com.qingying.MainActivity: void onResume()
-com.qingying.VideoListActivity$VideoAdapter: android.view.View getView(int,android.view.View,android.view.ViewGroup)
-com.qingying.PlayerActivity: boolean access$600(com.qingying.PlayerActivity)
+com.qingying.PlayerActivity$PlaylistAdapter: java.lang.Object getItem(int)
+com.qingying.PlayerActivity: void surfaceDestroyed(android.view.SurfaceHolder)

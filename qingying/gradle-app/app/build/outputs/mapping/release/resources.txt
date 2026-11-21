@@ -39,6 +39,7 @@
 @com.qingying:id/meta : reachable=true
 @com.qingying:id/name : reachable=true
 @com.qingying:id/nextBtn : reachable=true
+@com.qingying:id/pin : reachable=true
 @com.qingying:id/playBtn : reachable=true
 @com.qingying:id/playlist : reachable=true
 @com.qingying:id/playlistClose : reachable=true
@@ -118,19 +119,20 @@ The root reachable resources are:
  id:meta:2130903058
  id:name:2130903059
  id:nextBtn:2130903060
- id:playBtn:2130903061
- id:playlist:2130903062
- id:playlistClose:2130903063
- id:playlistPanel:2130903064
- id:playlistTitle:2130903065
- id:prevBtn:2130903066
- id:seekBar:2130903067
- id:speedBtn:2130903068
- id:star:2130903069
- id:surface:2130903071
- id:thumb:2130903072
- id:time:2130903073
- id:title:2130903074
+ id:pin:2130903061
+ id:playBtn:2130903062
+ id:playlist:2130903063
+ id:playlistClose:2130903064
+ id:playlistPanel:2130903065
+ id:playlistTitle:2130903066
+ id:prevBtn:2130903067
+ id:seekBar:2130903068
+ id:speedBtn:2130903069
+ id:star:2130903070
+ id:surface:2130903072
+ id:thumb:2130903073
+ id:time:2130903074
+ id:title:2130903075
  layout:activity_main:2130968576
  layout:activity_player:2130968577
  layout:activity_video_list:2130968578
@@ -142,4 +144,4 @@ The root reachable resources are:
  style:AppTheme:2131165184
  style:PlayerTheme:2131165185
 Unused resources are: 
- id:subTitle:2130903070
+ id:subTitle:2130903071
