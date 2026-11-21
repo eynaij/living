@@ -2,6 +2,7 @@ package com.qingying;
 
 import android.app.Activity;
 import android.content.ContentUris;
+import android.content.pm.ActivityInfo;
 import android.media.AudioAttributes;
 import android.media.MediaPlayer;
 import android.media.PlaybackParams;
@@ -16,12 +17,20 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowInsets;
 import android.view.WindowInsetsController;
 import android.view.WindowManager;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
 
@@ -33,6 +42,7 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
     private static final long LONG_PRESS_MS = 350;
 
     private final Handler ui = new Handler(Looper.getMainLooper());
+    private final ExecutorService executor = Executors.newSingleThreadExecutor();
 
     private MediaPlayer player;
     private SurfaceView surface;
@@ -44,14 +54,28 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
     private TextView playView;
     private TextView speedView;
     private TextView hint;
+    private TextView favBtn;
+    private TextView lockBtn;
+    private TextView prevBtn;
+    private TextView nextBtn;
     private SeekBar seekBar;
 
+    private View playlistPanel;
+    private TextView playlistTitle;
+    private PlaylistAdapter playlistAdapter;
+
+    private final List<Video> playlist = new ArrayList<>();
+    private int index;
+    private long currentId;
+    private String bucketId;
     private Uri videoUri;
+
     private float speed = 1f;
     private boolean prepared;
     private boolean boosting;
     private boolean rewinding;
     private boolean finished;
+    private boolean rotationLocked;
     private int lastPosition;
 
     private float downX;
@@ -115,9 +139,10 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
         setContentView(R.layout.activity_player);
         hideSystemBars();
 
-        long id = getIntent().getLongExtra("id", -1);
+        currentId = getIntent().getLongExtra("id", -1);
+        bucketId = getIntent().getStringExtra("bucketId");
         String name = getIntent().getStringExtra("name");
-        videoUri = ContentUris.withAppendedId(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, id);
+        videoUri = ContentUris.withAppendedId(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, currentId);
 
         surface = findViewById(R.id.surface);
         controls = findViewById(R.id.controls);
@@ -127,7 +152,13 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
         playView = findViewById(R.id.playBtn);
         speedView = findViewById(R.id.speedBtn);
         hint = findViewById(R.id.hint);
+        favBtn = findViewById(R.id.favBtn);
+        lockBtn = findViewById(R.id.lockBtn);
+        prevBtn = findViewById(R.id.prevBtn);
+        nextBtn = findViewById(R.id.nextBtn);
         seekBar = findViewById(R.id.seekBar);
+        playlistPanel = findViewById(R.id.playlistPanel);
+        playlistTitle = findViewById(R.id.playlistTitle);
 
         titleView.setText(name != null ? name : "视频");
         speedView.setText(speedText(speed));
@@ -139,6 +170,19 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
         speedView.setOnClickListener(v -> cycleSpeed());
         findViewById(R.id.back10).setOnClickListener(v -> jumpBy(-10_000));
         findViewById(R.id.forward10).setOnClickListener(v -> jumpBy(10_000));
+        prevBtn.setOnClickListener(v -> playAt(index - 1));
+        nextBtn.setOnClickListener(v -> playAt(index + 1));
+        favBtn.setOnClickListener(v -> toggleFavorite());
+        lockBtn.setOnClickListener(v -> toggleRotationLock());
+        findViewById(R.id.playlistClose).setOnClickListener(v -> hidePlaylist());
+
+        ListView playlistView = findViewById(R.id.playlist);
+        playlistAdapter = new PlaylistAdapter();
+        playlistView.setAdapter(playlistAdapter);
+        playlistView.setOnItemClickListener((parent, view, position, id) -> {
+            hidePlaylist();
+            playAt(position);
+        });
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -160,8 +204,139 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
             }
         });
 
+        updateFavoriteIcon();
+        loadPlaylist(name);
+
         ui.postDelayed(() -> hint.setVisibility(View.GONE), 5000);
         ui.postDelayed(hideControls, 4000);
+    }
+
+    // ------------------------------------------------------------------ 播放列表
+
+    private void loadPlaylist(String currentName) {
+        executor.execute(() -> {
+            List<Video> result = VideoStore.queryVideos(this, bucketId);
+            runOnUiThread(() -> {
+                playlist.clear();
+                playlist.addAll(result);
+                index = -1;
+                for (int i = 0; i < playlist.size(); i++) {
+                    if (playlist.get(i).id == currentId) {
+                        index = i;
+                        break;
+                    }
+                }
+                if (index < 0) {
+                    // 查询结果不含当前视频时，把当前视频插到最前，保证可以播放
+                    Video current = new Video();
+                    current.id = currentId;
+                    current.name = currentName != null ? currentName : "视频";
+                    playlist.add(0, current);
+                    index = 0;
+                }
+                playlistAdapter.notifyDataSetChanged();
+                updateNavButtons();
+            });
+        });
+    }
+
+    private void playAt(int newIndex) {
+        if (newIndex < 0 || newIndex >= playlist.size() || newIndex == index) return;
+        index = newIndex;
+        Video video = playlist.get(index);
+        currentId = video.id;
+        videoUri = ContentUris.withAppendedId(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, currentId);
+
+        titleView.setText(video.name);
+        updateFavoriteIcon();
+        prepared = false;
+        finished = false;
+        lastPosition = 0;
+        releasePlayer();
+        seekBar.setProgress(0);
+        timeView.setText("00:00 / 00:00");
+        playlistAdapter.notifyDataSetChanged();
+        updateNavButtons();
+        if (surface.getHolder().getSurface().isValid()) {
+            initPlayer(surface.getHolder());
+        }
+        setControlsVisible(true);
+    }
+
+    private void updateNavButtons() {
+        prevBtn.setAlpha(index > 0 ? 1f : 0.3f);
+        nextBtn.setAlpha(index < playlist.size() - 1 ? 1f : 0.3f);
+        playlistTitle.setText("播放列表 " + (index + 1) + "/" + Math.max(1, playlist.size()));
+    }
+
+    private void showPlaylist() {
+        playlistPanel.setVisibility(View.VISIBLE);
+        controls.setVisibility(View.GONE);
+        ui.removeCallbacks(hideControls);
+        playlistAdapter.notifyDataSetChanged();
+    }
+
+    private void hidePlaylist() {
+        playlistPanel.setVisibility(View.GONE);
+        setControlsVisible(true);
+    }
+
+    private class PlaylistAdapter extends BaseAdapter {
+        @Override
+        public int getCount() {
+            return playlist.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return playlist.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View view = convertView != null
+                    ? convertView
+                    : getLayoutInflater().inflate(R.layout.row_playlist_item, parent, false);
+            Video video = playlist.get(position);
+            TextView name = view.findViewById(R.id.itemName);
+            name.setText(video.name);
+            boolean current = position == index;
+            name.setTextColor(current ? 0xFF7FB4FF : 0xFFDDE5EE);
+            view.findViewById(R.id.itemMark).setVisibility(current ? View.VISIBLE : View.GONE);
+            return view;
+        }
+    }
+
+    // ------------------------------------------------------------------ 收藏 & 旋转锁定
+
+    private void toggleFavorite() {
+        boolean favorite = FavoritesStore.toggle(this, currentId);
+        updateFavoriteIcon();
+        showBadge(favorite ? "已收藏 ★" : "已取消收藏", 900);
+    }
+
+    private void updateFavoriteIcon() {
+        boolean favorite = FavoritesStore.isFavorite(this, currentId);
+        favBtn.setText(favorite ? "★" : "☆");
+        favBtn.setTextColor(favorite ? 0xFFFFC94D : 0xFFFFFFFF);
+    }
+
+    private void toggleRotationLock() {
+        rotationLocked = !rotationLocked;
+        if (rotationLocked) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
+            lockBtn.setText("🔒");
+            showBadge("已锁定屏幕方向", 900);
+        } else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR);
+            lockBtn.setText("🔓");
+            showBadge("已恢复自动旋转", 900);
+        }
     }
 
     // ------------------------------------------------------------------ 播放器
@@ -222,7 +397,12 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
             player.setOnCompletionListener(p -> {
                 finished = true;
                 updatePlayIcon();
-                showBadge("播放结束", 1200);
+                if (index < playlist.size() - 1) {
+                    showBadge("播放结束，即将播放下一个", 1200);
+                    ui.postDelayed(() -> playAt(index + 1), 1300);
+                } else {
+                    showBadge("播放结束", 1200);
+                }
                 setControlsVisible(true);
             });
             player.setOnErrorListener((p, what, extra) -> {
@@ -234,6 +414,20 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
         } catch (Exception e) {
             Toast.makeText(this, "无法播放该视频", Toast.LENGTH_SHORT).show();
             finish();
+        }
+    }
+
+    private void releasePlayer() {
+        ui.removeCallbacks(tick);
+        cancelLongPress();
+        stopBoost();
+        stopRewind();
+        if (player != null) {
+            try {
+                player.release();
+            } catch (Exception ignored) {
+            }
+            player = null;
         }
     }
 
@@ -345,7 +539,13 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
                 stopBoost();
                 stopRewind();
                 if (!acted && SystemClock.uptimeMillis() - downAt < 250) {
-                    setControlsVisible(controls.getVisibility() != View.VISIBLE);
+                    if (playlistPanel.getVisibility() == View.VISIBLE) {
+                        hidePlaylist();
+                    } else if (leftZone) {
+                        showPlaylist();
+                    } else {
+                        setControlsVisible(controls.getVisibility() != View.VISIBLE);
+                    }
                 }
                 return true;
 
@@ -354,7 +554,7 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
         }
     }
 
-    /** 左右两侧中间区域：右侧加速，左侧快退。上下 26%~76% 之间避开顶栏和底部控制条。 */
+    /** 左右两侧中间区域：长按右侧加速，长按左侧快退，点击左侧打开播放列表。 */
     private boolean inZone(View view, MotionEvent event, boolean right) {
         float width = view.getWidth();
         float height = view.getHeight();
@@ -452,12 +652,7 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
     protected void onDestroy() {
         super.onDestroy();
         ui.removeCallbacksAndMessages(null);
-        if (player != null) {
-            try {
-                player.release();
-            } catch (Exception ignored) {
-            }
-            player = null;
-        }
+        releasePlayer();
+        executor.shutdownNow();
     }
 }

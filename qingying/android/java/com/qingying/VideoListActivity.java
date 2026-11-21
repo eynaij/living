@@ -2,10 +2,7 @@ package com.qingying;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -49,51 +46,20 @@ public class VideoListActivity extends Activity {
             Intent intent = new Intent(this, PlayerActivity.class);
             intent.putExtra("id", video.id);
             intent.putExtra("name", video.name);
+            intent.putExtra("bucketId", bucketId);
             startActivity(intent);
         });
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
         loadVideos();
     }
 
     private void loadVideos() {
         executor.execute(() -> {
-            List<Video> result = new ArrayList<>();
-            Uri uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
-            String[] projection = {
-                    MediaStore.Video.Media._ID,
-                    MediaStore.Video.Media.DISPLAY_NAME,
-                    MediaStore.Video.Media.DURATION,
-                    MediaStore.Video.Media.SIZE
-            };
-            String selection;
-            String[] args;
-            if (bucketId == null || "0".equals(bucketId)) {
-                selection = MediaStore.Video.Media.BUCKET_ID + " IS NULL";
-                args = null;
-            } else {
-                selection = MediaStore.Video.Media.BUCKET_ID + "=?";
-                args = new String[]{bucketId};
-            }
-            String sort = MediaStore.Video.Media.DATE_ADDED + " DESC";
-
-            try (Cursor cursor = getContentResolver().query(uri, projection, selection, args, sort)) {
-                if (cursor != null) {
-                    int iId = cursor.getColumnIndexOrThrow(MediaStore.Video.Media._ID);
-                    int iName = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DISPLAY_NAME);
-                    int iDuration = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DURATION);
-                    int iSize = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.SIZE);
-                    while (cursor.moveToNext()) {
-                        Video video = new Video();
-                        video.id = cursor.getLong(iId);
-                        video.name = cursor.isNull(iName) ? "未命名视频" : cursor.getString(iName);
-                        video.durationMs = cursor.isNull(iDuration) ? 0 : cursor.getLong(iDuration);
-                        video.size = cursor.isNull(iSize) ? 0 : cursor.getLong(iSize);
-                        result.add(video);
-                    }
-                }
-            } catch (Exception ignored) {
-            }
-
+            List<Video> result = VideoStore.queryVideos(this, bucketId);
             runOnUiThread(() -> {
                 videos.clear();
                 videos.addAll(result);
@@ -135,10 +101,22 @@ public class VideoListActivity extends Activity {
             } else {
                 duration.setVisibility(View.GONE);
             }
-            String meta = Fmt.size(video.size);
-            ((TextView) view.findViewById(R.id.meta)).setText(meta);
+            ((TextView) view.findViewById(R.id.meta)).setText(Fmt.size(video.size));
+
+            TextView star = view.findViewById(R.id.star);
+            updateStar(star, FavoritesStore.isFavorite(VideoListActivity.this, video.id));
+            star.setOnClickListener(v -> {
+                boolean favorite = FavoritesStore.toggle(VideoListActivity.this, video.id);
+                updateStar(star, favorite);
+            });
+
             ThumbLoader.load(VideoListActivity.this, view.findViewById(R.id.thumb), video.id);
             return view;
+        }
+
+        private void updateStar(TextView star, boolean favorite) {
+            star.setText(favorite ? "★" : "☆");
+            star.setTextColor(favorite ? 0xFFFFC94D : 0xFF8C99A9);
         }
     }
 }

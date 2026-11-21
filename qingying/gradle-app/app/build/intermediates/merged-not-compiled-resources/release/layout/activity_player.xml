@@ -28,7 +28,7 @@
             android:orientation="horizontal"
             android:paddingStart="6dp"
             android:paddingTop="10dp"
-            android:paddingEnd="18dp"
+            android:paddingEnd="12dp"
             android:paddingBottom="18dp">
 
             <TextView
@@ -49,6 +49,24 @@
                 android:maxLines="1"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/favBtn"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:text="☆"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/lockBtn"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:text="🔓"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
         </LinearLayout>
 
         <View
@@ -90,6 +108,24 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/prevBtn"
+                    android:layout_width="44dp"
+                    android:layout_height="52dp"
+                    android:gravity="center"
+                    android:text="⏮"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/back10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:text="−10s"
+                    android:textColor="#DDE5EE"
+                    android:textSize="13sp" />
+
+                <TextView
                     android:id="@+id/playBtn"
                     android:layout_width="52dp"
                     android:layout_height="52dp"
@@ -99,16 +135,6 @@
                     android:textSize="21sp" />
 
                 <TextView
-                    android:id="@+id/back10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:padding="12dp"
-                    android:text="−10s"
-                    android:textColor="#DDE5EE"
-                    android:textSize="13sp" />
-
-                <TextView
                     android:id="@+id/forward10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -116,6 +142,15 @@
                     android:text="+10s"
                     android:textColor="#DDE5EE"
                     android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/nextBtn"
+                    android:layout_width="44dp"
+                    android:layout_height="52dp"
+                    android:gravity="center"
+                    android:text="⏭"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" />
 
                 <View
                     android:layout_width="0dp"
@@ -139,6 +174,55 @@
         </LinearLayout>
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/playlistPanel"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#F2121822"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="18dp"
+            android:paddingTop="22dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="12dp">
+
+            <TextView
+                android:id="@+id/playlistTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="播放列表"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/playlistClose"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:gravity="center"
+                android:text="✕"
+                android:textColor="#DDE5EE"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/playlist"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:divider="#1FFFFFFF"
+            android:dividerHeight="0.5dp"
+            android:scrollbars="none" />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/badge"
         android:layout_width="wrap_content"
@@ -157,7 +241,7 @@
         android:layout_gravity="bottom|center_horizontal"
         android:layout_marginBottom="150dp"
         android:background="@drawable/bg_badge"
-        android:text="长按右侧加速 · 长按左侧快退"
+        android:text="长按右侧加速 · 长按左侧快退 · 点左侧看列表"
         android:textColor="#E9EEF5"
         android:textSize="12sp" />
 </FrameLayout>

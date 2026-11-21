@@ -66,7 +66,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (hasPermission() && folders.isEmpty()) loadFolders();
+        if (hasPermission()) loadFolders();
     }
 
     private boolean hasPermission() {
@@ -142,6 +142,22 @@ public class MainActivity extends Activity {
             }
 
             List<Folder> result = new ArrayList<>(map.values());
+
+            // 收藏夹固定在顶部
+            Folder favorites = new Folder();
+            favorites.bucketId = VideoStore.FAVORITES_BUCKET;
+            favorites.name = "我的收藏";
+            favorites.count = FavoritesStore.get(this).size();
+            favorites.coverId = -1;
+            for (String id : FavoritesStore.get(this)) {
+                try {
+                    favorites.coverId = Long.parseLong(id);
+                    break;
+                } catch (NumberFormatException ignored) {
+                }
+            }
+            result.add(0, favorites);
+
             runOnUiThread(() -> {
                 folders.clear();
                 folders.addAll(result);
@@ -151,7 +167,7 @@ public class MainActivity extends Activity {
                             !hasPermission());
                 } else {
                     empty.setVisibility(View.GONE);
-                    folderCount.setText("共 " + folders.size() + " 个文件夹");
+                    folderCount.setText("共 " + Math.max(0, folders.size() - 1) + " 个文件夹");
                 }
             });
         });
@@ -191,7 +207,13 @@ public class MainActivity extends Activity {
             String meta = folder.count + " 个视频";
             if (folder.totalMs > 0) meta += " · " + Fmt.duration(folder.totalMs);
             ((TextView) view.findViewById(R.id.meta)).setText(meta);
-            ThumbLoader.load(MainActivity.this, view.findViewById(R.id.thumb), folder.coverId);
+            if (folder.coverId > 0) {
+                ThumbLoader.load(MainActivity.this, view.findViewById(R.id.thumb), folder.coverId);
+            } else {
+                view.findViewById(R.id.thumb).setTag(null);
+                ((android.widget.ImageView) view.findViewById(R.id.thumb))
+                        .setImageResource(R.drawable.ic_video);
+            }
             return view;
         }
     }

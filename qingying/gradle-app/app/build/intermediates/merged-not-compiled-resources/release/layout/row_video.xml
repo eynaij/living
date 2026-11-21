@@ -69,5 +69,14 @@
                 android:textColor="@color/sub"
                 android:textSize="11sp" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/star"
+            android:layout_width="40dp"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:text="☆"
+            android:textColor="@color/sub"
+            android:textSize="20sp" />
     </LinearLayout>
 </LinearLayout>
