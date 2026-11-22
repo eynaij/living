@@ -1,4 +1,4 @@
-#Sat Nov 21 21:18:02 CST 2026
+#Sun Nov 22 15:12:27 CST 2026
 base.0=/workspace/qingying/gradle-app/app/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
