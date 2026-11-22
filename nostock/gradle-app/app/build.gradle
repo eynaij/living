@@ -1,0 +1,71 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.nostock'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId "com.nostock"
+        minSdk 24
+        targetSdk 36
+        versionCode 1
+        versionName "1.0.0"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('../../android/release.keystore')
+            storePassword 'jiegu2026'
+            keyAlias 'release'
+            keyPassword 'jiegu2026'
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile '../../android/AndroidManifest.xml'
+            java.srcDirs = ['../../android/java']
+            res.srcDirs = ['../../android/res']
+            assets.srcDirs = ['build/merged-assets']
+        }
+    }
+}
+
+// —— 构建前复制前端文件到 merged-assets ——
+task copyFrontendAssets {
+    doLast {
+        def dst = file('build/merged-assets')
+        dst.delete()
+        dst.mkdirs()
+        copy {
+            from '../../index.html', '../../app.js', '../../styles.css',
+                '../../privacy.html', '../../manifest.webmanifest', '../../sw.js'
+            into dst
+        }
+        copy { from '../../icons' into new File(dst, 'icons') }
+    }
+}
+preBuild.dependsOn copyFrontendAssets
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+}

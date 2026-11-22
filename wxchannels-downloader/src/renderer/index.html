@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>视频号下载器</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="titlebar">
+    <div class="titlebar-left">
+      <div class="logo">⬇</div>
+      <div class="app-title">视频号下载器</div>
+      <div id="badge" class="badge badge-off">未启动</div>
+    </div>
+    <div class="titlebar-right">
+      <button id="btn-downloads" class="btn btn-ghost" title="打开下载目录">📁 下载目录</button>
+      <button id="btn-browser" class="btn btn-ghost" title="在浏览器中打开管理界面">↗ 浏览器打开</button>
+      <button id="btn-restore" class="btn btn-ghost" title="恢复系统代理（兜底）">恢复代理</button>
+      <button id="btn-start" class="btn btn-primary">▶ 启动服务</button>
+      <button id="btn-stop" class="btn btn-danger" style="display:none">■ 停止服务</button>
+    </div>
+  </div>
+
+  <div class="content">
+    <div id="placeholder" class="placeholder">
+      <div class="ph-card">
+        <div class="ph-icon">🎬</div>
+        <h1>下载微信视频号视频</h1>
+        <p class="ph-desc">点击右上角「启动服务」，首次运行会弹出密码框，用于安装证书并设置系统代理。</p>
+        <ol class="ph-steps">
+          <li>点击 <b>启动服务</b>，在弹出的密码框输入开机密码（仅首次需要授权）</li>
+          <li>打开 <b>Mac 版微信</b>，进入视频号播放任意视频</li>
+          <li>视频下方会出现 <b>下载按钮</b>，点击即可下载；也可在下方管理界面批量操作</li>
+        </ol>
+        <p class="ph-tip">下载的视频默认保存在「下载」文件夹。服务启动后，下方将显示管理界面。</p>
+        <div id="ph-error" class="ph-error" style="display:none"></div>
+      </div>
+    </div>
+    <webview id="view" src="about:blank" style="display:none" allowpopups></webview>
+  </div>
+
+  <div id="toast" class="toast" style="display:none"></div>
+
+  <script src="js/renderer.js"></script>
+</body>
+</html>

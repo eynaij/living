@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#2d5a3d">
+<title>早起森林</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+
+  <header>
+    <h1>🌳 早起森林</h1>
+    <button id="gearBtn" aria-label="设置">⚙️</button>
+  </header>
+
+  <div id="dateBar"><span id="dateText">—</span><span id="weekText">—</span></div>
+
+  <div id="treeStage">
+
+    <!-- 阶段 0：种子 -->
+    <svg class="tree" id="tree0" viewBox="0 0 300 340" width="260" height="260">
+      <ellipse cx="150" cy="300" rx="120" ry="14" fill="#2d5a3d"/>
+      <ellipse cx="150" cy="304" rx="140" ry="16" fill="#24522f"/>
+      <circle cx="150" cy="290" r="8" fill="#6b3410"/>
+    </svg>
+
+    <!-- 阶段 1：发芽 -->
+    <svg class="tree" id="tree1" viewBox="0 0 300 340" width="260" height="260">
+      <ellipse cx="150" cy="300" rx="120" ry="14" fill="#2d5a3d"/>
+      <ellipse cx="150" cy="304" rx="140" ry="16" fill="#24522f"/>
+      <path d="M150 290 Q148 270 150 250" stroke="#3a7b4a" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <ellipse cx="138" cy="262" rx="16" ry="9" fill="#66bb6a" transform="rotate(-30 138 262)"/>
+      <ellipse cx="162" cy="262" rx="16" ry="9" fill="#81c784" transform="rotate(30 162 262)"/>
+    </svg>
+
+    <!-- 阶段 2：幼苗 -->
+    <svg class="tree" id="tree2" viewBox="0 0 300 340" width="260" height="260">
+      <ellipse cx="150" cy="300" rx="130" ry="14" fill="#2d5a3d"/>
+      <ellipse cx="150" cy="304" rx="150" ry="16" fill="#24522f"/>
+      <rect x="145" y="210" width="10" height="86" rx="3" fill="#6b3410"/>
+      <circle cx="150" cy="190" r="36" fill="#4caf50"/>
+      <circle cx="125" cy="200" r="24" fill="#66bb6a"/>
+      <circle cx="175" cy="200" r="24" fill="#81c784"/>
+    </svg>
+
+    <!-- 阶段 3：小树 -->
+    <svg class="tree" id="tree3" viewBox="0 0 300 340" width="280" height="280">
+      <ellipse cx="150" cy="305" rx="140" ry="14" fill="#2d5a3d"/>
+      <ellipse cx="150" cy="309" rx="160" ry="16" fill="#24522f"/>
+      <rect x="142" y="170" width="16" height="130" rx="4" fill="#6b3410"/>
+      <circle cx="150" cy="140" r="48" fill="#43a047"/>
+      <circle cx="110" cy="155" r="34" fill="#66bb6a"/>
+      <circle cx="190" cy="155" r="34" fill="#81c784"/>
+      <circle cx="130" cy="115" r="28" fill="#a5d6a7"/>
+      <circle cx="170" cy="115" r="28" fill="#c8e6c9"/>
+    </svg>
+
+    <!-- 阶段 4：大树 -->
+    <svg class="tree" id="tree4" viewBox="0 0 300 360" width="300" height="300">
+      <ellipse cx="150" cy="325" rx="150" ry="16" fill="#2d5a3d"/>
+      <ellipse cx="150" cy="330" rx="170" ry="18" fill="#24522f"/>
+      <rect x="138" y="190" width="24" height="134" rx="5" fill="#5a2c0d"/>
+      <path d="M150 210 L150 320" stroke="#4a240a" stroke-width="2" fill="none"/>
+      <circle cx="150" cy="150" r="56" fill="#2e7d32"/>
+      <circle cx="105" cy="165" r="40" fill="#43a047"/>
+      <circle cx="195" cy="165" r="40" fill="#4caf50"/>
+      <circle cx="125" cy="120" r="32" fill="#66bb6a"/>
+      <circle cx="175" cy="120" r="32" fill="#81c784"/>
+      <circle cx="150" cy="95" r="26" fill="#a5d6a7"/>
+      <ellipse cx="80" cy="175" rx="14" ry="6" fill="#e57373" transform="rotate(-20 80 175)"/>
+      <ellipse cx="220" cy="180" rx="14" ry="6" fill="#ffb74d" transform="rotate(25 220 180)"/>
+      <ellipse cx="165" cy="135" rx="14" ry="6" fill="#f06292" transform="rotate(15 165 135)"/>
+    </svg>
+
+    <div id="waterDrop" class="hidden">💧</div>
+    <div id="treeStageLabel">种子</div>
+    <div id="progressWrap">
+      <div id="progressBar"></div>
+    </div>
+    <div id="growthScale">
+      <span>🌱 成长</span>
+      <div class="track"><div class="fill" id="growthFill"></div></div>
+      <span id="growthDays">0 / 90 天</span>
+    </div>
+    <div id="progressText">继续浇水 → 发芽</div>
+    <div id="witherHint" class="hidden">⚠️ 小树缺水，正在萎缩！今天记得浇水</div>
+    <div id="forest" class="hidden"></div>
+  </div>
+
+  <button id="checkBtn">💧 浇水打卡</button>
+  <div id="checkedHint" class="hidden">今天已浇水，明天继续 🌱</div>
+
+  <div id="stats">
+    <div class="stat-card">
+      <div class="num" id="streakNum">0</div>
+      <div class="label">连续天数</div>
+    </div>
+    <div class="stat-card">
+      <div class="num" id="totalNum">0</div>
+      <div class="label">累计天数</div>
+    </div>
+    <div class="stat-card" id="wakeCard">
+      <div class="num" id="wakeNum">07:00-08:00</div>
+      <div class="label">打卡时段</div>
+    </div>
+  </div>
+
+  <div id="calendarCard">
+    <div id="calHeader">
+      <button id="calPrev" aria-label="上一月">‹</button>
+      <div id="calTitle">—</div>
+      <button id="calNext" aria-label="下一月">›</button>
+    </div>
+    <div id="calWeek">
+      <span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span>
+    </div>
+    <div id="calGrid"></div>
+    <div id="calFooter">
+      <span class="dot"></span><span>已打卡</span>
+      <span id="calMonthCount">本月 0 天</span>
+    </div>
+  </div>
+
+  <div id="statsCard">
+    <div id="statsCardTitle">📊 打卡统计</div>
+    <div id="statGrid">
+      <div class="stat-item"><div class="stat-value" id="statStreak">0</div><div class="stat-label">当前连续(天)</div></div>
+      <div class="stat-item"><div class="stat-value" id="statBest">0</div><div class="stat-label">最高连续(天)</div></div>
+      <div class="stat-item"><div class="stat-value" id="statWeek">0</div><div class="stat-label">本周打卡(次)</div></div>
+      <div class="stat-item"><div class="stat-value" id="statTotal">0</div><div class="stat-label">累计打卡(天)</div></div>
+      <div class="stat-item"><div class="stat-value small" id="statAvgTime">--</div><div class="stat-label">平均打卡时间</div></div>
+      <div class="stat-item"><div class="stat-value small" id="statFirst">--</div><div class="stat-label">首次打卡日期</div></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 设置弹窗 -->
+<div id="modal" class="modal hidden">
+  <div class="modal-inner">
+    <h3>🌅 设置</h3>
+    <p class="tip">只有时间段内打卡有效，开始时间前 10 分钟提醒你</p>
+
+    <div class="row">
+      <label>开始时间</label>
+      <div class="time-box">
+        <input type="number" id="hIn" min="0" max="23" value="7" aria-label="开始小时">
+        <span>:</span>
+        <input type="number" id="mIn" min="0" max="59" value="0" aria-label="开始分钟">
+      </div>
+    </div>
+
+    <div class="row">
+      <label>结束时间</label>
+      <div class="time-box">
+        <input type="number" id="endHIn" min="0" max="23" value="8" aria-label="结束小时">
+        <span>:</span>
+        <input type="number" id="endMIn" min="0" max="59" value="0" aria-label="结束分钟">
+      </div>
+    </div>
+    <div id="settingsError" class="form-error hidden">结束时间需晚于开始时间</div>
+
+    <div id="permArea">
+      <div class="perm-row">
+        <span id="notifIcon">⚪️</span>
+        <span>通知权限</span>
+        <span id="notifStatus" class="status off">未开启</span>
+        <button id="openNotifBtn" class="mini-btn" disabled>去开启</button>
+      </div>
+      <div class="perm-row">
+        <span id="alarmIcon">⚪️</span>
+        <span>精确闹钟</span>
+        <span id="alarmStatus" class="status off">未开启</span>
+        <button id="openAlarmBtn" class="mini-btn" disabled>去开启</button>
+      </div>
+    </div>
+
+    <div class="modal-btns">
+      <button id="saveBtn" class="primary">保存</button>
+      <button id="closeBtn">关闭</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast hidden" role="status"></div>
+<script src="app.js"></script>
+</body>
+</html>

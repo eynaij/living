@@ -1,0 +1,62 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.qingying.app-mergeReleaseResources-3:/values/values.xml",
+            "map": [
+                {
+                    "source": "/workspace/qingying/android/res/values/colors.xml",
+                    "from": {
+                        "startLines": "8,9,3,4,5,2,10,12,11,7,6",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "290,331,97,134,173,55,373,457,412,252,213",
+                        "endColumns": "40,41,36,38,39,41,38,41,44,37,38",
+                        "endOffsets": "326,368,129,168,208,92,407,494,452,285,247"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,96,138,175,214,254,296,335,377,422,460",
+                        "endColumns": "40,41,36,38,39,41,38,41,44,37,38",
+                        "endOffsets": "91,133,170,209,249,291,330,372,417,455,494"
+                    }
+                },
+                {
+                    "source": "/workspace/qingying/android/res/values/styles.xml",
+                    "from": {
+                        "startLines": "2,10",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,474",
+                        "endLines": "8,16",
+                        "endColumns": "12,12",
+                        "endOffsets": "468,872"
+                    },
+                    "to": {
+                        "startLines": "14,21",
+                        "startColumns": "4,4",
+                        "startOffsets": "539,957",
+                        "endLines": "20,27",
+                        "endColumns": "12,12",
+                        "endOffsets": "952,1355"
+                    }
+                },
+                {
+                    "source": "/workspace/qingying/android/res/values/strings.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "39",
+                        "endOffsets": "90"
+                    },
+                    "to": {
+                        "startLines": "13",
+                        "startColumns": "4",
+                        "startOffsets": "499",
+                        "endColumns": "39",
+                        "endOffsets": "534"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,62 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.shiji.app-mergeReleaseResources-3:/values/values.xml",
+            "map": [
+                {
+                    "source": "/workspace/shiji/android/res/values/styles.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "7",
+                        "endColumns": "12",
+                        "endOffsets": "405"
+                    },
+                    "to": {
+                        "startLines": "6",
+                        "startColumns": "4",
+                        "startOffsets": "224",
+                        "endLines": "11",
+                        "endColumns": "12",
+                        "endOffsets": "574"
+                    }
+                },
+                {
+                    "source": "/workspace/shiji/android/res/values/colors.xml",
+                    "from": {
+                        "startLines": "2,4,3",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,142,97",
+                        "endColumns": "41,41,44",
+                        "endOffsets": "92,179,137"
+                    },
+                    "to": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,97,139",
+                        "endColumns": "41,41,44",
+                        "endOffsets": "92,134,179"
+                    }
+                },
+                {
+                    "source": "/workspace/shiji/android/res/values/strings.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "39",
+                        "endOffsets": "90"
+                    },
+                    "to": {
+                        "startLines": "5",
+                        "startColumns": "4",
+                        "startOffsets": "184",
+                        "endColumns": "39",
+                        "endOffsets": "219"
+                    }
+                }
+            ]
+        }
+    ]
+}

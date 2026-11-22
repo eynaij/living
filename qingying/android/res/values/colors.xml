@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="icon_bg">#14B8A6</color>
+    <color name="bg">#F5F7FA</color>
+    <color name="card">#FFFFFF</color>
+    <color name="card2">#EEF3F6</color>
+    <color name="text">#182631</color>
+    <color name="sub">#72838F</color>
+    <color name="accent">#14B8A6</color>
+    <color name="accent2">#0D9488</color>
+    <color name="line">#E4EAF0</color>
+    <color name="status_bar">#F5F7FA</color>
+    <color name="nav_bar">#F5F7FA</color>
+</resources>

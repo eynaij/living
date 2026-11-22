@@ -1,0 +1,168 @@
+@com.qingying:color/accent : reachable=false
+@com.qingying:color/accent2 : reachable=false
+@com.qingying:color/bg : reachable=false
+@com.qingying:color/card : reachable=false
+@com.qingying:color/card2 : reachable=false
+@com.qingying:color/icon_bg : reachable=false
+@com.qingying:color/line : reachable=false
+@com.qingying:color/nav_bar : reachable=false
+@com.qingying:color/status_bar : reachable=false
+@com.qingying:color/sub : reachable=false
+@com.qingying:color/text : reachable=false
+@com.qingying:drawable/bg_badge : reachable=false
+@com.qingying:drawable/bg_card : reachable=false
+    @com.qingying:color/card
+    @com.qingying:color/line
+@com.qingying:drawable/bg_controls : reachable=false
+@com.qingying:drawable/bg_controls_top : reachable=false
+@com.qingying:drawable/bg_pill : reachable=false
+    @com.qingying:color/accent
+@com.qingying:drawable/bg_thumb : reachable=false
+    @com.qingying:color/card2
+@com.qingying:drawable/ic_camera : reachable=false
+@com.qingying:drawable/ic_launcher_bg : reachable=false
+@com.qingying:drawable/ic_lock_closed : reachable=true
+@com.qingying:drawable/ic_lock_open : reachable=true
+@com.qingying:drawable/ic_pin : reachable=false
+@com.qingying:drawable/ic_video : reachable=true
+@com.qingying:id/back : reachable=true
+@com.qingying:id/back10 : reachable=true
+@com.qingying:id/badge : reachable=true
+@com.qingying:id/captureBtn : reachable=true
+@com.qingying:id/controls : reachable=true
+@com.qingying:id/count : reachable=true
+@com.qingying:id/duration : reachable=true
+@com.qingying:id/empty : reachable=true
+@com.qingying:id/emptyText : reachable=true
+@com.qingying:id/favBtn : reachable=true
+@com.qingying:id/folderCount : reachable=true
+@com.qingying:id/forward10 : reachable=true
+@com.qingying:id/frameNext : reachable=true
+@com.qingying:id/framePrev : reachable=true
+@com.qingying:id/gesture : reachable=true
+@com.qingying:id/grantBtn : reachable=true
+@com.qingying:id/hint : reachable=true
+@com.qingying:id/itemMark : reachable=true
+@com.qingying:id/itemName : reachable=true
+@com.qingying:id/list : reachable=true
+@com.qingying:id/lockBtn : reachable=true
+@com.qingying:id/meta : reachable=true
+@com.qingying:id/name : reachable=true
+@com.qingying:id/nextBtn : reachable=true
+@com.qingying:id/pin : reachable=true
+@com.qingying:id/playBtn : reachable=true
+@com.qingying:id/playlist : reachable=true
+@com.qingying:id/playlistClose : reachable=true
+@com.qingying:id/playlistPanel : reachable=true
+@com.qingying:id/playlistTitle : reachable=true
+@com.qingying:id/prevBtn : reachable=true
+@com.qingying:id/root : reachable=true
+@com.qingying:id/seekBar : reachable=true
+@com.qingying:id/speedBtn : reachable=true
+@com.qingying:id/star : reachable=true
+@com.qingying:id/subTitle : reachable=false
+@com.qingying:id/surface : reachable=true
+@com.qingying:id/thumb : reachable=true
+@com.qingying:id/time : reachable=true
+@com.qingying:id/title : reachable=true
+@com.qingying:layout/activity_main : reachable=true
+    @com.qingying:color/bg
+    @com.qingying:color/text
+    @com.qingying:color/sub
+    @com.qingying:drawable/bg_pill
+@com.qingying:layout/activity_player : reachable=true
+    @com.qingying:drawable/bg_controls_top
+    @com.qingying:drawable/ic_camera
+    @com.qingying:drawable/bg_controls
+    @com.qingying:drawable/bg_badge
+    @com.qingying:color/accent2
+    @com.qingying:color/accent
+    @com.qingying:drawable/ic_lock_open
+@com.qingying:layout/activity_video_list : reachable=true
+    @com.qingying:color/bg
+    @com.qingying:color/text
+    @com.qingying:color/sub
+@com.qingying:layout/row_folder : reachable=true
+    @com.qingying:drawable/bg_card
+    @com.qingying:drawable/bg_thumb
+    @com.qingying:drawable/ic_video
+    @com.qingying:color/text
+    @com.qingying:color/sub
+    @com.qingying:drawable/ic_pin
+@com.qingying:layout/row_playlist_item : reachable=true
+    @com.qingying:color/accent2
+@com.qingying:layout/row_video : reachable=true
+    @com.qingying:drawable/bg_card
+    @com.qingying:drawable/bg_thumb
+    @com.qingying:drawable/ic_video
+    @com.qingying:color/text
+    @com.qingying:color/sub
+@com.qingying:mipmap/ic_launcher : reachable=true
+    @com.qingying:drawable/ic_launcher_bg
+    @com.qingying:mipmap/ic_launcher_foreground
+@com.qingying:mipmap/ic_launcher_foreground : reachable=false
+@com.qingying:string/app_name : reachable=true
+@com.qingying:style/AppTheme : reachable=true
+    @com.qingying:color/bg
+    @com.qingying:color/status_bar
+    @com.qingying:color/nav_bar
+    @com.qingying:color/accent
+@com.qingying:style/PlayerTheme : reachable=true
+    @com.qingying:color/accent
+
+The root reachable resources are:
+ drawable:ic_lock_closed:2130837512
+ drawable:ic_lock_open:2130837513
+ drawable:ic_video:2130837515
+ id:back:2130903040
+ id:back10:2130903041
+ id:badge:2130903042
+ id:captureBtn:2130903043
+ id:controls:2130903044
+ id:count:2130903045
+ id:duration:2130903046
+ id:empty:2130903047
+ id:emptyText:2130903048
+ id:favBtn:2130903049
+ id:folderCount:2130903050
+ id:forward10:2130903051
+ id:frameNext:2130903052
+ id:framePrev:2130903053
+ id:gesture:2130903054
+ id:grantBtn:2130903055
+ id:hint:2130903056
+ id:itemMark:2130903057
+ id:itemName:2130903058
+ id:list:2130903059
+ id:lockBtn:2130903060
+ id:meta:2130903061
+ id:name:2130903062
+ id:nextBtn:2130903063
+ id:pin:2130903064
+ id:playBtn:2130903065
+ id:playlist:2130903066
+ id:playlistClose:2130903067
+ id:playlistPanel:2130903068
+ id:playlistTitle:2130903069
+ id:prevBtn:2130903070
+ id:root:2130903071
+ id:seekBar:2130903072
+ id:speedBtn:2130903073
+ id:star:2130903074
+ id:surface:2130903076
+ id:thumb:2130903077
+ id:time:2130903078
+ id:title:2130903079
+ layout:activity_main:2130968576
+ layout:activity_player:2130968577
+ layout:activity_video_list:2130968578
+ layout:row_folder:2130968579
+ layout:row_playlist_item:2130968580
+ layout:row_video:2130968581
+ mipmap:ic_launcher:2131034112
+ string:app_name:2131099648
+ style:AppTheme:2131165184
+ style:PlayerTheme:2131165185
+Unused resources are: 
+ color:icon_bg:2130771973
+ id:subTitle:2130903075

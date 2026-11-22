@@ -1,0 +1,76 @@
+<view class="page-wrap">
+  <view class="card">
+    <view class="section-title">
+      <text>持拍手</text>
+      <text class="sub">用于选择分析的一侧手臂</text>
+    </view>
+    <view class="segmented">
+      <view
+        class="seg {{dominant === 'right' ? 'active' : ''}}"
+        data-value="right"
+        bindtap="setDominant"
+      >右手持拍</view>
+      <view
+        class="seg {{dominant === 'left' ? 'active' : ''}}"
+        data-value="left"
+        bindtap="setDominant"
+      >左手持拍</view>
+    </view>
+  </view>
+
+  <view class="card block">
+    <view class="section-title">
+      <text>分析服务</text>
+      <text class="sub">视频上传到这里分析</text>
+    </view>
+    <input
+      class="input"
+      type="text"
+      value="{{baseUrl}}"
+      placeholder="{{defaultUrl}}"
+      placeholder-class="input-ph"
+      bindinput="onBaseUrlInput"
+      confirm-type="done"
+    />
+    <view class="url-actions">
+      <button class="btn-ghost" bindtap="resetBaseUrl">恢复默认</button>
+      <button class="btn-ghost" bindtap="saveBaseUrl">保存地址</button>
+      <button class="btn-ghost" bindtap="testServer" loading="{{testing}}">测试连接</button>
+    </view>
+    <view class="server-tip" wx:if="{{testText}}">{{testText}}</view>
+    <view class="field-hint">
+      本地调试填 http://127.0.0.1:8000，并在开发者工具勾选「不校验合法域名」。上线需换成 HTTPS 域名并配置 request 合法域名。
+    </view>
+  </view>
+
+  <view class="card block">
+    <view class="section-title">偏好</view>
+    <view class="setting-row">
+      <view class="setting-text">
+        <view class="setting-name">演示模式</view>
+        <view class="setting-desc">不连服务器，用示例数据预览流程</view>
+      </view>
+      <switch checked="{{demo}}" color="#d8ff4a" bindchange="toggleDemo" />
+    </view>
+    <view class="divider"></view>
+    <view class="setting-row">
+      <view class="setting-text">
+        <view class="setting-name">震动反馈</view>
+        <view class="setting-desc">分析完成时轻震一下</view>
+      </view>
+      <switch checked="{{vibrate}}" color="#d8ff4a" bindchange="toggleVibrate" />
+    </view>
+  </view>
+
+  <view class="card block">
+    <view class="section-title">使用说明</view>
+    <view class="tip-row"><view class="dot"></view><text>尽量横屏拍摄，全身和球拍都要入镜。</text></view>
+    <view class="tip-row"><view class="dot"></view><text>一次只录一拍，5–8 秒最佳，太长会拖慢分析。</text></view>
+    <view class="tip-row"><view class="dot"></view><text>分数用于横向对比自己的动作变化，不替代专业教练指导。</text></view>
+    <view class="divider"></view>
+    <view class="about-row">
+      <text>羽姿 · 微信小程序</text>
+      <text class="muted">v1.0.0</text>
+    </view>
+  </view>
+</view>

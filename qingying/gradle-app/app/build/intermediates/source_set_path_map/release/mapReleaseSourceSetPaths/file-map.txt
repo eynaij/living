@@ -1,0 +1,9 @@
+com.qingying.app-android-0 /workspace/qingying/android/res
+com.qingying.app-pngs-1 /workspace/qingying/gradle-app/app/build/generated/res/pngs/release
+com.qingying.app-resValues-2 /workspace/qingying/gradle-app/app/build/generated/res/resValues/release
+com.qingying.app-updated_navigation_xml-3 /workspace/qingying/gradle-app/app/build/generated/updated_navigation_xml/release
+com.qingying.app-packageReleaseResources-4 /workspace/qingying/gradle-app/app/build/intermediates/incremental/release/packageReleaseResources/merged.dir
+com.qingying.app-packageReleaseResources-5 /workspace/qingying/gradle-app/app/build/intermediates/incremental/release/packageReleaseResources/stripped.dir
+com.qingying.app-merged-not-compiled-resources-6 /workspace/qingying/gradle-app/app/build/intermediates/merged-not-compiled-resources/release
+com.qingying.app-release-7 /workspace/qingying/gradle-app/app/build/intermediates/merged_res/release/mergeReleaseResources
+com.qingying.app-release-8 /workspace/qingying/gradle-app/app/src/release/res

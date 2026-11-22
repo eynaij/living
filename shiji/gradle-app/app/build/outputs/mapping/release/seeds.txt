@@ -1,0 +1,60 @@
+com.shiji.MainActivity
+com.shiji.MainActivity$Bridge
+com.shiji.MainActivity$1
+com.shiji.MainActivity$2
+com.shiji.R$color
+com.shiji.R$string
+com.shiji.R$style
+com.shiji.R
+com.shiji.R$mipmap
+com.shiji.MainActivity$Bridge$1
+com.shiji.MainActivity: java.lang.String HOST
+com.shiji.R$style: int AppTheme
+com.shiji.MainActivity: java.lang.String BASE_URL
+com.shiji.R$color: int nav_bar
+com.shiji.R$mipmap: int ic_launcher
+com.shiji.MainActivity$2: com.shiji.MainActivity this$0
+com.shiji.MainActivity$1: com.shiji.MainActivity this$0
+com.shiji.R$color: int status_bar
+com.shiji.MainActivity: android.webkit.WebView webView
+com.shiji.R$mipmap: int ic_launcher_foreground
+com.shiji.MainActivity: java.util.Map KNOWN_APP_NAMES
+com.shiji.R$color: int icon_bg
+com.shiji.MainActivity$Bridge$1: com.shiji.MainActivity$Bridge this$1
+com.shiji.MainActivity$Bridge: com.shiji.MainActivity this$0
+com.shiji.R$string: int app_name
+com.shiji.MainActivity$Bridge: void openSettings()
+com.shiji.R: R()
+com.shiji.MainActivity: android.webkit.WebResourceResponse access$000(com.shiji.MainActivity,java.lang.String)
+com.shiji.MainActivity: org.json.JSONObject queryUsageJson(int)
+com.shiji.MainActivity$Bridge$1: void run()
+com.shiji.MainActivity$2: MainActivity$2(com.shiji.MainActivity)
+com.shiji.R$color: R$color()
+com.shiji.MainActivity: android.webkit.WebResourceResponse serveAsset(java.lang.String)
+com.shiji.MainActivity: boolean hasUsageAccess()
+com.shiji.MainActivity: java.lang.String categoryOf(java.lang.String,android.content.pm.ApplicationInfo)
+com.shiji.MainActivity$2: int compare(org.json.JSONObject,org.json.JSONObject)
+com.shiji.MainActivity: MainActivity()
+com.shiji.MainActivity: org.json.JSONObject access$300(com.shiji.MainActivity,int)
+com.shiji.MainActivity: int dayIndex(long,long,int)
+com.shiji.R$string: R$string()
+com.shiji.MainActivity: boolean access$200(com.shiji.MainActivity)
+com.shiji.MainActivity$Bridge: boolean isGranted()
+com.shiji.MainActivity$1: MainActivity$1(com.shiji.MainActivity)
+com.shiji.MainActivity: org.json.JSONArray sortApps(org.json.JSONArray)
+com.shiji.R$style: R$style()
+com.shiji.MainActivity$Bridge$1: MainActivity$Bridge$1(com.shiji.MainActivity$Bridge)
+com.shiji.MainActivity: java.lang.String mimeOf(java.lang.String)
+com.shiji.MainActivity$Bridge: java.lang.String loadUsage(int)
+com.shiji.MainActivity$1: android.webkit.WebResourceResponse shouldInterceptRequest(android.webkit.WebView,android.webkit.WebResourceRequest)
+com.shiji.MainActivity$2: int compare(java.lang.Object,java.lang.Object)
+com.shiji.MainActivity$Bridge: MainActivity$Bridge(com.shiji.MainActivity,com.shiji.MainActivity$1)
+com.shiji.MainActivity: void onBackPressed()
+com.shiji.MainActivity: long nextMidnightTs(long)
+com.shiji.MainActivity: void onDestroy()
+com.shiji.R$mipmap: R$mipmap()
+com.shiji.MainActivity: void onResume()
+com.shiji.MainActivity: void onCreate(android.os.Bundle)
+com.shiji.MainActivity: java.lang.String labelOf(android.content.pm.PackageManager,java.lang.String,android.content.pm.ApplicationInfo)
+com.shiji.MainActivity$Bridge: MainActivity$Bridge(com.shiji.MainActivity)
+com.shiji.MainActivity: java.util.Set launcherPackages()

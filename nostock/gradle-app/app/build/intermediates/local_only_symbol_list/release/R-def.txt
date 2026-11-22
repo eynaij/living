@@ -1,0 +1,9 @@
+R_DEF: Internal format may change without notice
+local
+color icon_bg
+color nav_bar
+color status_bar
+mipmap ic_launcher
+mipmap ic_launcher_foreground
+string app_name
+style AppTheme

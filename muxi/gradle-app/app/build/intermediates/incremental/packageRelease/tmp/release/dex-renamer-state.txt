@@ -1,0 +1,4 @@
+#Sun Nov 22 12:33:03 CST 2026
+base.0=/workspace/muxi/gradle-app/app/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

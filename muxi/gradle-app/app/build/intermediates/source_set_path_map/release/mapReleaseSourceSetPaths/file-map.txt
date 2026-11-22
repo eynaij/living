@@ -1,0 +1,9 @@
+com.muxi.app-android-0 /workspace/muxi/android/res
+com.muxi.app-pngs-1 /workspace/muxi/gradle-app/app/build/generated/res/pngs/release
+com.muxi.app-resValues-2 /workspace/muxi/gradle-app/app/build/generated/res/resValues/release
+com.muxi.app-updated_navigation_xml-3 /workspace/muxi/gradle-app/app/build/generated/updated_navigation_xml/release
+com.muxi.app-packageReleaseResources-4 /workspace/muxi/gradle-app/app/build/intermediates/incremental/release/packageReleaseResources/merged.dir
+com.muxi.app-packageReleaseResources-5 /workspace/muxi/gradle-app/app/build/intermediates/incremental/release/packageReleaseResources/stripped.dir
+com.muxi.app-merged-not-compiled-resources-6 /workspace/muxi/gradle-app/app/build/intermediates/merged-not-compiled-resources/release
+com.muxi.app-release-7 /workspace/muxi/gradle-app/app/build/intermediates/merged_res/release/mergeReleaseResources
+com.muxi.app-release-8 /workspace/muxi/gradle-app/app/src/release/res

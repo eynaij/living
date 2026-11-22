@@ -1,0 +1,76 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.shiji"
+4    android:versionCode="3"
+5    android:versionName="1.0.2" >
+6
+7    <uses-sdk
+7-->/workspace/shiji/android/AndroidManifest.xml:8:5-74
+8        android:minSdkVersion="24"
+8-->/workspace/shiji/android/AndroidManifest.xml:8:15-41
+9        android:targetSdkVersion="36" />
+9-->/workspace/shiji/android/AndroidManifest.xml:8:42-71
+10
+11    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+11-->/workspace/shiji/android/AndroidManifest.xml:10:5-12:47
+11-->/workspace/shiji/android/AndroidManifest.xml:11:9-62
+12    <uses-permission android:name="android.permission.VIBRATE" />
+12-->/workspace/shiji/android/AndroidManifest.xml:13:5-66
+12-->/workspace/shiji/android/AndroidManifest.xml:13:22-63
+13
+14    <!-- Android 11+ 需要声明包可见性，才能读取已安装应用的中文名称。 -->
+15    <queries>
+15-->/workspace/shiji/android/AndroidManifest.xml:16:5-21:15
+16        <intent>
+16-->/workspace/shiji/android/AndroidManifest.xml:17:9-20:18
+17            <action android:name="android.intent.action.MAIN" />
+17-->/workspace/shiji/android/AndroidManifest.xml:18:13-65
+17-->/workspace/shiji/android/AndroidManifest.xml:18:21-62
+18
+19            <category android:name="android.intent.category.LAUNCHER" />
+19-->/workspace/shiji/android/AndroidManifest.xml:19:13-73
+19-->/workspace/shiji/android/AndroidManifest.xml:19:23-70
+20        </intent>
+21    </queries>
+22
+23    <application
+23-->/workspace/shiji/android/AndroidManifest.xml:23:5-42:19
+24        android:allowBackup="true"
+24-->/workspace/shiji/android/AndroidManifest.xml:24:9-35
+25        android:extractNativeLibs="false"
+26        android:hardwareAccelerated="true"
+26-->/workspace/shiji/android/AndroidManifest.xml:29:9-43
+27        android:icon="@mipmap/ic_launcher"
+27-->/workspace/shiji/android/AndroidManifest.xml:25:9-43
+28        android:label="@string/app_name"
+28-->/workspace/shiji/android/AndroidManifest.xml:27:9-41
+29        android:largeHeap="true"
+29-->/workspace/shiji/android/AndroidManifest.xml:28:9-33
+30        android:roundIcon="@mipmap/ic_launcher"
+30-->/workspace/shiji/android/AndroidManifest.xml:26:9-48
+31        android:theme="@style/AppTheme" >
+31-->/workspace/shiji/android/AndroidManifest.xml:30:9-40
+32        <activity
+32-->/workspace/shiji/android/AndroidManifest.xml:32:9-41:20
+33            android:name="com.shiji.MainActivity"
+33-->/workspace/shiji/android/AndroidManifest.xml:33:13-41
+34            android:configChanges="orientation|screenSize|keyboardHidden|uiMode"
+34-->/workspace/shiji/android/AndroidManifest.xml:36:13-81
+35            android:exported="true"
+35-->/workspace/shiji/android/AndroidManifest.xml:34:13-36
+36            android:screenOrientation="portrait" >
+36-->/workspace/shiji/android/AndroidManifest.xml:35:13-49
+37            <intent-filter>
+37-->/workspace/shiji/android/AndroidManifest.xml:37:13-40:29
+38                <action android:name="android.intent.action.MAIN" />
+38-->/workspace/shiji/android/AndroidManifest.xml:18:13-65
+38-->/workspace/shiji/android/AndroidManifest.xml:18:21-62
+39
+40                <category android:name="android.intent.category.LAUNCHER" />
+40-->/workspace/shiji/android/AndroidManifest.xml:19:13-73
+40-->/workspace/shiji/android/AndroidManifest.xml:19:23-70
+41            </intent-filter>
+42        </activity>
+43    </application>
+44
+45</manifest>

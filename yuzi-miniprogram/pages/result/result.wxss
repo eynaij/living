@@ -1,0 +1,168 @@
+.score-card {
+  margin-top: 8rpx;
+  text-align: center;
+  padding: 48rpx 32rpx 40rpx;
+  background: radial-gradient(120% 100% at 50% 0%, rgba(216, 255, 74, 0.1), rgba(16, 23, 16, 0) 70%), #101710;
+}
+
+.score-stroke {
+  font-size: 24rpx;
+  color: #9fb0a4;
+  letter-spacing: 2rpx;
+}
+
+.score-main {
+  margin-top: 8rpx;
+  font-size: 132rpx;
+  font-weight: 800;
+  line-height: 1.1;
+  text-shadow: 0 0 40rpx rgba(216, 255, 74, 0.25);
+}
+
+.score-grade {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.score-note {
+  margin-top: 18rpx;
+  font-size: 25rpx;
+  color: #9fb0a4;
+  line-height: 1.6;
+}
+
+.demo-tag {
+  display: inline-block;
+  margin-top: 18rpx;
+  padding: 6rpx 18rpx;
+  border-radius: 999rpx;
+  font-size: 21rpx;
+  color: #ffb547;
+  background: rgba(255, 181, 71, 0.12);
+}
+
+.block {
+  margin-top: 24rpx;
+}
+
+.snapshot {
+  width: 100%;
+  border-radius: 20rpx;
+  display: block;
+}
+
+.snapshot-cap {
+  margin-top: 14rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #7b8a80;
+}
+
+.metric {
+  padding: 22rpx 0;
+  border-bottom: 1rpx solid rgba(255, 255, 255, 0.06);
+}
+
+.metric:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.metric-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.metric-name {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #eef6ef;
+}
+
+.metric-value {
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.metric-bar {
+  margin-top: 14rpx;
+  height: 12rpx;
+  border-radius: 999rpx;
+  background: rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+
+.metric-fill {
+  height: 100%;
+  border-radius: 999rpx;
+  transition: width 0.35s ease;
+}
+
+.metric-foot {
+  margin-top: 10rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: 22rpx;
+  color: #7b8a80;
+}
+
+.metric-note {
+  margin-top: 6rpx;
+  font-size: 21rpx;
+  color: #5f6f65;
+}
+
+.tip {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20rpx;
+}
+
+.tip:last-child {
+  margin-bottom: 0;
+}
+
+.tip-icon {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  font-size: 24rpx;
+  line-height: 40rpx;
+  text-align: center;
+  margin: 2rpx 16rpx 0 0;
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+.tip-icon.bad {
+  background: rgba(255, 181, 71, 0.14);
+  color: #ffb547;
+}
+
+.tip-icon.good {
+  background: rgba(37, 224, 165, 0.14);
+  color: #25e0a5;
+}
+
+.tip-text {
+  flex: 1;
+  font-size: 25rpx;
+  color: #b9c6bc;
+  line-height: 1.65;
+}
+
+.actions {
+  display: flex;
+  margin-top: 32rpx;
+}
+
+.actions .btn-ghost {
+  margin-right: 20rpx;
+}
+
+.action-primary {
+  flex: 1.4;
+  width: auto;
+  margin: 0;
+}

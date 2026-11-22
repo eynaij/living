@@ -1,0 +1,3 @@
+-keep class com.qingying.MainActivity { <init>(); }
+-keep class com.qingying.PlayerActivity { <init>(); }
+-keep class com.qingying.VideoListActivity { <init>(); }

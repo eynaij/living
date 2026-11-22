@@ -1,0 +1,35 @@
+{
+  "name": "羽姿 · 羽毛球姿势矫正",
+  "short_name": "羽姿",
+  "description": "用手机摄像头实时识别挥拍动作，给出六维姿势评分与纠正建议，支持高远球、正手挑球、反手挑球。",
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait",
+  "background_color": "#070b08",
+  "theme_color": "#0a0f0b",
+  "categories": ["sports", "health", "fitness"],
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

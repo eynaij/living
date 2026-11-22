@@ -1,0 +1,185 @@
+.stats-grid {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8rpx;
+}
+
+.stat {
+  width: 23.5%;
+  background: #101710;
+  border: 1rpx solid rgba(216, 255, 74, 0.08);
+  border-radius: 22rpx;
+  padding: 24rpx 8rpx;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #d8ff4a;
+  line-height: 1.2;
+}
+
+.stat-label {
+  margin-top: 6rpx;
+  font-size: 21rpx;
+  color: #7b8a80;
+}
+
+.block {
+  margin-top: 24rpx;
+}
+
+.chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 240rpx;
+  padding-top: 16rpx;
+}
+
+.chart-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.chart-col + .chart-col {
+  margin-left: 10rpx;
+}
+
+.chart-count {
+  height: 28rpx;
+  font-size: 20rpx;
+  color: #7b8a80;
+}
+
+.chart-track {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.chart-bar {
+  width: 60%;
+  max-width: 36rpx;
+  border-radius: 8rpx 8rpx 2rpx 2rpx;
+  background: linear-gradient(180deg, #d8ff4a, #25e0a5);
+  min-height: 8rpx;
+}
+
+.chart-bar.empty {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.chart-label {
+  margin-top: 10rpx;
+  font-size: 20rpx;
+  color: #7b8a80;
+}
+
+.empty {
+  margin-top: 80rpx;
+  text-align: center;
+  padding: 0 40rpx;
+}
+
+.empty-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #cfdad1;
+}
+
+.empty-sub {
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  color: #7b8a80;
+  line-height: 1.6;
+}
+
+.empty-btn {
+  margin-top: 40rpx;
+}
+
+.group-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+}
+
+.group-day {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #eef6ef;
+}
+
+.group-meta {
+  font-size: 22rpx;
+  color: #7b8a80;
+}
+
+.record-row {
+  display: flex;
+  align-items: center;
+  padding: 18rpx 0;
+  border-bottom: 1rpx solid rgba(255, 255, 255, 0.06);
+}
+
+.record-row:last-child {
+  border-bottom: none;
+}
+
+.record-time {
+  width: 100rpx;
+  font-size: 23rpx;
+  color: #7b8a80;
+}
+
+.record-stroke {
+  flex: 1;
+  font-size: 26rpx;
+  color: #cfdad1;
+}
+
+.record-demo {
+  margin-right: 12rpx;
+  padding: 2rpx 10rpx;
+  border-radius: 999rpx;
+  font-size: 18rpx;
+  color: #ffb547;
+  background: rgba(255, 181, 71, 0.12);
+}
+
+.record-score {
+  font-size: 32rpx;
+  font-weight: 700;
+  margin-right: 16rpx;
+}
+
+.record-grade {
+  width: 90rpx;
+  text-align: right;
+  font-size: 22rpx;
+  color: #7b8a80;
+}
+
+.clear-btn {
+  margin-top: 40rpx;
+  width: 100%;
+  height: 84rpx;
+  line-height: 84rpx;
+  border-radius: 20rpx;
+  background: transparent;
+  border: 1rpx solid rgba(255, 107, 107, 0.35);
+  color: #ff8b8b;
+  font-size: 26rpx;
+}
+
+.clear-btn::after {
+  border: none;
+}

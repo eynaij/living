@@ -1,0 +1,9 @@
+com.muxi:style/AppTheme = 0x7f050000
+com.muxi:color/colorPrimaryDark = 0x7f010002
+com.muxi:string/app_name = 0x7f040000
+com.muxi:mipmap/ic_launcher_foreground = 0x7f030001
+com.muxi:mipmap/ic_launcher = 0x7f030000
+com.muxi:color/icon_bg = 0x7f010003
+com.muxi:color/colorPrimary = 0x7f010001
+com.muxi:drawable/ic_launcher_background = 0x7f020000
+com.muxi:color/colorAccent = 0x7f010000

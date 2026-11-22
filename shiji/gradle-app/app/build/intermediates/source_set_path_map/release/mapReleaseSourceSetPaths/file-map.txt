@@ -1,0 +1,9 @@
+com.shiji.app-android-0 /workspace/shiji/android/res
+com.shiji.app-pngs-1 /workspace/shiji/gradle-app/app/build/generated/res/pngs/release
+com.shiji.app-resValues-2 /workspace/shiji/gradle-app/app/build/generated/res/resValues/release
+com.shiji.app-updated_navigation_xml-3 /workspace/shiji/gradle-app/app/build/generated/updated_navigation_xml/release
+com.shiji.app-packageReleaseResources-4 /workspace/shiji/gradle-app/app/build/intermediates/incremental/release/packageReleaseResources/merged.dir
+com.shiji.app-packageReleaseResources-5 /workspace/shiji/gradle-app/app/build/intermediates/incremental/release/packageReleaseResources/stripped.dir
+com.shiji.app-merged-not-compiled-resources-6 /workspace/shiji/gradle-app/app/build/intermediates/merged-not-compiled-resources/release
+com.shiji.app-release-7 /workspace/shiji/gradle-app/app/build/intermediates/merged_res/release/mergeReleaseResources
+com.shiji.app-release-8 /workspace/shiji/gradle-app/app/src/release/res

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' data: blob: file:; media-src 'self' file: blob: data:; img-src 'self' data: blob: file:;">
+<title>轻影</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- ============ 列表页 ============ -->
+  <section id="listView" class="view active">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-logo">🎬</span>
+        <span class="brand-name">轻影</span>
+        <span class="brand-sub">视频播放器</span>
+      </div>
+      <div class="topbar-actions">
+        <button id="sortBtn" class="ghost-btn" title="切换排序">⇅ 按名称</button>
+        <button id="openFolderBtn" class="primary-btn">📂 选择文件夹</button>
+      </div>
+    </header>
+
+    <!-- 最近打开的文件夹 -->
+    <div id="folderChips" class="folder-chips"></div>
+
+    <!-- 最近播放 -->
+    <div id="recentSection" class="section hidden">
+      <div class="section-title">最近播放</div>
+      <div id="recentBar" class="recent-bar"></div>
+    </div>
+
+    <div class="section-title-row">
+      <div id="folderTitle" class="folder-title">未选择文件夹</div>
+      <div id="videoCount" class="video-count"></div>
+    </div>
+
+    <div id="videoGrid" class="video-grid"></div>
+    <div id="emptyHint" class="empty">
+      <div class="empty-icon">📁</div>
+      <div>点击右上角「选择文件夹」，挑选存放视频的目录</div>
+      <div class="empty-sub">支持子文件夹递归扫描 · mp4 / mkv / mov / webm / avi 等</div>
+    </div>
+  </section>
+
+  <!-- ============ 播放页 ============ -->
+  <section id="playerView" class="view">
+    <div id="playerRoot">
+      <video id="video" playsinline></video>
+
+      <!-- 顶部标题栏 -->
+      <div class="player-top" id="playerTop">
+        <button id="backBtn" class="icon-btn" title="返回 (Esc)">← 返回</button>
+        <div id="playerTitle" class="player-title">视频</div>
+        <div class="player-top-right">
+          <button id="captureBtn" class="icon-btn" title="截图 (S)">📷 截图</button>
+          <button id="fsBtn" class="icon-btn" title="全屏 (F)">⛶ 全屏</button>
+        </div>
+      </div>
+
+      <!-- 中央播放列表（左侧滑出） -->
+      <div id="playlistPanel" class="playlist-panel hidden">
+        <div class="playlist-head">
+          <span id="playlistTitle">播放列表</span>
+          <button id="playlistClose" class="icon-btn">✕</button>
+        </div>
+        <div id="playlist" class="playlist"></div>
+      </div>
+
+      <!-- 中央提示徽章（倍速/快进等） -->
+      <div id="badge" class="badge hidden"></div>
+
+      <!-- 右侧中间置顶锁定按钮 -->
+      <button id="pinBtn" class="pin-btn" title="窗口置顶">📌</button>
+
+      <!-- 底部控制栏 -->
+      <div class="player-bottom" id="playerBottom">
+        <div class="seek-row">
+          <span id="curTime" class="time">00:00</span>
+          <input id="seekBar" type="range" min="0" max="100" value="0" step="0.1">
+          <span id="durTime" class="time">00:00</span>
+          <button id="speedBtn" class="speed-btn">1x</button>
+        </div>
+        <div class="ctrl-row">
+          <button id="prevBtn" class="ctrl-btn" title="上一个">⏮</button>
+          <button id="back10" class="ctrl-btn" title="后退 10 秒">⏪</button>
+          <button id="framePrev" class="ctrl-btn" title="上一帧">⏮·</button>
+          <button id="playBtn" class="ctrl-btn play" title="播放/暂停">▶</button>
+          <button id="frameNext" class="ctrl-btn" title="下一帧">⏭·</button>
+          <button id="forward10" class="ctrl-btn" title="前进 10 秒">⏩</button>
+          <button id="nextBtn" class="ctrl-btn" title="下一个">⏭</button>
+        </div>
+      </div>
+
+      <!-- 左右侧手势区提示（透明） -->
+      <div class="gesture-zone left" id="zoneLeft"></div>
+      <div class="gesture-zone right" id="zoneRight"></div>
+    </div>
+  </section>
+
+</div>
+<div id="toast" class="toast hidden"></div>
+<script src="js/list.js"></script>
+<script src="js/player.js"></script>
+</body>
+</html>

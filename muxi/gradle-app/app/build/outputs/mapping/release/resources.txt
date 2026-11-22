@@ -1,0 +1,74 @@
+android.content.res.Resources#getIdentifier present: false
+Web content present: true
+Referenced Strings:
+每天起床时间前提醒你起床打卡
+stats
+end_hour
+checked_times
+windowText
+end_minute
+file:///android_asset/index.html
+HH:mm
+bigTrees
+checked_dates
+package:
+ZaoLin
+progress
+早起提醒
+zaolin_prefs
+daysToFruit
+checkedToday
+curGrowth
+android.intent.action.BOOT_COMPLETED
+android.provider.extra.APP_PACKAGE
+android.settings.APP_NOTIFICATION_SET...
+message
+wake_minute
+android.intent.action.MY_PACKAGE_REPL...
+android.settings.REQUEST_SCHEDULE_EXA...
+treeStage
+android.intent.action.LOCKED_BOOT_COM...
+今天已经打过卡了
+windowOpen
+android.settings.APPLICATION_DETAILS_...
+endHour
+windowStatus
+notification
+vibrator_manager
+last_settle
+android.permission.POST_NOTIFICATIONS
+streak
+withering
+zaolin_reminder
+wake_hour
+total
+hour
+today
+alarm
+ok
+endMinute
+minute
+vibrator
+com.muxi.REMINDER
+growth
+@com.muxi:color/colorAccent : reachable=false
+@com.muxi:color/colorPrimary : reachable=false
+@com.muxi:color/colorPrimaryDark : reachable=false
+@com.muxi:color/icon_bg : reachable=false
+@com.muxi:drawable/ic_launcher_background : reachable=false
+@com.muxi:mipmap/ic_launcher : reachable=true
+    @com.muxi:drawable/ic_launcher_background
+    @com.muxi:mipmap/ic_launcher_foreground
+@com.muxi:mipmap/ic_launcher_foreground : reachable=false
+@com.muxi:string/app_name : reachable=true
+@com.muxi:style/AppTheme : reachable=true
+    @com.muxi:color/icon_bg
+
+The root reachable resources are:
+ mipmap:ic_launcher:2130903040
+ string:app_name:2130968576
+ style:AppTheme:2131034112
+Unused resources are: 
+ color:colorAccent:2130771968
+ color:colorPrimary:2130771969
+ color:colorPrimaryDark:2130771970
