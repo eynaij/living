@@ -55,14 +55,33 @@
 
     const stage = stats.treeStage ?? 0;
     const bigTrees = stats.bigTrees ?? 0;
-    trees.forEach((el, i) => el.classList.toggle('active', i === stage));
-    $('#treeStageLabel').textContent = stage === 4 ? '参天大树 · 已结果 🍎' : (treeLabels[stage] || '');
+    const cur = stats.curGrowth ?? 0;          // 当前树苗已成长天数（0-89）
+    const fullTree = stage === 4;              // 刚好结果，展示大树
+
+    // 树苗随天数连续变大：0 天 0.80 → 90 天 1.14，每天都有变化
+    const grow = fullTree ? 1.14 : 0.80 + Math.min(1, cur / 90) * 0.34;
+    trees.forEach((el, i) => {
+      const active = i === stage;
+      el.classList.toggle('active', active);
+      if (active) el.style.setProperty('--grow', grow.toFixed(3));
+    });
+
+    if (stage === 4) {
+      $('#treeStageLabel').textContent = '参天大树 · 已结果 🍎';
+    } else if (cur > 0) {
+      $('#treeStageLabel').textContent = `${treeLabels[stage] || ''} · 第 ${cur} 天`;
+    } else {
+      $('#treeStageLabel').textContent = treeLabels[0];
+    }
+
     $('#progressBar').style.width = (stats.progress ?? 0) + '%';
+    $('#growthFill').style.width = `${Math.min(100, (cur / 90) * 100)}%`;
+    $('#growthDays').textContent = `${cur} / 90 天`;
 
     let progressText;
-    if ((stats.growth ?? 0) === 0) progressText = '每天浇水让小树长大，断浇会萎缩哦';
+    if ((stats.growth ?? 0) === 0) progressText = '第一滴水就能让种子发芽';
     else if (stage === 4) progressText = `第 ${bigTrees} 棵树已结果 🍎 继续浇水培育新树苗`;
-    else progressText = `再浇 ${stats.daysToFruit ?? 90} 天结果`;
+    else progressText = `已成长 ${cur} 天 · 再浇 ${stats.daysToFruit ?? 90} 天结果`;
     $('#progressText').textContent = progressText;
 
     // 森林：已结果的大树

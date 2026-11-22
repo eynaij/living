@@ -5,14 +5,14 @@ plugins {
 android {
     namespace 'com.muxi'
     compileSdk 36
-    buildToolsVersion "36.0.0"
+    buildToolsVersion "36.1.0"
 
     defaultConfig {
         applicationId "com.muxi"
         minSdk 24
         targetSdk 36
-        versionCode 7
-        versionName "1.4.0"
+        versionCode 8
+        versionName "1.4.1"
     }
 
     signingConfigs {
