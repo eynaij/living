@@ -23,12 +23,12 @@
                 {
                     "source": "/workspace/qingying/android/res/values/styles.xml",
                     "from": {
-                        "startLines": "2,-1",
-                        "startColumns": "4,-1",
-                        "startOffsets": "55,-1",
-                        "endLines": "8,-1",
-                        "endColumns": "12,-1",
-                        "endOffsets": "468,-1"
+                        "startLines": "2,10",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,474",
+                        "endLines": "8,16",
+                        "endColumns": "12,12",
+                        "endOffsets": "468,872"
                     },
                     "to": {
                         "startLines": "14,21",
@@ -42,62 +42,6 @@
                 {
                     "source": "/workspace/qingying/android/res/values/strings.xml",
                     "from": {
-                        "startLines": "-1",
-                        "startColumns": "-1",
-                        "startOffsets": "-1"
-                    },
-                    "to": {
-                        "startLines": "13",
-                        "startColumns": "4",
-                        "startOffsets": "499",
-                        "endColumns": "39",
-                        "endOffsets": "534"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "/root/.gradle/daemon/8.14.6/com.qingying.app-release-6:/values_values.arsc.flat",
-            "map": [
-                {
-                    "source": "/workspace/qingying/android/res/values/colors.xml",
-                    "from": {
-                        "startLines": "8,9,3,4,5,2,11,10,7,6",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "290,331,97,134,173,55,418,373,252,213",
-                        "endColumns": "40,41,36,38,39,41,41,44,37,38",
-                        "endOffsets": "326,368,129,168,208,92,455,413,285,247"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,96,138,175,214,254,296,338,383,421",
-                        "endColumns": "40,41,36,38,39,41,41,44,37,38",
-                        "endOffsets": "91,133,170,209,249,291,333,378,416,455"
-                    }
-                },
-                {
-                    "source": "/workspace/qingying/android/res/values/styles.xml",
-                    "from": {
-                        "startLines": "2,10",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,475",
-                        "endLines": "8,16",
-                        "endColumns": "12,12",
-                        "endOffsets": "469,873"
-                    },
-                    "to": {
-                        "startLines": "13,20",
-                        "startColumns": "4,4",
-                        "startOffsets": "500,919",
-                        "endLines": "19,26",
-                        "endColumns": "12,12",
-                        "endOffsets": "914,1317"
-                    }
-                },
-                {
-                    "source": "/workspace/qingying/android/res/values/strings.xml",
-                    "from": {
                         "startLines": "2",
                         "startColumns": "4",
                         "startOffsets": "55",
@@ -105,11 +49,11 @@
                         "endOffsets": "90"
                     },
                     "to": {
-                        "startLines": "12",
+                        "startLines": "13",
                         "startColumns": "4",
-                        "startOffsets": "460",
+                        "startOffsets": "499",
                         "endColumns": "39",
-                        "endOffsets": "495"
+                        "endOffsets": "534"
                     }
                 }
             ]

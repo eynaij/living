@@ -16,6 +16,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.content.SharedPreferences;
 import android.os.Looper;
 import android.os.SystemClock;
 import android.provider.MediaStore;
@@ -83,6 +84,9 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
     private Uri videoUri;
 
     private float speed = 1f;
+    /** 倍速是否已锁定：锁定后单击倍速按钮不再切换，长按可解锁。 */
+    private boolean speedLocked;
+    private SharedPreferences prefs;
     private boolean prepared;
     private boolean boosting;
     private boolean rewinding;
@@ -172,6 +176,11 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
         lastPosition = (int) getIntent().getLongExtra("startMs", 0);
         videoUri = ContentUris.withAppendedId(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, currentId);
 
+        // 恢复上次的播放倍速与锁定状态
+        prefs = getSharedPreferences("qingying_prefs", MODE_PRIVATE);
+        speed = prefs.getFloat("speed", 1f);
+        speedLocked = prefs.getBoolean("speedLocked", false);
+
         surface = findViewById(R.id.surface);
         controls = findViewById(R.id.controls);
         badge = findViewById(R.id.badge);
@@ -189,7 +198,7 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
         playlistTitle = findViewById(R.id.playlistTitle);
 
         titleView.setText(name != null ? name : "视频");
-        speedView.setText(speedText(speed));
+        speedView.setText(speedButtonText());
 
         surface.getHolder().addCallback(this);
         // 屏幕尺寸或方向变化时重新按比例计算画面大小
@@ -199,6 +208,7 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
         findViewById(R.id.back).setOnClickListener(v -> finish());
         playView.setOnClickListener(v -> togglePlay());
         speedView.setOnClickListener(v -> cycleSpeed());
+        speedView.setOnLongClickListener(v -> { toggleSpeedLock(); return true; });
         findViewById(R.id.back10).setOnClickListener(v -> jumpBy(-10_000));
         findViewById(R.id.forward10).setOnClickListener(v -> jumpBy(10_000));
         findViewById(R.id.framePrev).setOnClickListener(v -> stepFrame(-1));
@@ -677,6 +687,11 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
     }
 
     private void cycleSpeed() {
+        if (speedLocked) {
+            Toast.makeText(this, "倍速已锁定，长按倍速按钮解锁", Toast.LENGTH_SHORT).show();
+            setControlsVisible(true);
+            return;
+        }
         int index = 0;
         float best = Float.MAX_VALUE;
         for (int i = 0; i < SPEEDS.length; i++) {
@@ -687,9 +702,29 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
             }
         }
         speed = SPEEDS[(index + 1) % SPEEDS.length];
-        speedView.setText(speedText(speed));
+        speedView.setText(speedButtonText());
         if (player != null && player.isPlaying()) applySpeed(speed);
         showBadge("倍速 " + speedText(speed), 900);
+        persistSpeed();
+        setControlsVisible(true);
+    }
+
+    /** 倍速按钮文案：锁定时前缀 🔒。 */
+    private String speedButtonText() {
+        return (speedLocked ? "🔒 " : "") + speedText(speed);
+    }
+
+    /** 持久化当前倍速。 */
+    private void persistSpeed() {
+        if (prefs != null) prefs.edit().putFloat("speed", speed).apply();
+    }
+
+    /** 长按倍速按钮：切换倍速锁定状态。 */
+    private void toggleSpeedLock() {
+        speedLocked = !speedLocked;
+        if (prefs != null) prefs.edit().putBoolean("speedLocked", speedLocked).apply();
+        speedView.setText(speedButtonText());
+        showBadge(speedLocked ? "🔒 倍速已锁定" : "🔓 倍速已解锁", 900);
         setControlsVisible(true);
     }
 
