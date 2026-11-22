@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Looper;
 import android.os.SystemClock;
 import android.provider.MediaStore;
@@ -86,6 +87,8 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
     private float speed = 1f;
     /** 倍速是否已锁定：锁定后单击倍速按钮不再切换，长按可解锁。 */
     private boolean speedLocked;
+    /** 锁定时显示在倍速文字左侧的白色线性小锁图标（与旋转锁定同款风格）。 */
+    private Drawable speedLockIcon;
     private SharedPreferences prefs;
     private boolean prepared;
     private boolean boosting;
@@ -198,7 +201,8 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
         playlistTitle = findViewById(R.id.playlistTitle);
 
         titleView.setText(name != null ? name : "视频");
-        speedView.setText(speedButtonText());
+        setupSpeedLockIcon();
+        refreshSpeedView();
 
         surface.getHolder().addCallback(this);
         // 屏幕尺寸或方向变化时重新按比例计算画面大小
@@ -702,16 +706,25 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
             }
         }
         speed = SPEEDS[(index + 1) % SPEEDS.length];
-        speedView.setText(speedButtonText());
+        refreshSpeedView();
         if (player != null && player.isPlaying()) applySpeed(speed);
         showBadge("倍速 " + speedText(speed), 900);
         persistSpeed();
         setControlsVisible(true);
     }
 
-    /** 倍速按钮文案：锁定时前缀 🔒。 */
-    private String speedButtonText() {
-        return (speedLocked ? "🔒 " : "") + speedText(speed);
+    /** 初始化倍速锁定小锁图标：白色线性、透明填充，与旋转锁定同款风格。 */
+    private void setupSpeedLockIcon() {
+        speedLockIcon = getDrawable(R.drawable.ic_lock_closed);
+        int s = dp(14);
+        speedLockIcon.setBounds(0, 0, s, s);
+        speedView.setCompoundDrawablePadding(dp(4));
+    }
+
+    /** 刷新倍速按钮：锁定时在文字左侧显示小锁图标，解锁时隐藏。 */
+    private void refreshSpeedView() {
+        speedView.setText(speedText(speed));
+        speedView.setCompoundDrawables(speedLocked ? speedLockIcon : null, null, null, null);
     }
 
     /** 持久化当前倍速。 */
@@ -723,8 +736,8 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
     private void toggleSpeedLock() {
         speedLocked = !speedLocked;
         if (prefs != null) prefs.edit().putBoolean("speedLocked", speedLocked).apply();
-        speedView.setText(speedButtonText());
-        showBadge(speedLocked ? "🔒 倍速已锁定" : "🔓 倍速已解锁", 900);
+        refreshSpeedView();
+        showBadge(speedLocked ? "倍速已锁定" : "倍速已解锁", 900);
         setControlsVisible(true);
     }
 
